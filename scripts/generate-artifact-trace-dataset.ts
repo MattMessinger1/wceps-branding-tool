@@ -1,9 +1,9 @@
-import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { cp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { exportHtml } from "@/lib/export";
 import { generateArtifact } from "@/lib/generation/generateArtifact";
 import { GeneratedArtifactSchema, type GeneratedArtifact } from "@/lib/schema/generatedArtifact";
-import { examplesDir, traceDatasetsDir } from "@/lib/storage/paths";
+import { examplesDir, publishedTraceDatasetsDir, traceDatasetsDir } from "@/lib/storage/paths";
 
 type SampleRequest = {
   id?: string;
@@ -253,6 +253,7 @@ function renderIndexHtml(params: {
 
 async function main() {
   const shouldSendToBraintrust = process.argv.includes("--braintrust");
+  const shouldPublishDataset = process.argv.includes("--publish");
   await loadEnvLocal();
 
   process.env.BRAINTRUST_PROJECT_NAME ||= "Brand Building";
@@ -360,6 +361,15 @@ async function main() {
 
   console.log(`Saved trace dataset to ${runDir}`);
   console.log(`Open artifact/trace index: ${indexHtmlPath}`);
+
+  if (shouldPublishDataset) {
+    const publishedDir = path.join(publishedTraceDatasetsDir, runId);
+    await mkdir(publishedTraceDatasetsDir, { recursive: true });
+    await rm(publishedDir, { recursive: true, force: true });
+    await cp(runDir, publishedDir, { recursive: true });
+    console.log(`Published trace dataset to ${publishedDir}`);
+    console.log(`App route: /trace-datasets/${runId}`);
+  }
 }
 
 main().catch((error) => {

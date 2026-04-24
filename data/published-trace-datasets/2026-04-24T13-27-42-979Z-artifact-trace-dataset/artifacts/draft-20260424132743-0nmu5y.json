@@ -1,0 +1,242 @@
+{
+  "id": "draft-20260424132743-0nmu5y",
+  "artifactType": "social-graphic",
+  "brand": "WebbAlign",
+  "audience": "curriculum teams",
+  "brief": {
+    "artifactType": "social-graphic",
+    "brand": "WebbAlign",
+    "audience": "curriculum teams",
+    "objective": "invite teams to strengthen alignment conversations",
+    "keyMessages": [
+      "WebbAlign helps teams use the lens of DOK to evaluate standards, learning objectives, assessments, curricula, and instructional materials.",
+      "WebbAlign professional learning can help teams build a calibrated understanding of DOK to inform practice.",
+      "DOK supports conversations about cognitive complexity and coherent learning opportunities."
+    ],
+    "proofPoints": [
+      "The WebbAlign homepage identifies WebbAlign as a WCEPS program.",
+      "The WebbAlign site states that the team works in collaboration with Dr. Norman Webb.",
+      "The WebbAlign DOK page says DOK differentiates complexity from difficulty."
+    ],
+    "cta": "Contact WebbAlign",
+    "visualDirection": [
+      "curriculum team reviewing standards",
+      "assessment materials arranged for analysis",
+      "facilitated workshop table",
+      "alignment matrix",
+      "standards-to-assessment pathway"
+    ],
+    "layoutRecommendation": "Use a text-light social graphic with one headline, one approved phrase, generous whitespace, and a caption pack.",
+    "sourceEvidenceIds": [
+      "webbalign-home-source",
+      "webbalign-evaluate",
+      "webbalign-districts",
+      "webbalign-professional-learning"
+    ]
+  },
+  "copy": {
+    "headlineOptions": [
+      "Use DOK to strengthen alignment",
+      "Build a more coherent learning system",
+      "Straight-from-the-source DOK support"
+    ],
+    "subheadOptions": [
+      "WebbAlign is a WCEPS program that works in collaboration with Dr. Norman Webb, developer of Depth of Knowledge. The program helps teams use DOK to.",
+      "WebbAlign helps teams use the lens of DOK to evaluate standards, learning objectives, assessments, curricula, and instructional materials.",
+      "WebbAlign helps teams use the lens of DOK to evaluate standards, learning objectives, assessments, curricula, and instructional materials."
+    ],
+    "body": "WebbAlign helps teams use the lens of DOK to evaluate standards, learning objectives, assessments, curricula, and instructional materials. For curriculum teams, this draft focuses on DOK alignment across standards, assessments, curricula, and instructional materials. The WebbAlign homepage.",
+    "bullets": [
+      "WebbAlign helps teams use the lens of DOK to evaluate standards, learning objectives, assessments, curricula, and instructional materials.",
+      "WebbAlign professional learning can help teams build a calibrated understanding of DOK to inform practice.",
+      "DOK supports conversations about cognitive complexity and coherent learning opportunities.",
+      "The WebbAlign homepage identifies WebbAlign as a WCEPS program.",
+      "The WebbAlign site states that the team works in collaboration with Dr. Norman Webb."
+    ],
+    "cta": "Contact WebbAlign",
+    "footer": "Draft generated for internal review. Claims should remain tied to the source evidence shown with this artifact."
+  },
+  "fittedCopy": {
+    "headline": "Build a more coherent learning system",
+    "deck": "Work in collaboration with Dr. Norman Webb, developer of Depth of Knowledge.",
+    "proofPoints": [
+      "Teams use the lens of DOK to evaluate.",
+      "WebbAlign professional learning can help teams build."
+    ],
+    "cta": "Contact WebbAlign",
+    "footer": "Draft generated for internal review. Claims should remain tied to the source evidence shown with this artifact."
+  },
+  "compositionTemplate": {
+    "id": "social-announcement",
+    "artifactType": "social-graphic",
+    "aspectRatio": "1:1 square",
+    "densityTarget": "minimal",
+    "typographyScale": "bold social headline with one support line",
+    "artPlateTreatment": "full-square art plate with tonal gradient overlay",
+    "logoPlacement": "top-left, compact brand mark",
+    "copyPlacement": "center/lower editorial lockup",
+    "ctaPlacement": "bottom-left short action chip"
+  },
+  "compositionScore": {
+    "question": "Would I send this to the WCEPS team without apology?",
+    "overall": 95,
+    "whitespaceDensity": 92,
+    "templateScaffolding": 96,
+    "typographyQuality": 87,
+    "artifactMatch": 96,
+    "brandFidelity": 94,
+    "brandRelevance": 98,
+    "brandBoundary": 100,
+    "textIntegration": 94,
+    "fakeContentRisk": 95,
+    "sendability": 95,
+    "status": "warn",
+    "issues": [],
+    "warnings": [
+      "WebbAlign prompt is missing avoid guardrail(s): generic classroom."
+    ]
+  },
+  "layoutQa": {
+    "question": "Would I send this layout to the WCEPS team without apology?",
+    "overall": 99,
+    "noTextOverflow": 100,
+    "noCtaCollision": 100,
+    "proofLineWidth": 96,
+    "logoOnce": 100,
+    "artifactFormatMatch": 100,
+    "exportReady": 99,
+    "sendability": 99,
+    "status": "pass",
+    "issues": [],
+    "warnings": [],
+    "metrics": {
+      "headlineLines": 3,
+      "deckLines": 3,
+      "maxProofLines": 0,
+      "minProofCharsPerLine": 999,
+      "ctaLines": 1,
+      "estimatedCanvasOverflow": false
+    }
+  },
+  "artPlatePromptVersion": "campaign-art-plate-v5",
+  "layoutContract": {
+    "artifactType": "social-graphic",
+    "canvas": "1024x1024, 1:1 square social campaign tile",
+    "safeZones": [
+      "Keep important visual detail away from the outer 96px crop edge.",
+      "Use a strong central subject or visual rhythm that supports a social headline.",
+      "Avoid tiny details that collapse at feed size."
+    ],
+    "exactTextPriority": [
+      "Use DOK to strengthen alignment",
+      "For curriculum teams",
+      "Contact WebbAlign",
+      "WebbAlign is a WCEPS program that works in collaboration with Dr. Norman",
+      "WebbAlign helps teams use the lens of DOK to evaluate standards"
+    ],
+    "appOwnedElements": [
+      "Deterministic social announcement composition.",
+      "Exact headline, audience, CTA, and review state."
+    ],
+    "imageGenOwnedElements": [
+      "Text-free square campaign art plate.",
+      "Premium abstract or editorial education-sector atmosphere.",
+      "Color, texture, photography or illustration, and crop energy only."
+    ]
+  },
+  "imagePrompts": [
+    "CONTRACT=campaign-art-plate-v5\nMODE=campaign-art-plate\nINTENT={out:social-graphic, brand:WebbAlign, aud:curriculum teams, theme:[alignment | across | standards | assessments | curricula | instructional], tone:precise, professional, systems-oriented, ground:strict}\nCANVAS=1024x1024, 1:1 square social campaign tile\nFORMAT=1:1 art plate for a social announcement; never brochure/flyer/one-pager/handout/webpage/contact card.\nBRAND={pal:[#142836 | #0081A4 | #3EB3BD | #F7D470], visual:[curriculum team reviewing standards | assessment materials arranged for analysis | facilitated workshop table], evid_ids:[webbalign-evaluate]}\nBRAND_BOUNDARY={keep:[DOK | Depth of Knowledge | standards | learning objectives]; avoid_sibling:[CARE Coaching | CCNA | CALL | WIDA PRIME | leadership for learning]; parent_context:[WCEPS]}\nBRAND_VISUAL_PROFILE={show:[curriculum team reviewing standards | assessment and learning objective alignment | instructional materials analysis | DOK calibration workshop table]; props:[standards documents with unreadable text | curriculum maps without labels | assessment packets]; avoid:[generic school hallway | random classroom scene | fake DOK diagram with labels | readable charts]; app_owned:[WebbAlign logo | DOK language | headline]; tone:[analytical | clear | calibrated | curriculum-focused | expert]; fit:bold alignment/DOK cue without fake diagrams or labels}\nLOGO=do not render any WebbAlign logo, wordmark, brand initials, logo-like mark, chevron/mountain mark, arrow mark, or background logo pattern; app renders exact brand mark.\nMARKS_RULE=official logos, seals, badges, CTAs, headlines, labels, and readable copy are app-owned; do not invent or render them in the art plate.\nOWN=app:[Deterministic social announcement composition. | Exact headline, audience, CTA, and review state.]; imagegen:[Text-free square campaign art plate. | Premium abstract or editorial education-sector atmosphere. | Color, texture, photography or illustration, and crop energy].\nCROP_SAFE=[Keep important visual detail away from the outer 96px crop | Use a strong central subject or visual rhythm that supports a | Avoid tiny details that collapse at feed size.]\nMESSAGE_CUES=[headline_theme:alignment/across/standards | audience:16 chars | cta_intent:contact/webbalign | proof_volume:minimal]; mood/subject only, never words/layout.\nREFS=none; references only.\nUSER_NOTE=Avoid implying compliance approval.\nART=edge-to-edge social campaign art plate with bold color movement, editorial depth, no text, no UI, no layout boxes; NY media/ad-agency quality, premium atmosphere, layered depth, non-generic education storytelling, intentional crop.\nVISUAL_STYLE=authentic editorial photography or refined abstract-illustrative atmosphere; avoid posed training-room stock, washed-out empty fades, generic meeting-table cliches, literal brand-shape wallpaper.\nCOMPOSITION=app owns layout, typography, text, logos, proof points, CTA, and export; ImageGen creates only the art plate.\nTEXT_RULE=absolutely no readable text, letters, numbers, labels, fake paragraphs, book titles, publisher names, email addresses, URLs, phone numbers, citations, or lorem ipsum.\nNO=document layouts, panels, blank boxes, placeholder modules, mock UI, cards, fake text, fake charts, icons with labels, contact bars, duplicate logos, fake logos, fake seals, fake badges, fake book titles, fake publisher brands, logo-like marks, wordmarks, chevrons, arrows, mountain logos, malformed UI, brochure scaffolding, invented claims, endorsement imagery, close-up faces, detailed hands, stock-photo workshop posing.\nQUALITY=best over fast; polished full-bleed campaign art plate, no template scaffolding.",
+    "CONTRACT=campaign-art-plate-v5\nMODE=campaign-art-plate\nINTENT={out:social-graphic, brand:WebbAlign, aud:curriculum teams, theme:[alignment | across | standards | assessments | curricula | instructional], tone:precise, professional, systems-oriented, ground:strict}\nCANVAS=1024x1024, 1:1 square social campaign tile\nFORMAT=1:1 art plate for a social announcement; never brochure/flyer/one-pager/handout/webpage/contact card.\nBRAND={pal:[#142836 | #0081A4 | #3EB3BD | #F7D470], visual:[curriculum team reviewing standards | assessment materials arranged for analysis | facilitated workshop table], evid_ids:[webbalign-evaluate]}\nBRAND_BOUNDARY={keep:[DOK | Depth of Knowledge | standards | learning objectives]; avoid_sibling:[CARE Coaching | CCNA | CALL | WIDA PRIME | leadership for learning]; parent_context:[WCEPS]}\nBRAND_VISUAL_PROFILE={show:[curriculum team reviewing standards | assessment and learning objective alignment | instructional materials analysis | DOK calibration workshop table]; props:[standards documents with unreadable text | curriculum maps without labels | assessment packets]; avoid:[generic school hallway | random classroom scene | fake DOK diagram with labels | readable charts]; app_owned:[WebbAlign logo | DOK language | headline]; tone:[analytical | clear | calibrated | curriculum-focused | expert]; fit:bold alignment/DOK cue without fake diagrams or labels}\nLOGO=do not render any WebbAlign logo, wordmark, brand initials, logo-like mark, chevron/mountain mark, arrow mark, or background logo pattern; app renders exact brand mark.\nMARKS_RULE=official logos, seals, badges, CTAs, headlines, labels, and readable copy are app-owned; do not invent or render them in the art plate.\nOWN=app:[Deterministic social announcement composition. | Exact headline, audience, CTA, and review state.]; imagegen:[Text-free square campaign art plate. | Premium abstract or editorial education-sector atmosphere. | Color, texture, photography or illustration, and crop energy].\nCROP_SAFE=[Keep important visual detail away from the outer 96px crop | Use a strong central subject or visual rhythm that supports a | Avoid tiny details that collapse at feed size.]\nMESSAGE_CUES=[headline_theme:alignment/across/standards | audience:16 chars | cta_intent:contact/webbalign | proof_volume:minimal]; mood/subject only, never words/layout.\nREFS=none; references only.\nUSER_NOTE=Avoid implying compliance approval.\nART=premium square education-sector atmosphere with sophisticated crop, human warmth, no typography or brand marks; NY media/ad-agency quality, premium atmosphere, layered depth, non-generic education storytelling, intentional crop.\nVISUAL_STYLE=authentic editorial photography or refined abstract-illustrative atmosphere; avoid posed training-room stock, washed-out empty fades, generic meeting-table cliches, literal brand-shape wallpaper.\nCOMPOSITION=app owns layout, typography, text, logos, proof points, CTA, and export; ImageGen creates only the art plate.\nTEXT_RULE=absolutely no readable text, letters, numbers, labels, fake paragraphs, book titles, publisher names, email addresses, URLs, phone numbers, citations, or lorem ipsum.\nNO=document layouts, panels, blank boxes, placeholder modules, mock UI, cards, fake text, fake charts, icons with labels, contact bars, duplicate logos, fake logos, fake seals, fake badges, fake book titles, fake publisher brands, logo-like marks, wordmarks, chevrons, arrows, mountain logos, malformed UI, brochure scaffolding, invented claims, endorsement imagery, close-up faces, detailed hands, stock-photo workshop posing.\nQUALITY=best over fast; polished full-bleed campaign art plate, no template scaffolding.",
+    "CONTRACT=campaign-art-plate-v5\nMODE=campaign-art-plate\nINTENT={out:social-graphic, brand:WebbAlign, aud:curriculum teams, theme:[alignment | across | standards | assessments | curricula | instructional], tone:precise, professional, systems-oriented, ground:strict}\nCANVAS=1024x1024, 1:1 square social campaign tile\nFORMAT=1:1 art plate for a social announcement; never brochure/flyer/one-pager/handout/webpage/contact card.\nBRAND={pal:[#142836 | #0081A4 | #3EB3BD | #F7D470], visual:[curriculum team reviewing standards | assessment materials arranged for analysis | facilitated workshop table], evid_ids:[webbalign-evaluate]}\nBRAND_BOUNDARY={keep:[DOK | Depth of Knowledge | standards | learning objectives]; avoid_sibling:[CARE Coaching | CCNA | CALL | WIDA PRIME | leadership for learning]; parent_context:[WCEPS]}\nBRAND_VISUAL_PROFILE={show:[curriculum team reviewing standards | assessment and learning objective alignment | instructional materials analysis | DOK calibration workshop table]; props:[standards documents with unreadable text | curriculum maps without labels | assessment packets]; avoid:[generic school hallway | random classroom scene | fake DOK diagram with labels | readable charts]; app_owned:[WebbAlign logo | DOK language | headline]; tone:[analytical | clear | calibrated | curriculum-focused | expert]; fit:bold alignment/DOK cue without fake diagrams or labels}\nLOGO=do not render any WebbAlign logo, wordmark, brand initials, logo-like mark, chevron/mountain mark, arrow mark, or background logo pattern; app renders exact brand mark.\nMARKS_RULE=official logos, seals, badges, CTAs, headlines, labels, and readable copy are app-owned; do not invent or render them in the art plate.\nOWN=app:[Deterministic social announcement composition. | Exact headline, audience, CTA, and review state.]; imagegen:[Text-free square campaign art plate. | Premium abstract or editorial education-sector atmosphere. | Color, texture, photography or illustration, and crop energy].\nCROP_SAFE=[Keep important visual detail away from the outer 96px crop | Use a strong central subject or visual rhythm that supports a | Avoid tiny details that collapse at feed size.]\nMESSAGE_CUES=[headline_theme:alignment/across/standards | audience:16 chars | cta_intent:contact/webbalign | proof_volume:minimal]; mood/subject only, never words/layout.\nREFS=none; references only.\nUSER_NOTE=Avoid implying compliance approval.\nART=modern abstract education campaign energy for a feed tile, no brochure, no document elements, no fake symbols; NY media/ad-agency quality, premium atmosphere, layered depth, non-generic education storytelling, intentional crop.\nVISUAL_STYLE=authentic editorial photography or refined abstract-illustrative atmosphere; avoid posed training-room stock, washed-out empty fades, generic meeting-table cliches, literal brand-shape wallpaper.\nCOMPOSITION=app owns layout, typography, text, logos, proof points, CTA, and export; ImageGen creates only the art plate.\nTEXT_RULE=absolutely no readable text, letters, numbers, labels, fake paragraphs, book titles, publisher names, email addresses, URLs, phone numbers, citations, or lorem ipsum.\nNO=document layouts, panels, blank boxes, placeholder modules, mock UI, cards, fake text, fake charts, icons with labels, contact bars, duplicate logos, fake logos, fake seals, fake badges, fake book titles, fake publisher brands, logo-like marks, wordmarks, chevrons, arrows, mountain logos, malformed UI, brochure scaffolding, invented claims, endorsement imagery, close-up faces, detailed hands, stock-photo workshop posing.\nQUALITY=best over fast; polished full-bleed campaign art plate, no template scaffolding."
+  ],
+  "imageResults": [],
+  "pipelineTrace": {
+    "version": "campaign-art-plate-v5",
+    "mode": "campaign-art-plate",
+    "promptLength": 3684,
+    "promptTokenBudget": 4000,
+    "evidenceIds": [
+      "webbalign-evaluate"
+    ],
+    "logoAsset": {
+      "label": "Horizontal full color · transparent · light/image backgrounds",
+      "publicPath": "/brand-logos/webbalign/webbalign.png",
+      "sourceUrl": "https://d2nms5m2lns5tc.cloudfront.net/assets/webbalign/WebbAlign_logo-b2e8d921159d6097f15e3862e38b8f512a7a274b0d76a897d2019ee650a07a85.png"
+    },
+    "contextAttachmentNames": [],
+    "retryCount": 0,
+    "braintrustTrace": {
+      "rowId": "1b2abf2e-12e2-4110-8d56-d08727d45f13",
+      "spanId": "1fcb443a-4bd6-4cd8-9b61-6b2af6ff6177",
+      "rootSpanId": "1fcb443a-4bd6-4cd8-9b61-6b2af6ff6177",
+      "link": "https://www.braintrust.dev/app/WCEPS/p/Brand Building/logs?oid=1b2abf2e-12e2-4110-8d56-d08727d45f13"
+    }
+  },
+  "critique": {
+    "status": "warn",
+    "issues": [],
+    "warnings": [
+      "WebbAlign prompt is missing avoid guardrail(s): generic classroom."
+    ],
+    "suggestedFixes": [
+      "Revise composition until the sendability score passes the WCEPS review threshold."
+    ]
+  },
+  "review": {
+    "approved": false,
+    "status": "warn",
+    "issues": [],
+    "warnings": [
+      "WebbAlign prompt is missing avoid guardrail(s): generic classroom."
+    ],
+    "suggestedFixes": [
+      "Revise composition until the sendability score passes the WCEPS review threshold."
+    ]
+  },
+  "request": {
+    "artifactType": "social-graphic",
+    "brand": "WebbAlign",
+    "audience": "curriculum teams",
+    "keyMessage": "",
+    "goal": "invite teams to strengthen alignment conversations",
+    "topic": "DOK alignment across standards, assessments, curricula, and instructional materials",
+    "cta": "Contact WebbAlign",
+    "format": "Social square 1:1",
+    "toneModifier": "precise, professional, systems-oriented",
+    "notes": "Avoid implying compliance approval.",
+    "visualInstruction": "",
+    "logoVariant": "",
+    "colorTheme": "",
+    "contextAttachments": [],
+    "strictlySourceGrounded": true,
+    "generateVisual": false
+  },
+  "sourceEvidence": [
+    {
+      "id": "webbalign-home-source",
+      "url": "https://www.webbalign.org/",
+      "excerpt": "In collaboration with Dr. Norman Webb, the developer of Depth of Knowledge (DOK), we promote effective and accurate use of this innovative language system.",
+      "label": "WebbAlign homepage positioning"
+    },
+    {
+      "id": "webbalign-evaluate",
+      "url": "https://www.webbalign.org/",
+      "excerpt": "Our team helps you use the lens of DOK to evaluate standards, learning objectives, assessments, curricula, and instructional materials to work toward an aligned, or coherent, system.",
+      "label": "WebbAlign evaluation areas"
+    },
+    {
+      "id": "webbalign-districts",
+      "url": "https://www.webbalign.org/services/districts-educators",
+      "excerpt": "Structuring conversations about cognitive complexity through the lens of DOK leads to rich conversations that enhance understanding of academic expectations and tasks.",
+      "label": "Districts and educators page"
+    },
+    {
+      "id": "webbalign-professional-learning",
+      "url": "https://www.webbalign.org/services/districts-educators",
+      "excerpt": "We offer online, onsite, and hybrid sessions tailored to your team's needs.",
+      "label": "Professional learning format"
+    }
+  ],
+  "createdAt": "2026-04-24T13:27:43.265Z",
+  "updatedAt": "2026-04-24T13:27:43.265Z"
+}

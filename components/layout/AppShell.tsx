@@ -14,6 +14,9 @@ export function AppShell({ children }: { children: ReactNode }) {
             <Link className="rounded-full px-3 py-2 text-white/85 hover:bg-white/10 hover:text-white" href="/create#examples">
               Examples
             </Link>
+            <Link className="rounded-full px-3 py-2 text-white/85 hover:bg-white/10 hover:text-white" href="/trace-datasets">
+              Traces
+            </Link>
             <Link className="rounded-full bg-[#3EB3BD] px-4 py-2 font-semibold text-[#142836]" href="/create">
               Create artifact
             </Link>

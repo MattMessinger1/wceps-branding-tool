@@ -1,0 +1,249 @@
+{
+  "id": "draft-20260424132743-kj4xeb",
+  "artifactType": "one-pager",
+  "brand": "CCNA",
+  "audience": "district EL leaders",
+  "brief": {
+    "artifactType": "one-pager",
+    "brand": "CCNA",
+    "audience": "district EL leaders",
+    "objective": "explain the CARE Coaching Needs Assessment as action-planning support",
+    "keyMessages": [
+      "CCNA identifies strengths, uncovers growth areas, and guides education leaders with action-based data.",
+      "CCNA focuses on the work through assessment, data analysis, and action planning.",
+      "CCNA gives educators shared, actionable starting points for improving instruction and supporting all learners."
+    ],
+    "proofPoints": [
+      "The CCNA service page says CCNA identifies strengths, uncovers growth areas, and guides education leaders with action-based data.",
+      "The CCNA service page says the assessment activity focuses on multilingual learner support while also covering broader practices that affect all students.",
+      "The CCNA service page contrasts task-oriented data with traditional climate surveys and emphasizes instructional decisions."
+    ],
+    "cta": "Email Yvonne.Williams@wceps.org to discuss your district's CCNA next steps",
+    "visualDirection": [
+      "school teams",
+      "data debrief",
+      "planning conversation",
+      "dashboard-inspired",
+      "action planning"
+    ],
+    "layoutRecommendation": "Use a structured one-pager with a summary column, key message cards, evidence-backed proof points, and a bottom CTA band.",
+    "sourceEvidenceIds": [
+      "ccna-insight-impact",
+      "ccna-instructional-practice",
+      "ccna-multilingual-support",
+      "ccna-actionable-reporting"
+    ]
+  },
+  "copy": {
+    "headlineOptions": [
+      "Turn insight into instructional impact",
+      "Action-based data for school improvement",
+      "Shared starting points for improving instruction"
+    ],
+    "subheadOptions": [
+      "CCNA identifies strengths, uncovers growth areas, and gives education leaders action-based data to support school improvement and professional.",
+      "CCNA identifies strengths, uncovers growth areas, and guides education leaders with action-based data.",
+      "CCNA identifies strengths, uncovers growth areas, and guides education leaders with action-based data."
+    ],
+    "body": "CCNA identifies strengths, uncovers growth areas, and guides education leaders with action-based data. For district EL leaders, this draft focuses on action-based data, instructional practice, multilingual learner support, and school improvement planning. The CCNA service page says CCNA identifies.",
+    "bullets": [
+      "CCNA identifies strengths, uncovers growth areas, and guides education leaders with action-based data.",
+      "CCNA focuses on the work through assessment, data analysis, and action planning.",
+      "CCNA gives educators shared, actionable starting points for improving instruction and supporting all learners.",
+      "The CCNA service page says CCNA identifies strengths, uncovers growth areas, and guides education leaders with action-based data.",
+      "The CCNA service page says the assessment activity focuses on multilingual learner support while also covering broader practices that affect all."
+    ],
+    "cta": "Email Yvonne.Williams@wceps.org to discuss your district's CCNA next steps",
+    "footer": "Draft generated for internal review. Claims should remain tied to the source evidence shown with this artifact."
+  },
+  "fittedCopy": {
+    "headline": "Shared starting points for improving instruction",
+    "deck": "Use action-based data to guide school improvement and professional development planning.",
+    "proofPoints": [
+      "Use a structured needs assessment to identify strengths and growth.",
+      "Guide action planning through assessment and data analysis.",
+      "The CCNA service page says CCNA identifies strengths, uncovers growth."
+    ],
+    "cta": "Email Yvonne",
+    "ctaDetail": "Yvonne.Williams@wceps.org",
+    "footer": "Draft generated for internal review. Claims should remain tied to the source evidence shown with this artifact."
+  },
+  "compositionTemplate": {
+    "id": "magazine-one-pager",
+    "artifactType": "one-pager",
+    "aspectRatio": "letter portrait",
+    "densityTarget": "editorial",
+    "typographyScale": "magazine headline, one deck, short proof rail",
+    "artPlateTreatment": "edge-to-edge editorial art column or band",
+    "logoPlacement": "top-left, single official logo",
+    "copyPlacement": "large type block with compact editorial proof band",
+    "ctaPlacement": "proof band action lockup"
+  },
+  "compositionScore": {
+    "question": "Would I send this to the WCEPS team without apology?",
+    "overall": 94,
+    "whitespaceDensity": 92,
+    "templateScaffolding": 96,
+    "typographyQuality": 87,
+    "artifactMatch": 96,
+    "brandFidelity": 94,
+    "brandRelevance": 96,
+    "brandBoundary": 100,
+    "textIntegration": 94,
+    "fakeContentRisk": 95,
+    "sendability": 94,
+    "status": "warn",
+    "issues": [],
+    "warnings": [
+      "CCNA prompt is missing avoid guardrail(s): generic dashboard, stock graph."
+    ]
+  },
+  "layoutQa": {
+    "question": "Would I send this layout to the WCEPS team without apology?",
+    "overall": 96,
+    "noTextOverflow": 100,
+    "noCtaCollision": 100,
+    "proofLineWidth": 78,
+    "logoOnce": 100,
+    "artifactFormatMatch": 100,
+    "exportReady": 96,
+    "sendability": 96,
+    "status": "pass",
+    "issues": [],
+    "warnings": [],
+    "metrics": {
+      "headlineLines": 3,
+      "deckLines": 2,
+      "maxProofLines": 3,
+      "minProofCharsPerLine": 19,
+      "ctaLines": 1,
+      "estimatedCanvasOverflow": false
+    }
+  },
+  "artPlatePromptVersion": "campaign-art-plate-v5",
+  "layoutContract": {
+    "artifactType": "one-pager",
+    "canvas": "1024x1536, portrait full-page marketing artifact",
+    "safeZones": [
+      "Create a portrait art field with enough texture to support editorial layout.",
+      "Keep important visual energy away from trim and crop edges.",
+      "Avoid document panels, empty modules, fake cards, or CTA-like shapes."
+    ],
+    "exactTextPriority": [
+      "Turn insight into instructional impact",
+      "For district EL leaders",
+      "Email Yvonne.Williams@wceps.org to discuss your district's CCNA next steps",
+      "CCNA identifies strengths, uncovers growth areas, and gives education leaders action-based data to",
+      "CCNA identifies strengths, uncovers growth areas, and guides education leaders with action-based data.",
+      "CCNA focuses on the work through assessment, data analysis, and action planning.",
+      "CCNA gives educators shared, actionable starting points for improving instruction and supporting all"
+    ],
+    "appOwnedElements": [
+      "Official CCNA logo from approved asset.",
+      "Deterministic grid, typography, headline, audience, and CTA.",
+      "Exact support copy and proof hierarchy.",
+      "Final export wrapper, source evidence, and review state."
+    ],
+    "imageGenOwnedElements": [
+      "Text-free full-bleed campaign art plate.",
+      "Atmosphere, photography or illustration treatment, color, texture, and crop rhythm.",
+      "No document layout, fake cards, panels, contact bars, charts, or text."
+    ]
+  },
+  "imagePrompts": [
+    "CONTRACT=campaign-art-plate-v5\nMODE=campaign-art-plate\nINTENT={out:one-pager, brand:CCNA, aud:district EL leaders, theme:[action-based | data | instructional | practice | multilingual | learner | support | school | improvement], tone:clear, practical, action-oriented, ground:strict}\nCANVAS=1024x1536, portrait full-page marketing artifact\nFORMAT=portrait campaign art plate for app-composed marketing artifact; not social/web/contact card.\nBRAND={pal:[#0081A4 | #3EB3BD | #5EA974 | #F7D470], visual:[school teams | data debrief | planning conversation | multilingual learner support | Montserrat], evid_ids:[ccna-insight-impact | ccna-multilingual-support]}\nBRAND_BOUNDARY={keep:[needs assessment | action-based data | instructional practice | actionable reporting | multilingual learner support | school improvement planning]; avoid_sibling:[Three Cs | Consulting, Coaching, and Continuous Learning | personalized coaching sessions | educator-friendly scheduling | tailored professional development]; parent_context:[CARE Coaching | WCEPS]}\nBRAND_VISUAL_PROFILE={show:[school team data debrief | instructional practice review | action-based planning conversation | multilingual learner support planning]; props:[anonymized report pages without readable text | planning matrix shapes without labels | sticky notes grouped by action priorities | assessment reflection materials]; avoid:[generic coaching-only scene | fake dashboard UI | readable fake charts | generic business analytics | CARE Coaching drift without needs-assessment context]; app_owned:[CCNA or CARE logo | needs assessment wording | headline | CTA | proof copy]; tone:[actionable | data-informed | clear | school-improvement oriented | professional]; fit:instructional-practice and data-debrief editorial visual, not generic coaching}\nLOGO=do not render any CCNA logo, wordmark, brand initials, logo-like mark, chevron/mountain mark, arrow mark, or background logo pattern; app renders official logo once.\nMARKS_RULE=official logos, seals, badges, CTAs, headlines, labels, and readable copy are app-owned; do not invent or render them in the art plate.\nOWN=app:[Official CCNA logo from approved asset. | Deterministic grid, typography, headline, audience, and CTA. | Exact support copy and proof hierarchy. | Final export wrapper, source evidence, and review state.]; imagegen:[Text-free full-bleed campaign art plate. | Atmosphere, photography or illustration treatment, color | No document layout, fake cards, panels, contact bars, charts].\nCROP_SAFE=[Create a portrait art field with enough texture to support | Keep important visual energy away from trim and crop edges. | Avoid document panels, empty modules, fake cards, or CTA-like]\nMESSAGE_CUES=[headline_theme:action-based/data/instructional | audience:19 chars | cta_intent:email/yvonne/williams | proof_volume:compact]; mood/subject only, never words/layout.\nREFS=none; references only.\nUSER_NOTE=Stress needs-assessment support without drifting into general CARE Coaching copy.\nART=portrait full-bleed campaign art plate with polished education-sector storytelling, layered depth, and rich visual density; NY media/ad-agency quality, premium atmosphere, layered depth, non-generic education storytelling, intentional crop.\nVISUAL_STYLE=authentic editorial photography or refined abstract-illustrative atmosphere; avoid posed training-room stock, washed-out empty fades, generic meeting-table cliches, literal brand-shape wallpaper.\nCOMPOSITION=app owns layout, typography, text, logos, proof points, CTA, and export; ImageGen creates only the art plate.\nTEXT_RULE=absolutely no readable text, letters, numbers, labels, fake paragraphs, book titles, publisher names, email addresses, URLs, phone numbers, citations, or lorem ipsum.\nNO=document layouts, panels, blank boxes, placeholder modules, mock UI, cards, fake text, fake charts, icons with labels, contact bars, duplicate logos, fake logos, fake seals, fake badges, fake book titles, fake publisher brands, logo-like marks, wordmarks, chevrons, arrows, mountain logos, malformed UI, brochure scaffolding, invented claims, endorsement imagery, close-up faces, detailed hands, stock-photo workshop posing.\nQUALITY=best over fast; polished full-bleed campaign art plate, no template scaffolding.",
+    "CONTRACT=campaign-art-plate-v5\nMODE=campaign-art-plate\nINTENT={out:one-pager, brand:CCNA, aud:district EL leaders, theme:[action-based | data | instructional | practice | multilingual | learner | support | school | improvement], tone:clear, practical, action-oriented, ground:strict}\nCANVAS=1024x1536, portrait full-page marketing artifact\nFORMAT=portrait campaign art plate for app-composed marketing artifact; not social/web/contact card.\nBRAND={pal:[#0081A4 | #3EB3BD | #5EA974 | #F7D470], visual:[school teams | data debrief | planning conversation | multilingual learner support | Montserrat], evid_ids:[ccna-insight-impact | ccna-multilingual-support]}\nBRAND_BOUNDARY={keep:[needs assessment | action-based data | instructional practice | actionable reporting | multilingual learner support | school improvement planning]; avoid_sibling:[Three Cs | Consulting, Coaching, and Continuous Learning | personalized coaching sessions | educator-friendly scheduling | tailored professional development]; parent_context:[CARE Coaching | WCEPS]}\nBRAND_VISUAL_PROFILE={show:[school team data debrief | instructional practice review | action-based planning conversation | multilingual learner support planning]; props:[anonymized report pages without readable text | planning matrix shapes without labels | sticky notes grouped by action priorities | assessment reflection materials]; avoid:[generic coaching-only scene | fake dashboard UI | readable fake charts | generic business analytics | CARE Coaching drift without needs-assessment context]; app_owned:[CCNA or CARE logo | needs assessment wording | headline | CTA | proof copy]; tone:[actionable | data-informed | clear | school-improvement oriented | professional]; fit:instructional-practice and data-debrief editorial visual, not generic coaching}\nLOGO=do not render any CCNA logo, wordmark, brand initials, logo-like mark, chevron/mountain mark, arrow mark, or background logo pattern; app renders official logo once.\nMARKS_RULE=official logos, seals, badges, CTAs, headlines, labels, and readable copy are app-owned; do not invent or render them in the art plate.\nOWN=app:[Official CCNA logo from approved asset. | Deterministic grid, typography, headline, audience, and CTA. | Exact support copy and proof hierarchy. | Final export wrapper, source evidence, and review state.]; imagegen:[Text-free full-bleed campaign art plate. | Atmosphere, photography or illustration treatment, color | No document layout, fake cards, panels, contact bars, charts].\nCROP_SAFE=[Create a portrait art field with enough texture to support | Keep important visual energy away from trim and crop edges. | Avoid document panels, empty modules, fake cards, or CTA-like]\nMESSAGE_CUES=[headline_theme:action-based/data/instructional | audience:19 chars | cta_intent:email/yvonne/williams | proof_volume:compact]; mood/subject only, never words/layout.\nREFS=none; references only.\nUSER_NOTE=Stress needs-assessment support without drifting into general CARE Coaching copy.\nART=premium nonprofit education art plate with editorial atmosphere, brand color rhythm, no logo shapes, and no document modules; NY media/ad-agency quality, premium atmosphere, layered depth, non-generic education storytelling, intentional crop.\nVISUAL_STYLE=authentic editorial photography or refined abstract-illustrative atmosphere; avoid posed training-room stock, washed-out empty fades, generic meeting-table cliches, literal brand-shape wallpaper.\nCOMPOSITION=app owns layout, typography, text, logos, proof points, CTA, and export; ImageGen creates only the art plate.\nTEXT_RULE=absolutely no readable text, letters, numbers, labels, fake paragraphs, book titles, publisher names, email addresses, URLs, phone numbers, citations, or lorem ipsum.\nNO=document layouts, panels, blank boxes, placeholder modules, mock UI, cards, fake text, fake charts, icons with labels, contact bars, duplicate logos, fake logos, fake seals, fake badges, fake book titles, fake publisher brands, logo-like marks, wordmarks, chevrons, arrows, mountain logos, malformed UI, brochure scaffolding, invented claims, endorsement imagery, close-up faces, detailed hands, stock-photo workshop posing.\nQUALITY=best over fast; polished full-bleed campaign art plate, no template scaffolding.",
+    "CONTRACT=campaign-art-plate-v5\nMODE=campaign-art-plate\nINTENT={out:one-pager, brand:CCNA, aud:district EL leaders, theme:[action-based | data | instructional | practice | multilingual | learner | support | school | improvement], tone:clear, practical, action-oriented, ground:strict}\nCANVAS=1024x1536, portrait full-page marketing artifact\nFORMAT=portrait campaign art plate for app-composed marketing artifact; not social/web/contact card.\nBRAND={pal:[#0081A4 | #3EB3BD | #5EA974 | #F7D470], visual:[school teams | data debrief | planning conversation | multilingual learner support | Montserrat], evid_ids:[ccna-insight-impact | ccna-multilingual-support]}\nBRAND_BOUNDARY={keep:[needs assessment | action-based data | instructional practice | actionable reporting | multilingual learner support | school improvement planning]; avoid_sibling:[Three Cs | Consulting, Coaching, and Continuous Learning | personalized coaching sessions | educator-friendly scheduling | tailored professional development]; parent_context:[CARE Coaching | WCEPS]}\nBRAND_VISUAL_PROFILE={show:[school team data debrief | instructional practice review | action-based planning conversation | multilingual learner support planning]; props:[anonymized report pages without readable text | planning matrix shapes without labels | sticky notes grouped by action priorities | assessment reflection materials]; avoid:[generic coaching-only scene | fake dashboard UI | readable fake charts | generic business analytics | CARE Coaching drift without needs-assessment context]; app_owned:[CCNA or CARE logo | needs assessment wording | headline | CTA | proof copy]; tone:[actionable | data-informed | clear | school-improvement oriented | professional]; fit:instructional-practice and data-debrief editorial visual, not generic coaching}\nLOGO=do not render any CCNA logo, wordmark, brand initials, logo-like mark, chevron/mountain mark, arrow mark, or background logo pattern; app renders official logo once.\nMARKS_RULE=official logos, seals, badges, CTAs, headlines, labels, and readable copy are app-owned; do not invent or render them in the art plate.\nOWN=app:[Official CCNA logo from approved asset. | Deterministic grid, typography, headline, audience, and CTA. | Exact support copy and proof hierarchy. | Final export wrapper, source evidence, and review state.]; imagegen:[Text-free full-bleed campaign art plate. | Atmosphere, photography or illustration treatment, color | No document layout, fake cards, panels, contact bars, charts].\nCROP_SAFE=[Create a portrait art field with enough texture to support | Keep important visual energy away from trim and crop edges. | Avoid document panels, empty modules, fake cards, or CTA-like]\nMESSAGE_CUES=[headline_theme:action-based/data/instructional | audience:19 chars | cta_intent:email/yvonne/williams | proof_volume:compact]; mood/subject only, never words/layout.\nREFS=none; references only.\nUSER_NOTE=Stress needs-assessment support without drifting into general CARE Coaching copy.\nART=modern print-crop visual field with refined texture, abstract education energy, and no brochure scaffolding; NY media/ad-agency quality, premium atmosphere, layered depth, non-generic education storytelling, intentional crop.\nVISUAL_STYLE=authentic editorial photography or refined abstract-illustrative atmosphere; avoid posed training-room stock, washed-out empty fades, generic meeting-table cliches, literal brand-shape wallpaper.\nCOMPOSITION=app owns layout, typography, text, logos, proof points, CTA, and export; ImageGen creates only the art plate.\nTEXT_RULE=absolutely no readable text, letters, numbers, labels, fake paragraphs, book titles, publisher names, email addresses, URLs, phone numbers, citations, or lorem ipsum.\nNO=document layouts, panels, blank boxes, placeholder modules, mock UI, cards, fake text, fake charts, icons with labels, contact bars, duplicate logos, fake logos, fake seals, fake badges, fake book titles, fake publisher brands, logo-like marks, wordmarks, chevrons, arrows, mountain logos, malformed UI, brochure scaffolding, invented claims, endorsement imagery, close-up faces, detailed hands, stock-photo workshop posing.\nQUALITY=best over fast; polished full-bleed campaign art plate, no template scaffolding."
+  ],
+  "imageResults": [],
+  "pipelineTrace": {
+    "version": "campaign-art-plate-v5",
+    "mode": "campaign-art-plate",
+    "promptLength": 4278,
+    "promptTokenBudget": 4800,
+    "evidenceIds": [
+      "ccna-insight-impact",
+      "ccna-multilingual-support"
+    ],
+    "logoAsset": {
+      "label": "CARE horizontal full color · transparent · light/image backgrounds",
+      "publicPath": "/brand-logos/ccna/care-coaching-logo-horizontal-fullcolor-notag.svg",
+      "sourceUrl": "https://www.wcepspathways.org/service-offerings/care-coaching-needs-assessment-ccna/"
+    },
+    "contextAttachmentNames": [],
+    "retryCount": 0,
+    "braintrustTrace": {
+      "rowId": "015f80b9-3e47-4db5-9cce-95960b55b2be",
+      "spanId": "4f7b9728-c4b1-406a-898e-29e5dd123ff5",
+      "rootSpanId": "4f7b9728-c4b1-406a-898e-29e5dd123ff5",
+      "link": "https://www.braintrust.dev/app/WCEPS/p/Brand Building/logs?oid=015f80b9-3e47-4db5-9cce-95960b55b2be"
+    }
+  },
+  "critique": {
+    "status": "warn",
+    "issues": [],
+    "warnings": [
+      "CCNA prompt is missing avoid guardrail(s): generic dashboard, stock graph."
+    ],
+    "suggestedFixes": [
+      "Revise composition until the sendability score passes the WCEPS review threshold."
+    ]
+  },
+  "review": {
+    "approved": false,
+    "status": "warn",
+    "issues": [],
+    "warnings": [
+      "CCNA prompt is missing avoid guardrail(s): generic dashboard, stock graph."
+    ],
+    "suggestedFixes": [
+      "Revise composition until the sendability score passes the WCEPS review threshold."
+    ]
+  },
+  "request": {
+    "artifactType": "one-pager",
+    "brand": "CCNA",
+    "audience": "district EL leaders",
+    "keyMessage": "",
+    "goal": "explain the CARE Coaching Needs Assessment as action-planning support",
+    "topic": "action-based data, instructional practice, multilingual learner support, and school improvement planning",
+    "cta": "Email Yvonne.Williams@wceps.org to discuss your district's CCNA next steps",
+    "format": "Letter",
+    "toneModifier": "clear, practical, action-oriented",
+    "notes": "Stress needs-assessment support without drifting into general CARE Coaching copy.",
+    "visualInstruction": "",
+    "logoVariant": "",
+    "colorTheme": "",
+    "contextAttachments": [],
+    "strictlySourceGrounded": true,
+    "generateVisual": false
+  },
+  "sourceEvidence": [
+    {
+      "id": "ccna-insight-impact",
+      "url": "https://www.wcepspathways.org/service-offerings/care-coaching-needs-assessment-ccna/",
+      "excerpt": "The CARE Coaching Needs Assessment (CCNA) identifies strengths, uncovers growth areas, and guides education leaders with action-based data to support school improvement and professional development planning.",
+      "label": "CCNA overview"
+    },
+    {
+      "id": "ccna-instructional-practice",
+      "url": "https://www.wcepspathways.org/service-offerings/care-coaching-needs-assessment-ccna/",
+      "excerpt": "CCNA focuses on what drives learning: planning, collaboration, feedback, and leadership routines that directly influence teaching.",
+      "label": "Instructional practice focus"
+    },
+    {
+      "id": "ccna-multilingual-support",
+      "url": "https://www.wcepspathways.org/service-offerings/care-coaching-needs-assessment-ccna/",
+      "excerpt": "CCNA includes focused items and recommendations on how to better serve multilingual learners, while also providing strategies that benefit all students.",
+      "label": "Multilingual learner support"
+    },
+    {
+      "id": "ccna-actionable-reporting",
+      "url": "https://www.wcepspathways.org/service-offerings/care-coaching-needs-assessment-ccna/",
+      "excerpt": "School teams gain access to user-friendly interactive reports with prioritized actions and coaching suggestions, ready to use for PD planning and strategic next steps.",
+      "label": "Actionable reporting"
+    }
+  ],
+  "createdAt": "2026-04-24T13:27:43.274Z",
+  "updatedAt": "2026-04-24T13:27:43.274Z"
+}
