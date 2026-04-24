@@ -70,6 +70,14 @@ export async function generateArtifact(input: unknown): Promise<GeneratedArtifac
   const suggestedFixes = [...review.suggestedFixes, ...critique.suggestedFixes, ...layoutQa.issues.map((issue) => `Fix layout QA: ${issue}`)];
   const primaryPromptContract = promptContracts[0];
   const now = new Date().toISOString();
+  const braintrustTrace = span
+    ? {
+        rowId: span.id,
+        spanId: span.spanId,
+        rootSpanId: span.rootSpanId,
+        link: span.link(),
+      }
+    : undefined;
 
   const artifact = GeneratedArtifactSchema.parse({
     id: `draft-${now.replace(/[-:.TZ]/g, "").slice(0, 14)}-${Math.random().toString(36).slice(2, 8)}`,
@@ -95,6 +103,7 @@ export async function generateArtifact(input: unknown): Promise<GeneratedArtifac
       logoAsset: primaryPromptContract.logoAsset,
       contextAttachmentNames: primaryPromptContract.contextAttachmentNames,
       retryCount: 0,
+      braintrustTrace,
     },
     critique,
     review: {

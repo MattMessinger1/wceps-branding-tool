@@ -13,21 +13,34 @@
     "strictlySourceGrounded": true
   },
   {
-    "id": "webbalign-one-pager-curriculum",
-    "artifactType": "one-pager",
+    "id": "webbalign-social-curriculum",
+    "artifactType": "social-graphic",
     "brand": "WebbAlign",
     "audience": "curriculum teams",
-    "goal": "explain DOK alignment support",
-    "topic": "DOK, coherence, standards, assessments, curricula, and instructional materials",
+    "goal": "invite teams to strengthen alignment conversations",
+    "topic": "DOK alignment across standards, assessments, curricula, and instructional materials",
     "cta": "Contact WebbAlign",
-    "format": "Letter",
+    "format": "Social square 1:1",
     "toneModifier": "precise, professional, systems-oriented",
     "notes": "Avoid implying compliance approval.",
     "strictlySourceGrounded": true
   },
   {
+    "id": "ccna-one-pager-long-cta",
+    "artifactType": "one-pager",
+    "brand": "CCNA",
+    "audience": "district EL leaders",
+    "goal": "explain the CARE Coaching Needs Assessment as action-planning support",
+    "topic": "action-based data, instructional practice, multilingual learner support, and school improvement planning",
+    "cta": "Email Yvonne.Williams@wceps.org to discuss your district's CCNA next steps",
+    "format": "Letter",
+    "toneModifier": "clear, practical, action-oriented",
+    "notes": "Stress needs-assessment support without drifting into general CARE Coaching copy.",
+    "strictlySourceGrounded": true
+  },
+  {
     "id": "call-landing-page-principals",
-    "artifactType": "landing-page",
+    "artifactType": "flyer",
     "brand": "CALL",
     "audience": "principals",
     "goal": "introduce CALL as a leadership development and improvement planning tool",
@@ -36,6 +49,19 @@
     "format": "Web page",
     "toneModifier": "steady, clear, leadership-oriented",
     "notes": "Keep claims conservative because CALL copy must stay tightly source-bounded.",
+    "strictlySourceGrounded": true
+  },
+  {
+    "id": "wida-prime-email-publishers",
+    "artifactType": "html-email-announcement",
+    "brand": "WIDA PRIME",
+    "audience": "publishers",
+    "goal": "explain the PRIME instructional materials correlation process",
+    "topic": "PRIME 2020, PRIME V1/V2, Spanish Language Development correlations, and publisher workflow",
+    "cta": "Start the PRIME process",
+    "format": "HTML email announcement",
+    "toneModifier": "polished, publisher-facing, precise",
+    "notes": "Do not imply WIDA endorses materials or that PRIME evaluates effectiveness.",
     "strictlySourceGrounded": true
   },
   {

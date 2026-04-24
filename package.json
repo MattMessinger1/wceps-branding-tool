@@ -13,6 +13,7 @@
     "ingest": "tsx scripts/ingest.ts",
     "rebuild:brand-packs": "tsx scripts/rebuild-brand-packs.ts",
     "generate:samples": "tsx scripts/generate-sample-artifacts.ts",
+    "generate:trace-dataset": "tsx scripts/generate-artifact-trace-dataset.ts",
     "eval:local": "tsx scripts/eval-artifact-quality.ts --local",
     "eval:braintrust": "tsx scripts/eval-artifact-quality.ts --braintrust"
   },

@@ -110,6 +110,14 @@ export const PipelineTraceSchema = z.object({
   contextAttachmentNames: z.array(z.string()),
   retryCount: z.number().int().nonnegative().default(0),
   failureReason: z.string().optional(),
+  braintrustTrace: z
+    .object({
+      rowId: z.string().optional(),
+      spanId: z.string().optional(),
+      rootSpanId: z.string().optional(),
+      link: z.string().optional(),
+    })
+    .optional(),
 });
 
 export const ArtifactCritiqueSchema = z.object({

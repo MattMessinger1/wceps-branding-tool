@@ -77,6 +77,7 @@ async function getBraintrust() {
       if (!loggerReady) {
         braintrust.initLogger({
           projectName: process.env.BRAINTRUST_PROJECT_NAME || "Brand Building",
+          orgName: process.env.BRAINTRUST_ORG_NAME || "WCEPS",
           apiKey: process.env.BRAINTRUST_API_KEY,
           asyncFlush: true,
           debugLogLevel: false,

@@ -140,6 +140,7 @@ async function main() {
   await loadEnvLocal();
 
   process.env.BRAINTRUST_PROJECT_NAME ||= "Brand Building";
+  process.env.BRAINTRUST_ORG_NAME ||= "WCEPS";
   process.env.BRAINTRUST_LOGGING_ENABLED = shouldSend ? "true" : "false";
 
   if (shouldSend && !process.env.BRAINTRUST_API_KEY) {
