@@ -1,15 +1,38 @@
 import OpenAI from "openai";
+import { loadBrandPack } from "@/lib/brands/loadBrandPack";
 import { fitCopy } from "@/lib/composition";
 import type { ArtifactRequest } from "@/lib/schema/artifactRequest";
+import type { BrandPack } from "@/lib/schema/brandPack";
 import { FittedCopySchema, type CompositionTemplate, type FittedCopy, type GeneratedCopy } from "@/lib/schema/generatedArtifact";
+import { DEFAULT_GPT_MODEL, getReasoningConfig, getReasoningEffort } from "./openaiModelConfig";
 
 function copyFitModel() {
-  return process.env.OPENAI_COPY_FIT_MODEL ?? "gpt-5.4";
+  return process.env.OPENAI_COPY_FIT_MODEL ?? DEFAULT_GPT_MODEL;
 }
 
 function modelFitEnabled() {
   if (process.env.OPENAI_COPY_FIT_ENABLED === "false") return false;
   return Boolean(process.env.OPENAI_API_KEY);
+}
+
+function copyFitWebSearchEnabled() {
+  if (process.env.OPENAI_COPY_FIT_WEB_SEARCH_ENABLED === "false") return false;
+  return modelFitEnabled();
+}
+
+function officialDomains(pack?: BrandPack) {
+  const urls = [...(pack?.sourceOfTruth ?? []), ...(pack?.sourceEvidence.map((item) => item.url) ?? [])];
+  const domains = new Set<string>();
+
+  for (const url of urls) {
+    try {
+      domains.add(new URL(url).hostname.replace(/^www\./, ""));
+    } catch {
+      // Ignore malformed source URLs; schema validation normally prevents these.
+    }
+  }
+
+  return [...domains].slice(0, 8);
 }
 
 function findOutputText(value: unknown): string | undefined {
@@ -51,7 +74,7 @@ function parseJsonObject(value: string) {
   return JSON.parse(candidate.slice(start, end + 1));
 }
 
-function promptForModel(copy: GeneratedCopy, request: ArtifactRequest, template: CompositionTemplate, deterministic: FittedCopy) {
+function promptForModel(copy: GeneratedCopy, request: ArtifactRequest, template: CompositionTemplate, deterministic: FittedCopy, pack?: BrandPack) {
   const proofInstruction =
     template.id === "campaign-flyer"
       ? "exactly 2"
@@ -81,6 +104,9 @@ Rules:
 - Deck: exactly one complete sentence.
 - Proof points: ${proofInstruction} complete, non-repetitive short statements.
 - CTA: short button phrase. Put long email/contact details in ctaDetail.
+- If web search is available, use it only to verify and select stronger language from the approved source domains.
+- Favor concrete source language over generic marketing wording.
+- Never add claims from search results unless they are supported by the supplied brand pack or official source pages.
 - If the deterministic baseline is already strong, keep it mostly intact.
 
 Context JSON:
@@ -94,6 +120,10 @@ ${JSON.stringify(
     template,
     generatedCopy: copy,
     deterministicBaseline: deterministic,
+    approvedSourceUrls: pack?.sourceOfTruth,
+    approvedEvidence: pack?.sourceEvidence.slice(0, 8),
+    approvedPhrases: pack?.approvedPhrases.slice(0, 12),
+    restrictedClaims: pack?.restrictedClaims,
   },
   null,
   2,
@@ -103,7 +133,9 @@ ${JSON.stringify(
 export function getCopyFitModelConfig() {
   return {
     model: copyFitModel(),
+    reasoningEffort: getReasoningEffort(),
     enabled: modelFitEnabled(),
+    webSearchEnabled: copyFitWebSearchEnabled(),
   };
 }
 
@@ -113,10 +145,31 @@ export async function fitCopyWithModel(copy: GeneratedCopy, request: ArtifactReq
   if (!modelFitEnabled()) return deterministic;
 
   try {
+    const pack = await loadBrandPack(request.brand || "WCEPS").catch(() => undefined);
+    const domains = officialDomains(pack);
+    const useWebSearch = copyFitWebSearchEnabled() && domains.length > 0;
     const client = new OpenAI();
     const response = await client.responses.create({
       model: copyFitModel(),
-      input: promptForModel(copy, request, template, deterministic),
+      reasoning: getReasoningConfig(),
+      input: promptForModel(copy, request, template, deterministic, pack),
+      ...(useWebSearch
+        ? {
+            tools: [
+              {
+                type: "web_search",
+                filters: { allowed_domains: domains },
+                search_context_size: "medium",
+              },
+            ],
+            tool_choice: {
+              type: "allowed_tools",
+              mode: "required",
+              tools: [{ type: "web_search" }],
+            },
+            include: ["web_search_call.action.sources"],
+          }
+        : {}),
       store: false,
     } as never);
     const outputText = findOutputText(response) ?? "";

@@ -2,6 +2,7 @@ import OpenAI from "openai";
 import type { ContextAttachment } from "@/lib/schema/artifactRequest";
 import { type GeneratedImageResult } from "@/lib/schema/generatedArtifact";
 import { getImageGenerationConfig } from "./generateImages";
+import { DEFAULT_GPT_MODEL, getReasoningConfig } from "./openaiModelConfig";
 
 type ImageJobOptions = {
   size?: string;
@@ -15,7 +16,7 @@ type ImageJobOptions = {
 };
 
 function getResponsesModel() {
-  return process.env.OPENAI_RESPONSES_MODEL ?? "gpt-5.4-mini";
+  return process.env.OPENAI_RESPONSES_MODEL ?? DEFAULT_GPT_MODEL;
 }
 
 function buildImageTool(config: ReturnType<typeof getImageGenerationConfig>) {
@@ -114,6 +115,7 @@ export async function startBackgroundImageJob(prompt: string, options: ImageJobO
     : prompt;
   const response = await client.responses.create({
     model: getResponsesModel(),
+    reasoning: getReasoningConfig(),
     input,
     background: true,
     store: true,

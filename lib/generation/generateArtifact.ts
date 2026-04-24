@@ -1,4 +1,5 @@
 import { loadAllBrandPacks } from "@/lib/brands/loadBrandPack";
+import type { Span } from "braintrust";
 import { selectBrand } from "@/lib/brands/selectBrand";
 import { validateClaims } from "@/lib/brands/validateClaims";
 import {
@@ -23,8 +24,7 @@ import { fitCopyWithModel, getCopyFitModelConfig } from "./fitCopyWithModel";
 import { generateCopy } from "./generateCopy";
 import { evaluateModelQaWithModel, getModelQaConfig } from "./modelQa";
 
-export async function generateArtifact(input: unknown): Promise<GeneratedArtifact> {
-  return traceBraintrust("generateArtifact", { input }, async (span) => {
+export async function generateArtifactInTrace(input: unknown, span?: Span): Promise<GeneratedArtifact> {
     const parsedRequest = await traceBraintrustStep(span, "parseRequest", { input }, () => ArtifactRequestSchema.parse(input));
     const keyMessage = parsedRequest.keyMessage.trim();
     const artifactFormat = parsedRequest.format || resolveArtifactFormat(parsedRequest.artifactType);
@@ -253,5 +253,8 @@ export async function generateArtifact(input: unknown): Promise<GeneratedArtifac
     });
 
     return artifact;
-  });
+}
+
+export async function generateArtifact(input: unknown): Promise<GeneratedArtifact> {
+  return traceBraintrust("generateArtifact", { input }, (span) => generateArtifactInTrace(input, span));
 }

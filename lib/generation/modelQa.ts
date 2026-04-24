@@ -14,6 +14,7 @@ import type {
   LayoutQa,
   StageQa,
 } from "@/lib/schema/generatedArtifact";
+import { DEFAULT_GPT_MODEL, getReasoningConfig, getReasoningEffort } from "./openaiModelConfig";
 
 const ModelQaResponseSchema = z.object({
   status: z.enum(["pass", "warn", "block"]),
@@ -51,7 +52,7 @@ type ModelQaInput = {
 };
 
 function modelQaModel() {
-  return process.env.OPENAI_MODEL_QA_MODEL ?? "gpt-5.4";
+  return process.env.OPENAI_MODEL_QA_MODEL ?? DEFAULT_GPT_MODEL;
 }
 
 function modelQaEnabled() {
@@ -270,6 +271,7 @@ function normalizeModelQa(parsed: z.infer<typeof ModelQaResponseSchema>, input: 
 export function getModelQaConfig() {
   return {
     model: modelQaModel(),
+    reasoningEffort: getReasoningEffort(),
     enabled: modelQaEnabled(),
     includeImage: includeImageInModelQa(),
   };
@@ -290,6 +292,7 @@ export async function evaluateModelQaWithModel(input: ModelQaInput): Promise<Sta
     const client = new OpenAI();
     const response = await client.responses.create({
       model: modelQaModel(),
+      reasoning: getReasoningConfig(),
       input: [{ role: "user", content }],
       store: false,
     } as never);
@@ -312,7 +315,7 @@ export async function evaluateModelQaWithModel(input: ModelQaInput): Promise<Sta
           "model_qa_unavailable",
           "warn",
           "modelQa",
-          "gpt-5.4 model QA was enabled but did not complete; deterministic QA still ran.",
+          `${modelQaModel()} model QA was enabled but did not complete; deterministic QA still ran.`,
           "finalReview",
         ),
       ],

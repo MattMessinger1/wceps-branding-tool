@@ -1,0 +1,423 @@
+{
+  "id": "draft-20260424224922-i19e0j",
+  "artifactType": "flyer",
+  "brand": "CARE Coaching",
+  "audience": "district EL leaders",
+  "brief": {
+    "artifactType": "flyer",
+    "brand": "CARE Coaching",
+    "audience": "district EL leaders",
+    "objective": "explain CARE Coaching and drive inquiry",
+    "keyMessages": [
+      "CARE Coaching provides customized learning opportunities for administrators, teachers, school leaders, and district leaders.",
+      "CARE Coaching can support multilingual learner success alongside family engagement and standards-aligned teaching, learning, and assessment.",
+      "CARE Coaching supports educators through Consulting, Coaching, and Continuous Learning."
+    ],
+    "proofPoints": [
+      "The CARE Coaching page identifies the Three Cs as Consulting, Coaching, and Continuous Learning.",
+      "The Pathways products page describes CARE Coaching as collaborative educator support with reflective and data-driven practices."
+    ],
+    "cta": "Request a CARE Coaching conversation",
+    "visualDirection": [
+      "educators in collaborative planning",
+      "coach and school leader reviewing notes",
+      "bright professional learning setting",
+      "three-part pathway",
+      "coaching cards"
+    ],
+    "layoutRecommendation": "Use a one-page flyer with a strong headline, short audience framing, three concise support blocks, a source-grounded proof point, and one clear CTA.",
+    "sourceEvidenceIds": [
+      "care-three-cs",
+      "care-tailored-support",
+      "care-products"
+    ]
+  },
+  "copy": {
+    "headlineOptions": [
+      "Every Voice, Every Classroom, Every Learner",
+      "Customized coaching for educator growth",
+      "Consulting, coaching, and continuous learning for your team"
+    ],
+    "subheadOptions": [
+      "CARE Coaching provides tailored professional development, workshops, program evaluations, and personalized coaching that help educators reflect on current practice.",
+      "CARE Coaching provides customized learning opportunities for administrators, teachers, school leaders, and district leaders.",
+      "CARE Coaching provides customized learning opportunities for administrators, teachers, school leaders, and district leaders."
+    ],
+    "body": "CARE Coaching provides customized learning opportunities for administrators, teachers, school leaders, and district leaders. For district EL leaders, this draft focuses on customized coaching and professional learning for multilingual learner support.",
+    "bullets": [
+      "CARE Coaching provides customized learning opportunities for administrators, teachers, school leaders, and district leaders.",
+      "CARE Coaching can support multilingual learner success alongside family engagement and standards-aligned teaching, learning, and assessment.",
+      "CARE Coaching supports educators through Consulting, Coaching, and Continuous Learning.",
+      "The CARE Coaching page identifies the Three Cs as Consulting, Coaching, and Continuous Learning."
+    ],
+    "cta": "Request a CARE Coaching conversation",
+    "footer": "Draft generated for internal review. Claims should remain tied to the source evidence shown with this artifact."
+  },
+  "fittedCopy": {
+    "headline": "Every Voice, Every Classroom, Every Learner",
+    "deck": "CARE Coaching supports educators through Consulting, Coaching, and Continuous Learning tailored to multilingual learner support.",
+    "proofPoints": [
+      "Customized professional learning helps educators reflect on current practices and implement research-based actions.",
+      "The CARE Coaching Needs Assessment guides leaders with action-based data for school improvement and professional development planning."
+    ],
+    "cta": "Request a CARE Coaching conversation",
+    "footer": "Draft generated for internal review. Claims should remain tied to the source evidence shown with this artifact."
+  },
+  "compositionTemplate": {
+    "id": "campaign-flyer",
+    "artifactType": "flyer",
+    "aspectRatio": "4:5 portrait",
+    "densityTarget": "balanced",
+    "typographyScale": "large campaign headline with compact support proof",
+    "artPlateTreatment": "full-bleed branded atmosphere cropped into the composition",
+    "logoPlacement": "top-left, single official logo",
+    "copyPlacement": "left-led editorial stack with proof band integrated below",
+    "ctaPlacement": "lower proof band compact action"
+  },
+  "designRecipe": {
+    "id": "editorial-split",
+    "source": "model-generated",
+    "textZone": "left",
+    "visualZone": "right-field",
+    "density": "balanced",
+    "hierarchy": "large campaign headline with concise deck, exactly two evidence-oriented proof points, compact CTA, and restrained footer in a left-led editorial stack",
+    "artDirection": "CARE Coaching campaign flyer concept for district EL leaders: warm, evidence-minded multilingual learner support shown through authentic educator coaching, collaborative planning, reflective practice, and inclusive classroom energy, with a polished right-field visual story flowing subtly into the lower proof rhythm.",
+    "placeholderStrategy": "Use negative space, soft gradients, light, depth, and subject placement to protect the left message area and lower CTA/proof rhythm; never draw boxes, cards, labels, or UI placeholders.",
+    "appComposition": "App owns all real copy, official logo, CTA, footer, and export; ImageGen establishes the full 4:5 editorial split atmosphere, right-field story, and spatial hierarchy for app typesetting.",
+    "promptDirectives": [
+      "Design the whole flyer concept, not a decorative background.",
+      "Keep a quiet left text field with a dynamic right-field education coaching scene.",
+      "Use crop, lighting, and depth to guide headline, proof, and CTA hierarchy without panels.",
+      "Depict diverse multilingual learning support and district-ready professional learning credibility.",
+      "No readable text, fake logos, contact bars, icons, blank cards, or placeholder modules."
+    ]
+  },
+  "compositionScore": {
+    "question": "Would I send this to the WCEPS team without apology?",
+    "overall": 87,
+    "whitespaceDensity": 92,
+    "templateScaffolding": 96,
+    "typographyQuality": 87,
+    "artifactMatch": 96,
+    "brandFidelity": 94,
+    "brandRelevance": 93,
+    "brandBoundary": 36,
+    "textIntegration": 94,
+    "fakeContentRisk": 95,
+    "sendability": 87,
+    "status": "block",
+    "issues": [
+      "CARE Coaching copy includes sibling-brand term(s): CARE Coaching Needs Assessment, action-based data."
+    ],
+    "warnings": [
+      "CARE Coaching prompt is missing avoid guardrail(s): lecture hall, random books, fake chevron.",
+      "CARE Coaching copy mixes brand terms by request: Needs Assessment."
+    ]
+  },
+  "layoutQa": {
+    "question": "Would I send this layout to the WCEPS team without apology?",
+    "overall": 96,
+    "noTextOverflow": 82,
+    "noCtaCollision": 100,
+    "proofLineWidth": 96,
+    "logoOnce": 100,
+    "artifactFormatMatch": 100,
+    "exportReady": 96,
+    "sendability": 96,
+    "status": "block",
+    "issues": [
+      "Deck copy is too tall for the selected template."
+    ],
+    "warnings": [],
+    "metrics": {
+      "headlineLines": 3,
+      "deckLines": 4,
+      "maxProofLines": 4,
+      "minProofCharsPerLine": 28,
+      "ctaLines": 1,
+      "estimatedCanvasOverflow": true
+    }
+  },
+  "copyQualityQa": {
+    "question": "Would I send this copy to the WCEPS team without apology?",
+    "score": 100,
+    "status": "pass",
+    "issues": [],
+    "warnings": [],
+    "failureModes": [],
+    "metrics": {
+      "fittedTextCount": 5,
+      "generatedTextCount": 8,
+      "missingPreferredTerms": [
+        "customized support"
+      ]
+    }
+  },
+  "visualQa": {
+    "question": "Would I send this visual system to the WCEPS team without apology?",
+    "score": 94,
+    "status": "pass",
+    "issues": [],
+    "warnings": [],
+    "failureModes": [],
+    "metrics": {
+      "hasGeneratedVisual": true,
+      "usesFallbackArt": false,
+      "missingArtPlate": false,
+      "darkEdgeBleedRisk": false,
+      "visualRelevance": 94,
+      "promptCount": 3
+    }
+  },
+  "renderQa": {
+    "question": "Would I send this rendered artifact to the WCEPS team without apology?",
+    "score": 98,
+    "status": "pass",
+    "issues": [],
+    "warnings": [],
+    "failureModes": [],
+    "metrics": {
+      "templateId": "campaign-flyer",
+      "artifactType": "flyer",
+      "proofPointCount": 2,
+      "hasCtaDetail": false,
+      "inheritedBlockCount": 0
+    }
+  },
+  "modelQa": {
+    "question": "Would a senior WCEPS reviewer send this artifact without apology?",
+    "score": 58,
+    "status": "block",
+    "issues": [
+      "Fitted copy imports CARE Coaching Needs Assessment/action-based data language that the brand boundary explicitly marks as sibling/avoid content.",
+      "Internal draft/source-evidence disclaimer remains in the flyer footer and would appear as scaffolded, non-customer-facing content if exported.",
+      "LayoutQa reports deck/text too tall with estimated canvas overflow, but renderQa still passes; final export requires refitting."
+    ],
+    "warnings": [
+      "The art plate is polished and type-safe but reads as a generic educator planning meeting with limited district EL leader specificity."
+    ],
+    "failureModes": [
+      {
+        "id": "sibling-brand-leakage-care-needs-assessment",
+        "severity": "block",
+        "introducedAt": "fitCopy",
+        "missedBy": "copyQualityQa",
+        "message": "Fitted copy imports CARE Coaching Needs Assessment/action-based data language that the brand boundary explicitly marks as sibling/avoid content."
+      },
+      {
+        "id": "scaffold-footer-in-production-copy",
+        "severity": "block",
+        "introducedAt": "generateCopy",
+        "missedBy": "copyQualityQa",
+        "message": "Internal draft/source-evidence disclaimer remains in the flyer footer and would appear as scaffolded, non-customer-facing content if exported."
+      },
+      {
+        "id": "layout-overflow-risk",
+        "severity": "block",
+        "introducedAt": "fitCopy",
+        "missedBy": "renderQa",
+        "message": "LayoutQa reports deck/text too tall with estimated canvas overflow, but renderQa still passes; final export requires refitting."
+      },
+      {
+        "id": "generic-visual-specificity",
+        "severity": "warn",
+        "introducedAt": "imageJob",
+        "missedBy": "visualQa",
+        "message": "The art plate is polished and type-safe but reads as a generic educator planning meeting with limited district EL leader specificity."
+      }
+    ],
+    "metrics": {
+      "enabled": true,
+      "model": "gpt-5.5",
+      "imageIncluded": true,
+      "deterministicScores": {
+        "sendability": 87,
+        "layoutQa": 96,
+        "copyQualityQa": 100,
+        "visualQa": 94,
+        "renderQa": 98
+      }
+    }
+  },
+  "failureModes": [
+    {
+      "id": "sibling-brand-leakage-care-needs-assessment",
+      "severity": "block",
+      "introducedAt": "fitCopy",
+      "missedBy": "copyQualityQa",
+      "message": "Fitted copy imports CARE Coaching Needs Assessment/action-based data language that the brand boundary explicitly marks as sibling/avoid content."
+    },
+    {
+      "id": "scaffold-footer-in-production-copy",
+      "severity": "block",
+      "introducedAt": "generateCopy",
+      "missedBy": "copyQualityQa",
+      "message": "Internal draft/source-evidence disclaimer remains in the flyer footer and would appear as scaffolded, non-customer-facing content if exported."
+    },
+    {
+      "id": "layout-overflow-risk",
+      "severity": "block",
+      "introducedAt": "fitCopy",
+      "missedBy": "renderQa",
+      "message": "LayoutQa reports deck/text too tall with estimated canvas overflow, but renderQa still passes; final export requires refitting."
+    },
+    {
+      "id": "generic-visual-specificity",
+      "severity": "warn",
+      "introducedAt": "imageJob",
+      "missedBy": "visualQa",
+      "message": "The art plate is polished and type-safe but reads as a generic educator planning meeting with limited district EL leader specificity."
+    }
+  ],
+  "artPlatePromptVersion": "design-comp-v1",
+  "layoutContract": {
+    "artifactType": "flyer",
+    "canvas": "1024x1536, portrait full-page marketing artifact",
+    "safeZones": [
+      "Create a portrait art field with enough texture to support editorial layout.",
+      "Keep important visual energy away from trim and crop edges.",
+      "Avoid document panels, empty modules, fake cards, or CTA-like shapes."
+    ],
+    "exactTextPriority": [
+      "Every Voice, Every Classroom, Every Learner",
+      "For district EL leaders",
+      "Request a CARE Coaching conversation",
+      "CARE Coaching provides tailored professional development, workshops, program evaluations, and",
+      "CARE Coaching provides customized learning opportunities for administrators, teachers, school leaders",
+      "CARE Coaching can support multilingual learner success alongside family engagement and standards-aligned",
+      "CARE Coaching supports educators through Consulting, Coaching, and Continuous Learning."
+    ],
+    "appOwnedElements": [
+      "Official CARE Coaching logo from approved asset.",
+      "Deterministic grid, typography, headline, audience, and CTA.",
+      "Exact support copy and proof hierarchy.",
+      "Final export wrapper, source evidence, and review state."
+    ],
+    "imageGenOwnedElements": [
+      "Text-free full-bleed campaign art plate.",
+      "Atmosphere, photography or illustration treatment, color, texture, and crop rhythm.",
+      "No document layout, fake cards, panels, contact bars, charts, or text."
+    ]
+  },
+  "imagePrompts": [
+    "CONTRACT=design-comp-v1\nMODE=design-comp-art-plate\nINTENT={out:flyer, brand:CARE Coaching, aud:district EL leaders, theme:[customized | coaching | professional | learning | multilingual | learner | support | district | leaders], tone:warm, practical, district-facing, ground:strict}\nCANVAS=1024x1536, portrait full-page marketing artifact\nFORMAT=portrait campaign art plate for app-composed marketing artifact; not social/web/contact card.\nDESIGN_RECIPE={id:editorial-split; text_zone:left; visual_zone:right-field; density:balanced; hierarchy:large campaign headline with concise deck, exactly two evidence-oriented proof points, compact CTA, and restrained footer in a left-led; art:CARE Coaching campaign flyer concept for district EL leaders: warm, evidence-minded multilingual learner support shown through authentic; placeholder:Use negative space, soft gradients, light, depth, and subject placement to protect the left message area and lower CTA/proof; app_comp:App owns all real copy, official logo, CTA, footer, and export; ImageGen establishes the full 4:5 editorial split atmosphere; directives:[Design the whole flyer concept, not a decorative background. | Keep a quiet left text field with a dynamic right-field education coaching | Use crop, lighting, and depth to guide headline, proof, and CTA hierarchy | Depict diverse multilingual learning support and district-ready professional]}\nBRAND={pal:[#0081A4 | #3EB3BD | #5EA974 | #F7D470], visual:[educators in collaborative planning | coach and school leader reviewing notes | bright professional learning setting | multilingual classroom support materials | warm], evid_ids:[care-products | care-three-cs]}\nBRAND_BOUNDARY={keep:[coaching | consulting | continuous learning | professional learning | reflect | customized support]; avoid_sibling:[CCNA | CARE Coaching Needs Assessment | action-based data | actionable reporting | instructional practice focus | school improvement planning]; parent_context:[WCEPS | Pathways]}\nBRAND_VISUAL_PROFILE={show:[coaching conversation between educators | educator reflection and planning | professional learning facilitation | multilingual learner support planning]; props:[coaching notes | professional learning handouts | language-support planning materials | school team action notes]; avoid:[generic stock training room | posed workshop photo | fake logo shapes | mountain or chevron wallpaper | random book stacks]; app_owned:[CARE Coaching logo | Three Cs wording | headline | CTA | proof copy]; tone:[collaborative | practical | bright | educator-centered | warm but polished]; fit:campaign-forward coaching visual with active educator collaboration}\nLOGO=do not render any CARE Coaching logo, wordmark, brand initials, logo-like mark, chevron/mountain mark, arrow mark, or background logo pattern; app renders official logo once.\nMARKS_RULE=official logos, seals, badges, CTAs, headlines, labels, and readable copy are app-owned; do not invent or render them in the art plate.\nOWN=app:[Official CARE Coaching logo from approved asset. | Deterministic grid, typography, headline, audience, and CTA. | Exact support copy and proof hierarchy. | Final export wrapper, source evidence, and review state.]; imagegen:[Text-free full-bleed campaign art plate. | Atmosphere, photography or illustration treatment, color | No document layout, fake cards, panels, contact bars, charts].\nCROP_SAFE=[Create a portrait art field with enough texture to support | Keep important visual energy away from trim and crop edges. | Avoid document panels, empty modules, fake cards, or CTA-like]\nMESSAGE_CUES=[headline_theme:customized/coaching/professional | audience:19 chars | cta_intent:request/care/coaching | proof_volume:compact]; mood/subject only, never words/layout.\nREFS=none; references only.\nUSER_NOTE=Highlight the Three Cs without drifting into sibling needs-assessment copy.\nART=portrait full-bleed campaign art plate with polished education-sector storytelling, layered depth, and rich visual density; NY media/ad-agency quality, full designed concept with visual hierarchy, type-safe contrast zones, premium atmosphere, layered depth, non-generic education storytelling, intentional crop.\nVISUAL_STYLE=authentic editorial photography or refined abstract-illustrative atmosphere; avoid posed training-room stock, washed-out empty fades, generic meeting-table cliches, literal brand-shape wallpaper.\nCOMPOSITION=ImageGen creates a full artifact design comp: composition, crop, hierarchy, contrast, visual rhythm, and type-safe zones. The app renders exact typography, official logo, proof copy, CTA, source evidence, and export.\nTEXT_RULE=absolutely no readable text, letters, numbers, labels, fake paragraphs, book titles, publisher names, email addresses, URLs, phone numbers, citations, or lorem ipsum; imply text areas through composition only.\nNO=document layouts, panels, blank boxes, placeholder modules, mock UI, cards, fake text, fake charts, icons with labels, contact bars, duplicate logos, fake logos, fake seals, fake badges, fake book titles, fake publisher brands, logo-like marks, wordmarks, chevrons, arrows, mountain logos, malformed UI, brochure scaffolding, invented claims, endorsement imagery, close-up faces, detailed hands, stock-photo workshop posing.\nQUALITY=best over fast; polished design-comp art plate, no template scaffolding.",
+    "CONTRACT=design-comp-v1\nMODE=design-comp-art-plate\nINTENT={out:flyer, brand:CARE Coaching, aud:district EL leaders, theme:[customized | coaching | professional | learning | multilingual | learner | support | district | leaders], tone:warm, practical, district-facing, ground:strict}\nCANVAS=1024x1536, portrait full-page marketing artifact\nFORMAT=portrait campaign art plate for app-composed marketing artifact; not social/web/contact card.\nDESIGN_RECIPE={id:editorial-split; text_zone:left; visual_zone:right-field; density:balanced; hierarchy:large campaign headline with concise deck, exactly two evidence-oriented proof points, compact CTA, and restrained footer in a left-led; art:CARE Coaching campaign flyer concept for district EL leaders: warm, evidence-minded multilingual learner support shown through authentic; placeholder:Use negative space, soft gradients, light, depth, and subject placement to protect the left message area and lower CTA/proof; app_comp:App owns all real copy, official logo, CTA, footer, and export; ImageGen establishes the full 4:5 editorial split atmosphere; directives:[Design the whole flyer concept, not a decorative background. | Keep a quiet left text field with a dynamic right-field education coaching | Use crop, lighting, and depth to guide headline, proof, and CTA hierarchy | Depict diverse multilingual learning support and district-ready professional]}\nBRAND={pal:[#0081A4 | #3EB3BD | #5EA974 | #F7D470], visual:[educators in collaborative planning | coach and school leader reviewing notes | bright professional learning setting | multilingual classroom support materials | warm], evid_ids:[care-products | care-three-cs]}\nBRAND_BOUNDARY={keep:[coaching | consulting | continuous learning | professional learning | reflect | customized support]; avoid_sibling:[CCNA | CARE Coaching Needs Assessment | action-based data | actionable reporting | instructional practice focus | school improvement planning]; parent_context:[WCEPS | Pathways]}\nBRAND_VISUAL_PROFILE={show:[coaching conversation between educators | educator reflection and planning | professional learning facilitation | multilingual learner support planning]; props:[coaching notes | professional learning handouts | language-support planning materials | school team action notes]; avoid:[generic stock training room | posed workshop photo | fake logo shapes | mountain or chevron wallpaper | random book stacks]; app_owned:[CARE Coaching logo | Three Cs wording | headline | CTA | proof copy]; tone:[collaborative | practical | bright | educator-centered | warm but polished]; fit:campaign-forward coaching visual with active educator collaboration}\nLOGO=do not render any CARE Coaching logo, wordmark, brand initials, logo-like mark, chevron/mountain mark, arrow mark, or background logo pattern; app renders official logo once.\nMARKS_RULE=official logos, seals, badges, CTAs, headlines, labels, and readable copy are app-owned; do not invent or render them in the art plate.\nOWN=app:[Official CARE Coaching logo from approved asset. | Deterministic grid, typography, headline, audience, and CTA. | Exact support copy and proof hierarchy. | Final export wrapper, source evidence, and review state.]; imagegen:[Text-free full-bleed campaign art plate. | Atmosphere, photography or illustration treatment, color | No document layout, fake cards, panels, contact bars, charts].\nCROP_SAFE=[Create a portrait art field with enough texture to support | Keep important visual energy away from trim and crop edges. | Avoid document panels, empty modules, fake cards, or CTA-like]\nMESSAGE_CUES=[headline_theme:customized/coaching/professional | audience:19 chars | cta_intent:request/care/coaching | proof_volume:compact]; mood/subject only, never words/layout.\nREFS=none; references only.\nUSER_NOTE=Highlight the Three Cs without drifting into sibling needs-assessment copy.\nART=premium nonprofit education art plate with editorial atmosphere, brand color rhythm, no logo shapes, and no document modules; NY media/ad-agency quality, full designed concept with visual hierarchy, type-safe contrast zones, premium atmosphere, layered depth, non-generic education storytelling, intentional crop.\nVISUAL_STYLE=authentic editorial photography or refined abstract-illustrative atmosphere; avoid posed training-room stock, washed-out empty fades, generic meeting-table cliches, literal brand-shape wallpaper.\nCOMPOSITION=ImageGen creates a full artifact design comp: composition, crop, hierarchy, contrast, visual rhythm, and type-safe zones. The app renders exact typography, official logo, proof copy, CTA, source evidence, and export.\nTEXT_RULE=absolutely no readable text, letters, numbers, labels, fake paragraphs, book titles, publisher names, email addresses, URLs, phone numbers, citations, or lorem ipsum; imply text areas through composition only.\nNO=document layouts, panels, blank boxes, placeholder modules, mock UI, cards, fake text, fake charts, icons with labels, contact bars, duplicate logos, fake logos, fake seals, fake badges, fake book titles, fake publisher brands, logo-like marks, wordmarks, chevrons, arrows, mountain logos, malformed UI, brochure scaffolding, invented claims, endorsement imagery, close-up faces, detailed hands, stock-photo workshop posing.\nQUALITY=best over fast; polished design-comp art plate, no template scaffolding.",
+    "CONTRACT=design-comp-v1\nMODE=design-comp-art-plate\nINTENT={out:flyer, brand:CARE Coaching, aud:district EL leaders, theme:[customized | coaching | professional | learning | multilingual | learner | support | district | leaders], tone:warm, practical, district-facing, ground:strict}\nCANVAS=1024x1536, portrait full-page marketing artifact\nFORMAT=portrait campaign art plate for app-composed marketing artifact; not social/web/contact card.\nDESIGN_RECIPE={id:editorial-split; text_zone:left; visual_zone:right-field; density:balanced; hierarchy:large campaign headline with concise deck, exactly two evidence-oriented proof points, compact CTA, and restrained footer in a left-led; art:CARE Coaching campaign flyer concept for district EL leaders: warm, evidence-minded multilingual learner support shown through authentic; placeholder:Use negative space, soft gradients, light, depth, and subject placement to protect the left message area and lower CTA/proof; app_comp:App owns all real copy, official logo, CTA, footer, and export; ImageGen establishes the full 4:5 editorial split atmosphere; directives:[Design the whole flyer concept, not a decorative background. | Keep a quiet left text field with a dynamic right-field education coaching | Use crop, lighting, and depth to guide headline, proof, and CTA hierarchy | Depict diverse multilingual learning support and district-ready professional]}\nBRAND={pal:[#0081A4 | #3EB3BD | #5EA974 | #F7D470], visual:[educators in collaborative planning | coach and school leader reviewing notes | bright professional learning setting | multilingual classroom support materials | warm], evid_ids:[care-products | care-three-cs]}\nBRAND_BOUNDARY={keep:[coaching | consulting | continuous learning | professional learning | reflect | customized support]; avoid_sibling:[CCNA | CARE Coaching Needs Assessment | action-based data | actionable reporting | instructional practice focus | school improvement planning]; parent_context:[WCEPS | Pathways]}\nBRAND_VISUAL_PROFILE={show:[coaching conversation between educators | educator reflection and planning | professional learning facilitation | multilingual learner support planning]; props:[coaching notes | professional learning handouts | language-support planning materials | school team action notes]; avoid:[generic stock training room | posed workshop photo | fake logo shapes | mountain or chevron wallpaper | random book stacks]; app_owned:[CARE Coaching logo | Three Cs wording | headline | CTA | proof copy]; tone:[collaborative | practical | bright | educator-centered | warm but polished]; fit:campaign-forward coaching visual with active educator collaboration}\nLOGO=do not render any CARE Coaching logo, wordmark, brand initials, logo-like mark, chevron/mountain mark, arrow mark, or background logo pattern; app renders official logo once.\nMARKS_RULE=official logos, seals, badges, CTAs, headlines, labels, and readable copy are app-owned; do not invent or render them in the art plate.\nOWN=app:[Official CARE Coaching logo from approved asset. | Deterministic grid, typography, headline, audience, and CTA. | Exact support copy and proof hierarchy. | Final export wrapper, source evidence, and review state.]; imagegen:[Text-free full-bleed campaign art plate. | Atmosphere, photography or illustration treatment, color | No document layout, fake cards, panels, contact bars, charts].\nCROP_SAFE=[Create a portrait art field with enough texture to support | Keep important visual energy away from trim and crop edges. | Avoid document panels, empty modules, fake cards, or CTA-like]\nMESSAGE_CUES=[headline_theme:customized/coaching/professional | audience:19 chars | cta_intent:request/care/coaching | proof_volume:compact]; mood/subject only, never words/layout.\nREFS=none; references only.\nUSER_NOTE=Highlight the Three Cs without drifting into sibling needs-assessment copy.\nART=modern print-crop visual field with refined texture, abstract education energy, and no brochure scaffolding; NY media/ad-agency quality, full designed concept with visual hierarchy, type-safe contrast zones, premium atmosphere, layered depth, non-generic education storytelling, intentional crop.\nVISUAL_STYLE=authentic editorial photography or refined abstract-illustrative atmosphere; avoid posed training-room stock, washed-out empty fades, generic meeting-table cliches, literal brand-shape wallpaper.\nCOMPOSITION=ImageGen creates a full artifact design comp: composition, crop, hierarchy, contrast, visual rhythm, and type-safe zones. The app renders exact typography, official logo, proof copy, CTA, source evidence, and export.\nTEXT_RULE=absolutely no readable text, letters, numbers, labels, fake paragraphs, book titles, publisher names, email addresses, URLs, phone numbers, citations, or lorem ipsum; imply text areas through composition only.\nNO=document layouts, panels, blank boxes, placeholder modules, mock UI, cards, fake text, fake charts, icons with labels, contact bars, duplicate logos, fake logos, fake seals, fake badges, fake book titles, fake publisher brands, logo-like marks, wordmarks, chevrons, arrows, mountain logos, malformed UI, brochure scaffolding, invented claims, endorsement imagery, close-up faces, detailed hands, stock-photo workshop posing.\nQUALITY=best over fast; polished design-comp art plate, no template scaffolding."
+  ],
+  "imageResults": [
+    {
+      "prompt": "CONTRACT=design-comp-v1\nMODE=design-comp-art-plate\nINTENT={out:flyer, brand:CARE Coaching, aud:district EL leaders, theme:[customized | coaching | professional | learning | multilingual | learner | support | district | leaders], tone:warm, practical, district-facing, ground:strict}\nCANVAS=1024x1536, portrait full-page marketing artifact\nFORMAT=portrait campaign art plate for app-composed marketing artifact; not social/web/contact card.\nDESIGN_RECIPE={id:editorial-split; text_zone:left; visual_zone:right-field; density:balanced; hierarchy:large campaign headline with concise deck, exactly two evidence-oriented proof points, compact CTA, and restrained footer in a left-led; art:CARE Coaching campaign flyer concept for district EL leaders: warm, evidence-minded multilingual learner support shown through authentic; placeholder:Use negative space, soft gradients, light, depth, and subject placement to protect the left message area and lower CTA/proof; app_comp:App owns all real copy, official logo, CTA, footer, and export; ImageGen establishes the full 4:5 editorial split atmosphere; directives:[Design the whole flyer concept, not a decorative background. | Keep a quiet left text field with a dynamic right-field education coaching | Use crop, lighting, and depth to guide headline, proof, and CTA hierarchy | Depict diverse multilingual learning support and district-ready professional]}\nBRAND={pal:[#0081A4 | #3EB3BD | #5EA974 | #F7D470], visual:[educators in collaborative planning | coach and school leader reviewing notes | bright professional learning setting | multilingual classroom support materials | warm], evid_ids:[care-products | care-three-cs]}\nBRAND_BOUNDARY={keep:[coaching | consulting | continuous learning | professional learning | reflect | customized support]; avoid_sibling:[CCNA | CARE Coaching Needs Assessment | action-based data | actionable reporting | instructional practice focus | school improvement planning]; parent_context:[WCEPS | Pathways]}\nBRAND_VISUAL_PROFILE={show:[coaching conversation between educators | educator reflection and planning | professional learning facilitation | multilingual learner support planning]; props:[coaching notes | professional learning handouts | language-support planning materials | school team action notes]; avoid:[generic stock training room | posed workshop photo | fake logo shapes | mountain or chevron wallpaper | random book stacks]; app_owned:[CARE Coaching logo | Three Cs wording | headline | CTA | proof copy]; tone:[collaborative | practical | bright | educator-centered | warm but polished]; fit:campaign-forward coaching visual with active educator collaboration}\nLOGO=do not render any CARE Coaching logo, wordmark, brand initials, logo-like mark, chevron/mountain mark, arrow mark, or background logo pattern; app renders official logo once.\nMARKS_RULE=official logos, seals, badges, CTAs, headlines, labels, and readable copy are app-owned; do not invent or render them in the art plate.\nOWN=app:[Official CARE Coaching logo from approved asset. | Deterministic grid, typography, headline, audience, and CTA. | Exact support copy and proof hierarchy. | Final export wrapper, source evidence, and review state.]; imagegen:[Text-free full-bleed campaign art plate. | Atmosphere, photography or illustration treatment, color | No document layout, fake cards, panels, contact bars, charts].\nCROP_SAFE=[Create a portrait art field with enough texture to support | Keep important visual energy away from trim and crop edges. | Avoid document panels, empty modules, fake cards, or CTA-like]\nMESSAGE_CUES=[headline_theme:customized/coaching/professional | audience:19 chars | cta_intent:request/care/coaching | proof_volume:compact]; mood/subject only, never words/layout.\nREFS=none; references only.\nUSER_NOTE=Highlight the Three Cs without drifting into sibling needs-assessment copy.\nART=portrait full-bleed campaign art plate with polished education-sector storytelling, layered depth, and rich visual density; NY media/ad-agency quality, full designed concept with visual hierarchy, type-safe contrast zones, premium atmosphere, layered depth, non-generic education storytelling, intentional crop.\nVISUAL_STYLE=authentic editorial photography or refined abstract-illustrative atmosphere; avoid posed training-room stock, washed-out empty fades, generic meeting-table cliches, literal brand-shape wallpaper.\nCOMPOSITION=ImageGen creates a full artifact design comp: composition, crop, hierarchy, contrast, visual rhythm, and type-safe zones. The app renders exact typography, official logo, proof copy, CTA, source evidence, and export.\nTEXT_RULE=absolutely no readable text, letters, numbers, labels, fake paragraphs, book titles, publisher names, email addresses, URLs, phone numbers, citations, or lorem ipsum; imply text areas through composition only.\nNO=document layouts, panels, blank boxes, placeholder modules, mock UI, cards, fake text, fake charts, icons with labels, contact bars, duplicate logos, fake logos, fake seals, fake badges, fake book titles, fake publisher brands, logo-like marks, wordmarks, chevrons, arrows, mountain logos, malformed UI, brochure scaffolding, invented claims, endorsement imagery, close-up faces, detailed hands, stock-photo workshop posing.\nQUALITY=best over fast; polished design-comp art plate, no template scaffolding.",
+      "model": "gpt-image-2",
+      "size": "1024x1536",
+      "quality": "high",
+      "outputFormat": "webp",
+      "outputCompression": 70,
+      "dataUrl": "images/draft-20260424224922-i19e0j-1.webp",
+      "revisedPrompt": "Create a portrait full-bleed campaign art plate, 1024x1536, for a district-facing education coaching flyer. Editorial split composition: quiet, type-safe left message field with warm negative space and subtle texture; dynamic right-field visual storytelling with educators collaboratively planning multilingual learner support. No readable text anywhere.\n\nScene and style: authentic premium editorial photography / refined photorealistic campaign atmosphere, warm but polished, district-ready professional learning setting. On the right side, show a diverse small group of adult educators in an active coaching conversation: a coach and school/district leader reviewing notes and planning materials with another educator nearby, engaged and reflective. Include multilingual learner support cues only through non-readable materials: color-coded sticky notes, abstract handouts with blurred non-text marks, language-support planning artifacts, notebooks with no legible writing, classroom/professional learning environment hints. Avoid close-up faces and detailed hands; use natural mid-distance crop, depth of field, and light.\n\nComposition: left 42–48% is protected negative space for app-owned headline/deck/proof/CTA, with soft gradient from pale warm cream to very light teal, enough contrast and calm texture. Right 52–58% contains richer visual energy: educators arranged diagonally with layered depth, bright window light, warm highlights, teal and green accents, subtle golden accents. Guide visual hierarchy for a large headline top-left, concise deck mid-left, exactly two compact proof points lower-left, compact CTA above restrained footer; do not create boxes or panels. Keep important subject energy away from edges and leave lower-left and lower-middle breathing room.\n\nBrand palette influence: #0081A4 deep teal, #3EB3BD aqua, #5EA974 green, #F7D470 warm yellow, integrated naturally in clothing accents, folders, sticky notes, light, and background details. Mood: customized coaching, continuous professional learning, consulting, reflection, district leader support, multilingual learner support, practical and evidence-minded.\n\nStrict exclusions: absolutely no readable text, no letters, numbers, labels, fake paragraphs, book titles, email/URL/phone, citations, lorem ipsum. No logos, wordmarks, initials, seals, badges, CTA buttons, icons with labels, charts, cards, document-layout panels, blank placeholder boxes, brochure scaffolding, fake UI, contact bars. No CARE logo, no Three Cs wording, no CCNA, no needs-assessment references, no action-based data/reporting copy, no chevrons, arrows, mountain marks, logo-like shapes, repeated patterns. Avoid generic stock workshop posing, empty washed-out fades, random book stacks, literal brand-shape wallpaper.\n\nOutput should feel like a complete high-end marketing artifact art plate with visual hierarchy and atmosphere, but text-free and logo-free, ready for app-composed official typography and assets.",
+      "jobId": "resp_02e37f2ac75bf0a00069ebf372223881a1bcb390eb6ad3d3ed",
+      "braintrustTrace": {
+        "rowId": "9db1bed2-302a-4f9e-8f6b-f1ad4b66b483",
+        "spanId": "258a3125-8025-4ebe-8a5a-53ef016055aa",
+        "rootSpanId": "14982d9a-638f-42cd-b9f2-fc1708b3b7dc",
+        "link": "https://www.braintrust.dev/app/WCEPS/object?object_type=project_logs&object_id=671b57c6-229b-4f25-8cf2-67fc0f36e120&id=9db1bed2-302a-4f9e-8f6b-f1ad4b66b483"
+      }
+    }
+  ],
+  "pipelineTrace": {
+    "version": "design-comp-v1",
+    "mode": "design-comp",
+    "promptLength": 5364,
+    "promptTokenBudget": 6200,
+    "evidenceIds": [
+      "care-products",
+      "care-three-cs"
+    ],
+    "logoAsset": {
+      "label": "Horizontal full color · transparent · light/image backgrounds",
+      "publicPath": "/brand-logos/care-coaching/care-coaching-logo-horizontal-fullcolor-notag.svg",
+      "sourceUrl": "https://www.wcepspathways.org/service-offerings/care-coaching/"
+    },
+    "contextAttachmentNames": [],
+    "retryCount": 0,
+    "braintrustTrace": {
+      "rowId": "a41398cd-17ab-4790-9fd2-5830eaf992e5",
+      "spanId": "14982d9a-638f-42cd-b9f2-fc1708b3b7dc",
+      "rootSpanId": "14982d9a-638f-42cd-b9f2-fc1708b3b7dc",
+      "link": "https://www.braintrust.dev/app/WCEPS/object?object_type=project_logs&object_id=671b57c6-229b-4f25-8cf2-67fc0f36e120&id=a41398cd-17ab-4790-9fd2-5830eaf992e5"
+    }
+  },
+  "critique": {
+    "status": "block",
+    "issues": [
+      "CARE Coaching copy includes sibling-brand term(s): CARE Coaching Needs Assessment, action-based data."
+    ],
+    "warnings": [
+      "CARE Coaching prompt is missing avoid guardrail(s): lecture hall, random books, fake chevron.",
+      "CARE Coaching copy mixes brand terms by request: Needs Assessment."
+    ],
+    "suggestedFixes": [
+      "Revise composition until the sendability score passes the WCEPS review threshold."
+    ]
+  },
+  "review": {
+    "approved": false,
+    "status": "block",
+    "issues": [
+      "CARE Coaching copy includes sibling-brand term(s): CARE Coaching Needs Assessment, action-based data.",
+      "Model QA: Fitted copy imports CARE Coaching Needs Assessment/action-based data language that the brand boundary explicitly marks as sibling/avoid content.",
+      "Model QA: Internal draft/source-evidence disclaimer remains in the flyer footer and would appear as scaffolded, non-customer-facing content if exported.",
+      "Model QA: LayoutQa reports deck/text too tall with estimated canvas overflow, but renderQa still passes; final export requires refitting."
+    ],
+    "warnings": [
+      "CARE Coaching prompt is missing avoid guardrail(s): lecture hall, random books, fake chevron.",
+      "CARE Coaching copy mixes brand terms by request: Needs Assessment.",
+      "Model QA: The art plate is polished and type-safe but reads as a generic educator planning meeting with limited district EL leader specificity."
+    ],
+    "suggestedFixes": [
+      "Revise composition until the sendability score passes the WCEPS review threshold.",
+      "Fix model QA: Fitted copy imports CARE Coaching Needs Assessment/action-based data language that the brand boundary explicitly marks as sibling/avoid content.",
+      "Fix model QA: Internal draft/source-evidence disclaimer remains in the flyer footer and would appear as scaffolded, non-customer-facing content if exported.",
+      "Fix model QA: LayoutQa reports deck/text too tall with estimated canvas overflow, but renderQa still passes; final export requires refitting."
+    ]
+  },
+  "request": {
+    "artifactType": "flyer",
+    "brand": "CARE Coaching",
+    "audience": "district EL leaders",
+    "keyMessage": "",
+    "goal": "explain CARE Coaching and drive inquiry",
+    "topic": "customized coaching and professional learning for multilingual learner support",
+    "cta": "Request a CARE Coaching conversation",
+    "format": "Letter",
+    "toneModifier": "warm, practical, district-facing",
+    "notes": "Highlight the Three Cs without drifting into sibling needs-assessment copy.",
+    "visualInstruction": "",
+    "logoVariant": "",
+    "colorTheme": "",
+    "contextAttachments": [],
+    "strictlySourceGrounded": true,
+    "generateVisual": true
+  },
+  "sourceEvidence": [
+    {
+      "id": "care-three-cs",
+      "url": "https://www.wcepspathways.org/service-offerings/care-coaching/",
+      "excerpt": "The WCEPS CARE Coaching program supports educators by focusing on the Three Cs: Consulting, Coaching, and Continuous Learning.",
+      "label": "CARE Coaching Three Cs"
+    },
+    {
+      "id": "care-tailored-support",
+      "url": "https://www.wcepspathways.org/service-offerings/care-coaching/",
+      "excerpt": "Our professional learning offerings are designed to help educators reflect on their current practices and implement research-based actions that lead to meaningful change.",
+      "label": "CARE Coaching support model"
+    },
+    {
+      "id": "care-products",
+      "url": "https://www.wcepspathways.org/products-services/",
+      "excerpt": "CARE Coaching is described through collaborative educator support, reflective and data-driven practices, and student-centered growth.",
+      "label": "Products page CARE overview"
+    }
+  ],
+  "createdAt": "2026-04-24T22:49:22.034Z",
+  "updatedAt": "2026-04-24T22:51:47.149Z"
+}

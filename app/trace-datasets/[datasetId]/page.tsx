@@ -43,7 +43,8 @@ export default async function TraceDatasetPage({ params }: { params: Promise<{ d
             </p>
             <h1 className="max-w-5xl text-4xl font-semibold leading-tight text-[#142836]">{manifest.datasetId}</h1>
             <p className="max-w-3xl text-base leading-7 text-slate-700">
-              {manifest.artifactCount} artifacts generated on {formatDate(manifest.createdAt)}. Open the artifact first, then the trace beside it.
+              {manifest.artifactCount} artifacts generated on {formatDate(manifest.createdAt)}. Open an artifact trace bundle to inspect the rendered artifact,
+              pipeline trace, ImageGen stage trace, JSON, QA, and failure attribution together.
             </p>
           </div>
         </div>
@@ -101,11 +102,18 @@ export default async function TraceDatasetPage({ params }: { params: Promise<{ d
 
               <div className="flex flex-wrap items-start gap-2 lg:justify-end">
                 <Link
-                  href={`/trace-datasets/${manifest.datasetId}/artifact/${artifact.artifactId}`}
+                  href={`/trace-datasets/${manifest.datasetId}/trace/${artifact.artifactId}`}
                   target="_blank"
                   className="inline-flex h-10 items-center rounded-lg bg-[#338bad] px-4 text-sm font-bold text-white"
                 >
-                  Open artifact
+                  Artifact trace bundle
+                </Link>
+                <Link
+                  href={`/trace-datasets/${manifest.datasetId}/artifact/${artifact.artifactId}`}
+                  target="_blank"
+                  className="inline-flex h-10 items-center rounded-lg border border-slate-200 px-4 text-sm font-bold text-[#142836]"
+                >
+                  Preview only
                 </Link>
                 <Link
                   href={`/trace-datasets/${manifest.datasetId}/artifact/${artifact.artifactId}/json`}
@@ -121,7 +129,7 @@ export default async function TraceDatasetPage({ params }: { params: Promise<{ d
                     rel="noreferrer"
                     className="inline-flex h-10 items-center rounded-lg border border-slate-200 px-4 text-sm font-bold text-[#142836]"
                   >
-                    Braintrust trace
+                    Pipeline trace
                   </a>
                 ) : null}
                 {artifact.imageJobs?.find((job) => job.link)?.link ? (
@@ -131,7 +139,7 @@ export default async function TraceDatasetPage({ params }: { params: Promise<{ d
                     rel="noreferrer"
                     className="inline-flex h-10 items-center rounded-lg border border-slate-200 px-4 text-sm font-bold text-[#142836]"
                   >
-                    ImageGen trace
+                    ImageGen stage trace
                   </a>
                 ) : null}
               </div>

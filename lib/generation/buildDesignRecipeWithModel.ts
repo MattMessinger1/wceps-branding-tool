@@ -2,9 +2,10 @@ import OpenAI from "openai";
 import { buildDesignRecipe } from "@/lib/composition";
 import type { ArtifactRequest } from "@/lib/schema/artifactRequest";
 import { DesignRecipeSchema, type CompositionTemplate, type DesignRecipe, type FittedCopy } from "@/lib/schema/generatedArtifact";
+import { DEFAULT_GPT_MODEL, getReasoningConfig, getReasoningEffort } from "./openaiModelConfig";
 
 function designRecipeModel() {
-  return process.env.OPENAI_DESIGN_RECIPE_MODEL ?? "gpt-5.4";
+  return process.env.OPENAI_DESIGN_RECIPE_MODEL ?? DEFAULT_GPT_MODEL;
 }
 
 function designRecipeEnabled() {
@@ -101,6 +102,7 @@ ${JSON.stringify(
 export function getDesignRecipeModelConfig() {
   return {
     model: designRecipeModel(),
+    reasoningEffort: getReasoningEffort(),
     enabled: designRecipeEnabled(),
   };
 }
@@ -122,6 +124,7 @@ export async function buildDesignRecipeWithModel({
     const client = new OpenAI();
     const response = await client.responses.create({
       model: designRecipeModel(),
+      reasoning: getReasoningConfig(),
       input: promptForModel(request, template, fittedCopy, deterministic),
       store: false,
     } as never);

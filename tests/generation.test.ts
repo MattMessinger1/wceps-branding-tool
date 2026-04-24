@@ -115,7 +115,7 @@ test("generates a complete creative brief and artifact copy", async () => {
   assert.ok(artifact.designRecipe);
   assert.ok(artifact.compositionScore);
   assert.ok(artifact.modelQa);
-  assert.equal(artifact.modelQa.metrics?.model, "gpt-5.4");
+  assert.equal(artifact.modelQa.metrics?.model, "gpt-5.5");
   assert.equal(artifact.artPlatePromptVersion, "design-comp-v1");
   assert.ok(artifact.imagePrompts.every((prompt) => prompt.includes("CONTRACT=design-comp-v1")));
   assert.ok(artifact.imagePrompts.every((prompt) => prompt.includes("MODE=design-comp-art-plate")));

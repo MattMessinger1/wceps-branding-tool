@@ -13,8 +13,10 @@ type ImageConfig = {
   configured: boolean;
   model: string;
   responsesModel: string;
+  reasoningEffort?: string;
   copyFitModel: string;
   copyFitEnabled: boolean;
+  copyFitWebSearchEnabled?: boolean;
   designRecipeModel: string;
   designRecipeEnabled: boolean;
   modelQaModel: string;
@@ -221,24 +223,37 @@ function SystemStatus({ imageConfig }: { imageConfig: ImageConfig }) {
           </div>
           <div>
             <dt className="font-semibold uppercase tracking-wide text-slate-500">Driver</dt>
-            <dd className="mt-1 break-words">{imageConfig.responsesModel}</dd>
+            <dd className="mt-1 break-words">
+              {imageConfig.responsesModel}
+              {imageConfig.reasoningEffort ? ` · ${imageConfig.reasoningEffort}` : ""}
+            </dd>
           </div>
           <div>
             <dt className="font-semibold uppercase tracking-wide text-slate-500">Copy fit</dt>
             <dd className="mt-1 break-words">
-              {imageConfig.copyFitEnabled ? imageConfig.copyFitModel : `${imageConfig.copyFitModel} off`}
+              {imageConfig.copyFitEnabled
+                ? `${imageConfig.copyFitModel}${imageConfig.reasoningEffort ? ` · ${imageConfig.reasoningEffort}` : ""}${
+                    imageConfig.copyFitWebSearchEnabled ? " + approved-domain web search" : ""
+                  }`
+                : `${imageConfig.copyFitModel} off`}
             </dd>
           </div>
           <div>
             <dt className="font-semibold uppercase tracking-wide text-slate-500">Design recipe</dt>
             <dd className="mt-1 break-words">
-              {imageConfig.designRecipeEnabled ? imageConfig.designRecipeModel : `${imageConfig.designRecipeModel} off`}
+              {imageConfig.designRecipeEnabled
+                ? `${imageConfig.designRecipeModel}${imageConfig.reasoningEffort ? ` · ${imageConfig.reasoningEffort}` : ""}`
+                : `${imageConfig.designRecipeModel} off`}
             </dd>
           </div>
           <div>
             <dt className="font-semibold uppercase tracking-wide text-slate-500">Model QA</dt>
             <dd className="mt-1 break-words">
-              {imageConfig.modelQaEnabled ? `${imageConfig.modelQaModel}${imageConfig.modelQaIncludeImage ? " + image" : ""}` : `${imageConfig.modelQaModel} off`}
+              {imageConfig.modelQaEnabled
+                ? `${imageConfig.modelQaModel}${imageConfig.reasoningEffort ? ` · ${imageConfig.reasoningEffort}` : ""}${
+                    imageConfig.modelQaIncludeImage ? " + image" : ""
+                  }`
+                : `${imageConfig.modelQaModel} off`}
             </dd>
           </div>
           <div>

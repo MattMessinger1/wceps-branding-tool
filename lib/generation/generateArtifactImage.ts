@@ -5,7 +5,8 @@ import {
   evaluateVisualQa,
   resolveCompositionTemplate,
 } from "@/lib/composition";
-import { traceBraintrust } from "@/lib/observability/braintrust";
+import type { Span } from "braintrust";
+import { traceBraintrust, traceBraintrustStep } from "@/lib/observability/braintrust";
 import { ArtifactRequestSchema, type ArtifactRequest } from "@/lib/schema/artifactRequest";
 import { GeneratedArtifactSchema, type GeneratedArtifact, type GeneratedImageResult, type StageQa } from "@/lib/schema/generatedArtifact";
 import { getBackgroundImageJobResult, startBackgroundImageJob } from "./imageJobs";
@@ -18,6 +19,38 @@ type GenerateArtifactImageOptions = {
   outputFormat?: string;
   outputCompression?: string | number;
 };
+
+function imageJobTraceEvent(artifact: GeneratedArtifact, prompt: string, options: GenerateArtifactImageOptions) {
+  const size = imageSizeForArtifactType(artifact.artifactType);
+  const quality = options.quality ?? "high";
+  const outputFormat = options.outputFormat ?? process.env.OPENAI_IMAGE_OUTPUT_FORMAT ?? "webp";
+  const outputCompression = options.outputCompression ?? process.env.OPENAI_IMAGE_OUTPUT_COMPRESSION ?? 70;
+
+  return {
+    size,
+    quality,
+    outputFormat,
+    outputCompression,
+    event: {
+      input: {
+        artifactId: artifact.id,
+        brand: artifact.brand,
+        artifactType: artifact.artifactType,
+        prompt,
+        size,
+        quality,
+        outputFormat,
+        outputCompression,
+      },
+      metadata: {
+        artifactId: artifact.id,
+        brand: artifact.brand,
+        artifactType: artifact.artifactType,
+        promptVersion: artifact.artPlatePromptVersion,
+      },
+    },
+  };
+}
 
 const QA_PREFIX_PATTERN = /^(?:Layout|Copy|Visual|Render|Model) QA:/;
 
@@ -133,39 +166,38 @@ export async function generateImageForArtifact(
   artifact: GeneratedArtifact,
   options: GenerateArtifactImageOptions = {},
 ): Promise<GeneratedArtifact> {
+  return traceBraintrust("imageJob", imageJobTraceEvent(artifact, artifact.imagePrompts[0] ?? "", options).event, (span) =>
+    runImageJobForArtifact(artifact, options, span),
+  );
+}
+
+export async function generateImageForArtifactInTrace(
+  artifact: GeneratedArtifact,
+  options: GenerateArtifactImageOptions = {},
+  parentSpan?: Span,
+): Promise<GeneratedArtifact> {
+  const prompt = artifact.imagePrompts[0];
+  if (!prompt) return await refreshArtifactStageQa(artifact);
+
+  const { event } = imageJobTraceEvent(artifact, prompt, options);
+
+  return traceBraintrustStep(parentSpan, "imageJob", event, (span) => runImageJobForArtifact(artifact, options, span));
+}
+
+async function runImageJobForArtifact(
+  artifact: GeneratedArtifact,
+  options: GenerateArtifactImageOptions,
+  span?: Span,
+): Promise<GeneratedArtifact> {
   const prompt = artifact.imagePrompts[0];
   if (!prompt) return await refreshArtifactStageQa(artifact);
 
   const request = requestFromArtifact(artifact);
-  const size = imageSizeForArtifactType(artifact.artifactType);
-  const quality = options.quality ?? "high";
-  const outputFormat = options.outputFormat ?? process.env.OPENAI_IMAGE_OUTPUT_FORMAT ?? "webp";
-  const outputCompression = options.outputCompression ?? process.env.OPENAI_IMAGE_OUTPUT_COMPRESSION ?? 70;
+  const { size, quality, outputFormat, outputCompression } = imageJobTraceEvent(artifact, prompt, options);
   const timeoutMs = options.timeoutMs ?? 10 * 60 * 1000;
   const pollIntervalMs = options.pollIntervalMs ?? 5000;
   const startedAt = Date.now();
 
-  return traceBraintrust(
-    "imageJob",
-    {
-      input: {
-        artifactId: artifact.id,
-        brand: artifact.brand,
-        artifactType: artifact.artifactType,
-        prompt,
-        size,
-        quality,
-        outputFormat,
-        outputCompression,
-      },
-      metadata: {
-        artifactId: artifact.id,
-        brand: artifact.brand,
-        artifactType: artifact.artifactType,
-        promptVersion: artifact.artPlatePromptVersion,
-      },
-    },
-    async (span) => {
       const start = await startBackgroundImageJob(prompt, {
         size,
         quality,
@@ -236,6 +268,4 @@ export async function generateImageForArtifact(
         ...artifact,
         imageResults: [imageResult, ...(artifact.imageResults ?? []).filter((image) => image.dataUrl !== imageResult?.dataUrl)],
       });
-    },
-  );
 }

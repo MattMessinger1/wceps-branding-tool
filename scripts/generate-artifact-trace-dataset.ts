@@ -1,8 +1,9 @@
 import { cp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { exportHtml } from "@/lib/export";
-import { generateArtifact } from "@/lib/generation/generateArtifact";
-import { generateImageForArtifact } from "@/lib/generation/generateArtifactImage";
+import { generateArtifactInTrace } from "@/lib/generation/generateArtifact";
+import { generateImageForArtifactInTrace } from "@/lib/generation/generateArtifactImage";
+import { traceBraintrust, traceBraintrustStep } from "@/lib/observability/braintrust";
 import { GeneratedArtifactSchema, type GeneratedArtifact, type StageQa } from "@/lib/schema/generatedArtifact";
 import { examplesDir, publishedTraceDatasetsDir, traceDatasetsDir } from "@/lib/storage/paths";
 
@@ -114,6 +115,13 @@ function loadEnvLocal() {
 
 function timestampId() {
   return new Date().toISOString().replace(/[:.]/g, "-");
+}
+
+function requestedLimit() {
+  const limitArg = process.argv.find((arg) => arg.startsWith("--limit="));
+  if (!limitArg) return process.argv.includes("--one") ? 1 : undefined;
+  const parsed = Number.parseInt(limitArg.split("=")[1] ?? "", 10);
+  return Number.isFinite(parsed) && parsed > 0 ? parsed : undefined;
 }
 
 function escapeHtml(value: unknown) {
@@ -399,7 +407,8 @@ async function main() {
   const indexHtmlPath = path.join(runDir, "index.html");
 
   const raw = await readFile(path.join(examplesDir, "sample-requests.json"), "utf8");
-  const requests = JSON.parse(raw) as SampleRequest[];
+  const limit = requestedLimit();
+  const requests = (JSON.parse(raw) as SampleRequest[]).slice(0, limit);
 
   await mkdir(artifactsDir, { recursive: true });
   await mkdir(htmlDir, { recursive: true });
@@ -408,9 +417,46 @@ async function main() {
   const entries: TraceDatasetEntry[] = [];
 
   for (const request of requests) {
-    const draftArtifact = await generateArtifact({ ...request, generateVisual: true });
-    console.log(`Started ImageGen trace golden ${draftArtifact.brand} ${draftArtifact.artifactType}: ${draftArtifact.id}`);
-    const artifact = await generateImageForArtifact(draftArtifact, { timeoutMs: 10 * 60 * 1000, pollIntervalMs: 5000 });
+    const artifact = await traceBraintrust(
+      "fullArtifactPipeline",
+      {
+        input: request,
+        metadata: {
+          sourceRequestId: request.id,
+          brand: request.brand,
+          artifactType: request.artifactType,
+          traceShape: "single-parent-with-imageJob-child",
+        },
+      },
+      async (span) => {
+        const draftArtifact = await traceBraintrustStep(
+          span,
+          "generateArtifact",
+          { input: { ...request, generateVisual: true } },
+          (child) => generateArtifactInTrace({ ...request, generateVisual: true }, child),
+        );
+        console.log(`Started ImageGen trace golden ${draftArtifact.brand} ${draftArtifact.artifactType}: ${draftArtifact.id}`);
+        const imageArtifact = await generateImageForArtifactInTrace(draftArtifact, { timeoutMs: 10 * 60 * 1000, pollIntervalMs: 5000 }, span);
+        const rootTrace = span
+          ? {
+              rowId: span.id,
+              spanId: span.spanId,
+              rootSpanId: span.rootSpanId,
+              link: span.link(),
+            }
+          : undefined;
+
+        return GeneratedArtifactSchema.parse({
+          ...imageArtifact,
+          pipelineTrace: imageArtifact.pipelineTrace
+            ? {
+                ...imageArtifact.pipelineTrace,
+                braintrustTrace: rootTrace,
+              }
+            : undefined,
+        });
+      },
+    );
     const { artifactForJson, artifactForHtml } = await materializeImageAssets({ artifact, imagesDir, htmlDir, runDir });
     const safeArtifact = GeneratedArtifactSchema.parse(redactSensitiveData(artifactForJson));
     const artifactFilePath = path.join(artifactsDir, `${artifact.id}.json`);
@@ -435,7 +481,7 @@ async function main() {
         projectName: process.env.BRAINTRUST_PROJECT_NAME || "Brand Building",
         orgName: process.env.BRAINTRUST_ORG_NAME || "WCEPS",
         experimentName,
-        traceName: "generateArtifact",
+        traceName: "fullArtifactPipeline",
         loggingEnabled: shouldSendToBraintrust,
         rowId: artifact.pipelineTrace?.braintrustTrace?.rowId,
         spanId: artifact.pipelineTrace?.braintrustTrace?.spanId,

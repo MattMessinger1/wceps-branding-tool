@@ -1,0 +1,439 @@
+{
+  "id": "draft-20260424225947-oqe3yl",
+  "artifactType": "flyer",
+  "brand": "CALL",
+  "audience": "principals",
+  "brief": {
+    "artifactType": "flyer",
+    "brand": "CALL",
+    "audience": "principals",
+    "objective": "introduce CALL as a leadership development and improvement planning tool",
+    "keyMessages": [
+      "CALL provides a user-friendly school-wide needs assessment and feedback system for school improvement.",
+      "CALL supports professional growth, leadership development, and school improvement planning.",
+      "CALL focuses on leadership, improvement, and the work."
+    ],
+    "proofPoints": [
+      "The CALL homepage describes CALL as a user-friendly school-wide needs assessment and feedback system.",
+      "The CALL site says CALL provides unique tools and customized services for professional growth, leadership development, and school improvement planning.",
+      "The What We Do page says CALL is school- and district-wide."
+    ],
+    "cta": "Request a CALL demo",
+    "visualDirection": [
+      "principal and leadership team planning",
+      "school improvement meeting",
+      "data-informed discussion",
+      "leadership dashboard",
+      "feedback loop"
+    ],
+    "layoutRecommendation": "Use a one-page flyer with a strong headline, short audience framing, three concise support blocks, a source-grounded proof point, and one clear CTA.",
+    "sourceEvidenceIds": [
+      "call-home-assessment",
+      "call-home-services",
+      "call-focus",
+      "call-what-we-do"
+    ]
+  },
+  "copy": {
+    "headlineOptions": [
+      "Focus on leadership. Focus on improvement.",
+      "Leadership for learning, grounded in feedback",
+      "A practical system for school improvement planning"
+    ],
+    "subheadOptions": [
+      "The Comprehensive Assessment of Leadership for Learning provides tools, customized services, and feedback systems that support school and district.",
+      "CALL provides a user-friendly school-wide needs assessment and feedback system for school improvement.",
+      "CALL provides a user-friendly school-wide needs assessment and feedback system for school improvement."
+    ],
+    "body": "CALL provides a user-friendly school-wide needs assessment and feedback system for school improvement. For principals, this draft focuses on leadership for learning, professional growth, and school improvement planning.",
+    "bullets": [
+      "CALL provides a user-friendly school-wide needs assessment and feedback system for school improvement.",
+      "CALL supports professional growth, leadership development, and school improvement planning.",
+      "CALL focuses on leadership, improvement, and the work.",
+      "The CALL homepage describes CALL as a user-friendly school-wide needs assessment and feedback system."
+    ],
+    "cta": "Request a CALL demo",
+    "footer": "Draft generated for internal review. Claims should remain tied to the source evidence shown with this artifact."
+  },
+  "fittedCopy": {
+    "headline": "Focus on leadership. Focus on improvement. Focus on the work.",
+    "deck": "CALL supports professional growth, leadership development, and school improvement planning through a user-friendly school-wide assessment and feedback system.",
+    "proofPoints": [
+      "CALL provides school-wide needs assessment and feedback for school improvement.",
+      "CALL offers practical, action-oriented data to support leadership for learning."
+    ],
+    "cta": "Request a CALL demo",
+    "footer": "Draft generated for internal review. Claims should remain tied to the source evidence shown with this artifact."
+  },
+  "compositionTemplate": {
+    "id": "campaign-flyer",
+    "artifactType": "flyer",
+    "aspectRatio": "4:5 portrait",
+    "densityTarget": "balanced",
+    "typographyScale": "large campaign headline with compact support proof",
+    "artPlateTreatment": "full-bleed branded atmosphere cropped into the composition",
+    "logoPlacement": "top-left, single official logo",
+    "copyPlacement": "left-led editorial stack with proof band integrated below",
+    "ctaPlacement": "lower proof band compact action"
+  },
+  "designRecipe": {
+    "id": "editorial-split",
+    "source": "model-generated",
+    "textZone": "left",
+    "visualZone": "right-field",
+    "density": "balanced",
+    "hierarchy": "large campaign headline at left, concise deck beneath, two proof points grouped as a lower evidence band, and one compact CTA owned by the app",
+    "artDirection": "principal-facing CALL campaign flyer with an editorial split: calm education-leadership atmosphere, school improvement planning cues, collaborative data review, and subtle assessment-to-action visual flow on the right",
+    "placeholderStrategy": "shape negative space with light gradients, subject cropping, and directional lines to support app-set text; do not create boxes, fake copy, logos, CTA labels, or contact bars",
+    "appComposition": "official logo remains top-left; app typesets all real message content in the left editorial stack while full-bleed branded imagery occupies and energizes the right field with a lower rhythm for proof and action",
+    "promptDirectives": [
+      "Design the whole 4:5 flyer concept, not a decorative background.",
+      "Keep the left message zone clean and readable through intentional negative space.",
+      "Use right-side visual storytelling about principals using data for school improvement.",
+      "Create a professional, trustworthy education-leadership tone for CALL.",
+      "No fake text, fake logos, placeholder panels, UI cards, or contact strips."
+    ]
+  },
+  "compositionScore": {
+    "question": "Would I send this to the WCEPS team without apology?",
+    "overall": 95,
+    "whitespaceDensity": 92,
+    "templateScaffolding": 96,
+    "typographyQuality": 93,
+    "artifactMatch": 96,
+    "brandFidelity": 94,
+    "brandRelevance": 96,
+    "brandBoundary": 100,
+    "textIntegration": 94,
+    "fakeContentRisk": 95,
+    "sendability": 95,
+    "status": "warn",
+    "issues": [],
+    "warnings": [
+      "CALL prompt is missing avoid guardrail(s): fake dashboard, stock workshop."
+    ]
+  },
+  "layoutQa": {
+    "question": "Would I send this layout to the WCEPS team without apology?",
+    "overall": 92,
+    "noTextOverflow": 64,
+    "noCtaCollision": 100,
+    "proofLineWidth": 96,
+    "logoOnce": 100,
+    "artifactFormatMatch": 100,
+    "exportReady": 92,
+    "sendability": 92,
+    "status": "block",
+    "issues": [
+      "Deck copy is too tall for the selected template."
+    ],
+    "warnings": [],
+    "metrics": {
+      "headlineLines": 4,
+      "deckLines": 5,
+      "maxProofLines": 3,
+      "minProofCharsPerLine": 26,
+      "ctaLines": 1,
+      "estimatedCanvasOverflow": true
+    }
+  },
+  "copyQualityQa": {
+    "question": "Would I send this copy to the WCEPS team without apology?",
+    "score": 88,
+    "status": "warn",
+    "issues": [],
+    "warnings": [
+      "Deck and proof copy repeat the same idea instead of creating a clear message hierarchy."
+    ],
+    "failureModes": [
+      {
+        "id": "repeated_copy",
+        "severity": "warn",
+        "introducedAt": "fitCopy",
+        "missedBy": "compositionScore",
+        "message": "Deck and proof copy repeat the same idea instead of creating a clear message hierarchy."
+      }
+    ],
+    "metrics": {
+      "fittedTextCount": 5,
+      "generatedTextCount": 8,
+      "missingPreferredTerms": []
+    }
+  },
+  "visualQa": {
+    "question": "Would I send this visual system to the WCEPS team without apology?",
+    "score": 94,
+    "status": "pass",
+    "issues": [],
+    "warnings": [],
+    "failureModes": [],
+    "metrics": {
+      "hasGeneratedVisual": true,
+      "usesFallbackArt": false,
+      "missingArtPlate": false,
+      "darkEdgeBleedRisk": false,
+      "visualRelevance": 94,
+      "promptCount": 3
+    }
+  },
+  "renderQa": {
+    "question": "Would I send this rendered artifact to the WCEPS team without apology?",
+    "score": 98,
+    "status": "pass",
+    "issues": [],
+    "warnings": [],
+    "failureModes": [],
+    "metrics": {
+      "templateId": "campaign-flyer",
+      "artifactType": "flyer",
+      "proofPointCount": 2,
+      "hasCtaDetail": false,
+      "inheritedBlockCount": 0
+    }
+  },
+  "modelQa": {
+    "question": "Would a senior WCEPS reviewer send this artifact without apology?",
+    "score": 74,
+    "status": "block",
+    "issues": [
+      "Deck length exceeds the selected flyer layout capacity; deterministic layout QA caught this but the artifact remains unexportable until refit.",
+      "The layout contract prioritizes an incomplete support sentence, creating risk that broken copy appears in the rendered flyer.",
+      "The footer is scaffold/internal-review language, not production flyer content, and should not be present in an approved export."
+    ],
+    "warnings": [
+      "Deck and proof copy repeat the same assessment/school-improvement claim rather than providing distinct principal-facing benefits."
+    ],
+    "failureModes": [
+      {
+        "id": "layout_overflow_deck",
+        "severity": "block",
+        "introducedAt": "fitCopy",
+        "missedBy": "finalReview",
+        "message": "Deck length exceeds the selected flyer layout capacity; deterministic layout QA caught this but the artifact remains unexportable until refit."
+      },
+      {
+        "id": "truncated_support_copy",
+        "severity": "block",
+        "introducedAt": "deterministicLayout",
+        "missedBy": "renderQa",
+        "message": "The layout contract prioritizes an incomplete support sentence, creating risk that broken copy appears in the rendered flyer."
+      },
+      {
+        "id": "internal_review_footer",
+        "severity": "block",
+        "introducedAt": "generateCopy",
+        "missedBy": "copyQualityQa",
+        "message": "The footer is scaffold/internal-review language, not production flyer content, and should not be present in an approved export."
+      },
+      {
+        "id": "repetitive_message_hierarchy",
+        "severity": "warn",
+        "introducedAt": "fitCopy",
+        "missedBy": "compositionScore",
+        "message": "Deck and proof copy repeat the same assessment/school-improvement claim rather than providing distinct principal-facing benefits."
+      }
+    ],
+    "metrics": {
+      "enabled": true,
+      "model": "gpt-5.5",
+      "imageIncluded": true,
+      "deterministicScores": {
+        "sendability": 95,
+        "layoutQa": 92,
+        "copyQualityQa": 88,
+        "visualQa": 94,
+        "renderQa": 98
+      }
+    }
+  },
+  "failureModes": [
+    {
+      "id": "repeated_copy",
+      "severity": "warn",
+      "introducedAt": "fitCopy",
+      "missedBy": "compositionScore",
+      "message": "Deck and proof copy repeat the same idea instead of creating a clear message hierarchy."
+    },
+    {
+      "id": "layout_overflow_deck",
+      "severity": "block",
+      "introducedAt": "fitCopy",
+      "missedBy": "finalReview",
+      "message": "Deck length exceeds the selected flyer layout capacity; deterministic layout QA caught this but the artifact remains unexportable until refit."
+    },
+    {
+      "id": "truncated_support_copy",
+      "severity": "block",
+      "introducedAt": "deterministicLayout",
+      "missedBy": "renderQa",
+      "message": "The layout contract prioritizes an incomplete support sentence, creating risk that broken copy appears in the rendered flyer."
+    },
+    {
+      "id": "internal_review_footer",
+      "severity": "block",
+      "introducedAt": "generateCopy",
+      "missedBy": "copyQualityQa",
+      "message": "The footer is scaffold/internal-review language, not production flyer content, and should not be present in an approved export."
+    },
+    {
+      "id": "repetitive_message_hierarchy",
+      "severity": "warn",
+      "introducedAt": "fitCopy",
+      "missedBy": "compositionScore",
+      "message": "Deck and proof copy repeat the same assessment/school-improvement claim rather than providing distinct principal-facing benefits."
+    }
+  ],
+  "artPlatePromptVersion": "design-comp-v1",
+  "layoutContract": {
+    "artifactType": "flyer",
+    "canvas": "1024x1536, portrait full-page marketing artifact",
+    "safeZones": [
+      "Create a portrait art field with enough texture to support editorial layout.",
+      "Keep important visual energy away from trim and crop edges.",
+      "Avoid document panels, empty modules, fake cards, or CTA-like shapes."
+    ],
+    "exactTextPriority": [
+      "Focus on leadership. Focus on improvement.",
+      "For principals",
+      "Request a CALL demo",
+      "The Comprehensive Assessment of Leadership for Learning provides tools, customized services, and",
+      "CALL provides a user-friendly school-wide needs assessment and feedback system for school improvement.",
+      "CALL supports professional growth, leadership development, and school improvement planning.",
+      "CALL focuses on leadership, improvement, and the work."
+    ],
+    "appOwnedElements": [
+      "Official CALL logo from approved asset.",
+      "Deterministic grid, typography, headline, audience, and CTA.",
+      "Exact support copy and proof hierarchy.",
+      "Final export wrapper, source evidence, and review state."
+    ],
+    "imageGenOwnedElements": [
+      "Text-free full-bleed campaign art plate.",
+      "Atmosphere, photography or illustration treatment, color, texture, and crop rhythm.",
+      "No document layout, fake cards, panels, contact bars, charts, or text."
+    ]
+  },
+  "imagePrompts": [
+    "CONTRACT=design-comp-v1\nMODE=design-comp-art-plate\nINTENT={out:flyer, brand:CALL, aud:principals, theme:[leadership | learning | professional | growth | school | improvement | planning | principals | keep], tone:steady, clear, leadership-oriented, ground:strict}\nCANVAS=1024x1536, portrait full-page marketing artifact\nFORMAT=portrait campaign art plate for app-composed marketing artifact; not social/web/contact card.\nDESIGN_RECIPE={id:editorial-split; text_zone:left; visual_zone:right-field; density:balanced; hierarchy:large campaign headline at left, concise deck beneath, two proof points grouped as a lower evidence band, and one compact CTA owned by the; art:principal-facing CALL campaign flyer with an editorial split: calm education-leadership atmosphere, school improvement planning cues; placeholder:shape negative space with light gradients, subject cropping, and directional lines to support app-set text; do not create boxes; app_comp:official logo remains top-left; app typesets all real message content in the left editorial stack while full-bleed branded imagery; directives:[Design the whole 4:5 flyer concept, not a decorative background. | Keep the left message zone clean and readable through intentional negative | Use right-side visual storytelling about principals using data for school | Create a professional, trustworthy education-leadership tone for CALL.]}\nBRAND={pal:[#142836 | #0081A4 | #5EA974 | #F2975E], visual:[principal and leadership team planning | school improvement meeting | data-informed discussion | educators reviewing feedback reports | steady], evid_ids:[call-home-services | call-home-assessment]}\nBRAND_BOUNDARY={keep:[leadership for learning | leadership development | feedback | professional growth | school improvement planning]; avoid_sibling:[WebbAlign | DOK | Depth of Knowledge | CARE Coaching | CCNA | WIDA PRIME | PRIME process | action-based data]; parent_context:[WCEPS]}\nBRAND_VISUAL_PROFILE={show:[principal and leadership team planning | school improvement conversation | feedback report review | professional growth planning]; props:[school improvement notes | feedback reports without readable text | leadership planning materials | team reflection artifacts]; avoid:[generic PD workshop | fake leadership dashboard | corporate boardroom scene | random classroom stock | readable charts]; app_owned:[CALL logo | leadership for learning wording | headline | CTA | proof copy]; tone:[leadership-focused | reflective | strategic | credible | calm]; fit:leadership-for-learning campaign visual with planning and school-improvement energy}\nLOGO=do not render any CALL logo, wordmark, brand initials, logo-like mark, chevron/mountain mark, arrow mark, or background logo pattern; app renders official logo once.\nMARKS_RULE=official logos, seals, badges, CTAs, headlines, labels, and readable copy are app-owned; do not invent or render them in the art plate.\nOWN=app:[Official CALL logo from approved asset. | Deterministic grid, typography, headline, audience, and CTA. | Exact support copy and proof hierarchy. | Final export wrapper, source evidence, and review state.]; imagegen:[Text-free full-bleed campaign art plate. | Atmosphere, photography or illustration treatment, color | No document layout, fake cards, panels, contact bars, charts].\nCROP_SAFE=[Create a portrait art field with enough texture to support | Keep important visual energy away from trim and crop edges. | Avoid document panels, empty modules, fake cards, or CTA-like]\nMESSAGE_CUES=[headline_theme:leadership/learning/professional | audience:10 chars | cta_intent:request/call/demo | proof_volume:compact]; mood/subject only, never words/layout.\nREFS=none; references only.\nUSER_NOTE=Keep claims conservative because CALL copy must stay tightly source-bounded.\nART=portrait full-bleed campaign art plate with polished education-sector storytelling, layered depth, and rich visual density; NY media/ad-agency quality, full designed concept with visual hierarchy, type-safe contrast zones, premium atmosphere, layered depth, non-generic education storytelling, intentional crop.\nVISUAL_STYLE=authentic editorial photography or refined abstract-illustrative atmosphere; avoid posed training-room stock, washed-out empty fades, generic meeting-table cliches, literal brand-shape wallpaper.\nCOMPOSITION=ImageGen creates a full artifact design comp: composition, crop, hierarchy, contrast, visual rhythm, and type-safe zones. The app renders exact typography, official logo, proof copy, CTA, source evidence, and export.\nTEXT_RULE=absolutely no readable text, letters, numbers, labels, fake paragraphs, book titles, publisher names, email addresses, URLs, phone numbers, citations, or lorem ipsum; imply text areas through composition only.\nNO=document layouts, panels, blank boxes, placeholder modules, mock UI, cards, fake text, fake charts, icons with labels, contact bars, duplicate logos, fake logos, fake seals, fake badges, fake book titles, fake publisher brands, logo-like marks, wordmarks, chevrons, arrows, mountain logos, malformed UI, brochure scaffolding, invented claims, endorsement imagery, close-up faces, detailed hands, stock-photo workshop posing.\nQUALITY=best over fast; polished design-comp art plate, no template scaffolding.",
+    "CONTRACT=design-comp-v1\nMODE=design-comp-art-plate\nINTENT={out:flyer, brand:CALL, aud:principals, theme:[leadership | learning | professional | growth | school | improvement | planning | principals | keep], tone:steady, clear, leadership-oriented, ground:strict}\nCANVAS=1024x1536, portrait full-page marketing artifact\nFORMAT=portrait campaign art plate for app-composed marketing artifact; not social/web/contact card.\nDESIGN_RECIPE={id:editorial-split; text_zone:left; visual_zone:right-field; density:balanced; hierarchy:large campaign headline at left, concise deck beneath, two proof points grouped as a lower evidence band, and one compact CTA owned by the; art:principal-facing CALL campaign flyer with an editorial split: calm education-leadership atmosphere, school improvement planning cues; placeholder:shape negative space with light gradients, subject cropping, and directional lines to support app-set text; do not create boxes; app_comp:official logo remains top-left; app typesets all real message content in the left editorial stack while full-bleed branded imagery; directives:[Design the whole 4:5 flyer concept, not a decorative background. | Keep the left message zone clean and readable through intentional negative | Use right-side visual storytelling about principals using data for school | Create a professional, trustworthy education-leadership tone for CALL.]}\nBRAND={pal:[#142836 | #0081A4 | #5EA974 | #F2975E], visual:[principal and leadership team planning | school improvement meeting | data-informed discussion | educators reviewing feedback reports | steady], evid_ids:[call-home-services | call-home-assessment]}\nBRAND_BOUNDARY={keep:[leadership for learning | leadership development | feedback | professional growth | school improvement planning]; avoid_sibling:[WebbAlign | DOK | Depth of Knowledge | CARE Coaching | CCNA | WIDA PRIME | PRIME process | action-based data]; parent_context:[WCEPS]}\nBRAND_VISUAL_PROFILE={show:[principal and leadership team planning | school improvement conversation | feedback report review | professional growth planning]; props:[school improvement notes | feedback reports without readable text | leadership planning materials | team reflection artifacts]; avoid:[generic PD workshop | fake leadership dashboard | corporate boardroom scene | random classroom stock | readable charts]; app_owned:[CALL logo | leadership for learning wording | headline | CTA | proof copy]; tone:[leadership-focused | reflective | strategic | credible | calm]; fit:leadership-for-learning campaign visual with planning and school-improvement energy}\nLOGO=do not render any CALL logo, wordmark, brand initials, logo-like mark, chevron/mountain mark, arrow mark, or background logo pattern; app renders official logo once.\nMARKS_RULE=official logos, seals, badges, CTAs, headlines, labels, and readable copy are app-owned; do not invent or render them in the art plate.\nOWN=app:[Official CALL logo from approved asset. | Deterministic grid, typography, headline, audience, and CTA. | Exact support copy and proof hierarchy. | Final export wrapper, source evidence, and review state.]; imagegen:[Text-free full-bleed campaign art plate. | Atmosphere, photography or illustration treatment, color | No document layout, fake cards, panels, contact bars, charts].\nCROP_SAFE=[Create a portrait art field with enough texture to support | Keep important visual energy away from trim and crop edges. | Avoid document panels, empty modules, fake cards, or CTA-like]\nMESSAGE_CUES=[headline_theme:leadership/learning/professional | audience:10 chars | cta_intent:request/call/demo | proof_volume:compact]; mood/subject only, never words/layout.\nREFS=none; references only.\nUSER_NOTE=Keep claims conservative because CALL copy must stay tightly source-bounded.\nART=premium nonprofit education art plate with editorial atmosphere, brand color rhythm, no logo shapes, and no document modules; NY media/ad-agency quality, full designed concept with visual hierarchy, type-safe contrast zones, premium atmosphere, layered depth, non-generic education storytelling, intentional crop.\nVISUAL_STYLE=authentic editorial photography or refined abstract-illustrative atmosphere; avoid posed training-room stock, washed-out empty fades, generic meeting-table cliches, literal brand-shape wallpaper.\nCOMPOSITION=ImageGen creates a full artifact design comp: composition, crop, hierarchy, contrast, visual rhythm, and type-safe zones. The app renders exact typography, official logo, proof copy, CTA, source evidence, and export.\nTEXT_RULE=absolutely no readable text, letters, numbers, labels, fake paragraphs, book titles, publisher names, email addresses, URLs, phone numbers, citations, or lorem ipsum; imply text areas through composition only.\nNO=document layouts, panels, blank boxes, placeholder modules, mock UI, cards, fake text, fake charts, icons with labels, contact bars, duplicate logos, fake logos, fake seals, fake badges, fake book titles, fake publisher brands, logo-like marks, wordmarks, chevrons, arrows, mountain logos, malformed UI, brochure scaffolding, invented claims, endorsement imagery, close-up faces, detailed hands, stock-photo workshop posing.\nQUALITY=best over fast; polished design-comp art plate, no template scaffolding.",
+    "CONTRACT=design-comp-v1\nMODE=design-comp-art-plate\nINTENT={out:flyer, brand:CALL, aud:principals, theme:[leadership | learning | professional | growth | school | improvement | planning | principals | keep], tone:steady, clear, leadership-oriented, ground:strict}\nCANVAS=1024x1536, portrait full-page marketing artifact\nFORMAT=portrait campaign art plate for app-composed marketing artifact; not social/web/contact card.\nDESIGN_RECIPE={id:editorial-split; text_zone:left; visual_zone:right-field; density:balanced; hierarchy:large campaign headline at left, concise deck beneath, two proof points grouped as a lower evidence band, and one compact CTA owned by the; art:principal-facing CALL campaign flyer with an editorial split: calm education-leadership atmosphere, school improvement planning cues; placeholder:shape negative space with light gradients, subject cropping, and directional lines to support app-set text; do not create boxes; app_comp:official logo remains top-left; app typesets all real message content in the left editorial stack while full-bleed branded imagery; directives:[Design the whole 4:5 flyer concept, not a decorative background. | Keep the left message zone clean and readable through intentional negative | Use right-side visual storytelling about principals using data for school | Create a professional, trustworthy education-leadership tone for CALL.]}\nBRAND={pal:[#142836 | #0081A4 | #5EA974 | #F2975E], visual:[principal and leadership team planning | school improvement meeting | data-informed discussion | educators reviewing feedback reports | steady], evid_ids:[call-home-services | call-home-assessment]}\nBRAND_BOUNDARY={keep:[leadership for learning | leadership development | feedback | professional growth | school improvement planning]; avoid_sibling:[WebbAlign | DOK | Depth of Knowledge | CARE Coaching | CCNA | WIDA PRIME | PRIME process | action-based data]; parent_context:[WCEPS]}\nBRAND_VISUAL_PROFILE={show:[principal and leadership team planning | school improvement conversation | feedback report review | professional growth planning]; props:[school improvement notes | feedback reports without readable text | leadership planning materials | team reflection artifacts]; avoid:[generic PD workshop | fake leadership dashboard | corporate boardroom scene | random classroom stock | readable charts]; app_owned:[CALL logo | leadership for learning wording | headline | CTA | proof copy]; tone:[leadership-focused | reflective | strategic | credible | calm]; fit:leadership-for-learning campaign visual with planning and school-improvement energy}\nLOGO=do not render any CALL logo, wordmark, brand initials, logo-like mark, chevron/mountain mark, arrow mark, or background logo pattern; app renders official logo once.\nMARKS_RULE=official logos, seals, badges, CTAs, headlines, labels, and readable copy are app-owned; do not invent or render them in the art plate.\nOWN=app:[Official CALL logo from approved asset. | Deterministic grid, typography, headline, audience, and CTA. | Exact support copy and proof hierarchy. | Final export wrapper, source evidence, and review state.]; imagegen:[Text-free full-bleed campaign art plate. | Atmosphere, photography or illustration treatment, color | No document layout, fake cards, panels, contact bars, charts].\nCROP_SAFE=[Create a portrait art field with enough texture to support | Keep important visual energy away from trim and crop edges. | Avoid document panels, empty modules, fake cards, or CTA-like]\nMESSAGE_CUES=[headline_theme:leadership/learning/professional | audience:10 chars | cta_intent:request/call/demo | proof_volume:compact]; mood/subject only, never words/layout.\nREFS=none; references only.\nUSER_NOTE=Keep claims conservative because CALL copy must stay tightly source-bounded.\nART=modern print-crop visual field with refined texture, abstract education energy, and no brochure scaffolding; NY media/ad-agency quality, full designed concept with visual hierarchy, type-safe contrast zones, premium atmosphere, layered depth, non-generic education storytelling, intentional crop.\nVISUAL_STYLE=authentic editorial photography or refined abstract-illustrative atmosphere; avoid posed training-room stock, washed-out empty fades, generic meeting-table cliches, literal brand-shape wallpaper.\nCOMPOSITION=ImageGen creates a full artifact design comp: composition, crop, hierarchy, contrast, visual rhythm, and type-safe zones. The app renders exact typography, official logo, proof copy, CTA, source evidence, and export.\nTEXT_RULE=absolutely no readable text, letters, numbers, labels, fake paragraphs, book titles, publisher names, email addresses, URLs, phone numbers, citations, or lorem ipsum; imply text areas through composition only.\nNO=document layouts, panels, blank boxes, placeholder modules, mock UI, cards, fake text, fake charts, icons with labels, contact bars, duplicate logos, fake logos, fake seals, fake badges, fake book titles, fake publisher brands, logo-like marks, wordmarks, chevrons, arrows, mountain logos, malformed UI, brochure scaffolding, invented claims, endorsement imagery, close-up faces, detailed hands, stock-photo workshop posing.\nQUALITY=best over fast; polished design-comp art plate, no template scaffolding."
+  ],
+  "imageResults": [
+    {
+      "prompt": "CONTRACT=design-comp-v1\nMODE=design-comp-art-plate\nINTENT={out:flyer, brand:CALL, aud:principals, theme:[leadership | learning | professional | growth | school | improvement | planning | principals | keep], tone:steady, clear, leadership-oriented, ground:strict}\nCANVAS=1024x1536, portrait full-page marketing artifact\nFORMAT=portrait campaign art plate for app-composed marketing artifact; not social/web/contact card.\nDESIGN_RECIPE={id:editorial-split; text_zone:left; visual_zone:right-field; density:balanced; hierarchy:large campaign headline at left, concise deck beneath, two proof points grouped as a lower evidence band, and one compact CTA owned by the; art:principal-facing CALL campaign flyer with an editorial split: calm education-leadership atmosphere, school improvement planning cues; placeholder:shape negative space with light gradients, subject cropping, and directional lines to support app-set text; do not create boxes; app_comp:official logo remains top-left; app typesets all real message content in the left editorial stack while full-bleed branded imagery; directives:[Design the whole 4:5 flyer concept, not a decorative background. | Keep the left message zone clean and readable through intentional negative | Use right-side visual storytelling about principals using data for school | Create a professional, trustworthy education-leadership tone for CALL.]}\nBRAND={pal:[#142836 | #0081A4 | #5EA974 | #F2975E], visual:[principal and leadership team planning | school improvement meeting | data-informed discussion | educators reviewing feedback reports | steady], evid_ids:[call-home-services | call-home-assessment]}\nBRAND_BOUNDARY={keep:[leadership for learning | leadership development | feedback | professional growth | school improvement planning]; avoid_sibling:[WebbAlign | DOK | Depth of Knowledge | CARE Coaching | CCNA | WIDA PRIME | PRIME process | action-based data]; parent_context:[WCEPS]}\nBRAND_VISUAL_PROFILE={show:[principal and leadership team planning | school improvement conversation | feedback report review | professional growth planning]; props:[school improvement notes | feedback reports without readable text | leadership planning materials | team reflection artifacts]; avoid:[generic PD workshop | fake leadership dashboard | corporate boardroom scene | random classroom stock | readable charts]; app_owned:[CALL logo | leadership for learning wording | headline | CTA | proof copy]; tone:[leadership-focused | reflective | strategic | credible | calm]; fit:leadership-for-learning campaign visual with planning and school-improvement energy}\nLOGO=do not render any CALL logo, wordmark, brand initials, logo-like mark, chevron/mountain mark, arrow mark, or background logo pattern; app renders official logo once.\nMARKS_RULE=official logos, seals, badges, CTAs, headlines, labels, and readable copy are app-owned; do not invent or render them in the art plate.\nOWN=app:[Official CALL logo from approved asset. | Deterministic grid, typography, headline, audience, and CTA. | Exact support copy and proof hierarchy. | Final export wrapper, source evidence, and review state.]; imagegen:[Text-free full-bleed campaign art plate. | Atmosphere, photography or illustration treatment, color | No document layout, fake cards, panels, contact bars, charts].\nCROP_SAFE=[Create a portrait art field with enough texture to support | Keep important visual energy away from trim and crop edges. | Avoid document panels, empty modules, fake cards, or CTA-like]\nMESSAGE_CUES=[headline_theme:leadership/learning/professional | audience:10 chars | cta_intent:request/call/demo | proof_volume:compact]; mood/subject only, never words/layout.\nREFS=none; references only.\nUSER_NOTE=Keep claims conservative because CALL copy must stay tightly source-bounded.\nART=portrait full-bleed campaign art plate with polished education-sector storytelling, layered depth, and rich visual density; NY media/ad-agency quality, full designed concept with visual hierarchy, type-safe contrast zones, premium atmosphere, layered depth, non-generic education storytelling, intentional crop.\nVISUAL_STYLE=authentic editorial photography or refined abstract-illustrative atmosphere; avoid posed training-room stock, washed-out empty fades, generic meeting-table cliches, literal brand-shape wallpaper.\nCOMPOSITION=ImageGen creates a full artifact design comp: composition, crop, hierarchy, contrast, visual rhythm, and type-safe zones. The app renders exact typography, official logo, proof copy, CTA, source evidence, and export.\nTEXT_RULE=absolutely no readable text, letters, numbers, labels, fake paragraphs, book titles, publisher names, email addresses, URLs, phone numbers, citations, or lorem ipsum; imply text areas through composition only.\nNO=document layouts, panels, blank boxes, placeholder modules, mock UI, cards, fake text, fake charts, icons with labels, contact bars, duplicate logos, fake logos, fake seals, fake badges, fake book titles, fake publisher brands, logo-like marks, wordmarks, chevrons, arrows, mountain logos, malformed UI, brochure scaffolding, invented claims, endorsement imagery, close-up faces, detailed hands, stock-photo workshop posing.\nQUALITY=best over fast; polished design-comp art plate, no template scaffolding.",
+      "model": "gpt-image-2",
+      "size": "1024x1536",
+      "quality": "high",
+      "outputFormat": "webp",
+      "outputCompression": 70,
+      "dataUrl": "images/draft-20260424225947-oqe3yl-1.webp",
+      "revisedPrompt": "Create a 1024x1536 portrait full-bleed campaign art plate for a professional education-leadership flyer. This is an app-composed marketing artifact background/visual plate: no readable text and no logos. Editorial split composition: clean, readable negative-space message zone on the left, richer visual storytelling on the right field. Overall tone steady, clear, credible, calm, leadership-oriented, premium NY media/ad-agency quality.\n\nScene and subject: authentic editorial photography or refined photorealistic-illustrative atmosphere of a school principal and small leadership team engaged in strategic school improvement planning. Show educators in a reflective data-informed discussion, reviewing feedback reports and planning materials, but all pages/screens must be blank, blurred, abstract, or illegible with no letters, numbers, charts, labels, or readable marks. Avoid close-up faces and detailed hands; crop figures tastefully from mid-distance or over-the-shoulder. Convey leadership for learning, professional growth, feedback, school improvement planning, and principal-facing strategy.\n\nComposition: portrait 4:5-ish full-page flyer concept, 1024x1536. Left 40–45% reserved as clean type-safe editorial stack zone with intentional negative space, subtle light gradient, low texture, high contrast for future app-set headline/deck/proof/CTA. Do not create boxes, panels, cards, modules, contact bars, UI, placeholders, or document layout scaffolding. Right 55–60% contains the visual story: leadership team around a planning table or collaborative school office setting, layered depth, soft directional lines from table edges/paper edges/window light guiding eye toward the left message zone. Lower portion can support a future evidence band through calm tonal structure only, not boxed.\n\nBrand color atmosphere: use deep navy #142836, teal #0081A4, green #5EA974, and warm orange #F2975E as subtle accents in light, materials, clothing, sticky-note-like color blocks only if completely text-free, and environmental details. Professional school environment, not corporate boardroom, not generic PD workshop, not random classroom stock. No fake dashboards, no readable charts, no literal logo-like marks, no chevrons, arrows, mountain marks, badges, seals, wordmarks, initials, or background logo patterns.\n\nVisual details: polished layered depth, premium editorial lighting, warm natural window light, calm school leadership atmosphere, planning table with abstract reports/notes that have only soft shapes or texture, no symbols or text. Keep important visual energy away from trim/crop edges. The final image must be text-free full-bleed campaign art plate, ready for an app to overlay official logo top-left and all real copy on the left editorial stack.\n\nStrict negatives: absolutely no readable text, letters, numbers, labels, fake paragraphs, book titles, publisher names, email addresses, URLs, phone numbers, citations, lorem ipsum, document panels, blank boxes, placeholder modules, mock UI, cards, fake text, fake charts, icons with labels, contact bars, duplicate logos, fake logos, fake seals, fake badges, fake book titles, fake publisher brands, logo-like marks, wordmarks, chevrons, arrows, mountain logos, malformed UI, brochure scaffolding, invented claims, endorsement imagery, close-up faces, detailed hands, posed training-room stock, washed-out empty fade, generic meeting-table cliché.",
+      "jobId": "resp_0b650763aa833fac0069ebf5e3b9188193bff22ae0cf643f58",
+      "braintrustTrace": {
+        "rowId": "aad23058-591b-4c22-9b8b-beb8274d02d6",
+        "spanId": "46b16d85-4e70-4597-a884-76597e4b43f5",
+        "rootSpanId": "71c6ba5e-2085-40db-98f3-58d8a90f6866",
+        "link": "https://www.braintrust.dev/app/WCEPS/object?object_type=project_logs&object_id=671b57c6-229b-4f25-8cf2-67fc0f36e120&id=aad23058-591b-4c22-9b8b-beb8274d02d6"
+      }
+    }
+  ],
+  "pipelineTrace": {
+    "version": "design-comp-v1",
+    "mode": "design-comp",
+    "promptLength": 5281,
+    "promptTokenBudget": 6200,
+    "evidenceIds": [
+      "call-home-services",
+      "call-home-assessment"
+    ],
+    "logoAsset": {
+      "label": "Horizontal full color · transparent · light/image backgrounds",
+      "publicPath": "/brand-logos/call/call.png",
+      "sourceUrl": "https://d2nms5m2lns5tc.cloudfront.net/assets/callsurveyv2/call_logo_full-ac851caaee08dd56a8c9dc651bbe6868adfe333a58a77e8d1f4142f5a3d89497.png"
+    },
+    "contextAttachmentNames": [],
+    "retryCount": 0,
+    "braintrustTrace": {
+      "rowId": "db1bbcfa-e70e-4ca5-9a69-3b67fa6e70bb",
+      "spanId": "71c6ba5e-2085-40db-98f3-58d8a90f6866",
+      "rootSpanId": "71c6ba5e-2085-40db-98f3-58d8a90f6866",
+      "link": "https://www.braintrust.dev/app/WCEPS/object?object_type=project_logs&object_id=671b57c6-229b-4f25-8cf2-67fc0f36e120&id=db1bbcfa-e70e-4ca5-9a69-3b67fa6e70bb"
+    }
+  },
+  "critique": {
+    "status": "warn",
+    "issues": [],
+    "warnings": [
+      "CALL prompt is missing avoid guardrail(s): fake dashboard, stock workshop."
+    ],
+    "suggestedFixes": [
+      "Revise composition until the sendability score passes the WCEPS review threshold."
+    ]
+  },
+  "review": {
+    "approved": false,
+    "status": "block",
+    "issues": [
+      "Model QA: Deck length exceeds the selected flyer layout capacity; deterministic layout QA caught this but the artifact remains unexportable until refit.",
+      "Model QA: The layout contract prioritizes an incomplete support sentence, creating risk that broken copy appears in the rendered flyer.",
+      "Model QA: The footer is scaffold/internal-review language, not production flyer content, and should not be present in an approved export."
+    ],
+    "warnings": [
+      "CALL prompt is missing avoid guardrail(s): fake dashboard, stock workshop.",
+      "Copy QA: Deck and proof copy repeat the same idea instead of creating a clear message hierarchy.",
+      "Model QA: Deck and proof copy repeat the same assessment/school-improvement claim rather than providing distinct principal-facing benefits."
+    ],
+    "suggestedFixes": [
+      "Revise composition until the sendability score passes the WCEPS review threshold.",
+      "Fix model QA: Deck length exceeds the selected flyer layout capacity; deterministic layout QA caught this but the artifact remains unexportable until refit.",
+      "Fix model QA: The layout contract prioritizes an incomplete support sentence, creating risk that broken copy appears in the rendered flyer.",
+      "Fix model QA: The footer is scaffold/internal-review language, not production flyer content, and should not be present in an approved export."
+    ]
+  },
+  "request": {
+    "artifactType": "flyer",
+    "brand": "CALL",
+    "audience": "principals",
+    "keyMessage": "",
+    "goal": "introduce CALL as a leadership development and improvement planning tool",
+    "topic": "leadership for learning, professional growth, and school improvement planning",
+    "cta": "Request a CALL demo",
+    "format": "Web page",
+    "toneModifier": "steady, clear, leadership-oriented",
+    "notes": "Keep claims conservative because CALL copy must stay tightly source-bounded.",
+    "visualInstruction": "",
+    "logoVariant": "",
+    "colorTheme": "",
+    "contextAttachments": [],
+    "strictlySourceGrounded": true,
+    "generateVisual": true
+  },
+  "sourceEvidence": [
+    {
+      "id": "call-home-assessment",
+      "url": "https://www.leadershipforlearning.org/",
+      "excerpt": "A user-friendly school-wide needs assessment and feedback system for school improvement.",
+      "label": "CALL homepage description"
+    },
+    {
+      "id": "call-home-services",
+      "url": "https://www.leadershipforlearning.org/",
+      "excerpt": "The Comprehensive Assessment of Leadership for Learning (CALL) provides unique tools and customized services to support professional growth, leadership development, and school improvement planning.",
+      "label": "CALL professional growth and leadership development"
+    },
+    {
+      "id": "call-focus",
+      "url": "https://www.leadershipforlearning.org/",
+      "excerpt": "Focus on leadership. Focus on improvement. Focus on the work.",
+      "label": "CALL focus"
+    },
+    {
+      "id": "call-what-we-do",
+      "url": "https://www.leadershipforlearning.org/what-we-do",
+      "excerpt": "The Comprehensive Assessment of Leadership for Learning (CALL) is a school- and district-wide leadership assessment and feedback system.",
+      "label": "CALL What We Do"
+    }
+  ],
+  "createdAt": "2026-04-24T22:59:47.644Z",
+  "updatedAt": "2026-04-24T23:02:12.963Z"
+}

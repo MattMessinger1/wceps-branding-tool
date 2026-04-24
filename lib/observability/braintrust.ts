@@ -137,7 +137,7 @@ export async function traceBraintrustStep<T>(
   span: Span | undefined,
   name: string,
   event: TraceEvent,
-  callback: () => Promise<T> | T,
+  callback: (span?: Span) => Promise<T> | T,
 ): Promise<T> {
   if (!span) return callback();
 
@@ -151,7 +151,7 @@ export async function traceBraintrustStep<T>(
           metadata: sanitizeForBraintrust(event.metadata ?? {}),
           scores: event.scores,
         });
-        const output = await callback();
+        const output = await callback(child);
         child.log({ output: sanitizeForBraintrust(event.output ?? output) });
         return output;
       },
