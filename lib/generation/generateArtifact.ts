@@ -1,0 +1,130 @@
+import { loadAllBrandPacks } from "@/lib/brands/loadBrandPack";
+import { selectBrand } from "@/lib/brands/selectBrand";
+import { validateClaims } from "@/lib/brands/validateClaims";
+import { evaluateLayoutQa, fitCopy, resolveCompositionTemplate, scoreComposition } from "@/lib/composition";
+import { traceBraintrust, traceBraintrustStep } from "@/lib/observability/braintrust";
+import { ArtifactRequestSchema, type ArtifactRequest } from "@/lib/schema/artifactRequest";
+import { GeneratedArtifactSchema, type GeneratedArtifact } from "@/lib/schema/generatedArtifact";
+import { resolveArtifactFormat } from "./artifactFormat";
+import { buildCreativeBrief } from "./buildCreativeBrief";
+import { buildImagePromptContracts } from "./buildImagePrompt";
+import { buildLayoutContract } from "./buildLayoutContract";
+import { critiqueArtifactQuality } from "./critiqueArtifact";
+import { generateCopy } from "./generateCopy";
+
+export async function generateArtifact(input: unknown): Promise<GeneratedArtifact> {
+  return traceBraintrust("generateArtifact", { input }, async (span) => {
+  const parsedRequest = await traceBraintrustStep(span, "parseRequest", { input }, () => ArtifactRequestSchema.parse(input));
+  const keyMessage = parsedRequest.keyMessage.trim();
+  const artifactFormat = parsedRequest.format || resolveArtifactFormat(parsedRequest.artifactType);
+  const request = {
+    ...parsedRequest,
+    goal: keyMessage ? `Create a ${artifactFormat.toLowerCase()} that communicates: ${keyMessage}` : parsedRequest.goal,
+    topic: keyMessage ? keyMessage : parsedRequest.topic,
+    format: artifactFormat,
+  };
+  const packs = await traceBraintrustStep(span, "loadBrandPacks", { metadata: { artifactType: request.artifactType } }, loadAllBrandPacks);
+  const resolution = await traceBraintrustStep(span, "selectBrand", { input: request }, () => selectBrand(request, packs));
+  const brief = await traceBraintrustStep(span, "buildCreativeBrief", { input: { brand: resolution.selectedBrand.brandName, request } }, () =>
+    buildCreativeBrief(resolution.selectedBrand, request),
+  );
+  const copy = await traceBraintrustStep(span, "generateCopy", { input: { brand: resolution.selectedBrand.brandName, brief, request } }, () =>
+    generateCopy(resolution.selectedBrand, brief, request),
+  );
+  const compositionTemplate = await traceBraintrustStep(span, "resolveCompositionTemplate", { input: request.artifactType }, () =>
+    resolveCompositionTemplate(request.artifactType),
+  );
+  const fittedCopy = await traceBraintrustStep(span, "fitCopy", { input: { copy, request, compositionTemplate } }, () =>
+    fitCopy(copy, request, compositionTemplate),
+  );
+  const layoutContract = await traceBraintrustStep(span, "buildLayoutContract", { input: { brand: resolution.selectedBrand.brandName, brief, request, copy } }, () =>
+    buildLayoutContract(resolution.selectedBrand, brief, request, copy),
+  );
+  const promptContracts = await traceBraintrustStep(span, "buildImagePromptContracts", { input: { brand: resolution.selectedBrand.brandName, brief, request } }, () =>
+    buildImagePromptContracts(resolution.selectedBrand, brief, request, copy, layoutContract),
+  );
+  const imagePrompts = promptContracts.map((contract) => contract.prompt);
+  const imageResults: GeneratedArtifact["imageResults"] = [];
+  const review = validateClaims(resolution.selectedBrand, copy);
+  const compositionScore = scoreComposition({
+    artifactType: request.artifactType,
+    fittedCopy,
+    template: compositionTemplate,
+    prompt: imagePrompts[0] ?? "",
+    request,
+  });
+  const layoutQa = evaluateLayoutQa({
+    artifactType: request.artifactType,
+    template: compositionTemplate,
+    fittedCopy,
+    request,
+  });
+  const critique = critiqueArtifactQuality(copy, layoutContract, promptContracts, compositionScore);
+  const warnings = [
+    ...review.warnings,
+    ...critique.warnings,
+    ...layoutQa.warnings,
+    ...(resolution.explicit ? [] : [`Brand inferred with ${Math.round(resolution.confidence * 100)}% confidence. ${resolution.explanation}`]),
+  ];
+  const issues = [...review.issues, ...critique.issues, ...layoutQa.issues];
+  const suggestedFixes = [...review.suggestedFixes, ...critique.suggestedFixes, ...layoutQa.issues.map((issue) => `Fix layout QA: ${issue}`)];
+  const primaryPromptContract = promptContracts[0];
+  const now = new Date().toISOString();
+
+  const artifact = GeneratedArtifactSchema.parse({
+    id: `draft-${now.replace(/[-:.TZ]/g, "").slice(0, 14)}-${Math.random().toString(36).slice(2, 8)}`,
+    artifactType: request.artifactType,
+    brand: resolution.selectedBrand.brandName,
+    audience: request.audience,
+    brief,
+      copy,
+      fittedCopy,
+      compositionTemplate,
+      compositionScore,
+      layoutQa,
+      artPlatePromptVersion: primaryPromptContract.version,
+      layoutContract,
+    imagePrompts,
+    imageResults,
+    pipelineTrace: {
+      version: primaryPromptContract.version ?? "wceps-studio-v1",
+      mode: "campaign-art-plate",
+      promptLength: primaryPromptContract.promptLength,
+      promptTokenBudget: primaryPromptContract.promptTokenBudget,
+      evidenceIds: primaryPromptContract.evidenceIds,
+      logoAsset: primaryPromptContract.logoAsset,
+      contextAttachmentNames: primaryPromptContract.contextAttachmentNames,
+      retryCount: 0,
+    },
+    critique,
+    review: {
+      ...review,
+      status: issues.length ? "block" : warnings.length ? "warn" : review.status,
+      issues,
+      warnings: Array.from(new Set(warnings)),
+      suggestedFixes: Array.from(new Set(suggestedFixes)),
+    },
+    request,
+    sourceEvidence: resolution.selectedBrand.sourceEvidence.filter((source) => brief.sourceEvidenceIds.includes(source.id)),
+    createdAt: now,
+    updatedAt: now,
+  });
+
+  span?.log({
+    metadata: {
+      artifactId: artifact.id,
+      brand: artifact.brand,
+      artifactType: artifact.artifactType,
+      templateId: artifact.compositionTemplate?.id,
+      promptVersion: artifact.artPlatePromptVersion,
+    },
+    scores: {
+      sendability: (artifact.compositionScore?.sendability ?? 0) / 100,
+      layoutQa: (artifact.layoutQa?.sendability ?? 0) / 100,
+      brandBoundary: (artifact.compositionScore?.brandBoundary ?? 0) / 100,
+    },
+  });
+
+  return artifact;
+  });
+}

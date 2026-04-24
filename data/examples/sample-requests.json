@@ -1,0 +1,54 @@
+[
+  {
+    "id": "care-flyer-el-leaders",
+    "artifactType": "flyer",
+    "brand": "CARE Coaching",
+    "audience": "district EL leaders",
+    "goal": "explain CARE Coaching and drive inquiry",
+    "topic": "customized coaching and professional learning for multilingual learner support",
+    "cta": "Request a CARE Coaching conversation",
+    "format": "Letter",
+    "toneModifier": "warm, practical, district-facing",
+    "notes": "Highlight the Three Cs and CCNA as an optional starting point.",
+    "strictlySourceGrounded": true
+  },
+  {
+    "id": "webbalign-one-pager-curriculum",
+    "artifactType": "one-pager",
+    "brand": "WebbAlign",
+    "audience": "curriculum teams",
+    "goal": "explain DOK alignment support",
+    "topic": "DOK, coherence, standards, assessments, curricula, and instructional materials",
+    "cta": "Contact WebbAlign",
+    "format": "Letter",
+    "toneModifier": "precise, professional, systems-oriented",
+    "notes": "Avoid implying compliance approval.",
+    "strictlySourceGrounded": true
+  },
+  {
+    "id": "call-landing-page-principals",
+    "artifactType": "landing-page",
+    "brand": "CALL",
+    "audience": "principals",
+    "goal": "introduce CALL as a leadership development and improvement planning tool",
+    "topic": "leadership for learning, professional growth, and school improvement planning",
+    "cta": "Request a CALL demo",
+    "format": "Web page",
+    "toneModifier": "steady, clear, leadership-oriented",
+    "notes": "Keep claims conservative because CALL copy must stay tightly source-bounded.",
+    "strictlySourceGrounded": true
+  },
+  {
+    "id": "wceps-institutional-one-pager",
+    "artifactType": "one-pager",
+    "brand": "WCEPS",
+    "audience": "education leaders",
+    "goal": "compare WCEPS pathways",
+    "topic": "research-based educational supports and service pathways",
+    "cta": "Compare pathways",
+    "format": "Letter",
+    "toneModifier": "clear, institutional, practical",
+    "notes": "Use the parent brand without over-describing individual programs.",
+    "strictlySourceGrounded": true
+  }
+]

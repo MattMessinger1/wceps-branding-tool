@@ -1,0 +1,163 @@
+{
+  "brandName": "CCNA",
+  "parentBrand": "CARE Coaching / WCEPS",
+  "sourceOfTruth": [
+    "https://www.wcepspathways.org/service-offerings/care-coaching-needs-assessment-ccna/",
+    "https://www.wcepspathways.org/learning-library/the-care-coaching-needs-assessment-ccna-action-based-data-for-all/",
+    "https://www.wcepspathways.org/service-offerings/care-coaching/"
+  ],
+  "positioning": {
+    "oneLiner": "The CARE Coaching Needs Assessment (CCNA) turns school practices into action-based data for improvement planning.",
+    "summary": "CCNA identifies strengths, uncovers growth areas, and gives education leaders action-based data to support school improvement and professional development planning. Its source language emphasizes instructional practice focus, multilingual learner support alongside broader school-wide practices, actionable reporting, and shared starting points for improving instruction.",
+    "corePillars": [
+      "Action-oriented data",
+      "Instructional practice focus",
+      "Actionable reporting",
+      "Multilingual learner support",
+      "School improvement and professional development planning"
+    ]
+  },
+  "audiences": [
+    {
+      "name": "school leaders",
+      "needs": [
+        "Understand actual practices across the school",
+        "Use data to identify improvement areas",
+        "Plan professional learning with shared, actionable starting points"
+      ],
+      "approvedMessages": [
+        "CCNA identifies strengths, uncovers growth areas, and guides education leaders with action-based data.",
+        "CCNA focuses on the work through assessment, data analysis, and action planning.",
+        "CCNA gives educators shared, actionable starting points for improving instruction and supporting all learners."
+      ],
+      "ctaSuggestions": [
+        "Request a CCNA demo",
+        "Explore a sample CCNA report",
+        "Start a CCNA planning conversation"
+      ]
+    },
+    {
+      "name": "district leaders",
+      "needs": [
+        "Compare practices affecting general education and multilingual learner education",
+        "Move beyond compliance-oriented needs assessment",
+        "Support school teams with prioritized next steps"
+      ],
+      "approvedMessages": [
+        "CCNA integrates content on multilingual learners alongside general instructional practices, so teams do not need separate tools.",
+        "CCNA is task-oriented so school teams can spend more time addressing needs rather than speculating about what needs to improve.",
+        "CCNA reporting supports prioritized actions, coaching suggestions, professional development planning, and strategic next steps."
+      ],
+      "ctaSuggestions": [
+        "Request a CCNA demo",
+        "Discuss district needs assessment goals",
+        "Explore action-based data with CARE Coaching"
+      ]
+    }
+  ],
+  "proofPoints": [
+    "The CCNA service page says CCNA identifies strengths, uncovers growth areas, and guides education leaders with action-based data.",
+    "The CCNA service page says the assessment activity focuses on multilingual learner support while also covering broader practices that affect all students.",
+    "The CCNA service page contrasts task-oriented data with traditional climate surveys and emphasizes instructional decisions.",
+    "The CCNA service page lists action-oriented data, instructional practice focus, actionable reporting, and multilingual learner support as highlights."
+  ],
+  "approvedPhrases": [
+    "Turn Insight Into Instructional Impact",
+    "action-based data",
+    "school improvement and professional development planning",
+    "instructional practice focus",
+    "actionable reporting",
+    "multilingual learner support",
+    "shared, actionable starting points",
+    "task-oriented data",
+    "action-oriented improvement plans"
+  ],
+  "avoidPhrases": [
+    "guaranteed improvement",
+    "certified compliance solution",
+    "fixes all instruction",
+    "replaces leadership judgment",
+    "proves teacher effectiveness"
+  ],
+  "restrictedClaims": [
+    "Do not guarantee measurable improvement outcomes.",
+    "Do not describe CCNA as a traditional climate survey.",
+    "Do not claim CCNA evaluates individual educators or proves teacher effectiveness.",
+    "Do not imply CCNA is only for multilingual learner programs; sources also describe broader practices affecting all students."
+  ],
+  "topics": [
+    "CCNA",
+    "CARE Coaching Needs Assessment",
+    "action-based data",
+    "instructional practice",
+    "actionable reporting",
+    "multilingual learner support",
+    "school improvement planning",
+    "professional development planning"
+  ],
+  "visualStyle": {
+    "colorTokens": [
+      "#0081A4",
+      "#3EB3BD",
+      "#5EA974",
+      "#F7D470",
+      "#142836",
+      "#FFFFFF"
+    ],
+    "typographyMood": [
+      "Montserrat",
+      "clear",
+      "practical",
+      "data-informed"
+    ],
+    "layoutKeywords": [
+      "dashboard-inspired",
+      "action planning",
+      "clean report modules",
+      "instructional pathway"
+    ],
+    "imageKeywords": [
+      "school teams",
+      "data debrief",
+      "planning conversation",
+      "multilingual learner support"
+    ]
+  },
+  "artifactPreferences": {
+    "flyer": {
+      "priority": "explain action-based data and drive demo requests"
+    },
+    "one-pager": {
+      "priority": "compare CCNA to traditional needs assessment and climate surveys"
+    },
+    "html-email-announcement": {
+      "priority": "invite leaders to request a demo or sample report"
+    }
+  },
+  "sourceEvidence": [
+    {
+      "id": "ccna-insight-impact",
+      "url": "https://www.wcepspathways.org/service-offerings/care-coaching-needs-assessment-ccna/",
+      "label": "CCNA overview",
+      "excerpt": "The CARE Coaching Needs Assessment (CCNA) identifies strengths, uncovers growth areas, and guides education leaders with action-based data to support school improvement and professional development planning."
+    },
+    {
+      "id": "ccna-instructional-practice",
+      "url": "https://www.wcepspathways.org/service-offerings/care-coaching-needs-assessment-ccna/",
+      "label": "Instructional practice focus",
+      "excerpt": "CCNA focuses on what drives learning: planning, collaboration, feedback, and leadership routines that directly influence teaching."
+    },
+    {
+      "id": "ccna-multilingual-support",
+      "url": "https://www.wcepspathways.org/service-offerings/care-coaching-needs-assessment-ccna/",
+      "label": "Multilingual learner support",
+      "excerpt": "CCNA includes focused items and recommendations on how to better serve multilingual learners, while also providing strategies that benefit all students."
+    },
+    {
+      "id": "ccna-actionable-reporting",
+      "url": "https://www.wcepspathways.org/service-offerings/care-coaching-needs-assessment-ccna/",
+      "label": "Actionable reporting",
+      "excerpt": "School teams gain access to user-friendly interactive reports with prioritized actions and coaching suggestions, ready to use for PD planning and strategic next steps."
+    }
+  ]
+}

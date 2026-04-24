@@ -1,0 +1,198 @@
+{
+  "brandName": "CALL",
+  "parentBrand": "WCEPS",
+  "sourceOfTruth": [
+    "https://www.wcepspathways.org/products-services/",
+    "https://www.leadershipforlearning.org/",
+    "https://www.leadershipforlearning.org/what-we-do",
+    "https://www.leadershipforlearning.org/learn-more"
+  ],
+  "positioning": {
+    "oneLiner": "CALL is a school-wide leadership assessment and feedback system for professional growth, leadership development, and school improvement planning.",
+    "summary": "The Comprehensive Assessment of Leadership for Learning provides tools, customized services, and feedback systems that support school and district leaders with leadership development, professional growth, and school improvement planning. Because CALL source content is more specific to assessment and feedback systems, generated copy should stay disciplined and avoid broad claims beyond leadership for learning.",
+    "corePillars": [
+      "Leadership for learning",
+      "Professional growth",
+      "Leadership development",
+      "School improvement planning",
+      "Practice-based feedback"
+    ]
+  },
+  "audiences": [
+    {
+      "name": "principals",
+      "needs": [
+        "Understand leadership practices across a school",
+        "Use feedback to guide improvement planning",
+        "Connect assessment data to professional growth"
+      ],
+      "approvedMessages": [
+        "CALL provides a user-friendly school-wide needs assessment and feedback system for school improvement.",
+        "CALL supports professional growth, leadership development, and school improvement planning.",
+        "CALL focuses on leadership, improvement, and the work."
+      ],
+      "ctaSuggestions": [
+        "Request a CALL demo",
+        "Learn more about CALL",
+        "Contact the CALL team"
+      ]
+    },
+    {
+      "name": "district leaders",
+      "needs": [
+        "Support school improvement planning across sites",
+        "Use practical and action-oriented data",
+        "Provide inquiry-based support to practitioners"
+      ],
+      "approvedMessages": [
+        "CALL is a school- and district-wide leadership assessment and feedback system.",
+        "School and district leaders use CALL to support school improvement planning, professional development planning, and comprehensive needs assessments.",
+        "CALL Systems are built on principles that leadership is not confined to a single person and data should be practical and action-oriented."
+      ],
+      "ctaSuggestions": [
+        "Explore CALL systems",
+        "Discuss district-wide use",
+        "Request a demo"
+      ]
+    },
+    {
+      "name": "education leaders",
+      "needs": [
+        "Clarify how CALL connects leadership development and improvement work",
+        "See whether CALL is the right WCEPS pathway",
+        "Avoid unsupported outcome claims"
+      ],
+      "approvedMessages": [
+        "CALL provides unique tools and customized services to support leadership for learning.",
+        "CALL includes a reporting system used by school and district leaders as a tool for school improvement work.",
+        "CALL provides actionable, formative feedback including customized strategies and action plans for school improvement."
+      ],
+      "ctaSuggestions": [
+        "Learn more",
+        "Request a demo",
+        "Contact CALL"
+      ]
+    }
+  ],
+  "proofPoints": [
+    "The CALL homepage describes CALL as a user-friendly school-wide needs assessment and feedback system.",
+    "The CALL site says CALL provides unique tools and customized services for professional growth, leadership development, and school improvement planning.",
+    "The What We Do page says CALL is school- and district-wide.",
+    "The What We Do page says CALL Primary was developed and validated at the University of Wisconsin-Madison."
+  ],
+  "approvedPhrases": [
+    "Comprehensive Assessment of Leadership for Learning",
+    "school-wide leadership assessment and feedback system",
+    "professional growth",
+    "leadership development",
+    "school improvement planning",
+    "leadership for learning",
+    "practice-based",
+    "improvement focused",
+    "practical and action-oriented data"
+  ],
+  "avoidPhrases": [
+    "guaranteed turnaround",
+    "principal evaluation tool",
+    "instant school improvement",
+    "compliance-only survey",
+    "teacher ranking system"
+  ],
+  "restrictedClaims": [
+    "Do not imply CALL guarantees improvement results.",
+    "Do not position CALL as an individual performance evaluation product.",
+    "Do not overstate CALL's multilingual learner focus unless specifically referencing WIDA SIS or CCNA with source evidence."
+  ],
+  "topics": [
+    "leadership for learning",
+    "school improvement",
+    "needs assessment",
+    "feedback system",
+    "professional growth",
+    "leadership development",
+    "action planning"
+  ],
+  "visualStyle": {
+    "colorTokens": [
+      "#142836",
+      "#0081A4",
+      "#5EA974",
+      "#F2975E",
+      "#F9F9F9"
+    ],
+    "typographyMood": [
+      "steady",
+      "leadership-oriented",
+      "clear",
+      "formative"
+    ],
+    "layoutKeywords": [
+      "leadership dashboard",
+      "feedback loop",
+      "planning steps",
+      "school improvement pathway"
+    ],
+    "imageKeywords": [
+      "principal and leadership team planning",
+      "school improvement meeting",
+      "data-informed discussion",
+      "educators reviewing feedback reports"
+    ]
+  },
+  "artifactPreferences": {
+    "flyer": {
+      "sections": [
+        "What CALL is",
+        "How feedback supports planning",
+        "Demo CTA"
+      ]
+    },
+    "one-pager": {
+      "sections": [
+        "Leadership for learning",
+        "Practice-based feedback",
+        "School improvement planning"
+      ]
+    },
+    "landing-page": {
+      "sections": [
+        "Hero with leadership and improvement focus",
+        "CALL system features",
+        "Use cases",
+        "Request a demo"
+      ]
+    }
+  },
+  "sourceEvidence": [
+    {
+      "id": "call-home-assessment",
+      "url": "https://www.leadershipforlearning.org/",
+      "label": "CALL homepage description",
+      "excerpt": "A user-friendly school-wide needs assessment and feedback system for school improvement."
+    },
+    {
+      "id": "call-home-services",
+      "url": "https://www.leadershipforlearning.org/",
+      "label": "CALL professional growth and leadership development",
+      "excerpt": "The Comprehensive Assessment of Leadership for Learning (CALL) provides unique tools and customized services to support professional growth, leadership development, and school improvement planning."
+    },
+    {
+      "id": "call-focus",
+      "url": "https://www.leadershipforlearning.org/",
+      "label": "CALL focus",
+      "excerpt": "Focus on leadership. Focus on improvement. Focus on the work."
+    },
+    {
+      "id": "call-what-we-do",
+      "url": "https://www.leadershipforlearning.org/what-we-do",
+      "label": "CALL What We Do",
+      "excerpt": "The Comprehensive Assessment of Leadership for Learning (CALL) is a school- and district-wide leadership assessment and feedback system."
+    },
+    {
+      "id": "call-principles",
+      "url": "https://www.leadershipforlearning.org/what-we-do",
+      "label": "CALL principles",
+      "excerpt": "The CALL Systems and the CARE Process were built on the principles that school leadership is critical to enhancing teaching and learning, leadership is not confined a single person, data should be practical and action-oriented, and support for practitioners is best provided through inquiry-based coaching processes."
+    }
+  ]
+}

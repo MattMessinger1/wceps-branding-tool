@@ -1,0 +1,67 @@
+{
+  "source": "Inferred from WCEPS Pathways and linked WCEPS program sites; replace with official brand kits when available.",
+  "basis": "Homepage, products/services pages, linked CARE Coaching, WebbAlign, and CALL pages.",
+  "confidence": "medium",
+  "colorTokens": [
+    {
+      "name": "navy",
+      "value": "#142836",
+      "usage": "Primary headings, high-contrast panels, footer areas"
+    },
+    {
+      "name": "blue",
+      "value": "#0081A4",
+      "usage": "Primary actions and WCEPS service accents"
+    },
+    {
+      "name": "teal",
+      "value": "#3EB3BD",
+      "usage": "Secondary actions, highlight bands, visual prompts"
+    },
+    {
+      "name": "green",
+      "value": "#5EA974",
+      "usage": "Growth, improvement, and continuous learning accents"
+    },
+    {
+      "name": "yellow",
+      "value": "#F7D470",
+      "usage": "Small emphasis, badges, pathway markers"
+    },
+    {
+      "name": "offWhite",
+      "value": "#F9F9F9",
+      "usage": "Warm page background and print-friendly surfaces"
+    }
+  ],
+  "typographyMood": [
+    "clear",
+    "warm",
+    "professional",
+    "approachable"
+  ],
+  "layoutKeywords": [
+    "pathway structure",
+    "service cards",
+    "evidence panels",
+    "rounded pill actions",
+    "generous spacing"
+  ],
+  "imageKeywords": [
+    "educators collaborating",
+    "bright professional learning spaces",
+    "reviewing documents",
+    "school leadership planning",
+    "inclusive classroom support"
+  ],
+  "iconographyFeel": [
+    "simple line icons",
+    "service comparison symbols",
+    "clear directional cues"
+  ],
+  "notes": [
+    "Visual style is inferred, not an official brand kit.",
+    "Keep important text in HTML/CSS instead of model-rendered image text.",
+    "Prefer calm educational imagery with readable whitespace for overlays."
+  ]
+}

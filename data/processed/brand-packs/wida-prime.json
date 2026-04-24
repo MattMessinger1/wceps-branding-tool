@@ -1,0 +1,165 @@
+{
+  "brandName": "WIDA PRIME",
+  "parentBrand": "WCEPS / WIDA Licensed Offerings",
+  "sourceOfTruth": [
+    "https://www.wcepspathways.org/service-offerings/wida-licensed-offerings/wida-prime/",
+    "https://www.widaprime.org/correlated-instructional-materials",
+    "https://www.widaprime.org/prime-process-for-publishers",
+    "https://widapl.wceps.org/workshops"
+  ],
+  "positioning": {
+    "oneLiner": "WIDA PRIME helps users understand how instructional materials align with WIDA language development standards and frameworks.",
+    "summary": "WIDA PRIME lists instructional materials that have gone through the PRIME process and received a PRIME seal. Source language distinguishes PRIME V1, PRIME V2, PRIME V2 Español, and PRIME 2020, and emphasizes alignment information for instructional materials rather than endorsement or effectiveness claims.",
+    "corePillars": [
+      "PRIME process",
+      "PRIME 2020 alignment",
+      "PRIME V1 and PRIME V2 correlations",
+      "Spanish Language Development correlations",
+      "Instructional materials information"
+    ]
+  },
+  "audiences": [
+    {
+      "name": "publishers and correlators",
+      "needs": [
+        "Understand the PRIME process",
+        "Communicate alignment status clearly",
+        "Avoid unsupported endorsement or effectiveness claims"
+      ],
+      "approvedMessages": [
+        "WIDA PRIME lists instructional materials that have gone through the PRIME process and received a PRIME seal.",
+        "PRIME 2020 includes materials aligned to the current WIDA English Language Development Standards Framework, 2020 Edition.",
+        "WIDA PRIME information helps educators consider how particular materials fit in their program."
+      ],
+      "ctaSuggestions": [
+        "Contact WIDA PRIME",
+        "Discuss the PRIME process",
+        "View correlated instructional materials"
+      ]
+    },
+    {
+      "name": "education leaders",
+      "needs": [
+        "Find instructional materials with PRIME correlation or alignment information",
+        "Understand distinctions between PRIME versions",
+        "Use PRIME documents appropriately without treating them as endorsements"
+      ],
+      "approvedMessages": [
+        "WIDA PRIME provides information about reviewed PRIME v1 and v2 correlations and PRIME 2020 alignments.",
+        "PRIME V2 Español includes materials correlated with the WIDA Spanish Language Development Standards, 2013 Edition.",
+        "WIDA does not endorse any set of instructional materials, and WIDA PRIME is not an evaluative tool that judges effectiveness."
+      ],
+      "ctaSuggestions": [
+        "View WIDA PRIME materials",
+        "Contact us about WIDA PRIME",
+        "Explore PRIME 2020 alignments"
+      ]
+    }
+  ],
+  "proofPoints": [
+    "The WIDA PRIME site lists reviewed PRIME v1 and v2 correlations and PRIME 2020 alignments.",
+    "The WIDA PRIME site says PRIME 2020 includes materials aligned to the current WIDA English Language Development Standards Framework, 2020 Edition.",
+    "The WIDA PRIME site says WIDA does not endorse instructional materials and PRIME is not an evaluative tool that judges effectiveness.",
+    "The WIDA Workshops site says WCEPS is the sole source provider of WIDA Professional Learning Licensed Workshops and Webinars sold to school districts."
+  ],
+  "approvedPhrases": [
+    "reviewed PRIME v1 and v2 correlations",
+    "PRIME 2020 alignments",
+    "instructional materials",
+    "PRIME process",
+    "PRIME seal",
+    "WIDA English Language Development Standards Framework, 2020 Edition",
+    "Spanish Language Development correlations",
+    "consider how particular materials fit in their program"
+  ],
+  "avoidPhrases": [
+    "WIDA-endorsed materials",
+    "proven effective",
+    "guaranteed impact",
+    "certified curriculum effectiveness",
+    "best instructional materials"
+  ],
+  "restrictedClaims": [
+    "Do not imply WIDA endorses any set of instructional materials.",
+    "Do not describe WIDA PRIME as an effectiveness evaluation.",
+    "Do not claim the PRIME seal guarantees student outcomes.",
+    "Do not invent pricing or certification claims."
+  ],
+  "topics": [
+    "WIDA PRIME",
+    "PRIME 2020",
+    "PRIME V1",
+    "PRIME V2",
+    "PRIME V2 Español",
+    "instructional materials",
+    "alignment",
+    "correlations",
+    "publishers",
+    "correlators"
+  ],
+  "visualStyle": {
+    "colorTokens": [
+      "#0057A8",
+      "#00A6A6",
+      "#6CC24A",
+      "#F6A800",
+      "#FFFFFF",
+      "#1F2937"
+    ],
+    "typographyMood": [
+      "Montserrat",
+      "clear",
+      "standards-aligned",
+      "publisher-facing"
+    ],
+    "layoutKeywords": [
+      "seal-inspired",
+      "catalog",
+      "alignment matrix",
+      "clean education technology"
+    ],
+    "imageKeywords": [
+      "instructional materials",
+      "curriculum review",
+      "standards alignment",
+      "publisher workflow"
+    ]
+  },
+  "artifactPreferences": {
+    "one-pager": {
+      "priority": "explain PRIME versions and guardrails"
+    },
+    "html-email-announcement": {
+      "priority": "invite users to view materials or contact WIDA PRIME"
+    },
+    "landing-page": {
+      "priority": "summarize PRIME process and materials listing"
+    }
+  },
+  "sourceEvidence": [
+    {
+      "id": "wida-prime-materials",
+      "url": "https://www.widaprime.org/correlated-instructional-materials",
+      "label": "Instructional materials listing",
+      "excerpt": "WIDA is pleased to list instructional materials that have gone through the PRIME process and received a PRIME seal."
+    },
+    {
+      "id": "wida-prime-versions",
+      "url": "https://www.widaprime.org/correlated-instructional-materials",
+      "label": "PRIME versions",
+      "excerpt": "Users may filter for correlations previously correlated with PRIME V1 and PRIME V2, or aligned with PRIME 2020."
+    },
+    {
+      "id": "wida-prime-2020",
+      "url": "https://www.widaprime.org/correlated-instructional-materials",
+      "label": "PRIME 2020",
+      "excerpt": "PRIME 2020 includes materials that are aligned to the current WIDA English Language Development Standards Framework, 2020 Edition."
+    },
+    {
+      "id": "wida-prime-guardrail",
+      "url": "https://www.widaprime.org/correlated-instructional-materials",
+      "label": "Endorsement guardrail",
+      "excerpt": "WIDA does not endorse any set of instructional materials. WIDA PRIME is not an evaluative tool that judges the effectiveness of published materials."
+    }
+  ]
+}

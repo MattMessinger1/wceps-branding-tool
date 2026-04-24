@@ -1,0 +1,199 @@
+{
+  "brandName": "WebbAlign",
+  "parentBrand": "WCEPS",
+  "sourceOfTruth": [
+    "https://www.wcepspathways.org/products-services/",
+    "https://www.webbalign.org/",
+    "https://www.webbalign.org/services/districts-educators",
+    "https://www.webbalign.org/about/dok-explained"
+  ],
+  "positioning": {
+    "oneLiner": "WebbAlign helps education teams use Depth of Knowledge accurately to support aligned, coherent systems.",
+    "summary": "WebbAlign is a WCEPS program that works in collaboration with Dr. Norman Webb, developer of Depth of Knowledge. The program helps teams use DOK to evaluate standards, learning objectives, assessments, curricula, and instructional materials so learning opportunities and assessment tasks reflect the intended cognitive complexity.",
+    "corePillars": [
+      "Depth of Knowledge",
+      "Alignment",
+      "Coherent systems",
+      "Cognitive engagement",
+      "Professional learning and analysis"
+    ]
+  },
+  "audiences": [
+    {
+      "name": "curriculum teams",
+      "needs": [
+        "Evaluate the alignment among standards, curriculum, assessments, and instructional materials",
+        "Differentiate complexity from difficulty",
+        "Structure professional conversations around cognitive complexity"
+      ],
+      "approvedMessages": [
+        "WebbAlign helps teams use the lens of DOK to evaluate standards, learning objectives, assessments, curricula, and instructional materials.",
+        "WebbAlign professional learning can help teams build a calibrated understanding of DOK to inform practice.",
+        "DOK supports conversations about cognitive complexity and coherent learning opportunities."
+      ],
+      "ctaSuggestions": [
+        "Contact WebbAlign",
+        "Explore DOK professional learning",
+        "Start an alignment conversation"
+      ]
+    },
+    {
+      "name": "education leaders",
+      "needs": [
+        "Understand where WebbAlign fits in a system improvement effort",
+        "Use DOK language accurately",
+        "Connect learning expectations, materials, and assessments"
+      ],
+      "approvedMessages": [
+        "WebbAlign promotes effective and accurate use of Depth of Knowledge language.",
+        "The program helps education teams work toward an aligned, coherent system.",
+        "WebbAlign is a WCEPS program connected to educational innovations that originated at UW-Madison."
+      ],
+      "ctaSuggestions": [
+        "Learn how WebbAlign can support alignment",
+        "Contact the WebbAlign team",
+        "Explore Webb's DOK"
+      ]
+    },
+    {
+      "name": "content developers",
+      "needs": [
+        "Analyze content complexity",
+        "Use DOK to inform item and task development",
+        "Avoid confusing difficulty with complexity"
+      ],
+      "approvedMessages": [
+        "DOK can inform instructional design and content development that elicits thinking aligned to learning targets.",
+        "WebbAlign supports analyses of educational materials.",
+        "WebbAlign works directly with Dr. Norman Webb, who developed the DOK language system."
+      ],
+      "ctaSuggestions": [
+        "Discuss DOK partnership options",
+        "Review alignment support",
+        "Contact WebbAlign"
+      ]
+    }
+  ],
+  "proofPoints": [
+    "The WebbAlign homepage identifies WebbAlign as a WCEPS program.",
+    "The WebbAlign site states that the team works in collaboration with Dr. Norman Webb.",
+    "The WebbAlign DOK page says DOK differentiates complexity from difficulty.",
+    "The districts and educators page describes online, onsite, and hybrid sessions tailored to team needs."
+  ],
+  "approvedPhrases": [
+    "Depth of Knowledge",
+    "DOK",
+    "effective and accurate use",
+    "evaluate standards, learning objectives, assessments, curricula, and instructional materials",
+    "aligned, or coherent, system",
+    "complexity of cognitive engagement",
+    "differentiate complexity from difficulty",
+    "calibrated understanding of DOK"
+  ],
+  "avoidPhrases": [
+    "DOK leveling checklist",
+    "guaranteed alignment approval",
+    "official state approval",
+    "simple rigor scale",
+    "test-prep shortcut"
+  ],
+  "restrictedClaims": [
+    "Do not imply WebbAlign guarantees assessment approval or compliance outcomes.",
+    "Do not describe DOK as a progression of instructional levels; the source says DOK definitions are not intended to represent progressions in learning or instructional levels.",
+    "Do not claim exclusive rights beyond the source statement that WebbAlign works directly with Dr. Norman Webb."
+  ],
+  "topics": [
+    "DOK",
+    "alignment",
+    "coherence",
+    "standards",
+    "learning objectives",
+    "assessment",
+    "curriculum",
+    "instructional materials",
+    "cognitive complexity"
+  ],
+  "visualStyle": {
+    "colorTokens": [
+      "#142836",
+      "#0081A4",
+      "#3EB3BD",
+      "#F7D470",
+      "#FFFFFF"
+    ],
+    "typographyMood": [
+      "precise",
+      "scholarly",
+      "clear",
+      "systems-oriented"
+    ],
+    "layoutKeywords": [
+      "alignment matrix",
+      "standards-to-assessment pathway",
+      "calibration workshop",
+      "evidence sidebar"
+    ],
+    "imageKeywords": [
+      "curriculum team reviewing standards",
+      "assessment materials arranged for analysis",
+      "facilitated workshop table",
+      "clean cognitive complexity diagram without text"
+    ]
+  },
+  "artifactPreferences": {
+    "flyer": {
+      "sections": [
+        "What DOK helps teams discuss",
+        "What WebbAlign reviews",
+        "How to start"
+      ]
+    },
+    "one-pager": {
+      "sections": [
+        "Straight from the source",
+        "Alignment focus areas",
+        "Professional learning options"
+      ]
+    },
+    "landing-page": {
+      "sections": [
+        "Hero with DOK and coherence",
+        "Districts and educators",
+        "DOK explained",
+        "Contact CTA"
+      ]
+    }
+  },
+  "sourceEvidence": [
+    {
+      "id": "webbalign-home-source",
+      "url": "https://www.webbalign.org/",
+      "label": "WebbAlign homepage positioning",
+      "excerpt": "In collaboration with Dr. Norman Webb, the developer of Depth of Knowledge (DOK), we promote effective and accurate use of this innovative language system."
+    },
+    {
+      "id": "webbalign-evaluate",
+      "url": "https://www.webbalign.org/",
+      "label": "WebbAlign evaluation areas",
+      "excerpt": "Our team helps you use the lens of DOK to evaluate standards, learning objectives, assessments, curricula, and instructional materials to work toward an aligned, or coherent, system."
+    },
+    {
+      "id": "webbalign-districts",
+      "url": "https://www.webbalign.org/services/districts-educators",
+      "label": "Districts and educators page",
+      "excerpt": "Structuring conversations about cognitive complexity through the lens of DOK leads to rich conversations that enhance understanding of academic expectations and tasks."
+    },
+    {
+      "id": "webbalign-professional-learning",
+      "url": "https://www.webbalign.org/services/districts-educators",
+      "label": "Professional learning format",
+      "excerpt": "We offer online, onsite, and hybrid sessions tailored to your team's needs."
+    },
+    {
+      "id": "webbalign-dok-explained",
+      "url": "https://www.webbalign.org/about/dok-explained",
+      "label": "Webb's DOK explained",
+      "excerpt": "Grounded in the language of the academic standards, the DOK framework differentiates complexity from difficulty."
+    }
+  ]
+}

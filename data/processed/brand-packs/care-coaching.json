@@ -1,0 +1,202 @@
+{
+  "brandName": "CARE Coaching",
+  "parentBrand": "WCEPS",
+  "sourceOfTruth": [
+    "https://www.wcepspathways.org/service-offerings/care-coaching/",
+    "https://www.wcepspathways.org/service-offerings/care-coaching-needs-assessment-ccna/",
+    "https://www.wcepspathways.org/products-services/",
+    "https://www.wcepspathways.org/learning-library/"
+  ],
+  "positioning": {
+    "oneLiner": "CARE Coaching supports educators through Consulting, Coaching, and Continuous Learning.",
+    "summary": "CARE Coaching provides tailored professional development, workshops, program evaluations, and personalized coaching that help educators reflect on current practice and implement research-based actions. Its source language emphasizes customized support, practical educator-led professional learning, multilingual learner support where relevant, and sustained continuous improvement.",
+    "corePillars": [
+      "Consulting",
+      "Coaching",
+      "Continuous Learning",
+      "Reflective and data-driven practice",
+      "Customized professional learning"
+    ]
+  },
+  "audiences": [
+    {
+      "name": "district EL leaders",
+      "needs": [
+        "Support multilingual learner instruction without generic professional development",
+        "Use action-based data to identify growth areas",
+        "Build educator capacity through coaching and continuous improvement"
+      ],
+      "approvedMessages": [
+        "CARE Coaching provides customized learning opportunities for administrators, teachers, school leaders, and district leaders.",
+        "The CARE Coaching Needs Assessment identifies strengths, uncovers growth areas, and guides education leaders with action-based data.",
+        "CARE Coaching can support multilingual learner success alongside family engagement and standards-aligned teaching, learning, and assessment."
+      ],
+      "ctaSuggestions": [
+        "Request a CARE Coaching conversation",
+        "Explore the CARE Coaching Needs Assessment",
+        "Connect with WCEPS about multilingual learner support"
+      ]
+    },
+    {
+      "name": "school leaders",
+      "needs": [
+        "Turn staff learning into practical classroom actions",
+        "Plan professional learning around specific instructional needs",
+        "Sustain improvement after workshops"
+      ],
+      "approvedMessages": [
+        "CARE Coaching offerings help educators reflect on current practices and implement research-based actions.",
+        "CARE Coaching offers professional learning, program evaluations, personalized coaching, and scheduling designed around educator availability.",
+        "The CARE approach emphasizes reflection, strategy development, and continuous improvement."
+      ],
+      "ctaSuggestions": [
+        "Schedule a planning call",
+        "Discuss professional learning needs",
+        "Start with a needs assessment"
+      ]
+    },
+    {
+      "name": "educators",
+      "needs": [
+        "Receive practical professional learning",
+        "Connect coaching to current classroom practice",
+        "Support students through more inclusive instruction"
+      ],
+      "approvedMessages": [
+        "CARE Coaching professional learning is led by educators and designed to be meaningful and practical.",
+        "CARE Coaching focuses on reflective practice and research-based actions.",
+        "CARE Coaching supports educator growth through ongoing professional development and tailored programmatic support."
+      ],
+      "ctaSuggestions": [
+        "Learn more about CARE Coaching topics",
+        "Share the CARE Coaching overview",
+        "Connect with the CARE Coaching team"
+      ]
+    }
+  ],
+  "proofPoints": [
+    "The CARE Coaching page identifies the Three Cs as Consulting, Coaching, and Continuous Learning.",
+    "The CARE Coaching page lists professional learning, coaching, CCNA, and educator-friendly scheduling as customizable supports.",
+    "The CCNA page says the assessment identifies strengths, uncovers growth areas, and supports school improvement and professional development planning.",
+    "The Pathways products page describes CARE Coaching as collaborative educator support with reflective and data-driven practices."
+  ],
+  "approvedPhrases": [
+    "Every Voice, Every Classroom, Every Learner",
+    "Consulting, Coaching, and Continuous Learning",
+    "tailored professional development",
+    "program evaluations",
+    "personalized coaching sessions",
+    "reflect on current practices",
+    "research-based actions",
+    "action-based data",
+    "school improvement and professional development planning",
+    "multilingual learner support"
+  ],
+  "avoidPhrases": [
+    "guaranteed test score gains",
+    "turnkey compliance solution",
+    "fixes all EL instruction",
+    "certified UW-Madison coaching",
+    "one workshop solves it"
+  ],
+  "restrictedClaims": [
+    "Do not guarantee measurable outcomes; the source describes coaching to ensure outcomes are achieved and sustained, but generated copy should remain reviewable and conservative.",
+    "Do not invent new district partnership numbers beyond those present in source evidence.",
+    "Do not claim CARE Coaching is only for multilingual learners; sources also describe broader instructional practices."
+  ],
+  "topics": [
+    "consulting",
+    "coaching",
+    "continuous learning",
+    "professional development",
+    "program evaluation",
+    "CCNA",
+    "multilingual learner support",
+    "family engagement",
+    "standards-aligned instruction"
+  ],
+  "visualStyle": {
+    "colorTokens": [
+      "#0081A4",
+      "#3EB3BD",
+      "#5EA974",
+      "#F7D470",
+      "#F9F9F9"
+    ],
+    "typographyMood": [
+      "warm",
+      "educator-centered",
+      "practical",
+      "credible"
+    ],
+    "layoutKeywords": [
+      "three-part pathway",
+      "coaching cards",
+      "action planning sidebar",
+      "clear next step"
+    ],
+    "imageKeywords": [
+      "educators in collaborative planning",
+      "coach and school leader reviewing notes",
+      "bright professional learning setting",
+      "multilingual classroom support materials"
+    ]
+  },
+  "artifactPreferences": {
+    "flyer": {
+      "headlinePattern": "Every Voice, Every Classroom, Every Learner",
+      "sections": [
+        "The Three Cs",
+        "How support is customized",
+        "Next step"
+      ]
+    },
+    "one-pager": {
+      "sections": [
+        "What CARE Coaching supports",
+        "Why teams use CCNA",
+        "Professional learning and coaching options"
+      ]
+    },
+    "landing-page": {
+      "sections": [
+        "Hero with Three Cs",
+        "Support model",
+        "CARE Coaching Needs Assessment",
+        "Contact CTA"
+      ]
+    }
+  },
+  "sourceEvidence": [
+    {
+      "id": "care-three-cs",
+      "url": "https://www.wcepspathways.org/service-offerings/care-coaching/",
+      "label": "CARE Coaching Three Cs",
+      "excerpt": "The WCEPS CARE Coaching program supports educators by focusing on the Three Cs: Consulting, Coaching, and Continuous Learning."
+    },
+    {
+      "id": "care-tailored-support",
+      "url": "https://www.wcepspathways.org/service-offerings/care-coaching/",
+      "label": "CARE Coaching support model",
+      "excerpt": "Our professional learning offerings are designed to help educators reflect on their current practices and implement research-based actions that lead to meaningful change."
+    },
+    {
+      "id": "care-custom-offerings",
+      "url": "https://www.wcepspathways.org/service-offerings/care-coaching/",
+      "label": "CARE Coaching customizable offerings",
+      "excerpt": "We customize our work to meet your unique needs, offering the CARE Coaching Needs Assessment, professional learning, coaching, and scheduling designed to accommodate educators' availability."
+    },
+    {
+      "id": "care-ccna",
+      "url": "https://www.wcepspathways.org/service-offerings/care-coaching-needs-assessment-ccna/",
+      "label": "CCNA purpose",
+      "excerpt": "The CARE Coaching Needs Assessment identifies strengths, uncovers growth areas, and guides education leaders with action-based data to support school improvement and professional development planning."
+    },
+    {
+      "id": "care-products",
+      "url": "https://www.wcepspathways.org/products-services/",
+      "label": "Products page CARE overview",
+      "excerpt": "CARE Coaching is described through collaborative educator support, reflective and data-driven practices, and student-centered growth."
+    }
+  ]
+}

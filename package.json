@@ -1,0 +1,39 @@
+{
+  "name": "wceps-branding-tool",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "test": "tsx --test tests/*.test.ts",
+    "typecheck": "tsc --noEmit",
+    "setup:openai": "tsx scripts/setup-openai-key.ts",
+    "catalog:logos": "tsx scripts/catalog-logo-assets.ts",
+    "ingest": "tsx scripts/ingest.ts",
+    "rebuild:brand-packs": "tsx scripts/rebuild-brand-packs.ts",
+    "generate:samples": "tsx scripts/generate-sample-artifacts.ts",
+    "eval:local": "tsx scripts/eval-artifact-quality.ts --local",
+    "eval:braintrust": "tsx scripts/eval-artifact-quality.ts --braintrust"
+  },
+  "dependencies": {
+    "autoevals": "^0.0.132",
+    "braintrust": "^3.9.0",
+    "html-to-image": "^1.11.13",
+    "jspdf": "^4.2.1",
+    "next": "latest",
+    "openai": "^6.34.0",
+    "react": "latest",
+    "react-dom": "latest",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.2.2",
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "tailwindcss": "^4.2.2",
+    "tsx": "^4.21.0",
+    "typescript": "latest"
+  }
+}

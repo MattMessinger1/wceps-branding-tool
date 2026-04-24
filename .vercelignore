@@ -1,0 +1,6 @@
+.env
+.env.*
+.next
+node_modules
+data/drafts
+data/raw/site-snapshots

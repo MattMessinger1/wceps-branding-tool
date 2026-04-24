@@ -1,0 +1,170 @@
+{
+  "brandName": "WCEPS",
+  "parentBrand": "WCEPS",
+  "sourceOfTruth": [
+    "https://www.wcepspathways.org/",
+    "https://www.wcepspathways.org/about-us/",
+    "https://www.wcepspathways.org/products-services/"
+  ],
+  "positioning": {
+    "oneLiner": "WCEPS extends research-based educational innovations into customized supports for schools, districts, and educators.",
+    "summary": "Pathways Powered by WCEPS helps education teams chart a course through research-based resources, professional learning, assessments, program evaluations, and content alignment analyses. The parent brand tone is nonprofit, practical, collaborative, and focused on equitable access for educators and students.",
+    "corePillars": [
+      "Nonprofit educational support",
+      "Research-based resources and services",
+      "Customized pathways for schools and districts",
+      "Equitable access for educators and students",
+      "Ongoing partnership and continuous learning"
+    ]
+  },
+  "audiences": [
+    {
+      "name": "education leaders",
+      "needs": [
+        "Understand which WCEPS pathway matches a local challenge",
+        "See the connection between research-based resources and practical support",
+        "Move toward a next conversation without feeling oversold"
+      ],
+      "approvedMessages": [
+        "WCEPS tailors research-based products and services to meet unique education needs.",
+        "Pathways programs help educators identify a challenge, choose a pathway, and continue learning through partnership.",
+        "WCEPS supports schools and districts with educational resources, assessments, professional learning, program evaluations, and content alignment analyses."
+      ],
+      "ctaSuggestions": [
+        "Connect with WCEPS",
+        "Compare pathways",
+        "Start a pathway conversation"
+      ]
+    },
+    {
+      "name": "district leaders",
+      "needs": [
+        "Find research-based support that fits district priorities",
+        "Clarify which service line addresses the local goal",
+        "Protect time and avoid generic consulting"
+      ],
+      "approvedMessages": [
+        "WCEPS listens to district needs and considers how its programs can help without pushing services teams do not need.",
+        "WCEPS offers customized educational solutions for schools and districts.",
+        "Pathways programs include professional learning, program evaluations, assessments, and alignment analyses."
+      ],
+      "ctaSuggestions": [
+        "Request a conversation",
+        "Explore service options",
+        "Contact the Pathways team"
+      ]
+    }
+  ],
+  "proofPoints": [
+    "WCEPS is described on the Pathways site as a 501(c)(3) charitable nonprofit organization.",
+    "The site says WCEPS extends the impact of University of Wisconsin-Madison educational innovations.",
+    "Pathways programs and services include CARE Coaching, CALL, WebbAlign, AIW Institute, The Discussion Project, and WIDA Licensed Offerings."
+  ],
+  "approvedPhrases": [
+    "research-based educational resources",
+    "customized educational solutions",
+    "schools and districts",
+    "equitable access",
+    "ongoing partnership",
+    "continuous learning",
+    "Pathways programs and services"
+  ],
+  "avoidPhrases": [
+    "guaranteed student achievement",
+    "certified by UW-Madison",
+    "official endorsement",
+    "one-size-fits-all solution",
+    "instant transformation"
+  ],
+  "restrictedClaims": [
+    "Do not imply guaranteed outcomes, endorsements, certifications, or pricing not present in the source material.",
+    "Do not imply that every WCEPS service directly serves multilingual learners unless the selected service source supports that framing.",
+    "Do not cite partner logos or testimonials as current commitments without human review."
+  ],
+  "topics": [
+    "professional learning",
+    "program evaluation",
+    "assessment",
+    "content alignment",
+    "educator support",
+    "equitable access",
+    "multilingual learner support"
+  ],
+  "visualStyle": {
+    "colorTokens": [
+      "#142836",
+      "#0081A4",
+      "#3EB3BD",
+      "#5EA974",
+      "#F7D470",
+      "#F9F9F9"
+    ],
+    "typographyMood": [
+      "clear",
+      "warm",
+      "professional",
+      "approachable"
+    ],
+    "layoutKeywords": [
+      "sectioned pathway",
+      "evidence panel",
+      "warm whitespace",
+      "clean service comparison"
+    ],
+    "imageKeywords": [
+      "educators reviewing materials",
+      "bright school or office setting",
+      "collaborative planning",
+      "inclusive learning environment"
+    ]
+  },
+  "artifactPreferences": {
+    "flyer": {
+      "sections": [
+        "Challenge",
+        "Pathway",
+        "Continuous learning"
+      ]
+    },
+    "one-pager": {
+      "sections": [
+        "What WCEPS supports",
+        "How pathways work",
+        "Source-grounded service options"
+      ]
+    },
+    "landing-page": {
+      "sections": [
+        "Hero",
+        "Pathways overview",
+        "Contact CTA"
+      ]
+    }
+  },
+  "sourceEvidence": [
+    {
+      "id": "wceps-home-chart-course",
+      "url": "https://www.wcepspathways.org/",
+      "label": "Homepage positioning",
+      "excerpt": "Discover your pathway through WCEPS' research-based educational resources, publications, assessments, professional learning, program evaluations, and content alignment analyses."
+    },
+    {
+      "id": "wceps-home-nonprofit",
+      "url": "https://www.wcepspathways.org/",
+      "label": "Nonprofit purpose",
+      "excerpt": "We are a non-profit committed to supporting educators in K-12 and higher education in their mission to support students and create an educational landscape where all students, regardless of their background, can thrive and reach their full potential."
+    },
+    {
+      "id": "wceps-footer-mission",
+      "url": "https://www.wcepspathways.org/",
+      "label": "WCEPS mission footer",
+      "excerpt": "The Wisconsin Center for Education Products and Services is a 501(c)3 charitable non-profit organization with a mission to extend the impact of the University of Wisconsin-Madison's educational innovations and bring research-based, innovative, and customized educational solutions to schools and districts."
+    },
+    {
+      "id": "wceps-contact-listen",
+      "url": "https://www.wcepspathways.org/contact-us/",
+      "label": "Contact page tone",
+      "excerpt": "As a non-profit organization offering research-based solutions, we strive to listen to what our district colleagues need, understand your challenges, and consider how our programs can help you reach your goals, without pushing things you don't need."
+    }
+  ]
+}
