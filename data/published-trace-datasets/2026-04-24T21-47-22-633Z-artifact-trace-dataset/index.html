@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>2026-04-24T21-47-22-633Z-artifact-trace-dataset</title>
+  <style>
+    :root { color-scheme: light; --ink:#142836; --muted:#53657a; --line:#dfe7ee; --paper:#f6f2ed; --blue:#338bad; --teal:#67c3c9; }
+    * { box-sizing: border-box; }
+    body { margin:0; background:var(--paper); color:var(--ink); font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing:0; }
+    main { max-width:1120px; margin:0 auto; padding:48px 24px 64px; }
+    header { margin-bottom:28px; }
+    h1 { margin:0 0 10px; font-size:34px; line-height:1.08; }
+    h2 { margin:4px 0 8px; font-size:19px; line-height:1.25; }
+    p { margin:0; }
+    .lead { max-width:760px; color:var(--muted); font-size:16px; line-height:1.6; }
+    .toolbar { display:flex; flex-wrap:wrap; gap:10px; margin-top:22px; }
+    .toolbar a, .actions a { display:inline-flex; align-items:center; min-height:38px; padding:9px 13px; border-radius:8px; background:#fff; border:1px solid var(--line); color:var(--ink); font-weight:750; text-decoration:none; }
+    .toolbar a:hover, .actions a:hover { border-color:var(--blue); color:var(--blue); }
+    .grid { display:grid; gap:14px; }
+    .card { display:grid; grid-template-columns:minmax(0, 1fr) auto; gap:20px; align-items:start; padding:18px; background:#fff; border:1px solid var(--line); border-radius:10px; box-shadow:0 10px 30px rgba(20,40,54,.07); }
+    .eyebrow { margin:0; color:var(--blue); font-size:12px; font-weight:850; letter-spacing:.08em; text-transform:uppercase; }
+    .meta { color:var(--muted); line-height:1.55; }
+    .fine { margin-top:8px; color:#65758a; font-size:13px; line-height:1.45; }
+    .badges { display:flex; flex-wrap:wrap; gap:7px; margin-top:10px; }
+    .badge { display:inline-flex; align-items:center; border-radius:999px; padding:5px 9px; font-size:11px; font-weight:800; border:1px solid var(--line); background:#f8fafc; color:#475569; }
+    .badge.warn { background:#fffbeb; border-color:#fde68a; color:#92400e; }
+    .badge.block { background:#fef2f2; border-color:#fecaca; color:#991b1b; }
+    .badge.ok { background:#ecfdf5; border-color:#a7f3d0; color:#047857; }
+    .actions { display:flex; flex-wrap:wrap; justify-content:flex-end; gap:8px; max-width:360px; }
+    .missing { display:inline-flex; align-items:center; min-height:38px; padding:9px 13px; border-radius:8px; background:#f1f5f9; color:#64748b; font-weight:750; }
+    @media (max-width:760px) {
+      main { padding:32px 16px 48px; }
+      .card { grid-template-columns:1fr; }
+      .actions { justify-content:flex-start; max-width:none; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <p class="eyebrow">WCEPS · Brand Building</p>
+      <h1>Artifact Trace Dataset</h1>
+      <p class="lead">Open an artifact to inspect the rendered output, then open the matching Braintrust trace to see the generation, copy-fit, prompt, layout QA, and sendability metadata for the same artifact.</p>
+      <div class="toolbar">
+        <a href="manifest.json" target="_blank" rel="noreferrer">Manifest JSON</a>
+        <a href="manifest.jsonl" target="_blank" rel="noreferrer">Manifest JSONL</a>
+      </div>
+    </header>
+    <section class="grid">
+      <article class="card">
+        <div>
+          <p class="eyebrow">CARE Coaching · flyer</p>
+          <h2>draft-20260424214743-bfctjs</h2>
+          <p class="meta">Recipe: <strong>editorial-split</strong> · Review: <strong>warn</strong> · Layout QA: <strong>pass</strong> · Copy QA: <strong>pass</strong> · Visual QA: <strong>pass</strong> · Render QA: <strong>pass</strong> · Model QA: <strong>warn</strong> · Sendability: <strong>99%</strong></p>
+          <div class="badges"><span class="badge warn">brand-specificity-soft · introduced at generateCopy · missed by copyQualityQa</span><span class="badge warn">copy-repetition · introduced at generateCopy · missed by copyQualityQa</span><span class="badge warn">visual-relevance-generic · introduced at imageJob · missed by visualQa</span><span class="badge warn">cta-detail-thin · introduced at fitCopy · missed by renderQa</span><span class="badge warn">qa-overgenerous-copy · introduced at modelQa · missed by finalReview</span></div>
+          <p class="fine"><strong>Warnings:</strong> CARE Coaching prompt is missing avoid guardrail(s): lecture hall, random books, fake chevron.; Model QA: Primary messaging is broadly inclusive and professional but not distinctively anchored to CARE Coaching&#039;s specific offer for district EL leaders.; Model QA: Repeated phrasing around &#039;customized learning opportunities&#039; weakens polish and makes the flyer feel scaffolded.; Model QA: Art plate shows a credible educator collaboration scene, but the props and context are generic and only loosely signal multilingual learner support or EL leadership.; Model QA: CTA is understandable but underpowered for production because it provides no concrete response path or supporting action detail.; Model QA: Copy QA passed at 100 even though brand-preferred terms were missing and the copy contains repetition and limited audience specificity.</p>
+          <p class="fine"><strong>Issues:</strong> No issues</p>
+        </div>
+        <div class="actions">
+          <a href="html/draft-20260424214743-bfctjs.html" target="_blank" rel="noreferrer">Open Artifact</a>
+          <a href="artifacts/draft-20260424214743-bfctjs.json" target="_blank" rel="noreferrer">Artifact JSON</a>
+          <a href="https://www.braintrust.dev/app/WCEPS/object?object_type=project_logs&amp;object_id=671b57c6-229b-4f25-8cf2-67fc0f36e120&amp;id=e4dcbb5f-4804-40e9-a95c-a60ff4caf80f" target="_blank" rel="noreferrer">Braintrust Trace</a>
+          <a href="https://www.braintrust.dev/app/WCEPS/object?object_type=project_logs&amp;object_id=671b57c6-229b-4f25-8cf2-67fc0f36e120&amp;id=7c70a8e5-9ac7-4b75-a135-00fd2b160ac9" target="_blank" rel="noreferrer">ImageGen Trace</a>
+        </div>
+      </article>
+<article class="card">
+        <div>
+          <p class="eyebrow">WebbAlign · social-graphic</p>
+          <h2>draft-20260424215001-b64o61</h2>
+          <p class="meta">Recipe: <strong>social-poster</strong> · Review: <strong>block</strong> · Layout QA: <strong>block</strong> · Copy QA: <strong>pass</strong> · Visual QA: <strong>pass</strong> · Render QA: <strong>pass</strong> · Model QA: <strong>block</strong> · Sendability: <strong>96%</strong></p>
+          <div class="badges"><span class="badge block">fm-layout-overflow-deck · introduced at fitCopy · missed by finalReview</span><span class="badge warn">fm-weak-cta-social · introduced at generateCopy · missed by renderQa</span><span class="badge warn">fm-generic-visual-specificity · introduced at imageJob · missed by visualQa</span><span class="badge warn">fm-copy-repetition-brand-specificity · introduced at generateCopy · missed by copyQualityQa</span><span class="badge warn">fm-qa-too-generous-copy · introduced at modelQa · missed by finalReview</span></div>
+          <p class="fine"><strong>Warnings:</strong> WebbAlign prompt is missing avoid guardrail(s): generic classroom.; Model QA: CTA lacks specificity or action detail for social use; &#039;Contact WebbAlign&#039; is serviceable but not compelling.; Model QA: Art plate is polished and on-topic but remains fairly generic corporate workshop imagery, with limited distinctive linkage to WebbAlign/DOK alignment work.; Model QA: Generated copy repeats the same evaluation sentence multiple times and underdelivers on concise, differentiated WebbAlign messaging.; Model QA: copyQualityQa passed at 100 despite repetition, missing preferred terms, and limited brand-specific sharpening.</p>
+          <p class="fine"><strong>Issues:</strong> Model QA: Deck copy is too long for the minimal social-announcement template, creating likely overflow and weakening text hierarchy.</p>
+        </div>
+        <div class="actions">
+          <a href="html/draft-20260424215001-b64o61.html" target="_blank" rel="noreferrer">Open Artifact</a>
+          <a href="artifacts/draft-20260424215001-b64o61.json" target="_blank" rel="noreferrer">Artifact JSON</a>
+          <a href="https://www.braintrust.dev/app/WCEPS/object?object_type=project_logs&amp;object_id=671b57c6-229b-4f25-8cf2-67fc0f36e120&amp;id=ee255cc2-2335-49af-a196-f41ab5b6bd09" target="_blank" rel="noreferrer">Braintrust Trace</a>
+          <a href="https://www.braintrust.dev/app/WCEPS/object?object_type=project_logs&amp;object_id=671b57c6-229b-4f25-8cf2-67fc0f36e120&amp;id=323c74ac-7a14-4a51-a14e-648d9b3029b8" target="_blank" rel="noreferrer">ImageGen Trace</a>
+        </div>
+      </article>
+<article class="card">
+        <div>
+          <p class="eyebrow">CCNA · one-pager</p>
+          <h2>draft-20260424215252-5oqm63</h2>
+          <p class="meta">Recipe: <strong>proof-band</strong> · Review: <strong>warn</strong> · Layout QA: <strong>pass</strong> · Copy QA: <strong>pass</strong> · Visual QA: <strong>pass</strong> · Render QA: <strong>pass</strong> · Model QA: <strong>warn</strong> · Sendability: <strong>96%</strong></p>
+          <div class="badges"><span class="badge warn">fm-copy-generic-specificity · introduced at fitCopy · missed by copyQualityQa</span><span class="badge warn">fm-cta-shortened · introduced at fitCopy · missed by finalReview</span><span class="badge warn">fm-generated-copy-repetition · introduced at generateCopy · missed by copyQualityQa</span><span class="badge warn">fm-visual-generic-editorial · introduced at imageJob · missed by visualQa</span><span class="badge warn">fm-guardrails-incomplete · introduced at buildImagePrompt · missed by finalReview</span></div>
+          <p class="fine"><strong>Warnings:</strong> CCNA prompt is missing avoid guardrail(s): generic dashboard, stock graph.; Model QA: Fitted headline/deck and proof rail are competent but generic, with limited CCNA-specific differentiation for district EL leaders.; Model QA: CTA was compressed to &#039;Email Yvonne,&#039; reducing clarity and professionalism versus the full email-based action.; Model QA: Generated copy contains noticeable repetition and awkward scaffold-like phrasing, indicating copy QA over-scored quality.; Model QA: Art plate is attractive and relevant but remains somewhat generic education/editorial imagery rather than clearly unique to CCNA or district EL leadership.; Model QA: Image prompt guardrails are incomplete for generic dashboard/stock-graph avoidance; deterministic QA flagged this, and it remains worth review because data-report props are central to the concept.</p>
+          <p class="fine"><strong>Issues:</strong> No issues</p>
+        </div>
+        <div class="actions">
+          <a href="html/draft-20260424215252-5oqm63.html" target="_blank" rel="noreferrer">Open Artifact</a>
+          <a href="artifacts/draft-20260424215252-5oqm63.json" target="_blank" rel="noreferrer">Artifact JSON</a>
+          <a href="https://www.braintrust.dev/app/WCEPS/object?object_type=project_logs&amp;object_id=671b57c6-229b-4f25-8cf2-67fc0f36e120&amp;id=f3a7814e-8d4f-40a4-9420-18d587ebe5fc" target="_blank" rel="noreferrer">Braintrust Trace</a>
+          <a href="https://www.braintrust.dev/app/WCEPS/object?object_type=project_logs&amp;object_id=671b57c6-229b-4f25-8cf2-67fc0f36e120&amp;id=7c8e2b72-71d7-4b53-b8f5-513273cf5ce7" target="_blank" rel="noreferrer">ImageGen Trace</a>
+        </div>
+      </article>
+<article class="card">
+        <div>
+          <p class="eyebrow">CALL · flyer</p>
+          <h2>draft-20260424215523-06gwzg</h2>
+          <p class="meta">Recipe: <strong>editorial-split</strong> · Review: <strong>block</strong> · Layout QA: <strong>block</strong> · Copy QA: <strong>warn</strong> · Visual QA: <strong>pass</strong> · Render QA: <strong>pass</strong> · Model QA: <strong>block</strong> · Sendability: <strong>92%</strong></p>
+          <div class="badges"><span class="badge warn">repeated_copy · introduced at fitCopy · missed by compositionScore</span><span class="badge block">deck_overflow_template_mismatch · introduced at fitCopy · missed by finalReview</span><span class="badge warn">weak_call_brand_specificity · introduced at generateCopy · missed by copyQualityQa</span><span class="badge warn">scaffold_like_generated_bullet · introduced at generateCopy · missed by copyQualityQa</span><span class="badge warn">incomplete_visual_guardrails · introduced at buildImagePrompt · missed by visualQa</span></div>
+          <p class="fine"><strong>Warnings:</strong> CALL prompt is missing avoid guardrail(s): fake dashboard, stock workshop.; Copy QA: Deck and proof copy repeat the same idea instead of creating a clear message hierarchy.; Model QA: Deck and proof copy repeat the same idea instead of creating a clear message hierarchy.; Model QA: CALL positioning is too generic for a principal flyer and underuses distinctive brand language such as &#039;leadership for learning.&#039;; Model QA: Generated lines like &#039;CALL focuses on leadership, improvement, and the work&#039; read as placeholder/scaffold copy and signal weak upstream message quality.; Model QA: Prompt guardrails were somewhat incomplete for known generic education-art risks, even though the resulting image remained acceptable.</p>
+          <p class="fine"><strong>Issues:</strong> Model QA: Deck copy is too tall for the selected template, creating a real hierarchy and sendability problem for export.</p>
+        </div>
+        <div class="actions">
+          <a href="html/draft-20260424215523-06gwzg.html" target="_blank" rel="noreferrer">Open Artifact</a>
+          <a href="artifacts/draft-20260424215523-06gwzg.json" target="_blank" rel="noreferrer">Artifact JSON</a>
+          <a href="https://www.braintrust.dev/app/WCEPS/object?object_type=project_logs&amp;object_id=671b57c6-229b-4f25-8cf2-67fc0f36e120&amp;id=39c10c9c-2357-4651-95b0-6fd57e42cbd5" target="_blank" rel="noreferrer">Braintrust Trace</a>
+          <a href="https://www.braintrust.dev/app/WCEPS/object?object_type=project_logs&amp;object_id=671b57c6-229b-4f25-8cf2-67fc0f36e120&amp;id=d5f34c1c-e6fe-4a31-8d2a-ab550fb719c8" target="_blank" rel="noreferrer">ImageGen Trace</a>
+        </div>
+      </article>
+<article class="card">
+        <div>
+          <p class="eyebrow">WIDA PRIME · html-email-announcement</p>
+          <h2>draft-20260424215742-4k13ni</h2>
+          <p class="meta">Recipe: <strong>email-strip</strong> · Review: <strong>block</strong> · Layout QA: <strong>block</strong> · Copy QA: <strong>pass</strong> · Visual QA: <strong>pass</strong> · Render QA: <strong>pass</strong> · Model QA: <strong>block</strong> · Sendability: <strong>96%</strong></p>
+          <div class="badges"><span class="badge block">layout-overflow-proof-copy · introduced at fitCopy · missed by finalReview</span><span class="badge warn">repetitive-generic-publisher-copy · introduced at generateCopy · missed by copyQualityQa</span><span class="badge warn">weak-cta-context · introduced at generateCopy · missed by renderQa</span><span class="badge warn">generic-visual-relevance · introduced at imageJob · missed by visualQa</span><span class="badge warn">qa-too-generous-copy · introduced at modelQa · missed by finalReview</span></div>
+          <p class="fine"><strong>Warnings:</strong> WIDA PRIME prompt is missing avoid guardrail(s): fake title.; Model QA: Generated and fitted copy repeat the same PRIME listing/seal language and do not strongly articulate publisher-specific relevance or workflow.; Model QA: CTA lacks contextual detail about destination/action, making the conversion path feel abrupt for an announcement email.; Model QA: Art plate is polished but could be interpreted as generic curriculum publishing imagery rather than distinctly WIDA PRIME standards-alignment review.; Model QA: Copy QA passed despite clear repetition and missing preferred terms, suggesting deterministic review is too lenient for brand-specific email copy.</p>
+          <p class="fine"><strong>Issues:</strong> Model QA: Proof copy does not fit the selected email template height; selected compact email layout is not production-safe for the current content.</p>
+        </div>
+        <div class="actions">
+          <a href="html/draft-20260424215742-4k13ni.html" target="_blank" rel="noreferrer">Open Artifact</a>
+          <a href="artifacts/draft-20260424215742-4k13ni.json" target="_blank" rel="noreferrer">Artifact JSON</a>
+          <a href="https://www.braintrust.dev/app/WCEPS/object?object_type=project_logs&amp;object_id=671b57c6-229b-4f25-8cf2-67fc0f36e120&amp;id=94140644-9fbe-4dcc-8972-ef278239738d" target="_blank" rel="noreferrer">Braintrust Trace</a>
+          <a href="https://www.braintrust.dev/app/WCEPS/object?object_type=project_logs&amp;object_id=671b57c6-229b-4f25-8cf2-67fc0f36e120&amp;id=9ea1a524-be09-4e2f-9036-b8fb88a64c0e" target="_blank" rel="noreferrer">ImageGen Trace</a>
+        </div>
+      </article>
+<article class="card">
+        <div>
+          <p class="eyebrow">WCEPS · one-pager</p>
+          <h2>draft-20260424220004-9v1f1u</h2>
+          <p class="meta">Recipe: <strong>proof-band</strong> · Review: <strong>block</strong> · Layout QA: <strong>block</strong> · Copy QA: <strong>pass</strong> · Visual QA: <strong>pass</strong> · Render QA: <strong>pass</strong> · Model QA: <strong>block</strong> · Sendability: <strong>92%</strong></p>
+          <div class="badges"><span class="badge block">layout-overflow-proof-band · introduced at fitCopy · missed by finalReview</span><span class="badge warn">generic-brand-copy · introduced at generateCopy · missed by copyQualityQa</span><span class="badge warn">repetitive-and-broken-generated-copy · introduced at generateCopy · missed by copyQualityQa</span><span class="badge warn">generic-editorial-imagery · introduced at imageJob · missed by visualQa</span></div>
+          <p class="fine"><strong>Warnings:</strong> WCEPS prompt is missing avoid guardrail(s): diploma, fake university logo, mascot.; Model QA: Copy leans on broad education-services language and underdelivers on WCEPS-specific differentiation.; Model QA: Generated options contain duplicated subheads and an incomplete phrase, indicating weak copy QA tolerance.; Model QA: Final art plate is polished and relevant but reads as generic professional meeting imagery rather than uniquely WCEPS-owned visual storytelling.</p>
+          <p class="fine"><strong>Issues:</strong> Model QA: Proof copy is too tall for the magazine one-pager template and is estimated to overflow the canvas.</p>
+        </div>
+        <div class="actions">
+          <a href="html/draft-20260424220004-9v1f1u.html" target="_blank" rel="noreferrer">Open Artifact</a>
+          <a href="artifacts/draft-20260424220004-9v1f1u.json" target="_blank" rel="noreferrer">Artifact JSON</a>
+          <a href="https://www.braintrust.dev/app/WCEPS/object?object_type=project_logs&amp;object_id=671b57c6-229b-4f25-8cf2-67fc0f36e120&amp;id=f738f489-b092-4783-abfa-958470c26477" target="_blank" rel="noreferrer">Braintrust Trace</a>
+          <a href="https://www.braintrust.dev/app/WCEPS/object?object_type=project_logs&amp;object_id=671b57c6-229b-4f25-8cf2-67fc0f36e120&amp;id=5dce9b96-5fea-4bbd-8165-c85fd0e18ebc" target="_blank" rel="noreferrer">ImageGen Trace</a>
+        </div>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

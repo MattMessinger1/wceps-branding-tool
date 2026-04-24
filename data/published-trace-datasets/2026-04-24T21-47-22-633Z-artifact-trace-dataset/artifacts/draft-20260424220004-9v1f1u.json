@@ -1,0 +1,423 @@
+{
+  "id": "draft-20260424220004-9v1f1u",
+  "artifactType": "one-pager",
+  "brand": "WCEPS",
+  "audience": "education leaders",
+  "brief": {
+    "artifactType": "one-pager",
+    "brand": "WCEPS",
+    "audience": "education leaders",
+    "objective": "compare WCEPS pathways",
+    "keyMessages": [
+      "WCEPS tailors research-based products and services to meet unique education needs.",
+      "Pathways programs help educators identify a challenge, choose a pathway, and continue learning through partnership.",
+      "WCEPS supports schools and districts with educational resources, assessments, professional learning, program evaluations, and content alignment analyses."
+    ],
+    "proofPoints": [
+      "WCEPS is described on the Pathways site as a 501(c)(3) charitable nonprofit organization.",
+      "The site says WCEPS extends the impact of University of Wisconsin-Madison educational innovations."
+    ],
+    "cta": "Compare pathways",
+    "visualDirection": [
+      "educators reviewing materials",
+      "bright school or office setting",
+      "collaborative planning",
+      "sectioned pathway",
+      "evidence panel"
+    ],
+    "layoutRecommendation": "Use a structured one-pager with a summary column, key message cards, evidence-backed proof points, and a bottom CTA band.",
+    "sourceEvidenceIds": [
+      "wceps-home-chart-course",
+      "wceps-home-nonprofit",
+      "wceps-footer-mission",
+      "wceps-contact-listen"
+    ]
+  },
+  "copy": {
+    "headlineOptions": [
+      "Chart your course with WCEPS",
+      "Research-based pathways for education teams",
+      "Customized support for schools and districts"
+    ],
+    "subheadOptions": [
+      "Pathways Powered by WCEPS helps education teams chart a course through research-based resources, professional learning, assessments, program.",
+      "WCEPS tailors research-based products and services to meet unique education needs.",
+      "WCEPS tailors research-based products and services to meet unique education needs."
+    ],
+    "body": "WCEPS tailors research-based products and services to meet unique education needs. For education leaders, this draft focuses on research-based educational supports and service pathways. WCEPS is described on the Pathways site as a 501(c)(3) charitable nonprofit organization.",
+    "bullets": [
+      "WCEPS tailors research-based products and services to meet unique education needs.",
+      "Pathways programs help educators identify a challenge, choose a pathway, and continue learning through partnership.",
+      "WCEPS supports schools and districts with educational resources, assessments, professional learning, program evaluations, and content alignment.",
+      "WCEPS is described on the Pathways site as a 501(c)(3) charitable nonprofit organization.",
+      "The site says WCEPS extends the impact of University of Wisconsin-Madison educational innovations."
+    ],
+    "cta": "Compare pathways",
+    "footer": "Draft generated for internal review. Claims should remain tied to the source evidence shown with this artifact."
+  },
+  "fittedCopy": {
+    "headline": "Customized support for schools and districts",
+    "deck": "Connect teams with research-based resources, professional learning, assessments, and alignment support.",
+    "proofPoints": [
+      "Tailored research-based products and services support unique education needs.",
+      "Pathways help educators identify a challenge, choose a pathway, and continue learning through partnership.",
+      "Support includes educational resources, assessments, professional learning, program evaluations, and content alignment."
+    ],
+    "cta": "Compare pathways",
+    "footer": "Draft generated for internal review. Claims should remain tied to the source evidence shown with this artifact."
+  },
+  "compositionTemplate": {
+    "id": "magazine-one-pager",
+    "artifactType": "one-pager",
+    "aspectRatio": "letter portrait",
+    "densityTarget": "editorial",
+    "typographyScale": "magazine headline, one deck, short proof rail",
+    "artPlateTreatment": "edge-to-edge editorial art column or band",
+    "logoPlacement": "top-left, single official logo",
+    "copyPlacement": "large type block with compact editorial proof band",
+    "ctaPlacement": "proof band action lockup"
+  },
+  "designRecipe": {
+    "id": "proof-band",
+    "source": "model-generated",
+    "textZone": "left",
+    "visualZone": "right-field",
+    "density": "editorial",
+    "hierarchy": "editorial one-pager with a dominant service headline, concise supporting deck, compact proof band for evidence, and a clear action point anchored below",
+    "artDirection": "confident K-12 leadership editorial: optimistic, research-driven, and partner-focused, using polished school-and-district context imagery with strategic cropping, institutional credibility, and warm professional energy suited to education leaders",
+    "placeholderStrategy": "build the layout through image-led negative space, tonal separation, and directional composition that naturally reserves the left reading column and lower proof rhythm without fake text or containers",
+    "appComposition": "app places the official logo at top-left, headline and deck in the left text column, then a compact proof band with CTA beneath; imagery occupies the right field and should feel integral to the page concept",
+    "promptDirectives": [
+      "design the entire letter-portrait one-pager concept, not just the background",
+      "use right-field editorial imagery that conveys district and school partnership, planning, and support for educators",
+      "create a clean left reading column through crop, lighting, and contrast for app-owned text",
+      "support an integrated lower proof-band rhythm without drawing boxes, cards, or UI-like modules"
+    ]
+  },
+  "compositionScore": {
+    "question": "Would I send this to the WCEPS team without apology?",
+    "overall": 94,
+    "whitespaceDensity": 92,
+    "templateScaffolding": 96,
+    "typographyQuality": 87,
+    "artifactMatch": 96,
+    "brandFidelity": 94,
+    "brandRelevance": 93,
+    "brandBoundary": 100,
+    "textIntegration": 94,
+    "fakeContentRisk": 95,
+    "sendability": 94,
+    "status": "warn",
+    "issues": [],
+    "warnings": [
+      "WCEPS prompt is missing avoid guardrail(s): diploma, fake university logo, mascot."
+    ]
+  },
+  "layoutQa": {
+    "question": "Would I send this layout to the WCEPS team without apology?",
+    "overall": 92,
+    "noTextOverflow": 82,
+    "noCtaCollision": 100,
+    "proofLineWidth": 78,
+    "logoOnce": 100,
+    "artifactFormatMatch": 100,
+    "exportReady": 92,
+    "sendability": 92,
+    "status": "block",
+    "issues": [
+      "Proof copy is too tall for the selected template."
+    ],
+    "warnings": [],
+    "metrics": {
+      "headlineLines": 3,
+      "deckLines": 3,
+      "maxProofLines": 5,
+      "minProofCharsPerLine": 23,
+      "ctaLines": 1,
+      "estimatedCanvasOverflow": true
+    }
+  },
+  "copyQualityQa": {
+    "question": "Would I send this copy to the WCEPS team without apology?",
+    "score": 100,
+    "status": "pass",
+    "issues": [],
+    "warnings": [],
+    "failureModes": [],
+    "metrics": {
+      "fittedTextCount": 6,
+      "generatedTextCount": 9,
+      "missingPreferredTerms": [
+        "nonprofit",
+        "research-informed",
+        "customized educational support"
+      ]
+    }
+  },
+  "visualQa": {
+    "question": "Would I send this visual system to the WCEPS team without apology?",
+    "score": 94,
+    "status": "pass",
+    "issues": [],
+    "warnings": [],
+    "failureModes": [],
+    "metrics": {
+      "hasGeneratedVisual": true,
+      "usesFallbackArt": false,
+      "missingArtPlate": false,
+      "darkEdgeBleedRisk": false,
+      "visualRelevance": 94,
+      "promptCount": 3
+    }
+  },
+  "renderQa": {
+    "question": "Would I send this rendered artifact to the WCEPS team without apology?",
+    "score": 98,
+    "status": "pass",
+    "issues": [],
+    "warnings": [],
+    "failureModes": [],
+    "metrics": {
+      "templateId": "magazine-one-pager",
+      "artifactType": "one-pager",
+      "proofPointCount": 3,
+      "hasCtaDetail": false,
+      "inheritedBlockCount": 0
+    }
+  },
+  "modelQa": {
+    "question": "Would a senior WCEPS reviewer send this artifact without apology?",
+    "score": 78,
+    "status": "block",
+    "issues": [
+      "Proof copy is too tall for the magazine one-pager template and is estimated to overflow the canvas."
+    ],
+    "warnings": [
+      "Copy leans on broad education-services language and underdelivers on WCEPS-specific differentiation.",
+      "Generated options contain duplicated subheads and an incomplete phrase, indicating weak copy QA tolerance.",
+      "Final art plate is polished and relevant but reads as generic professional meeting imagery rather than uniquely WCEPS-owned visual storytelling."
+    ],
+    "failureModes": [
+      {
+        "id": "layout-overflow-proof-band",
+        "severity": "block",
+        "introducedAt": "fitCopy",
+        "missedBy": "finalReview",
+        "message": "Proof copy is too tall for the magazine one-pager template and is estimated to overflow the canvas."
+      },
+      {
+        "id": "generic-brand-copy",
+        "severity": "warn",
+        "introducedAt": "generateCopy",
+        "missedBy": "copyQualityQa",
+        "message": "Copy leans on broad education-services language and underdelivers on WCEPS-specific differentiation."
+      },
+      {
+        "id": "repetitive-and-broken-generated-copy",
+        "severity": "warn",
+        "introducedAt": "generateCopy",
+        "missedBy": "copyQualityQa",
+        "message": "Generated options contain duplicated subheads and an incomplete phrase, indicating weak copy QA tolerance."
+      },
+      {
+        "id": "generic-editorial-imagery",
+        "severity": "warn",
+        "introducedAt": "imageJob",
+        "missedBy": "visualQa",
+        "message": "Final art plate is polished and relevant but reads as generic professional meeting imagery rather than uniquely WCEPS-owned visual storytelling."
+      }
+    ],
+    "metrics": {
+      "enabled": true,
+      "model": "gpt-5.4",
+      "imageIncluded": true,
+      "deterministicScores": {
+        "sendability": 94,
+        "layoutQa": 92,
+        "copyQualityQa": 100,
+        "visualQa": 94,
+        "renderQa": 98
+      }
+    }
+  },
+  "failureModes": [
+    {
+      "id": "layout-overflow-proof-band",
+      "severity": "block",
+      "introducedAt": "fitCopy",
+      "missedBy": "finalReview",
+      "message": "Proof copy is too tall for the magazine one-pager template and is estimated to overflow the canvas."
+    },
+    {
+      "id": "generic-brand-copy",
+      "severity": "warn",
+      "introducedAt": "generateCopy",
+      "missedBy": "copyQualityQa",
+      "message": "Copy leans on broad education-services language and underdelivers on WCEPS-specific differentiation."
+    },
+    {
+      "id": "repetitive-and-broken-generated-copy",
+      "severity": "warn",
+      "introducedAt": "generateCopy",
+      "missedBy": "copyQualityQa",
+      "message": "Generated options contain duplicated subheads and an incomplete phrase, indicating weak copy QA tolerance."
+    },
+    {
+      "id": "generic-editorial-imagery",
+      "severity": "warn",
+      "introducedAt": "imageJob",
+      "missedBy": "visualQa",
+      "message": "Final art plate is polished and relevant but reads as generic professional meeting imagery rather than uniquely WCEPS-owned visual storytelling."
+    }
+  ],
+  "artPlatePromptVersion": "design-comp-v1",
+  "layoutContract": {
+    "artifactType": "one-pager",
+    "canvas": "1024x1536, portrait full-page marketing artifact",
+    "safeZones": [
+      "Create a portrait art field with enough texture to support editorial layout.",
+      "Keep important visual energy away from trim and crop edges.",
+      "Avoid document panels, empty modules, fake cards, or CTA-like shapes."
+    ],
+    "exactTextPriority": [
+      "Chart your course with WCEPS",
+      "For education leaders",
+      "Compare pathways",
+      "Pathways Powered by WCEPS helps education teams chart a course through research-based resources",
+      "WCEPS tailors research-based products and services to meet unique education needs.",
+      "Pathways programs help educators identify a challenge, choose a pathway, and continue learning through",
+      "WCEPS supports schools and districts with educational resources, assessments, professional learning"
+    ],
+    "appOwnedElements": [
+      "Official WCEPS logo from approved asset.",
+      "Deterministic grid, typography, headline, audience, and CTA.",
+      "Exact support copy and proof hierarchy.",
+      "Final export wrapper, source evidence, and review state."
+    ],
+    "imageGenOwnedElements": [
+      "Text-free full-bleed campaign art plate.",
+      "Atmosphere, photography or illustration treatment, color, texture, and crop rhythm.",
+      "No document layout, fake cards, panels, contact bars, charts, or text."
+    ]
+  },
+  "imagePrompts": [
+    "CONTRACT=design-comp-v1\nMODE=design-comp-art-plate\nINTENT={out:one-pager, brand:WCEPS, aud:education leaders, theme:[research-based | educational | supports | service | pathways | education | leaders | parent | brand], tone:clear, institutional, practical, ground:strict}\nCANVAS=1024x1536, portrait full-page marketing artifact\nFORMAT=portrait campaign art plate for app-composed marketing artifact; not social/web/contact card.\nDESIGN_RECIPE={id:proof-band; text_zone:left; visual_zone:right-field; density:editorial; hierarchy:editorial one-pager with a dominant service headline, concise supporting deck, compact proof band for evidence, and a clear action point; art:confident K-12 leadership editorial: optimistic, research-driven, and partner-focused, using polished school-and-district context imagery; placeholder:build the layout through image-led negative space, tonal separation, and directional composition that naturally reserves the left; app_comp:app places the official logo at top-left, headline and deck in the left text column, then a compact proof band with CTA beneath; directives:[design the entire letter-portrait one-pager concept, not just the background | use right-field editorial imagery that conveys district and school | create a clean left reading column through crop, lighting, and contrast for | support an integrated lower proof-band rhythm without drawing boxes, cards]}\nBRAND={pal:[#142836 | #0081A4 | #3EB3BD | #5EA974], visual:[educators reviewing materials | bright school or office setting | collaborative planning | inclusive learning environment | clear], evid_ids:[wceps-footer-mission | wceps-home-chart-course]}\nBRAND_BOUNDARY={keep:[nonprofit | research-informed | customized educational support | schools | districts | educators]; avoid_sibling:[CARE Coaching | CCNA | WebbAlign | CALL | WIDA PRIME | DOK | Depth of Knowledge | PRIME process]; parent_context:[]}\nBRAND_VISUAL_PROFILE={show:[educators and district teams planning support | research-informed professional learning | inclusive school and district collaboration | educational service design conversation]; props:[planning notes | educator resource packets | district strategy materials | inclusive classroom support materials]; avoid:[over-specific sub-brand scenes unless selected | generic graduation imagery | random classroom stock photography | fake university marks]; app_owned:[WCEPS logo | headline | CTA | proof copy | source evidence]; tone:[warm institutional | clean nonprofit education | credible | human | finished]; fit:editorial institutional overview with useful density and no empty panels}\nLOGO=do not render any WCEPS logo, wordmark, brand initials, logo-like mark, chevron/mountain mark, arrow mark, or background logo pattern; app renders official logo once.\nMARKS_RULE=official logos, seals, badges, CTAs, headlines, labels, and readable copy are app-owned; do not invent or render them in the art plate.\nOWN=app:[Official WCEPS logo from approved asset. | Deterministic grid, typography, headline, audience, and CTA. | Exact support copy and proof hierarchy. | Final export wrapper, source evidence, and review state.]; imagegen:[Text-free full-bleed campaign art plate. | Atmosphere, photography or illustration treatment, color | No document layout, fake cards, panels, contact bars, charts].\nCROP_SAFE=[Create a portrait art field with enough texture to support | Keep important visual energy away from trim and crop edges. | Avoid document panels, empty modules, fake cards, or CTA-like]\nMESSAGE_CUES=[headline_theme:research-based/educational/supports | audience:17 chars | cta_intent:compare/pathways | proof_volume:compact]; mood/subject only, never words/layout.\nREFS=none; references only.\nUSER_NOTE=Use the parent brand without over-describing individual programs.\nART=portrait full-bleed campaign art plate with polished education-sector storytelling, layered depth, and rich visual density; NY media/ad-agency quality, full designed concept with visual hierarchy, type-safe contrast zones, premium atmosphere, layered depth, non-generic education storytelling, intentional crop.\nVISUAL_STYLE=authentic editorial photography or refined abstract-illustrative atmosphere; avoid posed training-room stock, washed-out empty fades, generic meeting-table cliches, literal brand-shape wallpaper.\nCOMPOSITION=ImageGen creates a full artifact design comp: composition, crop, hierarchy, contrast, visual rhythm, and type-safe zones. The app renders exact typography, official logo, proof copy, CTA, source evidence, and export.\nTEXT_RULE=absolutely no readable text, letters, numbers, labels, fake paragraphs, book titles, publisher names, email addresses, URLs, phone numbers, citations, or lorem ipsum; imply text areas through composition only.\nNO=document layouts, panels, blank boxes, placeholder modules, mock UI, cards, fake text, fake charts, icons with labels, contact bars, duplicate logos, fake logos, fake seals, fake badges, fake book titles, fake publisher brands, logo-like marks, wordmarks, chevrons, arrows, mountain logos, malformed UI, brochure scaffolding, invented claims, endorsement imagery, close-up faces, detailed hands, stock-photo workshop posing.\nQUALITY=best over fast; polished design-comp art plate, no template scaffolding.",
+    "CONTRACT=design-comp-v1\nMODE=design-comp-art-plate\nINTENT={out:one-pager, brand:WCEPS, aud:education leaders, theme:[research-based | educational | supports | service | pathways | education | leaders | parent | brand], tone:clear, institutional, practical, ground:strict}\nCANVAS=1024x1536, portrait full-page marketing artifact\nFORMAT=portrait campaign art plate for app-composed marketing artifact; not social/web/contact card.\nDESIGN_RECIPE={id:proof-band; text_zone:left; visual_zone:right-field; density:editorial; hierarchy:editorial one-pager with a dominant service headline, concise supporting deck, compact proof band for evidence, and a clear action point; art:confident K-12 leadership editorial: optimistic, research-driven, and partner-focused, using polished school-and-district context imagery; placeholder:build the layout through image-led negative space, tonal separation, and directional composition that naturally reserves the left; app_comp:app places the official logo at top-left, headline and deck in the left text column, then a compact proof band with CTA beneath; directives:[design the entire letter-portrait one-pager concept, not just the background | use right-field editorial imagery that conveys district and school | create a clean left reading column through crop, lighting, and contrast for | support an integrated lower proof-band rhythm without drawing boxes, cards]}\nBRAND={pal:[#142836 | #0081A4 | #3EB3BD | #5EA974], visual:[educators reviewing materials | bright school or office setting | collaborative planning | inclusive learning environment | clear], evid_ids:[wceps-footer-mission | wceps-home-chart-course]}\nBRAND_BOUNDARY={keep:[nonprofit | research-informed | customized educational support | schools | districts | educators]; avoid_sibling:[CARE Coaching | CCNA | WebbAlign | CALL | WIDA PRIME | DOK | Depth of Knowledge | PRIME process]; parent_context:[]}\nBRAND_VISUAL_PROFILE={show:[educators and district teams planning support | research-informed professional learning | inclusive school and district collaboration | educational service design conversation]; props:[planning notes | educator resource packets | district strategy materials | inclusive classroom support materials]; avoid:[over-specific sub-brand scenes unless selected | generic graduation imagery | random classroom stock photography | fake university marks]; app_owned:[WCEPS logo | headline | CTA | proof copy | source evidence]; tone:[warm institutional | clean nonprofit education | credible | human | finished]; fit:editorial institutional overview with useful density and no empty panels}\nLOGO=do not render any WCEPS logo, wordmark, brand initials, logo-like mark, chevron/mountain mark, arrow mark, or background logo pattern; app renders official logo once.\nMARKS_RULE=official logos, seals, badges, CTAs, headlines, labels, and readable copy are app-owned; do not invent or render them in the art plate.\nOWN=app:[Official WCEPS logo from approved asset. | Deterministic grid, typography, headline, audience, and CTA. | Exact support copy and proof hierarchy. | Final export wrapper, source evidence, and review state.]; imagegen:[Text-free full-bleed campaign art plate. | Atmosphere, photography or illustration treatment, color | No document layout, fake cards, panels, contact bars, charts].\nCROP_SAFE=[Create a portrait art field with enough texture to support | Keep important visual energy away from trim and crop edges. | Avoid document panels, empty modules, fake cards, or CTA-like]\nMESSAGE_CUES=[headline_theme:research-based/educational/supports | audience:17 chars | cta_intent:compare/pathways | proof_volume:compact]; mood/subject only, never words/layout.\nREFS=none; references only.\nUSER_NOTE=Use the parent brand without over-describing individual programs.\nART=premium nonprofit education art plate with editorial atmosphere, brand color rhythm, no logo shapes, and no document modules; NY media/ad-agency quality, full designed concept with visual hierarchy, type-safe contrast zones, premium atmosphere, layered depth, non-generic education storytelling, intentional crop.\nVISUAL_STYLE=authentic editorial photography or refined abstract-illustrative atmosphere; avoid posed training-room stock, washed-out empty fades, generic meeting-table cliches, literal brand-shape wallpaper.\nCOMPOSITION=ImageGen creates a full artifact design comp: composition, crop, hierarchy, contrast, visual rhythm, and type-safe zones. The app renders exact typography, official logo, proof copy, CTA, source evidence, and export.\nTEXT_RULE=absolutely no readable text, letters, numbers, labels, fake paragraphs, book titles, publisher names, email addresses, URLs, phone numbers, citations, or lorem ipsum; imply text areas through composition only.\nNO=document layouts, panels, blank boxes, placeholder modules, mock UI, cards, fake text, fake charts, icons with labels, contact bars, duplicate logos, fake logos, fake seals, fake badges, fake book titles, fake publisher brands, logo-like marks, wordmarks, chevrons, arrows, mountain logos, malformed UI, brochure scaffolding, invented claims, endorsement imagery, close-up faces, detailed hands, stock-photo workshop posing.\nQUALITY=best over fast; polished design-comp art plate, no template scaffolding.",
+    "CONTRACT=design-comp-v1\nMODE=design-comp-art-plate\nINTENT={out:one-pager, brand:WCEPS, aud:education leaders, theme:[research-based | educational | supports | service | pathways | education | leaders | parent | brand], tone:clear, institutional, practical, ground:strict}\nCANVAS=1024x1536, portrait full-page marketing artifact\nFORMAT=portrait campaign art plate for app-composed marketing artifact; not social/web/contact card.\nDESIGN_RECIPE={id:proof-band; text_zone:left; visual_zone:right-field; density:editorial; hierarchy:editorial one-pager with a dominant service headline, concise supporting deck, compact proof band for evidence, and a clear action point; art:confident K-12 leadership editorial: optimistic, research-driven, and partner-focused, using polished school-and-district context imagery; placeholder:build the layout through image-led negative space, tonal separation, and directional composition that naturally reserves the left; app_comp:app places the official logo at top-left, headline and deck in the left text column, then a compact proof band with CTA beneath; directives:[design the entire letter-portrait one-pager concept, not just the background | use right-field editorial imagery that conveys district and school | create a clean left reading column through crop, lighting, and contrast for | support an integrated lower proof-band rhythm without drawing boxes, cards]}\nBRAND={pal:[#142836 | #0081A4 | #3EB3BD | #5EA974], visual:[educators reviewing materials | bright school or office setting | collaborative planning | inclusive learning environment | clear], evid_ids:[wceps-footer-mission | wceps-home-chart-course]}\nBRAND_BOUNDARY={keep:[nonprofit | research-informed | customized educational support | schools | districts | educators]; avoid_sibling:[CARE Coaching | CCNA | WebbAlign | CALL | WIDA PRIME | DOK | Depth of Knowledge | PRIME process]; parent_context:[]}\nBRAND_VISUAL_PROFILE={show:[educators and district teams planning support | research-informed professional learning | inclusive school and district collaboration | educational service design conversation]; props:[planning notes | educator resource packets | district strategy materials | inclusive classroom support materials]; avoid:[over-specific sub-brand scenes unless selected | generic graduation imagery | random classroom stock photography | fake university marks]; app_owned:[WCEPS logo | headline | CTA | proof copy | source evidence]; tone:[warm institutional | clean nonprofit education | credible | human | finished]; fit:editorial institutional overview with useful density and no empty panels}\nLOGO=do not render any WCEPS logo, wordmark, brand initials, logo-like mark, chevron/mountain mark, arrow mark, or background logo pattern; app renders official logo once.\nMARKS_RULE=official logos, seals, badges, CTAs, headlines, labels, and readable copy are app-owned; do not invent or render them in the art plate.\nOWN=app:[Official WCEPS logo from approved asset. | Deterministic grid, typography, headline, audience, and CTA. | Exact support copy and proof hierarchy. | Final export wrapper, source evidence, and review state.]; imagegen:[Text-free full-bleed campaign art plate. | Atmosphere, photography or illustration treatment, color | No document layout, fake cards, panels, contact bars, charts].\nCROP_SAFE=[Create a portrait art field with enough texture to support | Keep important visual energy away from trim and crop edges. | Avoid document panels, empty modules, fake cards, or CTA-like]\nMESSAGE_CUES=[headline_theme:research-based/educational/supports | audience:17 chars | cta_intent:compare/pathways | proof_volume:compact]; mood/subject only, never words/layout.\nREFS=none; references only.\nUSER_NOTE=Use the parent brand without over-describing individual programs.\nART=modern print-crop visual field with refined texture, abstract education energy, and no brochure scaffolding; NY media/ad-agency quality, full designed concept with visual hierarchy, type-safe contrast zones, premium atmosphere, layered depth, non-generic education storytelling, intentional crop.\nVISUAL_STYLE=authentic editorial photography or refined abstract-illustrative atmosphere; avoid posed training-room stock, washed-out empty fades, generic meeting-table cliches, literal brand-shape wallpaper.\nCOMPOSITION=ImageGen creates a full artifact design comp: composition, crop, hierarchy, contrast, visual rhythm, and type-safe zones. The app renders exact typography, official logo, proof copy, CTA, source evidence, and export.\nTEXT_RULE=absolutely no readable text, letters, numbers, labels, fake paragraphs, book titles, publisher names, email addresses, URLs, phone numbers, citations, or lorem ipsum; imply text areas through composition only.\nNO=document layouts, panels, blank boxes, placeholder modules, mock UI, cards, fake text, fake charts, icons with labels, contact bars, duplicate logos, fake logos, fake seals, fake badges, fake book titles, fake publisher brands, logo-like marks, wordmarks, chevrons, arrows, mountain logos, malformed UI, brochure scaffolding, invented claims, endorsement imagery, close-up faces, detailed hands, stock-photo workshop posing.\nQUALITY=best over fast; polished design-comp art plate, no template scaffolding."
+  ],
+  "imageResults": [
+    {
+      "prompt": "CONTRACT=design-comp-v1\nMODE=design-comp-art-plate\nINTENT={out:one-pager, brand:WCEPS, aud:education leaders, theme:[research-based | educational | supports | service | pathways | education | leaders | parent | brand], tone:clear, institutional, practical, ground:strict}\nCANVAS=1024x1536, portrait full-page marketing artifact\nFORMAT=portrait campaign art plate for app-composed marketing artifact; not social/web/contact card.\nDESIGN_RECIPE={id:proof-band; text_zone:left; visual_zone:right-field; density:editorial; hierarchy:editorial one-pager with a dominant service headline, concise supporting deck, compact proof band for evidence, and a clear action point; art:confident K-12 leadership editorial: optimistic, research-driven, and partner-focused, using polished school-and-district context imagery; placeholder:build the layout through image-led negative space, tonal separation, and directional composition that naturally reserves the left; app_comp:app places the official logo at top-left, headline and deck in the left text column, then a compact proof band with CTA beneath; directives:[design the entire letter-portrait one-pager concept, not just the background | use right-field editorial imagery that conveys district and school | create a clean left reading column through crop, lighting, and contrast for | support an integrated lower proof-band rhythm without drawing boxes, cards]}\nBRAND={pal:[#142836 | #0081A4 | #3EB3BD | #5EA974], visual:[educators reviewing materials | bright school or office setting | collaborative planning | inclusive learning environment | clear], evid_ids:[wceps-footer-mission | wceps-home-chart-course]}\nBRAND_BOUNDARY={keep:[nonprofit | research-informed | customized educational support | schools | districts | educators]; avoid_sibling:[CARE Coaching | CCNA | WebbAlign | CALL | WIDA PRIME | DOK | Depth of Knowledge | PRIME process]; parent_context:[]}\nBRAND_VISUAL_PROFILE={show:[educators and district teams planning support | research-informed professional learning | inclusive school and district collaboration | educational service design conversation]; props:[planning notes | educator resource packets | district strategy materials | inclusive classroom support materials]; avoid:[over-specific sub-brand scenes unless selected | generic graduation imagery | random classroom stock photography | fake university marks]; app_owned:[WCEPS logo | headline | CTA | proof copy | source evidence]; tone:[warm institutional | clean nonprofit education | credible | human | finished]; fit:editorial institutional overview with useful density and no empty panels}\nLOGO=do not render any WCEPS logo, wordmark, brand initials, logo-like mark, chevron/mountain mark, arrow mark, or background logo pattern; app renders official logo once.\nMARKS_RULE=official logos, seals, badges, CTAs, headlines, labels, and readable copy are app-owned; do not invent or render them in the art plate.\nOWN=app:[Official WCEPS logo from approved asset. | Deterministic grid, typography, headline, audience, and CTA. | Exact support copy and proof hierarchy. | Final export wrapper, source evidence, and review state.]; imagegen:[Text-free full-bleed campaign art plate. | Atmosphere, photography or illustration treatment, color | No document layout, fake cards, panels, contact bars, charts].\nCROP_SAFE=[Create a portrait art field with enough texture to support | Keep important visual energy away from trim and crop edges. | Avoid document panels, empty modules, fake cards, or CTA-like]\nMESSAGE_CUES=[headline_theme:research-based/educational/supports | audience:17 chars | cta_intent:compare/pathways | proof_volume:compact]; mood/subject only, never words/layout.\nREFS=none; references only.\nUSER_NOTE=Use the parent brand without over-describing individual programs.\nART=portrait full-bleed campaign art plate with polished education-sector storytelling, layered depth, and rich visual density; NY media/ad-agency quality, full designed concept with visual hierarchy, type-safe contrast zones, premium atmosphere, layered depth, non-generic education storytelling, intentional crop.\nVISUAL_STYLE=authentic editorial photography or refined abstract-illustrative atmosphere; avoid posed training-room stock, washed-out empty fades, generic meeting-table cliches, literal brand-shape wallpaper.\nCOMPOSITION=ImageGen creates a full artifact design comp: composition, crop, hierarchy, contrast, visual rhythm, and type-safe zones. The app renders exact typography, official logo, proof copy, CTA, source evidence, and export.\nTEXT_RULE=absolutely no readable text, letters, numbers, labels, fake paragraphs, book titles, publisher names, email addresses, URLs, phone numbers, citations, or lorem ipsum; imply text areas through composition only.\nNO=document layouts, panels, blank boxes, placeholder modules, mock UI, cards, fake text, fake charts, icons with labels, contact bars, duplicate logos, fake logos, fake seals, fake badges, fake book titles, fake publisher brands, logo-like marks, wordmarks, chevrons, arrows, mountain logos, malformed UI, brochure scaffolding, invented claims, endorsement imagery, close-up faces, detailed hands, stock-photo workshop posing.\nQUALITY=best over fast; polished design-comp art plate, no template scaffolding.",
+      "model": "gpt-image-2",
+      "size": "1024x1536",
+      "quality": "high",
+      "outputFormat": "webp",
+      "outputCompression": 70,
+      "dataUrl": "images/draft-20260424220004-9v1f1u-1.webp",
+      "revisedPrompt": "Portrait full-page marketing art plate for a WCEPS education-sector campaign, designed as a full-bleed editorial composition with a clear left reading column reserved by lighting, crop, and tonal contrast, and a richer visual field on the right. No readable text anywhere. No logos, wordmarks, initials, seals, badges, arrows, chevrons, charts, panels, cards, or UI. Create a premium institutional nonprofit education atmosphere: confident K-12 leadership, research-informed support, district and school collaboration, inclusive learning environment, and practical service pathways. Visual story: a polished school-district planning moment with educators and district leaders reviewing resource packets, strategy materials, and notes in a bright but realistic office or school setting; show human collaboration and professional learning without close-up faces or detailed hands. Use layered depth, directional composition, tonal separation, and elegant negative space to imply an app-owned headline/deck zone on the left, a compact proof-band rhythm below it, and an action area without any actual type. Color palette should align with deep navy, teal, aqua, and green accents (#142836, #0081A4, #3EB3BD, #5EA974) balanced with warm neutral light. Style: authentic editorial photography with refined design treatment, crisp and polished, NY media/ad-agency quality, useful density, warm institutional, clean, credible, and finished. Keep important visual energy away from trim edges; create a portrait campaign art plate with strong hierarchy, type-safe contrast zones, and an optimistic research-driven school-and-district partnership narrative. Avoid generic meeting-table clichés, washed-out fades, posed workshop stock photography, over-specific sub-brand cues, or abstract logo-like patterns.",
+      "jobId": "resp_0f5cc8c76270ba820069ebe7e41f2c81948b7f144263d0c218",
+      "braintrustTrace": {
+        "rowId": "5dce9b96-5fea-4bbd-8165-c85fd0e18ebc",
+        "spanId": "3a7f3fde-aa0e-4371-b763-cb3209acb30c",
+        "rootSpanId": "3a7f3fde-aa0e-4371-b763-cb3209acb30c",
+        "link": "https://www.braintrust.dev/app/WCEPS/object?object_type=project_logs&object_id=671b57c6-229b-4f25-8cf2-67fc0f36e120&id=5dce9b96-5fea-4bbd-8165-c85fd0e18ebc"
+      }
+    }
+  ],
+  "pipelineTrace": {
+    "version": "design-comp-v1",
+    "mode": "design-comp",
+    "promptLength": 5291,
+    "promptTokenBudget": 6200,
+    "evidenceIds": [
+      "wceps-footer-mission",
+      "wceps-home-chart-course"
+    ],
+    "logoAsset": {
+      "label": "Horizontal full color · transparent · light/image backgrounds",
+      "publicPath": "/brand-logos/wceps/pathways-logo-no-tag-color.png",
+      "sourceUrl": "https://www.wcepspathways.org"
+    },
+    "contextAttachmentNames": [],
+    "retryCount": 0,
+    "braintrustTrace": {
+      "rowId": "f738f489-b092-4783-abfa-958470c26477",
+      "spanId": "1fad6cfd-9ca3-4406-9178-6a4addb63467",
+      "rootSpanId": "1fad6cfd-9ca3-4406-9178-6a4addb63467",
+      "link": "https://www.braintrust.dev/app/WCEPS/object?object_type=project_logs&object_id=671b57c6-229b-4f25-8cf2-67fc0f36e120&id=f738f489-b092-4783-abfa-958470c26477"
+    }
+  },
+  "critique": {
+    "status": "warn",
+    "issues": [],
+    "warnings": [
+      "WCEPS prompt is missing avoid guardrail(s): diploma, fake university logo, mascot."
+    ],
+    "suggestedFixes": [
+      "Revise composition until the sendability score passes the WCEPS review threshold."
+    ]
+  },
+  "review": {
+    "approved": false,
+    "status": "block",
+    "issues": [
+      "Model QA: Proof copy is too tall for the magazine one-pager template and is estimated to overflow the canvas."
+    ],
+    "warnings": [
+      "WCEPS prompt is missing avoid guardrail(s): diploma, fake university logo, mascot.",
+      "Model QA: Copy leans on broad education-services language and underdelivers on WCEPS-specific differentiation.",
+      "Model QA: Generated options contain duplicated subheads and an incomplete phrase, indicating weak copy QA tolerance.",
+      "Model QA: Final art plate is polished and relevant but reads as generic professional meeting imagery rather than uniquely WCEPS-owned visual storytelling."
+    ],
+    "suggestedFixes": [
+      "Revise composition until the sendability score passes the WCEPS review threshold.",
+      "Fix model QA: Proof copy is too tall for the magazine one-pager template and is estimated to overflow the canvas."
+    ]
+  },
+  "request": {
+    "artifactType": "one-pager",
+    "brand": "WCEPS",
+    "audience": "education leaders",
+    "keyMessage": "",
+    "goal": "compare WCEPS pathways",
+    "topic": "research-based educational supports and service pathways",
+    "cta": "Compare pathways",
+    "format": "Letter",
+    "toneModifier": "clear, institutional, practical",
+    "notes": "Use the parent brand without over-describing individual programs.",
+    "visualInstruction": "",
+    "logoVariant": "",
+    "colorTheme": "",
+    "contextAttachments": [],
+    "strictlySourceGrounded": true,
+    "generateVisual": true
+  },
+  "sourceEvidence": [
+    {
+      "id": "wceps-home-chart-course",
+      "url": "https://www.wcepspathways.org/",
+      "excerpt": "Discover your pathway through WCEPS' research-based educational resources, publications, assessments, professional learning, program evaluations, and content alignment analyses.",
+      "label": "Homepage positioning"
+    },
+    {
+      "id": "wceps-home-nonprofit",
+      "url": "https://www.wcepspathways.org/",
+      "excerpt": "We are a non-profit committed to supporting educators in K-12 and higher education in their mission to support students and create an educational landscape where all students, regardless of their background, can thrive and reach their full potential.",
+      "label": "Nonprofit purpose"
+    },
+    {
+      "id": "wceps-footer-mission",
+      "url": "https://www.wcepspathways.org/",
+      "excerpt": "The Wisconsin Center for Education Products and Services is a 501(c)3 charitable non-profit organization with a mission to extend the impact of the University of Wisconsin-Madison's educational innovations and bring research-based, innovative, and customized educational solutions to schools and districts.",
+      "label": "WCEPS mission footer"
+    },
+    {
+      "id": "wceps-contact-listen",
+      "url": "https://www.wcepspathways.org/contact-us/",
+      "excerpt": "As a non-profit organization offering research-based solutions, we strive to listen to what our district colleagues need, understand your challenges, and consider how our programs can help you reach your goals, without pushing things you don't need.",
+      "label": "Contact page tone"
+    }
+  ],
+  "createdAt": "2026-04-24T22:00:04.041Z",
+  "updatedAt": "2026-04-24T22:02:13.064Z"
+}
