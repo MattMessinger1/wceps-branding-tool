@@ -183,6 +183,7 @@ export const GeneratedArtifactSchema = z.object({
   copyQualityQa: StageQaSchema.optional(),
   visualQa: StageQaSchema.optional(),
   renderQa: StageQaSchema.optional(),
+  modelQa: StageQaSchema.optional(),
   failureModes: z.array(FailureModeSchema).optional(),
   artPlatePromptVersion: z.string().optional(),
   layoutContract: LayoutContractSchema.optional(),

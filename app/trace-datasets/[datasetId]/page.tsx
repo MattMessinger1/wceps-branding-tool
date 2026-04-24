@@ -69,6 +69,9 @@ export default async function TraceDatasetPage({ params }: { params: Promise<{ d
                   <span className="rounded-full bg-slate-100 px-3 py-1 text-slate-700">
                     Render QA: {qaLabel(artifact.renderQa?.status, artifact.renderQa?.score)}
                   </span>
+                  <span className="rounded-full bg-slate-100 px-3 py-1 text-slate-700">
+                    Model QA: {qaLabel(artifact.modelQa?.status, artifact.modelQa?.score)}
+                  </span>
                   <span className="rounded-full bg-[#eef9f2] px-3 py-1 text-[#2f7a4f]">Sendability: {score(artifact.layoutQa.sendability)}</span>
                 </div>
                 {artifact.failureModes?.length ? (

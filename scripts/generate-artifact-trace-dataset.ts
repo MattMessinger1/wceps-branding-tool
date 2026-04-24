@@ -89,6 +89,7 @@ type TraceDatasetEntry = {
   copyQualityQa: StageQaManifest;
   visualQa: StageQaManifest;
   renderQa: StageQaManifest;
+  modelQa: StageQaManifest;
   failureModes: NonNullable<GeneratedArtifact["failureModes"]>;
   review: {
     status: GeneratedArtifact["review"]["status"];
@@ -290,7 +291,7 @@ function renderIndexHtml(params: {
         <div>
           <p class="eyebrow">${escapeHtml(entry.brand)} · ${escapeHtml(entry.artifactType)}</p>
           <h2>${escapeHtml(entry.artifactId)}</h2>
-          <p class="meta">Recipe: <strong>${escapeHtml(entry.designRecipeId ?? "n/a")}</strong> · Review: <strong>${escapeHtml(entry.review.status)}</strong> · Layout QA: <strong>${escapeHtml(entry.layoutQa.status ?? "n/a")}</strong> · Copy QA: <strong>${escapeHtml(entry.copyQualityQa.status ?? "n/a")}</strong> · Visual QA: <strong>${escapeHtml(entry.visualQa.status ?? "n/a")}</strong> · Render QA: <strong>${escapeHtml(entry.renderQa.status ?? "n/a")}</strong> · Sendability: <strong>${escapeHtml(score)}</strong></p>
+          <p class="meta">Recipe: <strong>${escapeHtml(entry.designRecipeId ?? "n/a")}</strong> · Review: <strong>${escapeHtml(entry.review.status)}</strong> · Layout QA: <strong>${escapeHtml(entry.layoutQa.status ?? "n/a")}</strong> · Copy QA: <strong>${escapeHtml(entry.copyQualityQa.status ?? "n/a")}</strong> · Visual QA: <strong>${escapeHtml(entry.visualQa.status ?? "n/a")}</strong> · Render QA: <strong>${escapeHtml(entry.renderQa.status ?? "n/a")}</strong> · Model QA: <strong>${escapeHtml(entry.modelQa.status ?? "n/a")}</strong> · Sendability: <strong>${escapeHtml(score)}</strong></p>
           <div class="badges">${failureModes}</div>
           <p class="fine"><strong>Warnings:</strong> ${escapeHtml(warnings)}</p>
           <p class="fine"><strong>Issues:</strong> ${escapeHtml(issues)}</p>
@@ -462,6 +463,7 @@ async function main() {
       copyQualityQa: stageQaManifest(artifact.copyQualityQa),
       visualQa: stageQaManifest(artifact.visualQa),
       renderQa: stageQaManifest(artifact.renderQa),
+      modelQa: stageQaManifest(artifact.modelQa),
       failureModes: artifact.failureModes ?? [],
       review: {
         status: artifact.review.status,

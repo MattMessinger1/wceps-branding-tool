@@ -75,6 +75,14 @@ export type TraceDatasetEntry = {
     failureModes?: FailureModeEntry[];
     metrics?: Record<string, unknown>;
   };
+  modelQa?: {
+    status?: string;
+    score?: number;
+    issues?: string[];
+    warnings?: string[];
+    failureModes?: FailureModeEntry[];
+    metrics?: Record<string, unknown>;
+  };
   failureModes?: FailureModeEntry[];
   review: {
     status: string;

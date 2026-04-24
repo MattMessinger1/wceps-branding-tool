@@ -9,6 +9,7 @@ import { traceBraintrust } from "@/lib/observability/braintrust";
 import { ArtifactRequestSchema, type ArtifactRequest } from "@/lib/schema/artifactRequest";
 import { GeneratedArtifactSchema, type GeneratedArtifact, type GeneratedImageResult, type StageQa } from "@/lib/schema/generatedArtifact";
 import { getBackgroundImageJobResult, startBackgroundImageJob } from "./imageJobs";
+import { evaluateModelQaWithModel } from "./modelQa";
 
 type GenerateArtifactImageOptions = {
   timeoutMs?: number;
@@ -18,7 +19,7 @@ type GenerateArtifactImageOptions = {
   outputCompression?: string | number;
 };
 
-const QA_PREFIX_PATTERN = /^(?:Layout|Copy|Visual|Render) QA:/;
+const QA_PREFIX_PATTERN = /^(?:Layout|Copy|Visual|Render|Model) QA:/;
 
 function sleep(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -54,16 +55,17 @@ function qaReviewParts(label: string, qa?: StageQa) {
   };
 }
 
-function rebuildReview(artifact: GeneratedArtifact, copyQualityQa: StageQa, visualQa: StageQa, renderQa: StageQa) {
+function rebuildReview(artifact: GeneratedArtifact, copyQualityQa: StageQa, visualQa: StageQa, renderQa: StageQa, modelQa: StageQa) {
   const copyParts = qaReviewParts("Copy", copyQualityQa);
   const visualParts = qaReviewParts("Visual", visualQa);
   const renderParts = qaReviewParts("Render", renderQa);
+  const modelParts = qaReviewParts("Model", modelQa);
   const existingWarnings = artifact.review.warnings.filter((warning) => !QA_PREFIX_PATTERN.test(warning));
   const existingIssues = artifact.review.issues.filter((issue) => !QA_PREFIX_PATTERN.test(issue));
-  const existingFixes = artifact.review.suggestedFixes.filter((fix) => !/^Fix (?:copy|visual|render|layout) QA:/i.test(fix));
-  const warnings = Array.from(new Set([...existingWarnings, ...copyParts.warnings, ...visualParts.warnings, ...renderParts.warnings]));
-  const issues = Array.from(new Set([...existingIssues, ...copyParts.issues, ...visualParts.issues, ...renderParts.issues]));
-  const suggestedFixes = Array.from(new Set([...existingFixes, ...copyParts.fixes, ...visualParts.fixes, ...renderParts.fixes]));
+  const existingFixes = artifact.review.suggestedFixes.filter((fix) => !/^Fix (?:copy|visual|render|layout|model) QA:/i.test(fix));
+  const warnings = Array.from(new Set([...existingWarnings, ...copyParts.warnings, ...visualParts.warnings, ...renderParts.warnings, ...modelParts.warnings]));
+  const issues = Array.from(new Set([...existingIssues, ...copyParts.issues, ...visualParts.issues, ...renderParts.issues, ...modelParts.issues]));
+  const suggestedFixes = Array.from(new Set([...existingFixes, ...copyParts.fixes, ...visualParts.fixes, ...renderParts.fixes, ...modelParts.fixes]));
 
   return {
     ...artifact.review,
@@ -76,7 +78,7 @@ function rebuildReview(artifact: GeneratedArtifact, copyQualityQa: StageQa, visu
   };
 }
 
-export function refreshArtifactStageQa(artifact: GeneratedArtifact): GeneratedArtifact {
+export async function refreshArtifactStageQa(artifact: GeneratedArtifact): Promise<GeneratedArtifact> {
   const request = requestFromArtifact(artifact);
   const template = artifact.compositionTemplate ?? resolveCompositionTemplate(artifact.artifactType);
   const fittedCopy = artifact.fittedCopy;
@@ -97,7 +99,22 @@ export function refreshArtifactStageQa(artifact: GeneratedArtifact): GeneratedAr
     copyQualityQa,
     visualQa,
   });
-  const failureModes = collectFailureModes(copyQualityQa, visualQa, renderQa);
+  const modelQa = await evaluateModelQaWithModel({
+    request,
+    copy: artifact.copy,
+    fittedCopy,
+    template,
+    designRecipe: artifact.designRecipe,
+    layoutContract: artifact.layoutContract,
+    compositionScore: artifact.compositionScore,
+    layoutQa: artifact.layoutQa,
+    copyQualityQa,
+    visualQa,
+    renderQa,
+    imagePrompts: artifact.imagePrompts,
+    imageResults: artifact.imageResults,
+  });
+  const failureModes = collectFailureModes(copyQualityQa, visualQa, renderQa, modelQa);
 
   return GeneratedArtifactSchema.parse({
     ...artifact,
@@ -105,8 +122,9 @@ export function refreshArtifactStageQa(artifact: GeneratedArtifact): GeneratedAr
     copyQualityQa,
     visualQa,
     renderQa,
+    modelQa,
     failureModes,
-    review: rebuildReview(artifact, copyQualityQa, visualQa, renderQa),
+    review: rebuildReview(artifact, copyQualityQa, visualQa, renderQa, modelQa),
     updatedAt: new Date().toISOString(),
   });
 }
@@ -116,7 +134,7 @@ export async function generateImageForArtifact(
   options: GenerateArtifactImageOptions = {},
 ): Promise<GeneratedArtifact> {
   const prompt = artifact.imagePrompts[0];
-  if (!prompt) return refreshArtifactStageQa(artifact);
+  if (!prompt) return await refreshArtifactStageQa(artifact);
 
   const request = requestFromArtifact(artifact);
   const size = imageSizeForArtifactType(artifact.artifactType);
@@ -214,7 +232,7 @@ export async function generateImageForArtifact(
         throw new Error(`ImageGen did not return an image for ${artifact.id}. Status: ${status}${error ? ` ${JSON.stringify(error)}` : ""}`);
       }
 
-      return refreshArtifactStageQa({
+      return await refreshArtifactStageQa({
         ...artifact,
         imageResults: [imageResult, ...(artifact.imageResults ?? []).filter((image) => image.dataUrl !== imageResult?.dataUrl)],
       });

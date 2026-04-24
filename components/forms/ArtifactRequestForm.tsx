@@ -17,6 +17,9 @@ type ImageConfig = {
   copyFitEnabled: boolean;
   designRecipeModel: string;
   designRecipeEnabled: boolean;
+  modelQaModel: string;
+  modelQaEnabled: boolean;
+  modelQaIncludeImage: boolean;
   size: string;
   quality: string;
   outputFormat: string;
@@ -230,6 +233,12 @@ function SystemStatus({ imageConfig }: { imageConfig: ImageConfig }) {
             <dt className="font-semibold uppercase tracking-wide text-slate-500">Design recipe</dt>
             <dd className="mt-1 break-words">
               {imageConfig.designRecipeEnabled ? imageConfig.designRecipeModel : `${imageConfig.designRecipeModel} off`}
+            </dd>
+          </div>
+          <div>
+            <dt className="font-semibold uppercase tracking-wide text-slate-500">Model QA</dt>
+            <dd className="mt-1 break-words">
+              {imageConfig.modelQaEnabled ? `${imageConfig.modelQaModel}${imageConfig.modelQaIncludeImage ? " + image" : ""}` : `${imageConfig.modelQaModel} off`}
             </dd>
           </div>
           <div>

@@ -147,6 +147,9 @@ function layoutMetadata(output: GeneratedArtifact) {
     renderStatus: output.renderQa?.status,
     renderIssues: output.renderQa?.issues ?? [],
     renderWarnings: output.renderQa?.warnings ?? [],
+    modelQaStatus: output.modelQa?.status,
+    modelQaIssues: output.modelQa?.issues ?? [],
+    modelQaWarnings: output.modelQa?.warnings ?? [],
     reviewIssues: output.review.issues,
     reviewWarnings: output.review.warnings,
     templateId: output.compositionTemplate?.id,
@@ -188,6 +191,7 @@ async function main() {
         ({ output }) => score("CopyQuality", percent(output.copyQualityQa?.score), layoutMetadata(output)),
         ({ output }) => score("VisualQa", percent(output.visualQa?.score), layoutMetadata(output)),
         ({ output }) => score("RenderQa", percent(output.renderQa?.score), layoutMetadata(output)),
+        ({ output }) => score("ModelQa", percent(output.modelQa?.score), layoutMetadata(output)),
         ({ output }) => score("BrandBoundary", percent(output.compositionScore?.brandBoundary), layoutMetadata(output)),
         ({ output }) => score("LogoOnce", percent(output.layoutQa?.logoOnce), layoutMetadata(output)),
         ({ input, output, expected }) =>
@@ -208,13 +212,15 @@ async function main() {
           const copyQuality = percent(output.copyQualityQa?.score);
           const visualQuality = percent(output.visualQa?.score);
           const renderQuality = percent(output.renderQa?.score);
+          const modelQuality = percent(output.modelQa?.score);
           const blocked =
             output.layoutQa?.status === "block" ||
             output.copyQualityQa?.status === "block" ||
             output.visualQa?.status === "block" ||
             output.renderQa?.status === "block" ||
+            output.modelQa?.status === "block" ||
             output.review.issues.length > 0;
-          const sendability = Math.min(layoutSendability, compositionSendability, copyQuality, visualQuality, renderQuality);
+          const sendability = Math.min(layoutSendability, compositionSendability, copyQuality, visualQuality, renderQuality, modelQuality);
           return score("Sendability", blocked ? Math.min(sendability, 0.6) : sendability, layoutMetadata(output));
         },
       ],

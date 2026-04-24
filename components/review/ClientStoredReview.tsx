@@ -258,6 +258,7 @@ export function ClientStoredReview({ id, initialArtifact }: { id: string; initia
           const imageResult = result.imageResult;
           if (imageResult?.dataUrl) {
             let message = "ImageGen visual attached to this draft.";
+            let artifactWithImage: GeneratedArtifact | null = null;
             setArtifact((current) => {
               if (!current) return current;
               const next: GeneratedArtifact = {
@@ -265,6 +266,7 @@ export function ClientStoredReview({ id, initialArtifact }: { id: string; initia
                 imageResults: [imageResult],
                 updatedAt: new Date().toISOString(),
               };
+              artifactWithImage = next;
 
               try {
                 window.localStorage.setItem(storageKey(id), JSON.stringify(next));
@@ -284,6 +286,20 @@ export function ClientStoredReview({ id, initialArtifact }: { id: string; initia
               rawStatus: result.status,
               elapsedSeconds,
             });
+            if (artifactWithImage) {
+              fetch("/api/refresh-qa", {
+                method: "POST",
+                headers: { "content-type": "application/json" },
+                body: JSON.stringify(artifactWithImage),
+              })
+                .then(async (refreshResponse) => {
+                  const refreshResult = (await refreshResponse.json()) as { artifact?: GeneratedArtifact };
+                  if (!refreshResponse.ok || !refreshResult.artifact) return;
+                  setArtifact(refreshResult.artifact);
+                  window.localStorage.setItem(storageKey(id), JSON.stringify(refreshResult.artifact));
+                })
+                .catch(() => undefined);
+            }
             return;
           }
 
@@ -718,6 +734,36 @@ export function ClientStoredReview({ id, initialArtifact }: { id: string; initia
                 <ul className="mt-3 grid gap-1 text-xs leading-5 text-rose-800">
                   {artifact.layoutQa.issues.map((issue) => (
                     <li key={issue}>{issue}</li>
+                  ))}
+                </ul>
+              ) : null}
+            </details>
+          ) : null}
+
+          {artifact.modelQa ? (
+            <details className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
+              <summary className="cursor-pointer text-base font-semibold text-slate-900">
+                Model QA · {artifact.modelQa.score}
+              </summary>
+              <p className="mt-2 text-xs leading-5 text-slate-500">{artifact.modelQa.question}</p>
+              <div className="mt-3 grid gap-2 text-xs text-slate-600">
+                <span>Status {artifact.modelQa.status}</span>
+                {typeof artifact.modelQa.metrics?.model === "string" ? <span>Model {artifact.modelQa.metrics.model}</span> : null}
+                {typeof artifact.modelQa.metrics?.imageIncluded === "boolean" ? (
+                  <span>Image reviewed {artifact.modelQa.metrics.imageIncluded ? "yes" : "no"}</span>
+                ) : null}
+              </div>
+              {artifact.modelQa.issues.length ? (
+                <ul className="mt-3 grid gap-1 text-xs leading-5 text-rose-800">
+                  {artifact.modelQa.issues.map((issue) => (
+                    <li key={issue}>{issue}</li>
+                  ))}
+                </ul>
+              ) : null}
+              {!artifact.modelQa.issues.length && artifact.modelQa.warnings.length ? (
+                <ul className="mt-3 grid gap-1 text-xs leading-5 text-amber-800">
+                  {artifact.modelQa.warnings.map((warning) => (
+                    <li key={warning}>{warning}</li>
                   ))}
                 </ul>
               ) : null}

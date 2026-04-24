@@ -21,6 +21,7 @@ import { buildLayoutContract } from "./buildLayoutContract";
 import { critiqueArtifactQuality } from "./critiqueArtifact";
 import { fitCopyWithModel, getCopyFitModelConfig } from "./fitCopyWithModel";
 import { generateCopy } from "./generateCopy";
+import { evaluateModelQaWithModel, getModelQaConfig } from "./modelQa";
 
 export async function generateArtifact(input: unknown): Promise<GeneratedArtifact> {
   return traceBraintrust("generateArtifact", { input }, async (span) => {
@@ -101,12 +102,45 @@ export async function generateArtifact(input: unknown): Promise<GeneratedArtifac
       { input: { fittedCopy, template: compositionTemplate, copyQualityQa, visualQa } },
       () => evaluateRenderQa({ fittedCopy, template: compositionTemplate, request, copyQualityQa, visualQa }),
     );
+    const modelQa = await traceBraintrustStep(
+      span,
+      "modelQa",
+      {
+        input: {
+          request,
+          fittedCopy,
+          template: compositionTemplate,
+          designRecipe,
+          copyQualityQa,
+          visualQa,
+          renderQa,
+          layoutQa,
+        },
+        metadata: getModelQaConfig(),
+      },
+      () =>
+        evaluateModelQaWithModel({
+          request,
+          copy,
+          fittedCopy,
+          template: compositionTemplate,
+          designRecipe,
+          layoutContract,
+          compositionScore,
+          layoutQa,
+          copyQualityQa,
+          visualQa,
+          renderQa,
+          imagePrompts,
+          imageResults,
+        }),
+    );
     const critique = critiqueArtifactQuality(copy, layoutContract, promptContracts, compositionScore);
-    const failureModes = collectFailureModes(copyQualityQa, visualQa, renderQa);
+    const failureModes = collectFailureModes(copyQualityQa, visualQa, renderQa, modelQa);
     const finalReview = await traceBraintrustStep(
       span,
       "finalReview",
-      { input: { review, critique, layoutQa, copyQualityQa, visualQa, renderQa, failureModes } },
+      { input: { review, critique, layoutQa, copyQualityQa, visualQa, renderQa, modelQa, failureModes } },
       () => {
         const warnings = [
           ...review.warnings,
@@ -115,6 +149,7 @@ export async function generateArtifact(input: unknown): Promise<GeneratedArtifac
           ...copyQualityQa.warnings.map((warning) => `Copy QA: ${warning}`),
           ...visualQa.warnings.map((warning) => `Visual QA: ${warning}`),
           ...renderQa.warnings.map((warning) => `Render QA: ${warning}`),
+          ...modelQa.warnings.map((warning) => `Model QA: ${warning}`),
           ...(resolution.explicit ? [] : [`Brand inferred with ${Math.round(resolution.confidence * 100)}% confidence. ${resolution.explanation}`]),
         ];
         const issues = [
@@ -124,6 +159,7 @@ export async function generateArtifact(input: unknown): Promise<GeneratedArtifac
           ...copyQualityQa.issues.map((issue) => `Copy QA: ${issue}`),
           ...visualQa.issues.map((issue) => `Visual QA: ${issue}`),
           ...renderQa.issues.map((issue) => `Render QA: ${issue}`),
+          ...modelQa.issues.map((issue) => `Model QA: ${issue}`),
         ];
         const suggestedFixes = [
           ...review.suggestedFixes,
@@ -132,6 +168,7 @@ export async function generateArtifact(input: unknown): Promise<GeneratedArtifac
           ...copyQualityQa.issues.map((issue) => `Fix copy QA: ${issue}`),
           ...visualQa.issues.map((issue) => `Fix visual QA: ${issue}`),
           ...renderQa.issues.map((issue) => `Fix render QA: ${issue}`),
+          ...modelQa.issues.map((issue) => `Fix model QA: ${issue}`),
         ];
 
         return {
@@ -169,6 +206,7 @@ export async function generateArtifact(input: unknown): Promise<GeneratedArtifac
       copyQualityQa,
       visualQa,
       renderQa,
+      modelQa,
       failureModes,
       artPlatePromptVersion: primaryPromptContract.version,
       layoutContract,
@@ -209,6 +247,7 @@ export async function generateArtifact(input: unknown): Promise<GeneratedArtifac
         copyQualityQa: (artifact.copyQualityQa?.score ?? 0) / 100,
         visualQa: (artifact.visualQa?.score ?? 0) / 100,
         renderQa: (artifact.renderQa?.score ?? 0) / 100,
+        modelQa: (artifact.modelQa?.score ?? 0) / 100,
         brandBoundary: (artifact.compositionScore?.brandBoundary ?? 0) / 100,
       },
     });

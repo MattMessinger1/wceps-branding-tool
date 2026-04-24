@@ -174,6 +174,7 @@ export function applyTextOnlyEdits(artifact: GeneratedArtifact, edits: TextEditS
     copyQualityQa,
     visualQa,
     renderQa,
+    modelQa: undefined,
     failureModes,
     review: {
       ...artifact.review,

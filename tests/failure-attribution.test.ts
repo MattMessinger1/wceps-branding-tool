@@ -116,6 +116,7 @@ test("all active brands receive the shared failure attribution fields", async ()
     assert.ok(artifact.copyQualityQa, `${brand} should include copyQualityQa`);
     assert.ok(artifact.visualQa, `${brand} should include visualQa`);
     assert.ok(artifact.renderQa, `${brand} should include renderQa`);
+    assert.ok(artifact.modelQa, `${brand} should include modelQa`);
     assert.ok(Array.isArray(artifact.failureModes), `${brand} should include attributed failure modes`);
   }
 });
