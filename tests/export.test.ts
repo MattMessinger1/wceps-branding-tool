@@ -67,9 +67,30 @@ test("html email exports table-based inline markup", async () => {
   const html = exportHtml(artifact);
   assert.ok(html.includes('<table role="presentation"'));
   assert.ok(html.includes("style="));
-  assert.ok(html.includes("Plan your PRIME instructional materials correlation."));
+  assert.ok(html.includes("Plan your PRIME instructional materials correlation"));
   assert.ok(html.includes("Start the PRIME process"));
   assert.equal(html.includes("Brand and claims check"), false);
+});
+
+test("html email exports fitted copy without repeating raw body text", async () => {
+  const artifact = await generateArtifact({
+    artifactType: "html-email-announcement",
+    brand: "WIDA PRIME",
+    audience: "publishers",
+    keyMessage: "Explore WIDA PRIME correlations and alignments.",
+    cta: "Start the PRIME process",
+  });
+  const withRawBody = {
+    ...artifact,
+    copy: {
+      ...artifact.copy,
+      body: "RAW BODY SHOULD NOT APPEAR IN EMAIL EXPORT.",
+    },
+  };
+
+  const html = exportHtml(withRawBody);
+  assert.equal(html.includes("RAW BODY SHOULD NOT APPEAR"), false);
+  assert.ok(html.includes(artifact.fittedCopy?.deck ?? ""));
 });
 
 test("exports honor selected logo variant", async () => {

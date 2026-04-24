@@ -201,3 +201,25 @@ export async function readTraceArtifactHtml(datasetId: string, artifactId: strin
   const htmlPath = path.join(root, "html", `${safeSegment(artifactId)}.html`);
   return readFile(htmlPath, "utf8");
 }
+
+function imageContentType(filename: string) {
+  const extension = path.extname(filename).toLowerCase();
+  if (extension === ".webp") return "image/webp";
+  if (extension === ".png") return "image/png";
+  if (extension === ".jpg" || extension === ".jpeg") return "image/jpeg";
+  if (extension === ".svg") return "image/svg+xml";
+  return "application/octet-stream";
+}
+
+export async function readTraceDatasetImage(datasetId: string, imageName: string) {
+  const root = await findDatasetPath(datasetId);
+  const safeName = safeSegment(imageName);
+  if (!safeName) return undefined;
+
+  const imagePath = path.join(root, "images", safeName);
+  const buffer = await readFile(imagePath);
+  return {
+    buffer,
+    contentType: imageContentType(safeName),
+  };
+}

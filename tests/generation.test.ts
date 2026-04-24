@@ -414,6 +414,8 @@ test("WIDA PRIME fitted copy preserves variant names without duplicated phrases"
   const copyText = [artifact.fittedCopy?.deck, ...(artifact.fittedCopy?.proofPoints ?? [])].join(" ");
   assert.match(copyText, /PRIME V1|PRIME V2|PRIME 2020/);
   assert.doesNotMatch(copyText, /PRIME v1|PRIME v2|materials correlated with materials correlated with/);
+  assert.doesNotMatch(copyText, /\bfit in their\./i);
+  assert.doesNotMatch(copyText, /\bEnglish Language Development\./i);
 });
 
 test("sendability brand boundary catches sibling leakage for every active brand", () => {

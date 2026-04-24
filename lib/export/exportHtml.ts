@@ -60,7 +60,6 @@ function exportEmailHtml(artifact: GeneratedArtifact, logoUrl: string, visual: s
   const theme = getBrandTheme(artifact.brand);
   const isHeader = artifact.artifactType === "email-header";
   const audienceLabel = getArtifactAudienceLabel(artifact);
-  const textEdited = (artifact.request as { textEdited?: unknown } | undefined)?.textEdited === true;
 
   return `<!doctype html>
 <html lang="en">
@@ -89,7 +88,6 @@ function exportEmailHtml(artifact: GeneratedArtifact, logoUrl: string, visual: s
               ${audienceLabel ? `<p style="margin:0 0 10px;font:700 11px/1.4 Montserrat,Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#64748b;">For ${escapeHtml(audienceLabel)}</p>` : ""}
               <h1 style="margin:0 0 14px;font:700 32px/1.12 Montserrat,Arial,sans-serif;color:${theme.colors.ink};">${escapeHtml(title)}</h1>
               <p style="margin:0 0 18px;font:16px/1.65 Montserrat,Arial,sans-serif;color:#475569;">${escapeHtml(subtitle)}</p>
-              ${!isHeader && !textEdited ? `<p style="margin:0 0 18px;font:14px/1.7 Montserrat,Arial,sans-serif;color:#475569;">${escapeHtml(artifact.copy.body)}</p>` : ""}
               ${
                 !isHeader && proofPoints.length
                   ? `<table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse:separate;border-spacing:0 0;margin:0 0 20px;">${emailRows(proofPoints)}</table>`

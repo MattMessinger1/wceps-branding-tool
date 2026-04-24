@@ -90,6 +90,7 @@ export function hasDanglingFragment(value: string) {
     /\b(?:a|an|and|by|for|from|in|of|on|or|the|to|with)[.!?]?$/i.test(normalized) ||
     /\bteaching,\s*learning[.!?]?$/i.test(normalized) ||
     /\bconsulting,\s*coaching[.!?]?$/i.test(normalized) ||
+    /\bfit in their[.!?]?$/i.test(normalized) ||
     /,\s*$/.test(normalized)
   );
 }
@@ -99,5 +100,7 @@ export function repairKnownTruncations(value: string) {
     .replace(/\bstandards-aligned teaching,\s*learning[.!?]?$/i, "standards-aligned teaching, learning, and assessment.")
     .replace(/\bteaching,\s*learning[.!?]?$/i, "teaching, learning, and assessment.")
     .replace(/\bConsulting,\s*Coaching[.!?]?$/i, "Consulting, Coaching, and Continuous Learning.")
+    .replace(/\bcurrent WIDA English Language Development[.!?]?$/i, "current WIDA English Language Development Standards Framework.")
+    .replace(/\bfit in their[.!?]?$/i, "fit in their program.")
     .replace(/\bPRIME V1\/V2[.!?]?$/i, "PRIME V1 and PRIME V2.");
 }
