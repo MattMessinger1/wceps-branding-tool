@@ -33,6 +33,19 @@ export const CompositionTemplateSchema = z.object({
   ctaPlacement: z.string().min(1),
 });
 
+export const DesignRecipeSchema = z.object({
+  id: z.enum(["editorial-split", "immersive-poster", "proof-band", "executive-sidecar", "social-poster", "email-strip"]),
+  source: z.enum(["app-generated", "model-generated", "imagegen-informed"]).default("app-generated"),
+  textZone: z.enum(["left", "right", "center", "lower", "body"]),
+  visualZone: z.enum(["full-bleed", "right-field", "left-field", "top-band", "sidecar", "background"]),
+  density: z.enum(["minimal", "balanced", "editorial", "dense"]),
+  hierarchy: z.string().min(1),
+  artDirection: z.string().min(1),
+  placeholderStrategy: z.string().min(1),
+  appComposition: z.string().min(1),
+  promptDirectives: z.array(z.string()).min(1),
+});
+
 export const CompositionScoreSchema = z.object({
   question: z.string().min(1),
   overall: z.number().int().min(0).max(100),
@@ -124,7 +137,7 @@ export const LayoutContractSchema = z.object({
 
 export const PipelineTraceSchema = z.object({
   version: z.string().min(1),
-  mode: z.enum(["image-led-composite", "campaign-art-plate"]).default("image-led-composite"),
+  mode: z.enum(["image-led-composite", "campaign-art-plate", "design-comp"]).default("image-led-composite"),
   promptLength: z.number().int().nonnegative(),
   promptTokenBudget: z.number().int().positive(),
   evidenceIds: z.array(z.string()),
@@ -164,6 +177,7 @@ export const GeneratedArtifactSchema = z.object({
   copy: GeneratedCopySchema,
   fittedCopy: FittedCopySchema.optional(),
   compositionTemplate: CompositionTemplateSchema.optional(),
+  designRecipe: DesignRecipeSchema.optional(),
   compositionScore: CompositionScoreSchema.optional(),
   layoutQa: LayoutQaSchema.optional(),
   copyQualityQa: StageQaSchema.optional(),
@@ -186,6 +200,7 @@ export const GeneratedArtifactSchema = z.object({
 export type GeneratedCopy = z.infer<typeof GeneratedCopySchema>;
 export type FittedCopy = z.infer<typeof FittedCopySchema>;
 export type CompositionTemplate = z.infer<typeof CompositionTemplateSchema>;
+export type DesignRecipe = z.infer<typeof DesignRecipeSchema>;
 export type CompositionScore = z.infer<typeof CompositionScoreSchema>;
 export type LayoutQa = z.infer<typeof LayoutQaSchema>;
 export type FailureMode = z.infer<typeof FailureModeSchema>;

@@ -211,9 +211,13 @@ function CampaignFlyer({
   const visual = artifact.imageResults?.find((image) => image.dataUrl)?.dataUrl;
   const audienceLabel = getArtifactAudienceLabel(artifact);
   const hasVisual = Boolean(visual);
+  const recipeId = artifact.designRecipe?.id ?? "editorial-split";
 
   return (
-    <article className="relative mx-auto aspect-[4/5] w-full max-w-[780px] overflow-hidden rounded-md bg-white shadow-sm">
+    <article
+      data-design-recipe={recipeId}
+      className="relative mx-auto aspect-[4/5] w-full max-w-[780px] overflow-hidden rounded-md bg-white shadow-sm"
+    >
       <div className="absolute inset-0 overflow-hidden">
         {artPlate(visual, `${artifact.brand} art plate`, "scale-105", "opacity-90")}
         <div
@@ -247,9 +251,31 @@ function MagazineOnePager({ artifact, copy, logoUrl }: { artifact: GeneratedArti
   const theme = getBrandTheme(artifact.brand);
   const visual = artifact.imageResults?.find((image) => image.dataUrl)?.dataUrl;
   const audienceLabel = getArtifactAudienceLabel(artifact);
+  const recipeId = artifact.designRecipe?.id ?? "editorial-split";
+
+  if (recipeId === "proof-band") {
+    return (
+      <article data-design-recipe={recipeId} className="mx-auto grid min-h-[920px] w-full max-w-[820px] grid-rows-[360px_1fr_auto] overflow-hidden rounded-md bg-[#fbfaf7] shadow-sm">
+        <section className="relative overflow-hidden">
+          {artPlate(visual, `${artifact.brand} art plate`, "scale-105")}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#142836]/76 via-[#142836]/28 to-transparent" />
+          <div className="relative z-10 grid h-full content-end gap-4 p-9 text-white">
+            <Logo brandName={artifact.brand} logoUrl={logoUrl} dark />
+            {audienceLabel ? <p className="text-xs font-bold uppercase tracking-[0.18em] text-white/72">{audienceLabel}</p> : null}
+            <h1 className="max-w-[43rem] text-[3.25rem] font-black leading-[0.92]">{copy.headline}</h1>
+          </div>
+        </section>
+        <section className="grid gap-7 p-9">
+          <p className="max-w-[42rem] text-xl font-medium leading-8 text-slate-700">{copy.deck}</p>
+          <ProofBand items={copy.proofPoints} cta={copy.cta} ctaDetail={copy.ctaDetail} theme={theme} />
+        </section>
+        <div className="h-4 w-full" style={{ background: `linear-gradient(90deg, ${theme.colors.primary}, ${theme.colors.secondary}, ${theme.colors.accent})` }} />
+      </article>
+    );
+  }
 
   return (
-    <article className="mx-auto grid min-h-[920px] w-full max-w-[820px] grid-rows-[auto_1fr_auto] overflow-hidden rounded-md bg-[#fbfaf7] shadow-sm">
+    <article data-design-recipe={recipeId} className="mx-auto grid min-h-[920px] w-full max-w-[820px] grid-rows-[auto_1fr_auto] overflow-hidden rounded-md bg-[#fbfaf7] shadow-sm">
       <section className="grid grid-cols-[1.08fr_.92fr] gap-7 p-9 pb-7">
         <div className="grid content-start gap-8">
           <Logo brandName={artifact.brand} logoUrl={logoUrl} />
@@ -280,9 +306,10 @@ function ExecutiveBrief({ artifact, copy, logoUrl }: { artifact: GeneratedArtifa
   const theme = getBrandTheme(artifact.brand);
   const visual = artifact.imageResults?.find((image) => image.dataUrl)?.dataUrl;
   const audienceLabel = getArtifactAudienceLabel(artifact);
+  const recipeId = artifact.designRecipe?.id ?? "executive-sidecar";
 
   return (
-    <article className="mx-auto grid min-h-[880px] w-full max-w-[800px] grid-cols-[.72fr_1.28fr] overflow-hidden rounded-md bg-white shadow-sm">
+    <article data-design-recipe={recipeId} className="mx-auto grid min-h-[880px] w-full max-w-[800px] grid-cols-[.72fr_1.28fr] overflow-hidden rounded-md bg-white shadow-sm">
       <aside className="relative overflow-hidden">
         {artPlate(visual, `${artifact.brand} art plate`, "scale-105")}
         <div className="absolute inset-0 bg-gradient-to-b from-[#142836]/12 to-[#142836]/50" />
@@ -324,9 +351,10 @@ function SocialAnnouncement({ artifact, copy, logoUrl }: { artifact: GeneratedAr
   const theme = getBrandTheme(artifact.brand);
   const visual = artifact.imageResults?.find((image) => image.dataUrl)?.dataUrl;
   const audienceLabel = getArtifactAudienceLabel(artifact);
+  const recipeId = artifact.designRecipe?.id ?? "social-poster";
 
   return (
-    <article className="relative mx-auto aspect-square w-full max-w-[680px] overflow-hidden rounded-md bg-[#142836] p-9 text-white shadow-sm">
+    <article data-design-recipe={recipeId} className="relative mx-auto aspect-square w-full max-w-[680px] overflow-hidden rounded-md bg-[#142836] p-9 text-white shadow-sm">
       {artPlate(visual, `${artifact.brand} art plate`, "opacity-82")}
       <div className="absolute inset-0 bg-gradient-to-br from-[#142836]/90 via-[#142836]/58 to-transparent" />
       <div className="relative z-10 grid h-full content-between">
@@ -349,9 +377,10 @@ function EmailHero({ artifact, copy, logoUrl }: { artifact: GeneratedArtifact; c
   const theme = getBrandTheme(artifact.brand);
   const visual = artifact.imageResults?.find((image) => image.dataUrl)?.dataUrl;
   const audienceLabel = getArtifactAudienceLabel(artifact);
+  const recipeId = artifact.designRecipe?.id ?? "email-strip";
 
   return (
-    <article className="mx-auto max-w-[680px] overflow-hidden rounded-md bg-white shadow-sm">
+    <article data-design-recipe={recipeId} className="mx-auto max-w-[680px] overflow-hidden rounded-md bg-white shadow-sm">
       <header className="px-8 py-6" style={{ backgroundColor: theme.colors.soft }}>
         <Logo brandName={artifact.brand} logoUrl={logoUrl} />
       </header>
@@ -391,7 +420,7 @@ export function ComposedArtifactPreview({ artifact, logoUrl }: ComposedArtifactP
     <ArtifactPreviewFrame
       title={copy.headline}
       eyebrow={`${artifact.brand} ${template.id.replace(/-/g, " ")}`}
-      note="App-composed layout with ImageGen art plate"
+      note={`Design-comp layout using ${artifact.designRecipe?.id?.replace(/-/g, " ") ?? "studio"} recipe`}
       accent={template.id === "campaign-flyer" ? "amber" : template.id === "magazine-one-pager" ? "green" : "teal"}
       footer={copy.footer ? <p className="text-xs text-slate-500">{copy.footer}</p> : null}
     >

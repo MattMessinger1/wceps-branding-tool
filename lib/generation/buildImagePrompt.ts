@@ -1,7 +1,7 @@
 import type { ArtifactRequest } from "@/lib/schema/artifactRequest";
 import type { BrandPack } from "@/lib/schema/brandPack";
 import type { CreativeBrief } from "@/lib/schema/creativeBrief";
-import type { GeneratedCopy, LayoutContract } from "@/lib/schema/generatedArtifact";
+import type { DesignRecipe, GeneratedCopy, LayoutContract } from "@/lib/schema/generatedArtifact";
 import { isEmailArtifact } from "@/lib/artifacts/artifactOptions";
 import { buildPromptContract, type StudioPromptContract } from "./buildPromptContract";
 
@@ -43,8 +43,9 @@ export function buildImagePromptContracts(
   request: ArtifactRequest,
   copy: GeneratedCopy,
   layout: LayoutContract,
+  designRecipe: DesignRecipe,
 ): StudioPromptContract[] {
-  return variantsForArtifact(brief.artifactType).map((variant) => buildPromptContract(pack, brief, request, copy, layout, variant));
+  return variantsForArtifact(brief.artifactType).map((variant) => buildPromptContract(pack, brief, request, copy, layout, designRecipe, variant));
 }
 
 export function buildImagePrompts(
@@ -53,6 +54,7 @@ export function buildImagePrompts(
   request: ArtifactRequest,
   copy: GeneratedCopy,
   layout: LayoutContract,
+  designRecipe: DesignRecipe,
 ) {
-  return buildImagePromptContracts(pack, brief, request, copy, layout).map((contract) => contract.prompt);
+  return buildImagePromptContracts(pack, brief, request, copy, layout, designRecipe).map((contract) => contract.prompt);
 }

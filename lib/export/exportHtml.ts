@@ -120,6 +120,7 @@ export function exportHtml(artifact: GeneratedArtifact) {
   const logoUrl = getBrandLogoPublicPathForArtifact(artifact.brand, artifact.artifactType, logoVariantId);
   const theme = getBrandTheme(artifact.brand);
   const template = artifact.compositionTemplate ?? resolveCompositionTemplate(artifact.artifactType);
+  const designRecipeId = artifact.designRecipe?.id ?? "studio";
   const showProofs = template.id !== "social-announcement";
   const isFlyer = template.id === "campaign-flyer";
   const audienceLabel = getArtifactAudienceLabel(artifact);
@@ -170,7 +171,7 @@ export function exportHtml(artifact: GeneratedArtifact) {
 </head>
 <body>
   <main>
-    <article class="artifact ${template.id}">
+    <article class="artifact ${template.id}" data-design-recipe="${escapeHtml(designRecipeId)}">
       <section class="hero">
         ${visual ? `<img class="hero-img" src="${visual}" alt="${escapeHtml(artifact.brand)} generated visual" />` : ""}
         <div class="hero-inner">

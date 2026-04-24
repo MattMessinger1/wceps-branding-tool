@@ -5,9 +5,9 @@ import { isEmailArtifact } from "@/lib/artifacts/artifactOptions";
 import type { ArtifactRequest } from "@/lib/schema/artifactRequest";
 import type { BrandPack, SourceEvidence } from "@/lib/schema/brandPack";
 import type { CreativeBrief } from "@/lib/schema/creativeBrief";
-import type { GeneratedCopy, LayoutContract } from "@/lib/schema/generatedArtifact";
+import type { DesignRecipe, GeneratedCopy, LayoutContract } from "@/lib/schema/generatedArtifact";
 
-export const WCEPS_STUDIO_PROMPT_VERSION = "campaign-art-plate-v5";
+export const WCEPS_STUDIO_PROMPT_VERSION = "design-comp-v1";
 
 export type StudioPromptContract = {
   version: string;
@@ -153,10 +153,11 @@ export function buildPromptContract(
   request: ArtifactRequest,
   copy: GeneratedCopy,
   layout: LayoutContract,
+  designRecipe: DesignRecipe,
   variant: string,
 ): StudioPromptContract {
   const isSocial = brief.artifactType === "social-graphic";
-  const promptTokenBudget = isSocial ? 4000 : 4800;
+  const promptTokenBudget = isSocial ? 5200 : 6200;
   const evidence = selectEvidenceForPrompt(pack, brief, request, isSocial ? 1 : 2);
   const logoAsset = getBrandLogoAsset(pack.brandName);
   const visualProfile = getBrandVisualProfile(pack.brandName);
@@ -192,13 +193,15 @@ export function buildPromptContract(
     `cta_intent:${keywordCues(copy.cta || brief.cta, 3).join("/")}`,
     `proof_volume:${isSocial ? "minimal" : "compact"}`,
   ];
+  const recipeDirectives = compactList(designRecipe.promptDirectives, 4, 76);
 
   const sections = [
     `CONTRACT=${WCEPS_STUDIO_PROMPT_VERSION}`,
-    "MODE=campaign-art-plate",
+    "MODE=design-comp-art-plate",
     `INTENT={out:${brief.artifactType}, brand:${pack.brandName}, aud:${compactText(brief.audience, 54)}, theme:[${themeCues.join(" | ")}], tone:${compactText(request.toneModifier || "professional, warm, practical", 54)}, ground:${request.strictlySourceGrounded ? "strict" : "source-informed"}}`,
     `CANVAS=${layout.canvas}`,
     artifactFormatGuard(brief.artifactType),
+    `DESIGN_RECIPE={id:${designRecipe.id}; text_zone:${designRecipe.textZone}; visual_zone:${designRecipe.visualZone}; density:${designRecipe.density}; hierarchy:${compactText(designRecipe.hierarchy, 140)}; art:${compactText(designRecipe.artDirection, 140)}; placeholder:${compactText(designRecipe.placeholderStrategy, 130)}; app_comp:${compactText(designRecipe.appComposition, 130)}; directives:[${recipeDirectives.join(" | ")}]}`,
     `BRAND={pal:[${palette.join(" | ")}], visual:[${visualCues.join(" | ")}], evid_ids:[${evidence.map((source) => source.id).join(" | ")}]}`,
     `BRAND_BOUNDARY={keep:[${keepBoundary.join(" | ")}]; avoid_sibling:[${avoidBoundary.join(" | ")}]; parent_context:[${profileList(boundary.parentContext, 3, 32).join(" | ")}]}`,
     `BRAND_VISUAL_PROFILE={show:[${preferredSubjects.join(" | ")}]; props:[${contextProps.join(" | ")}]; avoid:[${avoidSubjects.join(" | ")}]; app_owned:[${appOwnedBrandElements.join(" | ")}]; tone:[${profileList(visualProfile.visualTone, 5, 36).join(" | ")}]; fit:${profileFit}}`,
@@ -210,12 +213,12 @@ export function buildPromptContract(
     `REFS=${refs}; references only.`,
     note ? `USER_NOTE=${note}` : "",
     visualInstruction ? `VISUAL_INSTRUCTION=${visualInstruction}` : "",
-    `ART=${variant}; NY media/ad-agency quality, premium atmosphere, layered depth, non-generic education storytelling, intentional crop.`,
+    `ART=${variant}; NY media/ad-agency quality, full designed concept with visual hierarchy, type-safe contrast zones, premium atmosphere, layered depth, non-generic education storytelling, intentional crop.`,
     "VISUAL_STYLE=authentic editorial photography or refined abstract-illustrative atmosphere; avoid posed training-room stock, washed-out empty fades, generic meeting-table cliches, literal brand-shape wallpaper.",
-    "COMPOSITION=app owns layout, typography, text, logos, proof points, CTA, and export; ImageGen creates only the art plate.",
-    "TEXT_RULE=absolutely no readable text, letters, numbers, labels, fake paragraphs, book titles, publisher names, email addresses, URLs, phone numbers, citations, or lorem ipsum.",
+    "COMPOSITION=ImageGen creates a full artifact design comp: composition, crop, hierarchy, contrast, visual rhythm, and type-safe zones. The app renders exact typography, official logo, proof copy, CTA, source evidence, and export.",
+    "TEXT_RULE=absolutely no readable text, letters, numbers, labels, fake paragraphs, book titles, publisher names, email addresses, URLs, phone numbers, citations, or lorem ipsum; imply text areas through composition only.",
     "NO=document layouts, panels, blank boxes, placeholder modules, mock UI, cards, fake text, fake charts, icons with labels, contact bars, duplicate logos, fake logos, fake seals, fake badges, fake book titles, fake publisher brands, logo-like marks, wordmarks, chevrons, arrows, mountain logos, malformed UI, brochure scaffolding, invented claims, endorsement imagery, close-up faces, detailed hands, stock-photo workshop posing.",
-    "QUALITY=best over fast; polished full-bleed campaign art plate, no template scaffolding.",
+    "QUALITY=best over fast; polished design-comp art plate, no template scaffolding.",
   ].filter(Boolean);
 
   const prompt = sections.join("\n");

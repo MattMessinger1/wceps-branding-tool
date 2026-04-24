@@ -112,10 +112,13 @@ test("generates a complete creative brief and artifact copy", async () => {
   assert.ok(artifact.critique);
   assert.ok(artifact.fittedCopy);
   assert.ok(artifact.compositionTemplate);
+  assert.ok(artifact.designRecipe);
   assert.ok(artifact.compositionScore);
-  assert.equal(artifact.artPlatePromptVersion, "campaign-art-plate-v5");
-  assert.ok(artifact.imagePrompts.every((prompt) => prompt.includes("CONTRACT=campaign-art-plate-v5")));
-  assert.ok(artifact.imagePrompts.every((prompt) => prompt.includes("MODE=campaign-art-plate")));
+  assert.equal(artifact.artPlatePromptVersion, "design-comp-v1");
+  assert.ok(artifact.imagePrompts.every((prompt) => prompt.includes("CONTRACT=design-comp-v1")));
+  assert.ok(artifact.imagePrompts.every((prompt) => prompt.includes("MODE=design-comp-art-plate")));
+  assert.ok(artifact.imagePrompts.every((prompt) => prompt.includes("DESIGN_RECIPE={")));
+  assert.equal(artifact.pipelineTrace?.mode, "design-comp");
   assert.equal(artifact.review.issues.length, 0);
 });
 
@@ -441,7 +444,7 @@ test("sendability brand boundary catches sibling leakage for every active brand"
       },
       template,
       prompt:
-        "CONTRACT=campaign-art-plate-v5 MODE=campaign-art-plate NO=document layouts, blank boxes, mock ui, cards, brochure scaffolding, fake text, fake logos, malformed ui; app renders official logo once.",
+        "CONTRACT=design-comp-v1 MODE=design-comp-art-plate NO=document layouts, blank boxes, mock ui, cards, brochure scaffolding, fake text, fake logos, malformed ui; app renders official logo once.",
       request: {
         artifactType: "flyer",
         brand,
@@ -533,7 +536,9 @@ test("studio prompts forbid generated text, logos, and contact details", async (
   });
 
   const prompt = artifact.imagePrompts[0];
-  assert.ok(prompt.includes("MODE=campaign-art-plate"));
+  assert.ok(prompt.includes("MODE=design-comp-art-plate"));
+  assert.ok(prompt.includes("COMPOSITION=ImageGen creates a full artifact design comp"));
+  assert.ok(prompt.includes("imply text areas through composition only"));
   assert.ok(prompt.includes("TEXT_RULE=absolutely no readable text"));
   assert.ok(prompt.includes("do not render any CARE Coaching logo"));
   assert.ok(prompt.includes("chevron/mountain mark"));
@@ -750,7 +755,7 @@ test("sendability brand relevance catches generic prompts for every active brand
   };
   const brands = ["CARE Coaching", "CCNA", "WebbAlign", "CALL", "WIDA PRIME", "WCEPS"];
   const genericPrompt =
-    "CONTRACT=campaign-art-plate-v5 MODE=campaign-art-plate NO=document layouts, blank boxes, mock ui, cards, brochure scaffolding, fake text, fake logos, malformed ui; app renders official logo once.";
+    "CONTRACT=design-comp-v1 MODE=design-comp-art-plate NO=document layouts, blank boxes, mock ui, cards, brochure scaffolding, fake text, fake logos, malformed ui; app renders official logo once.";
 
   for (const brand of brands) {
     const score = scoreComposition({
@@ -797,7 +802,7 @@ test("sendability brand relevance passes profile-complete prompts for every acti
   };
   const brands = ["CARE Coaching", "CCNA", "WebbAlign", "CALL", "WIDA PRIME", "WCEPS"];
   const basePrompt =
-    "CONTRACT=campaign-art-plate-v5 MODE=campaign-art-plate NO=document layouts, blank boxes, mock ui, cards, brochure scaffolding, fake text, fake logos, malformed ui; app renders official logo once.";
+    "CONTRACT=design-comp-v1 MODE=design-comp-art-plate NO=document layouts, blank boxes, mock ui, cards, brochure scaffolding, fake text, fake logos, malformed ui; app renders official logo once.";
 
   for (const brand of brands) {
     const profile = getBrandVisualProfile(brand);

@@ -1,5 +1,6 @@
 export * from "./copyFit";
 export * from "./copyQualityQa";
+export * from "./designRecipe";
 export * from "./layoutQa";
 export * from "./qaHelpers";
 export * from "./renderQa";

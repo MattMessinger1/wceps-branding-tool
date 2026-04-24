@@ -54,6 +54,7 @@ export default async function TraceDatasetPage({ params }: { params: Promise<{ d
               <div className="grid gap-2">
                 <p className="text-xs font-bold uppercase tracking-wide text-[#338bad]">
                   {artifact.brand} · {artifact.artifactType}
+                  {artifact.designRecipeId ? ` · ${artifact.designRecipeId}` : ""}
                 </p>
                 <h2 className="text-xl font-semibold text-[#142836]">{artifact.artifactId}</h2>
                 <div className="flex flex-wrap gap-2 text-xs font-semibold">

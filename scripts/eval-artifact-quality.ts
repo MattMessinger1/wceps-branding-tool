@@ -219,7 +219,7 @@ async function main() {
         },
       ],
       metadata: {
-        promptVersion: "campaign-art-plate-v5",
+        promptVersion: "design-comp-v1",
         pipeline: "deterministic-composition-layout-qa",
       },
     },

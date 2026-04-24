@@ -7,7 +7,6 @@ import {
   evaluateLayoutQa,
   evaluateRenderQa,
   evaluateVisualQa,
-  fitCopy,
   resolveCompositionTemplate,
   scoreComposition,
 } from "@/lib/composition";
@@ -16,9 +15,11 @@ import { ArtifactRequestSchema, type ArtifactRequest } from "@/lib/schema/artifa
 import { GeneratedArtifactSchema, type GeneratedArtifact } from "@/lib/schema/generatedArtifact";
 import { resolveArtifactFormat } from "./artifactFormat";
 import { buildCreativeBrief } from "./buildCreativeBrief";
+import { buildDesignRecipeWithModel, getDesignRecipeModelConfig } from "./buildDesignRecipeWithModel";
 import { buildImagePromptContracts } from "./buildImagePrompt";
 import { buildLayoutContract } from "./buildLayoutContract";
 import { critiqueArtifactQuality } from "./critiqueArtifact";
+import { fitCopyWithModel, getCopyFitModelConfig } from "./fitCopyWithModel";
 import { generateCopy } from "./generateCopy";
 
 export async function generateArtifact(input: unknown): Promise<GeneratedArtifact> {
@@ -43,8 +44,14 @@ export async function generateArtifact(input: unknown): Promise<GeneratedArtifac
     const compositionTemplate = await traceBraintrustStep(span, "resolveCompositionTemplate", { input: request.artifactType }, () =>
       resolveCompositionTemplate(request.artifactType),
     );
-    const fittedCopy = await traceBraintrustStep(span, "fitCopy", { input: { copy, request, compositionTemplate } }, () =>
-      fitCopy(copy, request, compositionTemplate),
+    const fittedCopy = await traceBraintrustStep(span, "fitCopy", { input: { copy, request, compositionTemplate }, metadata: getCopyFitModelConfig() }, () =>
+      fitCopyWithModel(copy, request, compositionTemplate),
+    );
+    const designRecipe = await traceBraintrustStep(
+      span,
+      "buildDesignRecipe",
+      { input: { request, compositionTemplate, fittedCopy }, metadata: getDesignRecipeModelConfig() },
+      () => buildDesignRecipeWithModel({ request, template: compositionTemplate, fittedCopy }),
     );
     const copyQualityQa = await traceBraintrustStep(
       span,
@@ -55,8 +62,11 @@ export async function generateArtifact(input: unknown): Promise<GeneratedArtifac
     const layoutContract = await traceBraintrustStep(span, "buildLayoutContract", { input: { brand: resolution.selectedBrand.brandName, brief, request, copy } }, () =>
       buildLayoutContract(resolution.selectedBrand, brief, request, copy),
     );
-    const promptContracts = await traceBraintrustStep(span, "buildImagePrompt", { input: { brand: resolution.selectedBrand.brandName, brief, request } }, () =>
-      buildImagePromptContracts(resolution.selectedBrand, brief, request, copy, layoutContract),
+    const promptContracts = await traceBraintrustStep(
+      span,
+      "buildImagePrompt",
+      { input: { brand: resolution.selectedBrand.brandName, brief, request, designRecipe } },
+      () => buildImagePromptContracts(resolution.selectedBrand, brief, request, copy, layoutContract, designRecipe),
     );
     const imagePrompts = promptContracts.map((contract) => contract.prompt);
     const imageResults: NonNullable<GeneratedArtifact["imageResults"]> = await traceBraintrustStep(
@@ -153,6 +163,7 @@ export async function generateArtifact(input: unknown): Promise<GeneratedArtifac
       copy,
       fittedCopy,
       compositionTemplate,
+      designRecipe,
       compositionScore,
       layoutQa,
       copyQualityQa,
@@ -165,7 +176,7 @@ export async function generateArtifact(input: unknown): Promise<GeneratedArtifac
       imageResults,
       pipelineTrace: {
         version: primaryPromptContract.version ?? "wceps-studio-v1",
-        mode: "campaign-art-plate",
+        mode: "design-comp",
         promptLength: primaryPromptContract.promptLength,
         promptTokenBudget: primaryPromptContract.promptTokenBudget,
         evidenceIds: primaryPromptContract.evidenceIds,
@@ -188,6 +199,7 @@ export async function generateArtifact(input: unknown): Promise<GeneratedArtifac
         brand: artifact.brand,
         artifactType: artifact.artifactType,
         templateId: artifact.compositionTemplate?.id,
+        designRecipeId: artifact.designRecipe?.id,
         promptVersion: artifact.artPlatePromptVersion,
         failureModes: artifact.failureModes?.map((failure) => failure.id) ?? [],
       },

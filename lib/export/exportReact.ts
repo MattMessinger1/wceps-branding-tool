@@ -36,6 +36,7 @@ export function exportReactSection(artifact: GeneratedArtifact) {
   const logoVariantId = (artifact.request as { logoVariant?: string } | undefined)?.logoVariant;
   const logoUrl = getBrandLogoPublicPathForArtifact(artifact.brand, artifact.artifactType, logoVariantId);
   const templateId = artifact.compositionTemplate?.id ?? "campaign-flyer";
+  const designRecipeId = artifact.designRecipe?.id ?? "studio";
   const isCampaignFlyer = templateId === "campaign-flyer";
   const audienceLabel = getArtifactAudienceLabel(artifact);
   const proofMarkup =
@@ -71,7 +72,7 @@ ${bullets}
 
   return (
     <section className="bg-[#f7f4ee] px-6 py-12 text-[#20252A]" data-template="${templateId}">
-      <div className="${isCampaignFlyer ? "relative mx-auto aspect-[4/5] w-full max-w-[780px] overflow-hidden rounded-lg bg-white text-[#142836]" : "relative mx-auto min-h-[720px] max-w-5xl overflow-hidden rounded-lg bg-[#142836] text-white"}">
+      <div data-design-recipe="${designRecipeId}" className="${isCampaignFlyer ? "relative mx-auto aspect-[4/5] w-full max-w-[780px] overflow-hidden rounded-lg bg-white text-[#142836]" : "relative mx-auto min-h-[720px] max-w-5xl overflow-hidden rounded-lg bg-[#142836] text-white"}">
         {visualUrl ? <img src={visualUrl} alt="${headline} art plate" className="absolute inset-0 h-full w-full object-cover ${isCampaignFlyer ? "scale-105 opacity-90" : "opacity-70"}" /> : null}
         <div className="${isCampaignFlyer ? "absolute inset-0 bg-[linear-gradient(90deg,#fff_0%,rgba(255,255,255,.98)_34%,rgba(255,255,255,.78)_53%,rgba(255,255,255,.22)_74%,rgba(255,255,255,0)_100%)]" : "absolute inset-0 bg-gradient-to-r from-[#142836]/95 via-[#142836]/64 to-transparent"}" />
         <div className="${isCampaignFlyer ? "absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-white/82 to-transparent" : "hidden"}" />

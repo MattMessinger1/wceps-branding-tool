@@ -13,6 +13,10 @@ type ImageConfig = {
   configured: boolean;
   model: string;
   responsesModel: string;
+  copyFitModel: string;
+  copyFitEnabled: boolean;
+  designRecipeModel: string;
+  designRecipeEnabled: boolean;
   size: string;
   quality: string;
   outputFormat: string;
@@ -215,6 +219,18 @@ function SystemStatus({ imageConfig }: { imageConfig: ImageConfig }) {
           <div>
             <dt className="font-semibold uppercase tracking-wide text-slate-500">Driver</dt>
             <dd className="mt-1 break-words">{imageConfig.responsesModel}</dd>
+          </div>
+          <div>
+            <dt className="font-semibold uppercase tracking-wide text-slate-500">Copy fit</dt>
+            <dd className="mt-1 break-words">
+              {imageConfig.copyFitEnabled ? imageConfig.copyFitModel : `${imageConfig.copyFitModel} off`}
+            </dd>
+          </div>
+          <div>
+            <dt className="font-semibold uppercase tracking-wide text-slate-500">Design recipe</dt>
+            <dd className="mt-1 break-words">
+              {imageConfig.designRecipeEnabled ? imageConfig.designRecipeModel : `${imageConfig.designRecipeModel} off`}
+            </dd>
           </div>
           <div>
             <dt className="font-semibold uppercase tracking-wide text-slate-500">Size</dt>

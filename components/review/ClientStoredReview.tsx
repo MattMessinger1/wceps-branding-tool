@@ -85,7 +85,7 @@ type StoredImageJob = {
   startedAt: number;
 };
 
-const latestPipelineVersion = "campaign-art-plate-v5";
+const latestPipelineVersion = "design-comp-v1";
 
 type AssetEditState = {
   visualInstruction: string;

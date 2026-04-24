@@ -53,6 +53,7 @@ type TraceDatasetEntry = {
   sourceRequestId?: string;
   brand: string;
   artifactType: string;
+  designRecipeId?: string;
   artifactFilePath: string;
   artifactFileRelativePath: string;
   artifactHtmlPath: string;
@@ -289,7 +290,7 @@ function renderIndexHtml(params: {
         <div>
           <p class="eyebrow">${escapeHtml(entry.brand)} · ${escapeHtml(entry.artifactType)}</p>
           <h2>${escapeHtml(entry.artifactId)}</h2>
-          <p class="meta">Review: <strong>${escapeHtml(entry.review.status)}</strong> · Layout QA: <strong>${escapeHtml(entry.layoutQa.status ?? "n/a")}</strong> · Copy QA: <strong>${escapeHtml(entry.copyQualityQa.status ?? "n/a")}</strong> · Visual QA: <strong>${escapeHtml(entry.visualQa.status ?? "n/a")}</strong> · Render QA: <strong>${escapeHtml(entry.renderQa.status ?? "n/a")}</strong> · Sendability: <strong>${escapeHtml(score)}</strong></p>
+          <p class="meta">Recipe: <strong>${escapeHtml(entry.designRecipeId ?? "n/a")}</strong> · Review: <strong>${escapeHtml(entry.review.status)}</strong> · Layout QA: <strong>${escapeHtml(entry.layoutQa.status ?? "n/a")}</strong> · Copy QA: <strong>${escapeHtml(entry.copyQualityQa.status ?? "n/a")}</strong> · Visual QA: <strong>${escapeHtml(entry.visualQa.status ?? "n/a")}</strong> · Render QA: <strong>${escapeHtml(entry.renderQa.status ?? "n/a")}</strong> · Sendability: <strong>${escapeHtml(score)}</strong></p>
           <div class="badges">${failureModes}</div>
           <p class="fine"><strong>Warnings:</strong> ${escapeHtml(warnings)}</p>
           <p class="fine"><strong>Issues:</strong> ${escapeHtml(issues)}</p>
@@ -424,6 +425,7 @@ async function main() {
       sourceRequestId: request.id,
       brand: artifact.brand,
       artifactType: artifact.artifactType,
+      designRecipeId: artifact.designRecipe?.id,
       artifactFilePath,
       artifactFileRelativePath,
       artifactHtmlPath,
@@ -438,7 +440,7 @@ async function main() {
         spanId: artifact.pipelineTrace?.braintrustTrace?.spanId,
         rootSpanId: artifact.pipelineTrace?.braintrustTrace?.rootSpanId,
         link: artifact.pipelineTrace?.braintrustTrace?.link,
-        mode: artifact.pipelineTrace?.mode ?? "campaign-art-plate",
+        mode: artifact.pipelineTrace?.mode ?? "design-comp",
         promptVersion: artifact.artPlatePromptVersion ?? artifact.pipelineTrace?.version,
         promptLength: artifact.pipelineTrace?.promptLength,
         promptTokenBudget: artifact.pipelineTrace?.promptTokenBudget,

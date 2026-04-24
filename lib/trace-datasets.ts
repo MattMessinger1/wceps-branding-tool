@@ -7,6 +7,7 @@ export type TraceDatasetEntry = {
   sourceRequestId?: string;
   brand: string;
   artifactType: string;
+  designRecipeId?: string;
   artifactFilePath: string;
   artifactFileRelativePath: string;
   artifactHtmlPath: string;
