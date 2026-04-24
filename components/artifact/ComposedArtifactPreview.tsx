@@ -30,10 +30,23 @@ function artPlate(visualUrl: string | undefined, alt: string, className = "", op
       className={`absolute inset-0 ${className}`}
       style={{
         background:
-          "radial-gradient(circle at 22% 20%, rgba(255,255,255,.42), transparent 28%), linear-gradient(135deg, rgba(0,129,164,.92), rgba(94,169,116,.72) 48%, rgba(247,212,112,.88))",
+          "radial-gradient(circle at 78% 18%, rgba(103,195,201,.28), transparent 32%), radial-gradient(circle at 88% 82%, rgba(94,169,116,.20), transparent 34%), linear-gradient(135deg, rgba(255,255,255,.98), rgba(237,248,248,.94) 48%, rgba(247,212,112,.20))",
       }}
     />
   );
+}
+
+function normalizeText(value: string) {
+  return value.toLowerCase().replace(/[^a-z0-9]+/g, " ").replace(/\s+/g, " ").trim();
+}
+
+function safeCtaDetail(cta: string, detail?: string) {
+  if (!detail) return undefined;
+  const ctaText = normalizeText(cta);
+  const detailText = normalizeText(detail);
+  if (!ctaText || !detailText) return detail;
+  if (detailText === ctaText || detailText.includes(ctaText)) return undefined;
+  return detail;
 }
 
 function Logo({ brandName, logoUrl, dark = false }: { brandName: string; logoUrl?: string; dark?: boolean }) {
@@ -116,6 +129,8 @@ function ProofBand({
   theme: ReturnType<typeof getBrandTheme>;
   dark?: boolean;
 }) {
+  const detail = safeCtaDetail(cta, ctaDetail);
+
   return (
     <div className={`grid gap-4 ${dark ? "text-white" : "text-[#142836]"}`}>
       <div className={`h-px w-full ${dark ? "bg-white/28" : "bg-slate-300/80"}`} />
@@ -143,7 +158,7 @@ function ProofBand({
         >
           {cta}
         </span>
-        {ctaDetail ? <p className={`text-xs font-semibold leading-5 ${dark ? "text-white/66" : "text-slate-500"}`}>{ctaDetail}</p> : null}
+        {detail ? <p className={`text-xs font-semibold leading-5 ${dark ? "text-white/66" : "text-slate-500"}`}>{detail}</p> : null}
       </div>
     </div>
   );
@@ -160,6 +175,8 @@ function FlyerSubpointBand({
   ctaDetail?: string;
   theme: ReturnType<typeof getBrandTheme>;
 }) {
+  const detail = safeCtaDetail(cta, ctaDetail);
+
   return (
     <div className="grid gap-5 border-t border-slate-300/80 pt-5">
       <div className="grid gap-3">
@@ -176,7 +193,7 @@ function FlyerSubpointBand({
       >
         {cta}
       </span>
-      {ctaDetail ? <p className="text-xs font-semibold leading-5 text-slate-500">{ctaDetail}</p> : null}
+      {detail ? <p className="text-xs font-semibold leading-5 text-slate-500">{detail}</p> : null}
     </div>
   );
 }
@@ -193,12 +210,19 @@ function CampaignFlyer({
   const theme = getBrandTheme(artifact.brand);
   const visual = artifact.imageResults?.find((image) => image.dataUrl)?.dataUrl;
   const audienceLabel = getArtifactAudienceLabel(artifact);
+  const hasVisual = Boolean(visual);
 
   return (
     <article className="relative mx-auto aspect-[4/5] w-full max-w-[780px] overflow-hidden rounded-md bg-white shadow-sm">
       <div className="absolute inset-0 overflow-hidden">
         {artPlate(visual, `${artifact.brand} art plate`, "scale-105", "opacity-90")}
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,#fff_0%,rgba(255,255,255,.98)_34%,rgba(255,255,255,.78)_53%,rgba(255,255,255,.22)_74%,rgba(255,255,255,0)_100%)]" />
+        <div
+          className={
+            hasVisual
+              ? "absolute inset-0 bg-[linear-gradient(90deg,#fff_0%,rgba(255,255,255,.98)_34%,rgba(255,255,255,.78)_53%,rgba(255,255,255,.22)_74%,rgba(255,255,255,0)_100%)]"
+              : "absolute inset-0 bg-[linear-gradient(90deg,#fff_0%,rgba(255,255,255,.96)_46%,rgba(255,255,255,.72)_72%,rgba(255,255,255,.42)_100%)]"
+          }
+        />
         <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-white/82 to-transparent" />
       </div>
       <div className="relative z-10 grid h-full max-w-[78%] content-start gap-7 p-8 sm:p-10">
@@ -286,9 +310,9 @@ function ExecutiveBrief({ artifact, copy, logoUrl }: { artifact: GeneratedArtifa
           <span className="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">{artifact.brand}</span>
           <div className="grid justify-items-end gap-1">
             <span className="rounded-full px-5 py-3 text-sm font-bold text-white" style={{ backgroundColor: theme.colors.primary }}>
-              {copy.cta}
-            </span>
-            {copy.ctaDetail ? <span className="text-xs font-semibold text-slate-500">{copy.ctaDetail}</span> : null}
+            {copy.cta}
+          </span>
+            {safeCtaDetail(copy.cta, copy.ctaDetail) ? <span className="text-xs font-semibold text-slate-500">{safeCtaDetail(copy.cta, copy.ctaDetail)}</span> : null}
           </div>
         </div>
       </section>
@@ -314,7 +338,7 @@ function SocialAnnouncement({ artifact, copy, logoUrl }: { artifact: GeneratedAr
           <span className="mt-2 w-fit rounded-full px-5 py-3 text-sm font-bold text-[#142836]" style={{ backgroundColor: theme.colors.accent }}>
             {copy.cta}
           </span>
-          {copy.ctaDetail ? <p className="text-xs font-semibold leading-5 text-white/68">{copy.ctaDetail}</p> : null}
+          {safeCtaDetail(copy.cta, copy.ctaDetail) ? <p className="text-xs font-semibold leading-5 text-white/68">{safeCtaDetail(copy.cta, copy.ctaDetail)}</p> : null}
         </div>
       </div>
     </article>
@@ -345,7 +369,7 @@ function EmailHero({ artifact, copy, logoUrl }: { artifact: GeneratedArtifact; c
         <span className="w-fit rounded-md px-5 py-3 text-sm font-bold text-white" style={{ backgroundColor: theme.colors.primary }}>
           {copy.cta}
         </span>
-        {copy.ctaDetail ? <p className="text-xs font-semibold leading-5 text-slate-500">{copy.ctaDetail}</p> : null}
+        {safeCtaDetail(copy.cta, copy.ctaDetail) ? <p className="text-xs font-semibold leading-5 text-slate-500">{safeCtaDetail(copy.cta, copy.ctaDetail)}</p> : null}
       </section>
     </article>
   );

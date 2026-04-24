@@ -1,4 +1,12 @@
-import { evaluateLayoutQa, resolveCompositionTemplate, scoreComposition } from "@/lib/composition";
+import {
+  collectFailureModes,
+  evaluateCopyQualityQa,
+  evaluateLayoutQa,
+  evaluateRenderQa,
+  evaluateVisualQa,
+  resolveCompositionTemplate,
+  scoreComposition,
+} from "@/lib/composition";
 import type { GeneratedArtifact, FittedCopy } from "@/lib/schema/generatedArtifact";
 
 export type TextEditState = {
@@ -104,6 +112,47 @@ export function applyTextOnlyEdits(artifact: GeneratedArtifact, edits: TextEditS
     fittedCopy,
     request: nextRequest as unknown as Parameters<typeof evaluateLayoutQa>[0]["request"],
   });
+  const copyQualityQa = evaluateCopyQualityQa({
+    copy: {
+      ...artifact.copy,
+      headlineOptions: uniqueLeading(headline, artifact.copy.headlineOptions),
+      subheadOptions: uniqueLeading(deck, artifact.copy.subheadOptions),
+      bullets: proofPoints,
+      cta,
+    },
+    fittedCopy,
+    request: nextRequest as unknown as Parameters<typeof evaluateCopyQualityQa>[0]["request"],
+  });
+  const visualQa = evaluateVisualQa({
+    request: nextRequest as unknown as Parameters<typeof evaluateVisualQa>[0]["request"],
+    template: compositionTemplate,
+    imageResults: artifact.imageResults,
+    imagePrompts: artifact.imagePrompts,
+  });
+  const renderQa = evaluateRenderQa({
+    fittedCopy,
+    template: compositionTemplate,
+    request: nextRequest as unknown as Parameters<typeof evaluateRenderQa>[0]["request"],
+    copyQualityQa,
+    visualQa,
+  });
+  const failureModes = collectFailureModes(copyQualityQa, visualQa, renderQa);
+  const qaIssues = [
+    ...layoutQa.issues.map((issue) => `Layout QA: ${issue}`),
+    ...copyQualityQa.issues.map((issue) => `Copy QA: ${issue}`),
+    ...visualQa.issues.map((issue) => `Visual QA: ${issue}`),
+    ...renderQa.issues.map((issue) => `Render QA: ${issue}`),
+  ];
+  const qaWarnings = [
+    ...layoutQa.warnings.map((warning) => `Layout QA: ${warning}`),
+    ...copyQualityQa.warnings.map((warning) => `Copy QA: ${warning}`),
+    ...visualQa.warnings.map((warning) => `Visual QA: ${warning}`),
+    ...renderQa.warnings.map((warning) => `Render QA: ${warning}`),
+  ];
+  const preservedIssues = artifact.review.issues.filter((issue) => !/^(Layout|Copy|Visual|Render) QA: /.test(issue));
+  const preservedWarnings = artifact.review.warnings.filter((warning) => !/^(Layout|Copy|Visual|Render) QA: /.test(warning));
+  const nextIssues = Array.from(new Set([...preservedIssues, ...qaIssues]));
+  const nextWarnings = Array.from(new Set([...preservedWarnings, ...qaWarnings]));
 
   return {
     ...artifact,
@@ -122,13 +171,18 @@ export function applyTextOnlyEdits(artifact: GeneratedArtifact, edits: TextEditS
     compositionTemplate,
     compositionScore,
     layoutQa,
+    copyQualityQa,
+    visualQa,
+    renderQa,
+    failureModes,
     review: {
       ...artifact.review,
       approved: false,
       approvedAt: undefined,
       reviewerName: undefined,
-      issues: Array.from(new Set([...artifact.review.issues.filter((issue) => !issue.startsWith("Layout QA: ")), ...layoutQa.issues.map((issue) => `Layout QA: ${issue}`)])),
-      warnings: Array.from(new Set([...artifact.review.warnings.filter((warning) => !warning.startsWith("Layout QA: ")), ...layoutQa.warnings.map((warning) => `Layout QA: ${warning}`)])),
+      status: nextIssues.length ? "block" : nextWarnings.length ? "warn" : "pass",
+      issues: nextIssues,
+      warnings: nextWarnings,
     },
     request: nextRequest,
     updatedAt: new Date().toISOString(),

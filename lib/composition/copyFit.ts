@@ -1,6 +1,7 @@
 import { filterBrandBoundaryItems, passesBrandBoundary } from "@/lib/brands/brandBoundary";
 import type { ArtifactRequest } from "@/lib/schema/artifactRequest";
 import type { CompositionTemplate, FittedCopy, GeneratedCopy } from "@/lib/schema/generatedArtifact";
+import { repairKnownTruncations } from "./qaHelpers";
 import { templateProofCount } from "./templates";
 
 function clean(value: string) {
@@ -97,7 +98,7 @@ function stripBrandLead(value: string, brandName: string) {
   const sourceLead = new RegExp(`^The\\s+${brand}\\s+page\\s+(?:identifies|lists|says|describes)\\s+`, "i");
 
   result = result.replace(sourceLead, "").replace(brandLead, "");
-  return capitalizeFirst(result);
+  return capitalizeFirst(repairKnownTruncations(result));
 }
 
 function polishSentenceFragment(value: string, brandName: string) {
@@ -110,9 +111,10 @@ function polishSentenceFragment(value: string, brandName: string) {
       .replace(/^Customized learning opportunities\b/i, "Provide customized learning opportunities")
       .replace(
         /^Provide customized learning opportunities for administrators, teachers, school leaders, and district leaders\b/i,
-        "Tailored professional learning helps educators reflect and take research-based action",
+        "Support educators through Consulting, Coaching, and Continuous Learning",
       )
       .replace(/^Reflect on current practices\b/i, "Help educators reflect on current practices")
+      .replace(/^The Three Cs as Consulting, Coaching, and Continuous Learning\b/i, "Use Consulting, Coaching, and Continuous Learning")
       .replace(/^Consulting, Coaching, and Continuous Learning\b/i, "Use Consulting, Coaching, and Continuous Learning");
   }
 
@@ -233,7 +235,7 @@ function trimWords(value: string, maxWords: number) {
   while (selected.length > 1 && weakEndings.has(selected[selected.length - 1].toLowerCase().replace(/[^a-z]/g, ""))) {
     selected.pop();
   }
-  return selected.join(" ").replace(/[,:;–-]+$/g, "").replace(/[.!?]+$/g, "");
+  return repairKnownTruncations(selected.join(" ").replace(/[,:;–-]+$/g, "").replace(/[.!?]+$/g, ""));
 }
 
 function templateCaps(template: CompositionTemplate) {
@@ -271,7 +273,10 @@ function fitDeck(copy: GeneratedCopy, request: ArtifactRequest, maxWords = 22) {
         passesBrandBoundary(request.brand, item, request) &&
         !/\b(a|an|and|by|for|from|in|of|on|or|the|to|with)[.!?]?$/i.test(item),
     );
-  const candidate = candidates.find((item) => !isTooSimilar(item, proofReferences, 0.62)) ?? candidates[0] ?? firstSentence(copy.body);
+  const careThreeCs = request.brand === "CARE Coaching" && /consulting|coaching|continuous learning/i.test([...copy.bullets, copy.body].join(" "));
+  const candidate = careThreeCs
+    ? "Support educators through Consulting, Coaching, and Continuous Learning."
+    : candidates.find((item) => !isTooSimilar(item, proofReferences, 0.62)) ?? candidates[0] ?? firstSentence(copy.body);
   const shortened = trimWords(polishSentenceFragment(stripBrandLead(candidate, request.brand), request.brand), maxWords);
   return `${shortened.replace(/[.!?]+$/g, "")}.`;
 }
@@ -279,7 +284,7 @@ function fitDeck(copy: GeneratedCopy, request: ArtifactRequest, maxWords = 22) {
 function fitProofPoint(value: string, brandName = "", maxWords = 18) {
   const boundary = brandName ? polishSentenceFragment(stripBrandLead(value, brandName), brandName) : value;
   const shortened = trimWords(boundary, maxWords);
-  return `${shortened.replace(/[.!?]+$/g, "")}.`;
+  return repairKnownTruncations(`${shortened.replace(/[.!?]+$/g, "")}.`);
 }
 
 function contactName(value: string) {
@@ -298,10 +303,10 @@ function fitCta(value: string): { cta: string; ctaDetail?: string } {
     return { cta: name ? `Email ${name}` : "Email us", ctaDetail: email };
   }
 
-  if (words(cleaned).length <= 4 && cleaned.length <= 30) return { cta: cleaned };
+  if (words(cleaned).length <= 5 && cleaned.length <= 42) return { cta: cleaned };
 
   const lowered = cleaned.toLowerCase();
-  if (lowered.includes("conversation")) return { cta: "Request a conversation", ctaDetail: cleaned };
+  if (lowered.includes("conversation")) return { cta: "Request a conversation", ctaDetail: cleaned === "Request a conversation" ? undefined : cleaned };
   if (lowered.includes("demo")) return { cta: "Request a demo", ctaDetail: cleaned };
   if (lowered.includes("learn")) return { cta: "Learn more", ctaDetail: cleaned };
   if (lowered.includes("contact")) return { cta: "Contact us", ctaDetail: cleaned };
@@ -335,8 +340,8 @@ export function fitCopy(copy: GeneratedCopy, request: ArtifactRequest, template:
   }
 
   const fallbackProofs = [
-    `${request.brand} support stays grounded in approved source language.`,
-    `Clear next steps for ${request.audience || "education teams"}.`,
+    `Provide source-grounded ${request.brand} support.`,
+    `Create clear next steps for ${request.audience || "education teams"}.`,
   ].map((item) => fitProofPoint(item, request.brand, caps.proofWords));
 
   for (const fallback of fallbackProofs) {

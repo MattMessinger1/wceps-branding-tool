@@ -126,9 +126,27 @@ function percent(value: number | undefined) {
 
 function layoutMetadata(output: GeneratedArtifact) {
   return {
+    artifactId: output.id,
+    traceLink: output.pipelineTrace?.braintrustTrace?.link,
+    failureModes: output.failureModes?.map((failure) => ({
+      id: failure.id,
+      severity: failure.severity,
+      introducedAt: failure.introducedAt,
+      missedBy: failure.missedBy,
+      message: failure.message,
+    })) ?? [],
     layoutStatus: output.layoutQa?.status,
     layoutIssues: output.layoutQa?.issues ?? [],
     layoutWarnings: output.layoutQa?.warnings ?? [],
+    copyQualityStatus: output.copyQualityQa?.status,
+    copyQualityIssues: output.copyQualityQa?.issues ?? [],
+    copyQualityWarnings: output.copyQualityQa?.warnings ?? [],
+    visualStatus: output.visualQa?.status,
+    visualIssues: output.visualQa?.issues ?? [],
+    visualWarnings: output.visualQa?.warnings ?? [],
+    renderStatus: output.renderQa?.status,
+    renderIssues: output.renderQa?.issues ?? [],
+    renderWarnings: output.renderQa?.warnings ?? [],
     reviewIssues: output.review.issues,
     reviewWarnings: output.review.warnings,
     templateId: output.compositionTemplate?.id,
@@ -159,6 +177,9 @@ async function main() {
         ({ output }) => score("NoTextOverflow", percent(output.layoutQa?.noTextOverflow), layoutMetadata(output)),
         ({ output }) => score("NoCtaCollision", percent(output.layoutQa?.noCtaCollision), layoutMetadata(output)),
         ({ output }) => score("ProofLineWidth", percent(output.layoutQa?.proofLineWidth), layoutMetadata(output)),
+        ({ output }) => score("CopyQuality", percent(output.copyQualityQa?.score), layoutMetadata(output)),
+        ({ output }) => score("VisualQa", percent(output.visualQa?.score), layoutMetadata(output)),
+        ({ output }) => score("RenderQa", percent(output.renderQa?.score), layoutMetadata(output)),
         ({ output }) => score("BrandBoundary", percent(output.compositionScore?.brandBoundary), layoutMetadata(output)),
         ({ output }) => score("LogoOnce", percent(output.layoutQa?.logoOnce), layoutMetadata(output)),
         ({ input, output, expected }) =>
@@ -170,10 +191,23 @@ async function main() {
         ({ output }) =>
           score("ExportReady", output.layoutQa?.status === "block" || output.review.issues.length ? 0 : percent(output.layoutQa?.exportReady), layoutMetadata(output)),
         ({ output }) => {
+          const attributed = output.failureModes?.every((failure) => failure.introducedAt && failure.missedBy) ?? true;
+          return score("FailureAttribution", attributed ? 1 : 0, layoutMetadata(output));
+        },
+        ({ output }) => {
           const layoutSendability = percent(output.layoutQa?.sendability);
           const compositionSendability = percent(output.compositionScore?.sendability);
-          const blocked = output.layoutQa?.status === "block" || output.review.issues.length > 0;
-          return score("Sendability", blocked ? Math.min(layoutSendability, compositionSendability, 0.6) : Math.min(layoutSendability, compositionSendability), layoutMetadata(output));
+          const copyQuality = percent(output.copyQualityQa?.score);
+          const visualQuality = percent(output.visualQa?.score);
+          const renderQuality = percent(output.renderQa?.score);
+          const blocked =
+            output.layoutQa?.status === "block" ||
+            output.copyQualityQa?.status === "block" ||
+            output.visualQa?.status === "block" ||
+            output.renderQa?.status === "block" ||
+            output.review.issues.length > 0;
+          const sendability = Math.min(layoutSendability, compositionSendability, copyQuality, visualQuality, renderQuality);
+          return score("Sendability", blocked ? Math.min(sendability, 0.6) : sendability, layoutMetadata(output));
         },
       ],
       metadata: {

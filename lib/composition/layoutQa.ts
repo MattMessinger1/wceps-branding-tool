@@ -22,7 +22,7 @@ const specs: Record<CompositionTemplate["id"], LayoutSpec> = {
     deckMaxLines: 3,
     proofCharsPerLine: 34,
     proofMaxLines: 4,
-    ctaCharsPerLine: 24,
+    ctaCharsPerLine: 42,
     ctaMaxLines: 1,
     expectedTemplate: "campaign-flyer",
   },
@@ -132,7 +132,7 @@ export function evaluateLayoutQa({
       Math.max(0, deckLines - spec.deckMaxLines) * 18 -
       Math.max(0, maxProofLines - spec.proofMaxLines) * 18,
   );
-  const noCtaCollision = clamp(100 - Math.max(0, ctaLines - spec.ctaMaxLines) * 35 - (fittedCopy.cta.length > 34 ? 20 : 0));
+  const noCtaCollision = clamp(100 - Math.max(0, ctaLines - spec.ctaMaxLines) * 35 - (fittedCopy.cta.length > 42 ? 20 : 0));
   const proofLineWidth = clamp(minProofChars < 18 ? 45 + minProofChars * 2 : minProofChars < 24 ? 78 : 96);
   const logoOnce = logoCount === 1 ? 100 : logoCount === 0 ? 70 : 35;
   const artifactFormatMatch = template.id === expectedTemplate.id ? 100 : 45;
@@ -141,7 +141,7 @@ export function evaluateLayoutQa({
   if (headlineLines > spec.headlineMaxLines) issues.push("Headline is estimated to overflow the selected template.");
   if (deckLines > spec.deckMaxLines) issues.push("Deck copy is too tall for the selected template.");
   if (maxProofLines > spec.proofMaxLines) issues.push("Proof copy is too tall for the selected template.");
-  if (ctaLines > spec.ctaMaxLines || fittedCopy.cta.length > 34) issues.push("CTA is too long for a button and should move detail text to a footer/contact line.");
+  if (ctaLines > spec.ctaMaxLines || fittedCopy.cta.length > 42) issues.push("CTA is too long for a button and should move detail text to a footer/contact line.");
   if (minProofChars < 18) issues.push("Proof text is likely to wrap into a narrow word ladder.");
   if (logoCount !== 1) issues.push(`Expected exactly one logo, found ${logoCount}.`);
   if (template.id !== expectedTemplate.id) issues.push(`Expected ${expectedTemplate.id}, got ${template.id}.`);

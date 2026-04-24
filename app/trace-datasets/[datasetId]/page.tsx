@@ -16,6 +16,10 @@ function score(value: number | undefined) {
   return typeof value === "number" ? `${Math.round(value)}%` : "n/a";
 }
 
+function qaLabel(status: string | undefined, scoreValue?: number) {
+  return `${status ?? "n/a"}${typeof scoreValue === "number" ? ` · ${score(scoreValue)}` : ""}`;
+}
+
 export default async function TraceDatasetPage({ params }: { params: Promise<{ datasetId: string }> }) {
   const { datasetId } = await params;
   if (datasetId === "latest") {
@@ -55,8 +59,35 @@ export default async function TraceDatasetPage({ params }: { params: Promise<{ d
                 <div className="flex flex-wrap gap-2 text-xs font-semibold">
                   <span className="rounded-full bg-slate-100 px-3 py-1 text-slate-700">Review: {artifact.review.status}</span>
                   <span className="rounded-full bg-slate-100 px-3 py-1 text-slate-700">Layout QA: {artifact.layoutQa.status ?? "n/a"}</span>
+                  <span className="rounded-full bg-slate-100 px-3 py-1 text-slate-700">
+                    Copy QA: {qaLabel(artifact.copyQualityQa?.status, artifact.copyQualityQa?.score)}
+                  </span>
+                  <span className="rounded-full bg-slate-100 px-3 py-1 text-slate-700">
+                    Visual QA: {qaLabel(artifact.visualQa?.status, artifact.visualQa?.score)}
+                  </span>
+                  <span className="rounded-full bg-slate-100 px-3 py-1 text-slate-700">
+                    Render QA: {qaLabel(artifact.renderQa?.status, artifact.renderQa?.score)}
+                  </span>
                   <span className="rounded-full bg-[#eef9f2] px-3 py-1 text-[#2f7a4f]">Sendability: {score(artifact.layoutQa.sendability)}</span>
                 </div>
+                {artifact.failureModes?.length ? (
+                  <div className="flex flex-wrap gap-2 pt-1">
+                    {artifact.failureModes.map((failure) => (
+                      <span
+                        key={`${failure.id}-${failure.introducedAt}-${failure.message}`}
+                        className={`rounded-full px-3 py-1 text-xs font-bold ${
+                          failure.severity === "block" ? "bg-red-50 text-red-700" : "bg-amber-50 text-amber-800"
+                        }`}
+                        title={failure.message}
+                      >
+                        {failure.id} · introduced at {failure.introducedAt}
+                        {failure.missedBy ? ` · missed by ${failure.missedBy}` : ""}
+                      </span>
+                    ))}
+                  </div>
+                ) : (
+                  <p className="text-xs font-semibold text-emerald-700">No attributed failure modes.</p>
+                )}
                 {artifact.review.warnings.length ? (
                   <p className="text-sm leading-6 text-slate-600">
                     <strong>Warnings:</strong> {artifact.review.warnings.join("; ")}

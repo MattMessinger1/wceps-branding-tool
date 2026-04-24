@@ -42,11 +42,45 @@ export type TraceDatasetEntry = {
     sendability?: number;
     metrics?: Record<string, unknown>;
   };
+  copyQualityQa?: {
+    status?: string;
+    score?: number;
+    issues?: string[];
+    warnings?: string[];
+    failureModes?: FailureModeEntry[];
+    metrics?: Record<string, unknown>;
+  };
+  visualQa?: {
+    status?: string;
+    score?: number;
+    issues?: string[];
+    warnings?: string[];
+    failureModes?: FailureModeEntry[];
+    metrics?: Record<string, unknown>;
+  };
+  renderQa?: {
+    status?: string;
+    score?: number;
+    issues?: string[];
+    warnings?: string[];
+    failureModes?: FailureModeEntry[];
+    metrics?: Record<string, unknown>;
+  };
+  failureModes?: FailureModeEntry[];
   review: {
     status: string;
     issues: string[];
     warnings: string[];
   };
+};
+
+export type FailureModeEntry = {
+  id: string;
+  label?: string;
+  severity: "warn" | "block";
+  introducedAt: string;
+  missedBy?: string;
+  message: string;
 };
 
 export type TraceDatasetManifest = {

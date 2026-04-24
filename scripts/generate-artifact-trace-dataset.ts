@@ -2,7 +2,7 @@ import { cp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { exportHtml } from "@/lib/export";
 import { generateArtifact } from "@/lib/generation/generateArtifact";
-import { GeneratedArtifactSchema, type GeneratedArtifact } from "@/lib/schema/generatedArtifact";
+import { GeneratedArtifactSchema, type GeneratedArtifact, type StageQa } from "@/lib/schema/generatedArtifact";
 import { examplesDir, publishedTraceDatasetsDir, traceDatasetsDir } from "@/lib/storage/paths";
 
 type SampleRequest = {
@@ -38,6 +38,15 @@ type LayoutQaManifest = {
   metrics?: NonNullable<GeneratedArtifact["layoutQa"]>["metrics"];
 };
 
+type StageQaManifest = {
+  status?: string;
+  score?: number;
+  issues?: string[];
+  warnings?: string[];
+  failureModes?: NonNullable<GeneratedArtifact["failureModes"]>;
+  metrics?: Record<string, unknown>;
+};
+
 type TraceDatasetEntry = {
   artifactId: string;
   sourceRequestId?: string;
@@ -67,6 +76,10 @@ type TraceDatasetEntry = {
     traceVersion?: string;
   };
   layoutQa: LayoutQaManifest;
+  copyQualityQa: StageQaManifest;
+  visualQa: StageQaManifest;
+  renderQa: StageQaManifest;
+  failureModes: NonNullable<GeneratedArtifact["failureModes"]>;
   review: {
     status: GeneratedArtifact["review"]["status"];
     issues: string[];
@@ -99,6 +112,11 @@ function escapeHtml(value: unknown) {
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#039;");
+}
+
+function formatPercent(value: number | undefined) {
+  if (typeof value !== "number") return "n/a";
+  return `${Math.round(value <= 1 ? value * 100 : value)}%`;
 }
 
 function hrefFromRunDir(filePath: string, runDir: string) {
@@ -158,6 +176,34 @@ function layoutQaManifest(layoutQa: GeneratedArtifact["layoutQa"]): LayoutQaMani
   };
 }
 
+function stageQaManifest(qa: StageQa | undefined): StageQaManifest {
+  if (!qa) return {};
+
+  return {
+    status: qa.status,
+    score: qa.score,
+    issues: qa.issues,
+    warnings: qa.warnings,
+    failureModes: qa.failureModes,
+    metrics: qa.metrics,
+  };
+}
+
+function failureBadgeHtml(entry: TraceDatasetEntry) {
+  if (!entry.failureModes.length) {
+    return `<span class="badge ok">No attributed failures</span>`;
+  }
+
+  return entry.failureModes
+    .map(
+      (failure) =>
+        `<span class="badge ${failure.severity}">${escapeHtml(failure.id)} · introduced at ${escapeHtml(failure.introducedAt)}${
+          failure.missedBy ? ` · missed by ${escapeHtml(failure.missedBy)}` : ""
+        }</span>`,
+    )
+    .join("");
+}
+
 function renderIndexHtml(params: {
   datasetId: string;
   createdAt: string;
@@ -171,18 +217,20 @@ function renderIndexHtml(params: {
 }) {
   const rows = params.entries
     .map((entry) => {
-      const score = typeof entry.layoutQa.sendability === "number" ? `${Math.round(entry.layoutQa.sendability * 100)}%` : "n/a";
+      const score = formatPercent(entry.layoutQa.sendability);
       const artifactHref = hrefFromRunDir(entry.artifactHtmlPath, params.runDir);
       const jsonHref = hrefFromRunDir(entry.artifactFilePath, params.runDir);
       const warnings = entry.review.warnings.length ? entry.review.warnings.join("; ") : "No warnings";
       const issues = entry.review.issues.length ? entry.review.issues.join("; ") : "No issues";
       const traceLink = entry.braintrust.link;
+      const failureModes = failureBadgeHtml(entry);
 
       return `<article class="card">
         <div>
           <p class="eyebrow">${escapeHtml(entry.brand)} · ${escapeHtml(entry.artifactType)}</p>
           <h2>${escapeHtml(entry.artifactId)}</h2>
-          <p class="meta">Review: <strong>${escapeHtml(entry.review.status)}</strong> · Layout QA: <strong>${escapeHtml(entry.layoutQa.status ?? "n/a")}</strong> · Sendability: <strong>${escapeHtml(score)}</strong></p>
+          <p class="meta">Review: <strong>${escapeHtml(entry.review.status)}</strong> · Layout QA: <strong>${escapeHtml(entry.layoutQa.status ?? "n/a")}</strong> · Copy QA: <strong>${escapeHtml(entry.copyQualityQa.status ?? "n/a")}</strong> · Visual QA: <strong>${escapeHtml(entry.visualQa.status ?? "n/a")}</strong> · Render QA: <strong>${escapeHtml(entry.renderQa.status ?? "n/a")}</strong> · Sendability: <strong>${escapeHtml(score)}</strong></p>
+          <div class="badges">${failureModes}</div>
           <p class="fine"><strong>Warnings:</strong> ${escapeHtml(warnings)}</p>
           <p class="fine"><strong>Issues:</strong> ${escapeHtml(issues)}</p>
         </div>
@@ -223,6 +271,11 @@ function renderIndexHtml(params: {
     .eyebrow { margin:0; color:var(--blue); font-size:12px; font-weight:850; letter-spacing:.08em; text-transform:uppercase; }
     .meta { color:var(--muted); line-height:1.55; }
     .fine { margin-top:8px; color:#65758a; font-size:13px; line-height:1.45; }
+    .badges { display:flex; flex-wrap:wrap; gap:7px; margin-top:10px; }
+    .badge { display:inline-flex; align-items:center; border-radius:999px; padding:5px 9px; font-size:11px; font-weight:800; border:1px solid var(--line); background:#f8fafc; color:#475569; }
+    .badge.warn { background:#fffbeb; border-color:#fde68a; color:#92400e; }
+    .badge.block { background:#fef2f2; border-color:#fecaca; color:#991b1b; }
+    .badge.ok { background:#ecfdf5; border-color:#a7f3d0; color:#047857; }
     .actions { display:flex; flex-wrap:wrap; justify-content:flex-end; gap:8px; max-width:360px; }
     .missing { display:inline-flex; align-items:center; min-height:38px; padding:9px 13px; border-radius:8px; background:#f1f5f9; color:#64748b; font-weight:750; }
     @media (max-width:760px) {
@@ -321,6 +374,10 @@ async function main() {
         traceVersion: artifact.pipelineTrace?.version,
       },
       layoutQa: layoutQaManifest(artifact.layoutQa),
+      copyQualityQa: stageQaManifest(artifact.copyQualityQa),
+      visualQa: stageQaManifest(artifact.visualQa),
+      renderQa: stageQaManifest(artifact.renderQa),
+      failureModes: artifact.failureModes ?? [],
       review: {
         status: artifact.review.status,
         issues: artifact.review.issues,

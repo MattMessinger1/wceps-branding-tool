@@ -74,6 +74,25 @@ export const LayoutQaSchema = z.object({
   }),
 });
 
+export const FailureModeSchema = z.object({
+  id: z.string().min(1),
+  label: z.string().optional(),
+  severity: z.enum(["warn", "block"]),
+  introducedAt: z.string().min(1),
+  missedBy: z.string().optional(),
+  message: z.string().min(1),
+});
+
+export const StageQaSchema = z.object({
+  question: z.string().min(1),
+  score: z.number().int().min(0).max(100),
+  status: z.enum(["pass", "warn", "block"]),
+  issues: z.array(z.string()),
+  warnings: z.array(z.string()),
+  failureModes: z.array(FailureModeSchema),
+  metrics: z.record(z.string(), z.unknown()).optional(),
+});
+
 export const GeneratedImageResultSchema = z.object({
   prompt: z.string().min(1),
   model: z.string().min(1),
@@ -138,6 +157,10 @@ export const GeneratedArtifactSchema = z.object({
   compositionTemplate: CompositionTemplateSchema.optional(),
   compositionScore: CompositionScoreSchema.optional(),
   layoutQa: LayoutQaSchema.optional(),
+  copyQualityQa: StageQaSchema.optional(),
+  visualQa: StageQaSchema.optional(),
+  renderQa: StageQaSchema.optional(),
+  failureModes: z.array(FailureModeSchema).optional(),
   artPlatePromptVersion: z.string().optional(),
   layoutContract: LayoutContractSchema.optional(),
   imagePrompts: z.array(z.string()),
@@ -156,6 +179,8 @@ export type FittedCopy = z.infer<typeof FittedCopySchema>;
 export type CompositionTemplate = z.infer<typeof CompositionTemplateSchema>;
 export type CompositionScore = z.infer<typeof CompositionScoreSchema>;
 export type LayoutQa = z.infer<typeof LayoutQaSchema>;
+export type FailureMode = z.infer<typeof FailureModeSchema>;
+export type StageQa = z.infer<typeof StageQaSchema>;
 export type GeneratedImageResult = z.infer<typeof GeneratedImageResultSchema>;
 export type LayoutContract = z.infer<typeof LayoutContractSchema>;
 export type PipelineTrace = z.infer<typeof PipelineTraceSchema>;
