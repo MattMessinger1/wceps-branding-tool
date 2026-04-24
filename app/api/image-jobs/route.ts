@@ -7,6 +7,7 @@ import { flushBraintrust, traceBraintrust } from "@/lib/observability/braintrust
 export const maxDuration = 10;
 
 const ImageJobRequestSchema = z.object({
+  artifactId: z.string().optional(),
   prompt: z.string().min(1),
   size: z.enum(["auto", "1024x1024", "1536x1024", "1024x1536", "256x256", "512x512", "1792x1024", "1024x1792"]).optional(),
   quality: z.enum(["low", "medium", "high", "auto"]).optional(),
@@ -30,6 +31,7 @@ export async function POST(request: Request) {
         input,
         metadata: {
           brand: input.brand,
+          artifactId: input.artifactId,
           size: input.size,
           quality: input.quality,
           outputFormat: input.outputFormat,

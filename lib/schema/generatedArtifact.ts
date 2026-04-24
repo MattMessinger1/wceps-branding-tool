@@ -102,6 +102,15 @@ export const GeneratedImageResultSchema = z.object({
   outputCompression: z.number().optional(),
   dataUrl: z.string().optional(),
   revisedPrompt: z.string().optional(),
+  jobId: z.string().optional(),
+  braintrustTrace: z
+    .object({
+      rowId: z.string().optional(),
+      spanId: z.string().optional(),
+      rootSpanId: z.string().optional(),
+      link: z.string().optional(),
+    })
+    .optional(),
 });
 
 export const LayoutContractSchema = z.object({

@@ -199,6 +199,7 @@ export function ClientStoredReview({ id, initialArtifact }: { id: string; initia
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify({
+              artifactId: id,
               prompt,
               brand,
               size: imageSize,
@@ -234,7 +235,14 @@ export function ClientStoredReview({ id, initialArtifact }: { id: string; initia
           if (cancelled) return;
           attempts += 1;
 
-          const params = new URLSearchParams({ prompt, size: imageSize, outputFormat: "webp", outputCompression: "70" });
+          const params = new URLSearchParams({
+            artifactId: id,
+            brand,
+            prompt,
+            size: imageSize,
+            outputFormat: "webp",
+            outputCompression: "70",
+          });
           const response = await fetch(`/api/image-jobs/${jobId}?${params.toString()}`);
           const result = (await response.json()) as {
             status?: string;
@@ -554,6 +562,8 @@ export function ClientStoredReview({ id, initialArtifact }: { id: string; initia
   }
 
   const displayHeadline = primaryHeadline(artifact);
+  const generatedImage = artifact.imageResults?.find((image) => image.dataUrl);
+  const generatedImageTrace = generatedImage?.braintrustTrace;
 
   return (
     <section className="mx-auto grid max-w-7xl gap-5 px-5 py-8">
@@ -885,6 +895,17 @@ export function ClientStoredReview({ id, initialArtifact }: { id: string; initia
                 <p className="mt-1">
                   Studio pipeline {artifact.pipelineTrace.version} · {artifact.pipelineTrace.promptLength}/{artifact.pipelineTrace.promptTokenBudget} chars
                 </p>
+                {generatedImage?.jobId ? <p className="mt-1">Image job {generatedImage.jobId}</p> : null}
+                {generatedImageTrace?.link ? (
+                  <a
+                    href={generatedImageTrace.link}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mt-1 inline-flex font-semibold text-[#006985] underline decoration-teal-200 underline-offset-4"
+                  >
+                    Open ImageGen trace
+                  </a>
+                ) : null}
               </details>
             ) : null}
             {isStalePipeline ? (
