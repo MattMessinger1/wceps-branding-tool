@@ -120,6 +120,16 @@ export default async function TraceDatasetPage({ params }: { params: Promise<{ d
                     Braintrust trace
                   </a>
                 ) : null}
+                {artifact.imageJobs?.find((job) => job.link)?.link ? (
+                  <a
+                    href={artifact.imageJobs.find((job) => job.link)?.link}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex h-10 items-center rounded-lg border border-slate-200 px-4 text-sm font-bold text-[#142836]"
+                  >
+                    ImageGen trace
+                  </a>
+                ) : null}
               </div>
             </article>
           ))}

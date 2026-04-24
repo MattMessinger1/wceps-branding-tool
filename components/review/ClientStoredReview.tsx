@@ -68,8 +68,7 @@ function imageSizeForArtifact(artifact: GeneratedArtifact) {
 }
 
 function imageQualityForArtifact(artifact: GeneratedArtifact) {
-  if (artifact.artifactType === "social-graphic") return "auto";
-  return "auto";
+  return "high";
 }
 
 function artifactProgressNoun(artifactType: string) {

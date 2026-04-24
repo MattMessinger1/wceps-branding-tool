@@ -106,7 +106,7 @@ function loadEnvLocal() {
         if (!trimmed || trimmed.startsWith("#") || !trimmed.includes("=")) continue;
         const [key, ...valueParts] = trimmed.split("=");
         const value = valueParts.join("=").trim().replace(/^["']|["']$/g, "");
-        process.env[key] ??= value;
+        if (!process.env[key]) process.env[key] = value;
       }
     })
     .catch(() => undefined);
@@ -165,14 +165,22 @@ async function main() {
     throw new Error("BRAINTRUST_API_KEY is required for npm run eval:braintrust.");
   }
 
+  if (!process.env.OPENAI_API_KEY) {
+    throw new Error("OPENAI_API_KEY is required because artifact evals now call ImageGen.");
+  }
+
   const { generateArtifact } = await import("@/lib/generation/generateArtifact");
+  const { generateImageForArtifact } = await import("@/lib/generation/generateArtifactImage");
 
   const result = await Eval<Partial<ArtifactRequest>, GeneratedArtifact, Scenario["expected"], Scenario["metadata"]>(
     process.env.BRAINTRUST_PROJECT_NAME,
     {
       experimentName: "Artifact QA Golden Scenarios",
       data: () => scenarios,
-      task: async (input) => generateArtifact(input),
+      task: async (input) => {
+        const artifact = await generateArtifact({ ...input, generateVisual: true });
+        return generateImageForArtifact(artifact, { timeoutMs: 10 * 60 * 1000, pollIntervalMs: 5000 });
+      },
       scores: [
         ({ output }) => score("NoTextOverflow", percent(output.layoutQa?.noTextOverflow), layoutMetadata(output)),
         ({ output }) => score("NoCtaCollision", percent(output.layoutQa?.noCtaCollision), layoutMetadata(output)),

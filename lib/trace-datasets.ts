@@ -30,6 +30,14 @@ export type TraceDatasetEntry = {
     retryCount?: number;
     traceVersion?: string;
   };
+  imageJobs?: Array<{
+    jobId?: string;
+    model?: string;
+    size?: string;
+    quality?: string;
+    outputFormat?: string;
+    link?: string;
+  }>;
   layoutQa: {
     status?: string;
     overall?: number;

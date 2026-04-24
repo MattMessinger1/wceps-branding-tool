@@ -2,6 +2,7 @@ import { cp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { exportHtml } from "@/lib/export";
 import { generateArtifact } from "@/lib/generation/generateArtifact";
+import { generateImageForArtifact } from "@/lib/generation/generateArtifactImage";
 import { GeneratedArtifactSchema, type GeneratedArtifact, type StageQa } from "@/lib/schema/generatedArtifact";
 import { examplesDir, publishedTraceDatasetsDir, traceDatasetsDir } from "@/lib/storage/paths";
 
@@ -75,6 +76,14 @@ type TraceDatasetEntry = {
     retryCount?: number;
     traceVersion?: string;
   };
+  imageJobs: Array<{
+    jobId?: string;
+    model?: string;
+    size?: string;
+    quality?: string;
+    outputFormat?: string;
+    link?: string;
+  }>;
   layoutQa: LayoutQaManifest;
   copyQualityQa: StageQaManifest;
   visualQa: StageQaManifest;
@@ -95,7 +104,7 @@ function loadEnvLocal() {
         if (!trimmed || trimmed.startsWith("#") || !trimmed.includes("=")) continue;
         const [key, ...valueParts] = trimmed.split("=");
         const value = valueParts.join("=").trim().replace(/^["']|["']$/g, "");
-        process.env[key] ??= value;
+        if (!process.env[key]) process.env[key] = value;
       }
     })
     .catch(() => undefined);
@@ -149,7 +158,7 @@ function redactSensitiveData(value: unknown): unknown {
     }
 
     if (lower === "dataurl" || lower === "file_data" || lower === "image_url" || lower === "logodataurl") {
-      next[key] = "[redacted data url]";
+      next[key] = typeof item === "string" && !item.startsWith("data:") ? item : "[redacted data url]";
       continue;
     }
 
@@ -157,6 +166,56 @@ function redactSensitiveData(value: unknown): unknown {
   }
 
   return next;
+}
+
+function imageExtensionFromDataUrl(dataUrl: string, fallback: string | undefined) {
+  const match = /^data:image\/([a-zA-Z0-9.+-]+);base64,/.exec(dataUrl);
+  const raw = match?.[1] ?? fallback ?? "webp";
+  if (raw === "jpeg") return "jpg";
+  if (raw === "svg+xml") return "svg";
+  return raw.replace(/[^a-zA-Z0-9]/g, "") || "webp";
+}
+
+function decodeDataUrl(dataUrl: string) {
+  const comma = dataUrl.indexOf(",");
+  if (comma === -1) return undefined;
+  return Buffer.from(dataUrl.slice(comma + 1), "base64");
+}
+
+async function materializeImageAssets({
+  artifact,
+  imagesDir,
+  htmlDir,
+  runDir,
+}: {
+  artifact: GeneratedArtifact;
+  imagesDir: string;
+  htmlDir: string;
+  runDir: string;
+}) {
+  const artifactForJson = JSON.parse(JSON.stringify(artifact)) as GeneratedArtifact;
+  const artifactForHtml = JSON.parse(JSON.stringify(artifact)) as GeneratedArtifact;
+
+  await mkdir(imagesDir, { recursive: true });
+
+  for (const [index, image] of (artifact.imageResults ?? []).entries()) {
+    if (!image.dataUrl?.startsWith("data:")) continue;
+
+    const buffer = decodeDataUrl(image.dataUrl);
+    if (!buffer) continue;
+
+    const extension = imageExtensionFromDataUrl(image.dataUrl, image.outputFormat);
+    const filename = `${artifact.id}-${index + 1}.${extension}`;
+    const imagePath = path.join(imagesDir, filename);
+    await writeFile(imagePath, buffer);
+
+    const jsonPath = path.relative(runDir, imagePath).split(path.sep).join("/");
+    const htmlPath = path.relative(htmlDir, imagePath).split(path.sep).join("/");
+    if (artifactForJson.imageResults?.[index]) artifactForJson.imageResults[index].dataUrl = jsonPath;
+    if (artifactForHtml.imageResults?.[index]) artifactForHtml.imageResults[index].dataUrl = htmlPath;
+  }
+
+  return { artifactForJson, artifactForHtml };
 }
 
 function layoutQaManifest(layoutQa: GeneratedArtifact["layoutQa"]): LayoutQaManifest {
@@ -223,6 +282,7 @@ function renderIndexHtml(params: {
       const warnings = entry.review.warnings.length ? entry.review.warnings.join("; ") : "No warnings";
       const issues = entry.review.issues.length ? entry.review.issues.join("; ") : "No issues";
       const traceLink = entry.braintrust.link;
+      const imageTraceLink = entry.imageJobs.find((job) => job.link)?.link;
       const failureModes = failureBadgeHtml(entry);
 
       return `<article class="card">
@@ -241,6 +301,11 @@ function renderIndexHtml(params: {
             traceLink
               ? `<a href="${escapeHtml(traceLink)}" target="_blank" rel="noreferrer">Braintrust Trace</a>`
               : `<span class="missing">No trace link</span>`
+          }
+          ${
+            imageTraceLink
+              ? `<a href="${escapeHtml(imageTraceLink)}" target="_blank" rel="noreferrer">ImageGen Trace</a>`
+              : `<span class="missing">No image trace</span>`
           }
         </div>
       </article>`;
@@ -317,11 +382,16 @@ async function main() {
     throw new Error("BRAINTRUST_API_KEY is required for npm run generate:trace-dataset -- --braintrust.");
   }
 
+  if (!process.env.OPENAI_API_KEY) {
+    throw new Error("OPENAI_API_KEY is required because trace dataset runs now call ImageGen.");
+  }
+
   const experimentName = "Artifact Trace Golden Dataset";
   const runId = `${timestampId()}-artifact-trace-dataset`;
   const runDir = path.join(traceDatasetsDir, runId);
   const artifactsDir = path.join(runDir, "artifacts");
   const htmlDir = path.join(runDir, "html");
+  const imagesDir = path.join(runDir, "images");
   const manifestJsonPath = path.join(runDir, "manifest.json");
   const manifestJsonlPath = path.join(runDir, "manifest.jsonl");
   const indexHtmlPath = path.join(runDir, "index.html");
@@ -331,19 +401,23 @@ async function main() {
 
   await mkdir(artifactsDir, { recursive: true });
   await mkdir(htmlDir, { recursive: true });
+  await mkdir(imagesDir, { recursive: true });
 
   const entries: TraceDatasetEntry[] = [];
 
   for (const request of requests) {
-    const artifact = await generateArtifact(request);
-    const safeArtifact = GeneratedArtifactSchema.parse(redactSensitiveData(artifact));
+    const draftArtifact = await generateArtifact({ ...request, generateVisual: true });
+    console.log(`Started ImageGen trace golden ${draftArtifact.brand} ${draftArtifact.artifactType}: ${draftArtifact.id}`);
+    const artifact = await generateImageForArtifact(draftArtifact, { timeoutMs: 10 * 60 * 1000, pollIntervalMs: 5000 });
+    const { artifactForJson, artifactForHtml } = await materializeImageAssets({ artifact, imagesDir, htmlDir, runDir });
+    const safeArtifact = GeneratedArtifactSchema.parse(redactSensitiveData(artifactForJson));
     const artifactFilePath = path.join(artifactsDir, `${artifact.id}.json`);
     const artifactFileRelativePath = path.relative(process.cwd(), artifactFilePath);
     const artifactHtmlPath = path.join(htmlDir, `${artifact.id}.html`);
     const artifactHtmlRelativePath = path.relative(process.cwd(), artifactHtmlPath);
 
     await writeFile(artifactFilePath, `${JSON.stringify(safeArtifact, null, 2)}\n`, "utf8");
-    await writeFile(artifactHtmlPath, exportHtml(safeArtifact), "utf8");
+    await writeFile(artifactHtmlPath, exportHtml(GeneratedArtifactSchema.parse(artifactForHtml)), "utf8");
 
     entries.push({
       artifactId: artifact.id,
@@ -373,6 +447,15 @@ async function main() {
         retryCount: artifact.pipelineTrace?.retryCount,
         traceVersion: artifact.pipelineTrace?.version,
       },
+      imageJobs:
+        artifact.imageResults?.map((image) => ({
+          jobId: image.jobId,
+          model: image.model,
+          size: image.size,
+          quality: image.quality,
+          outputFormat: image.outputFormat,
+          link: image.braintrustTrace?.link,
+        })) ?? [],
       layoutQa: layoutQaManifest(artifact.layoutQa),
       copyQualityQa: stageQaManifest(artifact.copyQualityQa),
       visualQa: stageQaManifest(artifact.visualQa),

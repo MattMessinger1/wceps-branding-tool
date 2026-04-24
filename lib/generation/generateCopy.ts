@@ -8,8 +8,21 @@ import { GeneratedCopySchema, type GeneratedCopy } from "@/lib/schema/generatedA
 function concise(value: string, max = 170) {
   const cleaned = value.replace(/\s+/g, " ").replace(/\s+([.,;:!?])/g, "$1").trim();
   if (cleaned.length <= max) return cleaned;
+  const sentenceEnd = cleaned.slice(0, max).match(/^(.+[.!?])\s+/);
+  if (sentenceEnd?.[1] && sentenceEnd[1].length > 48) return sentenceEnd[1];
   const slice = cleaned.slice(0, max);
-  const cut = slice.lastIndexOf(" ") > 32 ? slice.slice(0, slice.lastIndexOf(" ")) : slice;
+  let cut = slice.lastIndexOf(" ") > 32 ? slice.slice(0, slice.lastIndexOf(" ")) : slice;
+  cut = cut
+    .replace(/\bthat help educators reflect on$/i, "that help educators reflect on current practice")
+    .replace(/\bhelps educators reflect on$/i, "helps educators reflect on current practice")
+    .replace(/\bhelps teams use DOK to$/i, "helps teams use DOK accurately")
+    .replace(/\buse DOK to$/i, "use DOK accurately")
+    .replace(/\b(PRIME|DOK|CCNA|CALL|WCEPS)\s+V1\/V2$/i, "$1 V1 and V2");
+
+  while (/\b(?:a|an|and|by|for|from|in|of|on|or|the|to|with)$/i.test(cut.trim())) {
+    cut = cut.trim().replace(/\s+\S+$/, "");
+  }
+
   return `${cut.replace(/[,:;–-]+$/g, "").replace(/[.!?]+$/g, "")}.`;
 }
 

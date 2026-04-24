@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>2026-04-24T16-15-38-521Z-artifact-trace-dataset</title>
+  <style>
+    :root { color-scheme: light; --ink:#142836; --muted:#53657a; --line:#dfe7ee; --paper:#f6f2ed; --blue:#338bad; --teal:#67c3c9; }
+    * { box-sizing: border-box; }
+    body { margin:0; background:var(--paper); color:var(--ink); font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing:0; }
+    main { max-width:1120px; margin:0 auto; padding:48px 24px 64px; }
+    header { margin-bottom:28px; }
+    h1 { margin:0 0 10px; font-size:34px; line-height:1.08; }
+    h2 { margin:4px 0 8px; font-size:19px; line-height:1.25; }
+    p { margin:0; }
+    .lead { max-width:760px; color:var(--muted); font-size:16px; line-height:1.6; }
+    .toolbar { display:flex; flex-wrap:wrap; gap:10px; margin-top:22px; }
+    .toolbar a, .actions a { display:inline-flex; align-items:center; min-height:38px; padding:9px 13px; border-radius:8px; background:#fff; border:1px solid var(--line); color:var(--ink); font-weight:750; text-decoration:none; }
+    .toolbar a:hover, .actions a:hover { border-color:var(--blue); color:var(--blue); }
+    .grid { display:grid; gap:14px; }
+    .card { display:grid; grid-template-columns:minmax(0, 1fr) auto; gap:20px; align-items:start; padding:18px; background:#fff; border:1px solid var(--line); border-radius:10px; box-shadow:0 10px 30px rgba(20,40,54,.07); }
+    .eyebrow { margin:0; color:var(--blue); font-size:12px; font-weight:850; letter-spacing:.08em; text-transform:uppercase; }
+    .meta { color:var(--muted); line-height:1.55; }
+    .fine { margin-top:8px; color:#65758a; font-size:13px; line-height:1.45; }
+    .badges { display:flex; flex-wrap:wrap; gap:7px; margin-top:10px; }
+    .badge { display:inline-flex; align-items:center; border-radius:999px; padding:5px 9px; font-size:11px; font-weight:800; border:1px solid var(--line); background:#f8fafc; color:#475569; }
+    .badge.warn { background:#fffbeb; border-color:#fde68a; color:#92400e; }
+    .badge.block { background:#fef2f2; border-color:#fecaca; color:#991b1b; }
+    .badge.ok { background:#ecfdf5; border-color:#a7f3d0; color:#047857; }
+    .actions { display:flex; flex-wrap:wrap; justify-content:flex-end; gap:8px; max-width:360px; }
+    .missing { display:inline-flex; align-items:center; min-height:38px; padding:9px 13px; border-radius:8px; background:#f1f5f9; color:#64748b; font-weight:750; }
+    @media (max-width:760px) {
+      main { padding:32px 16px 48px; }
+      .card { grid-template-columns:1fr; }
+      .actions { justify-content:flex-start; max-width:none; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <p class="eyebrow">WCEPS · Brand Building</p>
+      <h1>Artifact Trace Dataset</h1>
+      <p class="lead">Open an artifact to inspect the rendered output, then open the matching Braintrust trace to see the generation, copy-fit, prompt, layout QA, and sendability metadata for the same artifact.</p>
+      <div class="toolbar">
+        <a href="manifest.json" target="_blank" rel="noreferrer">Manifest JSON</a>
+        <a href="manifest.jsonl" target="_blank" rel="noreferrer">Manifest JSONL</a>
+      </div>
+    </header>
+    <section class="grid">
+      <article class="card">
+        <div>
+          <p class="eyebrow">CARE Coaching · flyer</p>
+          <h2>draft-20260424161538-wayaju</h2>
+          <p class="meta">Review: <strong>warn</strong> · Layout QA: <strong>pass</strong> · Copy QA: <strong>pass</strong> · Visual QA: <strong>pass</strong> · Render QA: <strong>pass</strong> · Sendability: <strong>96%</strong></p>
+          <div class="badges"><span class="badge ok">No attributed failures</span></div>
+          <p class="fine"><strong>Warnings:</strong> CARE Coaching prompt is missing avoid guardrail(s): lecture hall, random books, fake chevron.</p>
+          <p class="fine"><strong>Issues:</strong> No issues</p>
+        </div>
+        <div class="actions">
+          <a href="html/draft-20260424161538-wayaju.html" target="_blank" rel="noreferrer">Open Artifact</a>
+          <a href="artifacts/draft-20260424161538-wayaju.json" target="_blank" rel="noreferrer">Artifact JSON</a>
+          <a href="https://www.braintrust.dev/app/WCEPS/p/Brand Building/logs?oid=78188116-72ee-4dbb-820e-806a5b6203d8" target="_blank" rel="noreferrer">Braintrust Trace</a>
+          <a href="https://www.braintrust.dev/app/WCEPS/object?object_type=project_logs&amp;object_id=671b57c6-229b-4f25-8cf2-67fc0f36e120&amp;id=b22ae3f7-9d04-44ce-8b3b-34ec3ba8e76f" target="_blank" rel="noreferrer">ImageGen Trace</a>
+        </div>
+      </article>
+<article class="card">
+        <div>
+          <p class="eyebrow">WebbAlign · social-graphic</p>
+          <h2>draft-20260424161752-ijj4qy</h2>
+          <p class="meta">Review: <strong>warn</strong> · Layout QA: <strong>pass</strong> · Copy QA: <strong>pass</strong> · Visual QA: <strong>pass</strong> · Render QA: <strong>pass</strong> · Sendability: <strong>99%</strong></p>
+          <div class="badges"><span class="badge ok">No attributed failures</span></div>
+          <p class="fine"><strong>Warnings:</strong> WebbAlign prompt is missing avoid guardrail(s): generic classroom.</p>
+          <p class="fine"><strong>Issues:</strong> No issues</p>
+        </div>
+        <div class="actions">
+          <a href="html/draft-20260424161752-ijj4qy.html" target="_blank" rel="noreferrer">Open Artifact</a>
+          <a href="artifacts/draft-20260424161752-ijj4qy.json" target="_blank" rel="noreferrer">Artifact JSON</a>
+          <a href="https://www.braintrust.dev/app/WCEPS/object?object_type=project_logs&amp;object_id=671b57c6-229b-4f25-8cf2-67fc0f36e120&amp;id=9235e51d-f07e-4ab8-ab02-d82d0a60e7de" target="_blank" rel="noreferrer">Braintrust Trace</a>
+          <a href="https://www.braintrust.dev/app/WCEPS/object?object_type=project_logs&amp;object_id=671b57c6-229b-4f25-8cf2-67fc0f36e120&amp;id=c567b025-9792-4b2b-a8fb-f1c6577fdb17" target="_blank" rel="noreferrer">ImageGen Trace</a>
+        </div>
+      </article>
+<article class="card">
+        <div>
+          <p class="eyebrow">CCNA · one-pager</p>
+          <h2>draft-20260424162054-94rp1i</h2>
+          <p class="meta">Review: <strong>warn</strong> · Layout QA: <strong>pass</strong> · Copy QA: <strong>pass</strong> · Visual QA: <strong>pass</strong> · Render QA: <strong>pass</strong> · Sendability: <strong>96%</strong></p>
+          <div class="badges"><span class="badge ok">No attributed failures</span></div>
+          <p class="fine"><strong>Warnings:</strong> CCNA prompt is missing avoid guardrail(s): generic dashboard, stock graph.</p>
+          <p class="fine"><strong>Issues:</strong> No issues</p>
+        </div>
+        <div class="actions">
+          <a href="html/draft-20260424162054-94rp1i.html" target="_blank" rel="noreferrer">Open Artifact</a>
+          <a href="artifacts/draft-20260424162054-94rp1i.json" target="_blank" rel="noreferrer">Artifact JSON</a>
+          <a href="https://www.braintrust.dev/app/WCEPS/object?object_type=project_logs&amp;object_id=671b57c6-229b-4f25-8cf2-67fc0f36e120&amp;id=80c1b38f-e123-4480-a114-f55e9fe62318" target="_blank" rel="noreferrer">Braintrust Trace</a>
+          <a href="https://www.braintrust.dev/app/WCEPS/object?object_type=project_logs&amp;object_id=671b57c6-229b-4f25-8cf2-67fc0f36e120&amp;id=363c0057-5f67-4310-a484-aaa87fb45da1" target="_blank" rel="noreferrer">ImageGen Trace</a>
+        </div>
+      </article>
+<article class="card">
+        <div>
+          <p class="eyebrow">CALL · flyer</p>
+          <h2>draft-20260424162326-jyntl4</h2>
+          <p class="meta">Review: <strong>warn</strong> · Layout QA: <strong>pass</strong> · Copy QA: <strong>pass</strong> · Visual QA: <strong>pass</strong> · Render QA: <strong>pass</strong> · Sendability: <strong>96%</strong></p>
+          <div class="badges"><span class="badge ok">No attributed failures</span></div>
+          <p class="fine"><strong>Warnings:</strong> CALL prompt is missing avoid guardrail(s): fake dashboard, stock workshop.</p>
+          <p class="fine"><strong>Issues:</strong> No issues</p>
+        </div>
+        <div class="actions">
+          <a href="html/draft-20260424162326-jyntl4.html" target="_blank" rel="noreferrer">Open Artifact</a>
+          <a href="artifacts/draft-20260424162326-jyntl4.json" target="_blank" rel="noreferrer">Artifact JSON</a>
+          <a href="https://www.braintrust.dev/app/WCEPS/object?object_type=project_logs&amp;object_id=671b57c6-229b-4f25-8cf2-67fc0f36e120&amp;id=3229b856-e3c3-4abb-bfc5-521951853f3f" target="_blank" rel="noreferrer">Braintrust Trace</a>
+          <a href="https://www.braintrust.dev/app/WCEPS/object?object_type=project_logs&amp;object_id=671b57c6-229b-4f25-8cf2-67fc0f36e120&amp;id=e7b566f0-ba94-4c5e-b528-772afa56fd7c" target="_blank" rel="noreferrer">ImageGen Trace</a>
+        </div>
+      </article>
+<article class="card">
+        <div>
+          <p class="eyebrow">WIDA PRIME · html-email-announcement</p>
+          <h2>draft-20260424162554-fbmebn</h2>
+          <p class="meta">Review: <strong>warn</strong> · Layout QA: <strong>pass</strong> · Copy QA: <strong>pass</strong> · Visual QA: <strong>pass</strong> · Render QA: <strong>pass</strong> · Sendability: <strong>99%</strong></p>
+          <div class="badges"><span class="badge ok">No attributed failures</span></div>
+          <p class="fine"><strong>Warnings:</strong> WIDA PRIME prompt is missing avoid guardrail(s): fake title.</p>
+          <p class="fine"><strong>Issues:</strong> No issues</p>
+        </div>
+        <div class="actions">
+          <a href="html/draft-20260424162554-fbmebn.html" target="_blank" rel="noreferrer">Open Artifact</a>
+          <a href="artifacts/draft-20260424162554-fbmebn.json" target="_blank" rel="noreferrer">Artifact JSON</a>
+          <a href="https://www.braintrust.dev/app/WCEPS/object?object_type=project_logs&amp;object_id=671b57c6-229b-4f25-8cf2-67fc0f36e120&amp;id=b92c6f3b-e1a6-4813-a36a-7c965c2b53b5" target="_blank" rel="noreferrer">Braintrust Trace</a>
+          <a href="https://www.braintrust.dev/app/WCEPS/object?object_type=project_logs&amp;object_id=671b57c6-229b-4f25-8cf2-67fc0f36e120&amp;id=ce56eeb8-5ecd-4e33-9813-141160e162d1" target="_blank" rel="noreferrer">ImageGen Trace</a>
+        </div>
+      </article>
+<article class="card">
+        <div>
+          <p class="eyebrow">WCEPS · one-pager</p>
+          <h2>draft-20260424162817-6czwun</h2>
+          <p class="meta">Review: <strong>warn</strong> · Layout QA: <strong>pass</strong> · Copy QA: <strong>pass</strong> · Visual QA: <strong>pass</strong> · Render QA: <strong>pass</strong> · Sendability: <strong>96%</strong></p>
+          <div class="badges"><span class="badge ok">No attributed failures</span></div>
+          <p class="fine"><strong>Warnings:</strong> WCEPS prompt is missing avoid guardrail(s): diploma, fake university logo, mascot.</p>
+          <p class="fine"><strong>Issues:</strong> No issues</p>
+        </div>
+        <div class="actions">
+          <a href="html/draft-20260424162817-6czwun.html" target="_blank" rel="noreferrer">Open Artifact</a>
+          <a href="artifacts/draft-20260424162817-6czwun.json" target="_blank" rel="noreferrer">Artifact JSON</a>
+          <a href="https://www.braintrust.dev/app/WCEPS/object?object_type=project_logs&amp;object_id=671b57c6-229b-4f25-8cf2-67fc0f36e120&amp;id=1ae73cce-b449-4d33-8c1d-cd81461a5c30" target="_blank" rel="noreferrer">Braintrust Trace</a>
+          <a href="https://www.braintrust.dev/app/WCEPS/object?object_type=project_logs&amp;object_id=671b57c6-229b-4f25-8cf2-67fc0f36e120&amp;id=00d7914c-6708-4806-bbf3-20b29c413dbe" target="_blank" rel="noreferrer">ImageGen Trace</a>
+        </div>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

@@ -20,7 +20,7 @@ export function getImageGenerationConfig(input?: {
   return {
     model: process.env.OPENAI_IMAGE_MODEL ?? "gpt-image-2",
     size: configuredSize.success ? configuredSize.data : "1024x1024",
-    quality: configuredQuality.success ? configuredQuality.data : "auto",
+    quality: configuredQuality.success ? configuredQuality.data : "high",
     outputFormat: configuredFormat.success ? configuredFormat.data : "webp",
     outputCompression: Number.isFinite(configuredCompression) ? Math.min(100, Math.max(0, Math.round(configuredCompression))) : 70,
   };

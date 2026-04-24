@@ -81,8 +81,8 @@ Advanced exports include reusable React sections, copy-only briefs, and image pr
 
 - model: `gpt-image-2`
 - size: `1024x1024`
-- quality: `auto`
-- output format: `png`
+- quality: `high`
+- output format: `webp`
 
 Example:
 
