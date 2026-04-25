@@ -1,6 +1,7 @@
 import type { GeneratedArtifact } from "@/lib/schema/generatedArtifact";
 import { getBrandLogoPublicPathForArtifact } from "@/lib/brands/brandAssets";
 import { getBrandTheme } from "@/lib/brands/brandThemes";
+import { logoNeedsContrastPlate } from "@/lib/brands/logoContrast";
 import { isEmailArtifact } from "@/lib/artifacts/artifactOptions";
 import { resolveCompositionTemplate } from "@/lib/composition";
 import { getArtifactAudienceLabel } from "@/lib/review/textEdits";
@@ -60,7 +61,7 @@ function exportEmailHtml(artifact: GeneratedArtifact, logoUrl: string, visual: s
   const theme = getBrandTheme(artifact.brand);
   const isHeader = artifact.artifactType === "email-header";
   const audienceLabel = getArtifactAudienceLabel(artifact);
-
+  const footer = artifact.copy.footer?.trim();
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -75,7 +76,11 @@ function exportEmailHtml(artifact: GeneratedArtifact, logoUrl: string, visual: s
         <table role="presentation" width="680" cellspacing="0" cellpadding="0" style="width:680px;max-width:100%;border-collapse:collapse;background:${theme.colors.surface};border:1px solid #d9dee4;border-radius:12px;overflow:hidden;">
           <tr>
             <td style="padding:28px 32px 18px;background:${theme.colors.soft};">
-              ${logoUrl ? `<img src="${escapeHtml(logoUrl)}" alt="${escapeHtml(artifact.brand)} logo" style="display:block;max-width:240px;max-height:72px;width:auto;height:auto;" />` : `<p style="margin:0;font:700 12px/1.4 Montserrat,Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:${theme.colors.primary};">${escapeHtml(artifact.brand)}</p>`}
+              ${
+                logoUrl
+                  ? `<img src="${escapeHtml(logoUrl)}" alt="${escapeHtml(artifact.brand)} logo" style="display:block;max-width:240px;max-height:72px;width:auto;height:auto;" />`
+                  : `<p style="margin:0;font:700 12px/1.4 Montserrat,Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:${theme.colors.primary};">${escapeHtml(artifact.brand)}</p>`
+              }
             </td>
           </tr>
           ${
@@ -97,9 +102,11 @@ function exportEmailHtml(artifact: GeneratedArtifact, logoUrl: string, visual: s
               ${ctaDetail ? `<p style="margin:12px 0 0;font:12px/1.5 Montserrat,Arial,sans-serif;color:#64748b;">${escapeHtml(ctaDetail)}</p>` : ""}
             </td>
           </tr>
-          <tr>
-            <td style="padding:18px 32px;border-top:1px solid #e2e8f0;font:12px/1.5 Montserrat,Arial,sans-serif;color:#64748b;">${escapeHtml(artifact.copy.footer ?? "Generated for internal WCEPS review.")}</td>
-          </tr>
+          ${
+            footer
+              ? `<tr><td style="padding:18px 32px;border-top:1px solid #e2e8f0;font:12px/1.5 Montserrat,Arial,sans-serif;color:#64748b;">${escapeHtml(footer)}</td></tr>`
+              : ""
+          }
         </table>
       </td>
     </tr>
@@ -124,6 +131,8 @@ export function exportHtml(artifact: GeneratedArtifact) {
   const showProofs = template.id !== "social-announcement";
   const isFlyer = template.id === "campaign-flyer";
   const audienceLabel = getArtifactAudienceLabel(artifact);
+  const footer = artifact.copy.footer?.trim();
+  const brandLogoClass = logoNeedsContrastPlate(logoUrl) && !isFlyer ? "brand-logo logo-plate" : "brand-logo";
 
   if (isEmailArtifact(artifact.artifactType)) {
     return exportEmailHtml(artifact, logoUrl, visual);
@@ -157,6 +166,7 @@ export function exportHtml(artifact: GeneratedArtifact) {
     .subtitle { max-width: 600px; margin: 18px 0 0; font-size: 20px; line-height: 1.55; color: #e7f2f4; font-weight: 600; }
     .campaign-flyer .subtitle { color: #475569; font-weight: 650; }
     .brand-logo { display: block; max-width: 220px; max-height: 64px; object-fit: contain; }
+    .logo-plate { display: inline-block; width: auto; height: auto; max-width: 244px; max-height: 88px; padding: 10px 12px; border-radius: 8px; background: rgba(255,255,255,.94); box-shadow: 0 2px 10px rgba(15,23,42,.08); }
     .proofs { display: grid; gap: 12px; list-style: none; margin: 0 0 18px; padding: 18px 0 0; max-width: 620px; border-top: 1px solid rgba(255,255,255,.35); }
     .proof-item { display: grid; grid-template-columns: 34px 1fr; gap: 12px; align-items: start; color: rgba(255,255,255,.88); }
     .proof-item span { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 999px; background: rgba(255,255,255,.16); color: white; font-size: 11px; font-weight: 900; }
@@ -176,7 +186,7 @@ export function exportHtml(artifact: GeneratedArtifact) {
         ${visual ? `<img class="hero-img" src="${visual}" alt="${escapeHtml(artifact.brand)} generated visual" />` : ""}
         <div class="hero-inner">
           <div>
-            ${logoUrl ? `<img class="brand-logo" src="${escapeHtml(logoUrl)}" alt="${escapeHtml(artifact.brand)} logo" />` : `<p class="eyebrow">${escapeHtml(artifact.brand)}</p>`}
+            ${logoUrl ? `<img class="${brandLogoClass}" src="${escapeHtml(logoUrl)}" alt="${escapeHtml(artifact.brand)} logo" />` : `<p class="eyebrow">${escapeHtml(artifact.brand)}</p>`}
           </div>
           <div>
             ${audienceLabel ? `<p class="eyebrow">For ${escapeHtml(audienceLabel)}</p>` : ""}
@@ -196,7 +206,7 @@ export function exportHtml(artifact: GeneratedArtifact) {
           </div>
         </div>
       </section>
-      <footer class="footer">${escapeHtml(artifact.copy.footer ?? "Generated for internal WCEPS review.")}</footer>
+      ${footer ? `<footer class="footer">${escapeHtml(footer)}</footer>` : ""}
     </article>
   </main>
 </body>

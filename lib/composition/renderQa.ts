@@ -1,5 +1,5 @@
 import type { ArtifactRequest } from "@/lib/schema/artifactRequest";
-import type { CompositionTemplate, FailureMode, FittedCopy, StageQa } from "@/lib/schema/generatedArtifact";
+import type { CompositionTemplate, FailureMode, FittedCopy, LayoutQa, StageQa } from "@/lib/schema/generatedArtifact";
 import { cleanQaText, failureMode, hasDanglingFragment, normalizeQaText, repairKnownTruncations, similarIntent, stageQa } from "./qaHelpers";
 
 function ctaDetailDuplicates(copy: FittedCopy) {
@@ -23,12 +23,14 @@ export function evaluateRenderQa({
   request,
   copyQualityQa,
   visualQa,
+  layoutQa,
 }: {
   fittedCopy: FittedCopy;
   template: CompositionTemplate;
   request: ArtifactRequest;
   copyQualityQa?: StageQa;
   visualQa?: StageQa;
+  layoutQa?: LayoutQa;
 }): StageQa {
   const failureModes: FailureMode[] = [];
   const textParts = [fittedCopy.headline, fittedCopy.deck, ...fittedCopy.proofPoints, fittedCopy.cta, fittedCopy.ctaDetail ?? ""].filter(Boolean);
@@ -94,7 +96,23 @@ export function evaluateRenderQa({
     );
   }
 
-  const inheritedBlocks = [...(copyQualityQa?.failureModes ?? []), ...(visualQa?.failureModes ?? [])].filter((failure) => failure.severity === "block");
+  if (layoutQa?.status === "block") {
+    failureModes.push(
+      failureMode(
+        "layout_qa_blocked_export",
+        "block",
+        "deterministicLayout",
+        `Layout QA must be resolved before export: ${layoutQa.issues.slice(0, 2).join(" | ")}`,
+        "finalReview",
+      ),
+    );
+  }
+
+  const inheritedBlocks = [
+    ...(copyQualityQa?.failureModes ?? []),
+    ...(visualQa?.failureModes ?? []),
+    ...(layoutQa?.status === "block" ? [{ severity: "block" }] : []),
+  ].filter((failure) => failure.severity === "block");
   const baseScore = inheritedBlocks.length ? 84 : 98;
 
   return stageQa({
@@ -107,6 +125,7 @@ export function evaluateRenderQa({
       proofPointCount: fittedCopy.proofPoints.length,
       hasCtaDetail: Boolean(fittedCopy.ctaDetail),
       inheritedBlockCount: inheritedBlocks.length,
+      layoutQaStatus: layoutQa?.status,
     },
   });
 }

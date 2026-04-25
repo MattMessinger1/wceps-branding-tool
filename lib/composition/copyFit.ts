@@ -148,6 +148,8 @@ function polishSentenceFragment(value: string, brandName: string) {
       .replace(/^Learning opportunities and assessment tasks\b/i, "Align learning opportunities and assessment tasks")
       .replace(/^The program helps education teams\b/i, "Help education teams")
       .replace(/^Promotes effective and accurate use\b/i, "Promote effective and accurate use")
+      .replace(/^Teams use the lens of DOK to evaluate.*$/i, "Use DOK to evaluate standards, objectives, assessments, curricula, and materials")
+      .replace(/^WebbAlign professional learning can help teams build.*$/i, "Build a calibrated understanding of DOK")
       .replace(/^A WCEPS program that works\b/i, "Work");
   }
 
@@ -358,6 +360,6 @@ export function fitCopy(copy: GeneratedCopy, request: ArtifactRequest, template:
     proofPoints: proofPoints.slice(0, proofLimit),
     cta: cta.cta,
     ctaDetail: cta.ctaDetail === cta.cta ? undefined : cta.ctaDetail,
-    footer: copy.footer,
+    footer: undefined,
   };
 }

@@ -1,4 +1,4 @@
-import { getBrandBoundaryRule } from "@/lib/brands/brandBoundary";
+import { findBrandBoundaryTerms, getBrandBoundaryRule } from "@/lib/brands/brandBoundary";
 import type { ArtifactRequest } from "@/lib/schema/artifactRequest";
 import type { FailureMode, FittedCopy, GeneratedCopy, StageQa } from "@/lib/schema/generatedArtifact";
 import { cleanQaText, failureMode, hasDanglingFragment, normalizeQaText, repairKnownTruncations, similarIntent, stageQa } from "./qaHelpers";
@@ -44,6 +44,11 @@ function hasAnyPreferredTerm(fittedCopy: FittedCopy, request: ArtifactRequest) {
   return rule.preferredTerms.some((term) => text.includes(normalizeQaText(term)));
 }
 
+function internalScaffoldFooter(value?: string) {
+  if (!value) return false;
+  return /(draft generated|internal review|source evidence|claims should remain tied|generated for internal)/i.test(value);
+}
+
 export function evaluateCopyQualityQa({
   copy,
   fittedCopy,
@@ -56,6 +61,44 @@ export function evaluateCopyQualityQa({
   const failureModes: FailureMode[] = [];
   const fittedText = [fittedCopy.headline, fittedCopy.deck, ...fittedCopy.proofPoints, fittedCopy.cta, fittedCopy.ctaDetail ?? ""].filter(Boolean);
   const generatedText = [...copy.subheadOptions, copy.body, ...copy.bullets].filter(Boolean);
+  const fittedBoundary = findBrandBoundaryTerms(request.brand, fittedText.join(" "), request);
+  const generatedBoundary = findBrandBoundaryTerms(request.brand, generatedText.join(" "), request);
+
+  if (fittedBoundary.leakedTerms.length) {
+    failureModes.push(
+      failureMode(
+        "sibling_brand_leakage",
+        "block",
+        "fitCopy",
+        `${request.brand} fitted copy includes sibling-brand term(s): ${fittedBoundary.leakedTerms.slice(0, 4).join(", ")}.`,
+        "finalReview",
+      ),
+    );
+  } else if (generatedBoundary.leakedTerms.length) {
+    failureModes.push(
+      failureMode(
+        "sibling_brand_leakage",
+        "warn",
+        "generateCopy",
+        `${request.brand} generated copy includes sibling-brand term(s) that were filtered before layout: ${generatedBoundary.leakedTerms
+          .slice(0, 4)
+          .join(", ")}.`,
+        "fitCopy",
+      ),
+    );
+  }
+
+  if (internalScaffoldFooter(fittedCopy.footer) || internalScaffoldFooter(copy.footer)) {
+    failureModes.push(
+      failureMode(
+        "internal_scaffold_footer",
+        "block",
+        fittedCopy.footer ? "fitCopy" : "generateCopy",
+        "Internal review/source-evidence footer text must not be part of production artifact copy.",
+        "finalReview",
+      ),
+    );
+  }
 
   if (ctaDetailDuplicates(fittedCopy.cta, fittedCopy.ctaDetail)) {
     failureModes.push(
@@ -118,6 +161,19 @@ export function evaluateCopyQualityQa({
         "fitCopy",
         "Deck and proof copy repeat the same idea instead of creating a clear message hierarchy.",
         "compositionScore",
+      ),
+    );
+  }
+
+  const generatedRepeats = repeatedMeaning(generatedText);
+  if (generatedRepeats.length) {
+    failureModes.push(
+      failureMode(
+        "repetitive_generated_copy",
+        "warn",
+        "generateCopy",
+        "Generated copy repeats the same source idea across body, subhead, or bullets before copy-fit.",
+        "fitCopy",
       ),
     );
   }

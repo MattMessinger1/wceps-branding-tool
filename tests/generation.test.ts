@@ -232,6 +232,22 @@ test("larger artifact prompts use studio quality and app-owned official logos", 
   assert.ok(artifact.layoutContract?.appOwnedElements.some((item) => item.includes("Official WebbAlign logo")));
 });
 
+test("layout contract uses final fitted text instead of stale raw copy", async () => {
+  const artifact = await generateArtifact({
+    artifactType: "social-graphic",
+    brand: "WebbAlign",
+    audience: "curriculum teams",
+    keyMessage: "Build a more coherent learning system.",
+    cta: "Contact WebbAlign",
+  });
+  const exactText = artifact.layoutContract?.exactTextPriority.join(" ") ?? "";
+
+  assert.ok(exactText.includes(artifact.fittedCopy?.headline ?? ""));
+  assert.ok(exactText.includes((artifact.fittedCopy?.deck ?? "").slice(0, 36)));
+  assert.equal(exactText.includes("Draft generated for internal review"), false);
+  assert.equal(exactText.includes("Claims should remain tied"), false);
+});
+
 test("WIDA PRIME prompts require K-12 instructional materials and forbid random books", async () => {
   const artifact = await generateArtifact({
     artifactType: "one-pager",
@@ -389,6 +405,21 @@ test("flyer subpoints are polished complete lines for every active brand", async
       assert.ok(point.endsWith("."), `${brand} subpoint should be sentence-like`);
     }
   }
+});
+
+test("WebbAlign fitted copy repairs truncated DOK proof phrasing", async () => {
+  const artifact = await generateArtifact({
+    artifactType: "social-graphic",
+    brand: "WebbAlign",
+    audience: "curriculum teams",
+    keyMessage: "Build a more coherent learning system.",
+    cta: "Contact WebbAlign",
+  });
+  const visibleCopy = [artifact.fittedCopy?.deck, ...(artifact.fittedCopy?.proofPoints ?? [])].join(" ");
+
+  assert.equal(/\bto evaluate[.!?]?$/i.test(visibleCopy), false);
+  assert.equal(/\bteams build[.!?]?$/i.test(visibleCopy), false);
+  assert.equal(artifact.copyQualityQa?.issues.some((issue) => /dangling|truncated/i.test(issue)), false);
 });
 
 test("generic production instructions do not become visible campaign headlines", async () => {

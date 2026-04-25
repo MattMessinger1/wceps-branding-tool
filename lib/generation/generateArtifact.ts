@@ -60,8 +60,8 @@ export async function generateArtifactInTrace(input: unknown, span?: Span): Prom
       { input: { copy, fittedCopy, request } },
       () => evaluateCopyQualityQa({ copy, fittedCopy, request }),
     );
-    const layoutContract = await traceBraintrustStep(span, "buildLayoutContract", { input: { brand: resolution.selectedBrand.brandName, brief, request, copy } }, () =>
-      buildLayoutContract(resolution.selectedBrand, brief, request, copy),
+    const layoutContract = await traceBraintrustStep(span, "buildLayoutContract", { input: { brand: resolution.selectedBrand.brandName, brief, request, fittedCopy } }, () =>
+      buildLayoutContract(resolution.selectedBrand, brief, request, fittedCopy),
     );
     const promptContracts = await traceBraintrustStep(
       span,
@@ -100,7 +100,7 @@ export async function generateArtifactInTrace(input: unknown, span?: Span): Prom
       span,
       "renderQa",
       { input: { fittedCopy, template: compositionTemplate, copyQualityQa, visualQa } },
-      () => evaluateRenderQa({ fittedCopy, template: compositionTemplate, request, copyQualityQa, visualQa }),
+      () => evaluateRenderQa({ fittedCopy, template: compositionTemplate, request, copyQualityQa, visualQa, layoutQa }),
     );
     const modelQa = await traceBraintrustStep(
       span,

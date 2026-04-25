@@ -135,6 +135,7 @@ export function applyTextOnlyEdits(artifact: GeneratedArtifact, edits: TextEditS
     request: nextRequest as unknown as Parameters<typeof evaluateRenderQa>[0]["request"],
     copyQualityQa,
     visualQa,
+    layoutQa,
   });
   const failureModes = collectFailureModes(copyQualityQa, visualQa, renderQa);
   const qaIssues = [

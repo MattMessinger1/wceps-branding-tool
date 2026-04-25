@@ -207,13 +207,11 @@ export function passesBrandBoundary(brandName: string, text: string, request?: A
 }
 
 export function filterBrandBoundaryItems(brandName: string, items: string[], request?: ArtifactRequest) {
-  const filtered = items.filter((item) => passesBrandBoundary(brandName, item, request));
-  return filtered.length ? filtered : items;
+  return items.filter((item) => passesBrandBoundary(brandName, item, request));
 }
 
 export function filterBrandBoundaryEvidence<T extends SourceEvidence>(brandName: string, evidence: T[], request?: ArtifactRequest) {
-  const filtered = evidence.filter((source) => passesBrandBoundary(brandName, `${source.label} ${source.excerpt}`, request));
-  return filtered.length ? filtered : evidence;
+  return evidence.filter((source) => passesBrandBoundary(brandName, `${source.label} ${source.excerpt}`, request));
 }
 
 export function scoreBrandBoundary(brandName: string, textParts: string[], request?: ArtifactRequest) {
@@ -229,4 +227,3 @@ export function boundaryPromptSummary(brandName: string, request?: ArtifactReque
     parentContext: rule.parentContextTerms,
   };
 }
-

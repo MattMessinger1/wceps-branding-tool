@@ -91,6 +91,8 @@ export function hasDanglingFragment(value: string) {
     /\bteaching,\s*learning[.!?]?$/i.test(normalized) ||
     /\bconsulting,\s*coaching[.!?]?$/i.test(normalized) ||
     /\bfit in their[.!?]?$/i.test(normalized) ||
+    /\bto\s+(?:align|build|evaluate|guide|identify|review|support)[.!?]?$/i.test(normalized) ||
+    /\b(?:help|helps)\s+(?:teams|educators|leaders|users)\s+(?:align|build|evaluate|guide|identify|review|support)[.!?]?$/i.test(normalized) ||
     /,\s*$/.test(normalized)
   );
 }
@@ -100,6 +102,8 @@ export function repairKnownTruncations(value: string) {
     .replace(/\bstandards-aligned teaching,\s*learning[.!?]?$/i, "standards-aligned teaching, learning, and assessment.")
     .replace(/\bteaching,\s*learning[.!?]?$/i, "teaching, learning, and assessment.")
     .replace(/\bConsulting,\s*Coaching[.!?]?$/i, "Consulting, Coaching, and Continuous Learning.")
+    .replace(/\buse the lens of DOK to evaluate[.!?]?$/i, "use DOK to evaluate standards, objectives, assessments, curricula, and materials.")
+    .replace(/\bcan help teams build[.!?]?$/i, "can help teams build a calibrated understanding of DOK.")
     .replace(/\bcurrent WIDA English Language Development[.!?]?$/i, "current WIDA English Language Development Standards Framework.")
     .replace(/\bfit in their[.!?]?$/i, "fit in their program.")
     .replace(/\bPRIME V1\/V2[.!?]?$/i, "PRIME V1 and PRIME V2.");

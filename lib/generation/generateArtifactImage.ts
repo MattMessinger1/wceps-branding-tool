@@ -131,6 +131,7 @@ export async function refreshArtifactStageQa(artifact: GeneratedArtifact): Promi
     request,
     copyQualityQa,
     visualQa,
+    layoutQa: artifact.layoutQa,
   });
   const modelQa = await evaluateModelQaWithModel({
     request,

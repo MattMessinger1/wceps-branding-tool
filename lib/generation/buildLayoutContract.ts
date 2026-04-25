@@ -1,7 +1,7 @@
 import type { ArtifactRequest } from "@/lib/schema/artifactRequest";
 import type { BrandPack } from "@/lib/schema/brandPack";
 import type { CreativeBrief } from "@/lib/schema/creativeBrief";
-import type { GeneratedCopy, LayoutContract } from "@/lib/schema/generatedArtifact";
+import type { FittedCopy, LayoutContract } from "@/lib/schema/generatedArtifact";
 import { isEmailArtifact } from "@/lib/artifacts/artifactOptions";
 
 function cleanText(value: string) {
@@ -68,14 +68,14 @@ export function buildLayoutContract(
   pack: BrandPack,
   brief: CreativeBrief,
   request: ArtifactRequest,
-  copy: GeneratedCopy,
+  fittedCopy: FittedCopy,
 ): LayoutContract {
   const exactTextPriority = [
-    copy.headlineOptions[0],
+    fittedCopy.headline,
     `For ${brief.audience}`,
-    copy.cta || request.cta || brief.cta,
-    copy.subheadOptions[0],
-    ...copy.bullets.slice(0, brief.artifactType === "social-graphic" ? 1 : 3),
+    fittedCopy.cta || request.cta || brief.cta,
+    fittedCopy.deck,
+    ...fittedCopy.proofPoints.slice(0, brief.artifactType === "social-graphic" ? 1 : 3),
   ]
     .map((item) => compactText(item, brief.artifactType === "social-graphic" ? 72 : 104))
     .filter(Boolean);

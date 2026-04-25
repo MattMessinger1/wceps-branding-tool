@@ -93,6 +93,37 @@ test("html email exports fitted copy without repeating raw body text", async () 
   assert.ok(html.includes(artifact.fittedCopy?.deck ?? ""));
 });
 
+test("social exports add a logo contrast plate when only a full-color mark is available", async () => {
+  const artifact = await generateArtifact({
+    artifactType: "social-graphic",
+    brand: "WebbAlign",
+    audience: "curriculum teams",
+    keyMessage: "Build a more coherent learning system.",
+    cta: "Contact WebbAlign",
+  });
+  const withVisual = {
+    ...artifact,
+    imageResults: [
+      {
+        prompt: "test",
+        model: "gpt-image-2",
+        size: "1024x1024",
+        quality: "high",
+        outputFormat: "webp",
+        dataUrl: "data:image/webp;base64,AAAA",
+      },
+    ],
+  };
+
+  const html = exportHtml(withVisual);
+  const react = exportReactSection(withVisual);
+
+  assert.ok(html.includes("logo-plate"));
+  assert.ok(react.includes("bg-white/95"));
+  assert.equal(html.includes("Draft generated for internal review"), false);
+  assert.equal(html.includes("Claims should remain tied"), false);
+});
+
 test("exports honor selected logo variant", async () => {
   const artifact = await generateArtifact({
     artifactType: "flyer",

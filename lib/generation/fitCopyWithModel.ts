@@ -1,6 +1,7 @@
 import OpenAI from "openai";
+import { filterBrandBoundaryEvidence, findBrandBoundaryTerms } from "@/lib/brands/brandBoundary";
 import { loadBrandPack } from "@/lib/brands/loadBrandPack";
-import { fitCopy } from "@/lib/composition";
+import { evaluateLayoutQa, fitCopy } from "@/lib/composition";
 import type { ArtifactRequest } from "@/lib/schema/artifactRequest";
 import type { BrandPack } from "@/lib/schema/brandPack";
 import { FittedCopySchema, type CompositionTemplate, type FittedCopy, type GeneratedCopy } from "@/lib/schema/generatedArtifact";
@@ -75,6 +76,7 @@ function parseJsonObject(value: string) {
 }
 
 function promptForModel(copy: GeneratedCopy, request: ArtifactRequest, template: CompositionTemplate, deterministic: FittedCopy, pack?: BrandPack) {
+  const approvedEvidence = pack ? filterBrandBoundaryEvidence(pack.brandName, pack.sourceEvidence, request).slice(0, 8) : undefined;
   const proofInstruction =
     template.id === "campaign-flyer"
       ? "exactly 2"
@@ -121,13 +123,42 @@ ${JSON.stringify(
     generatedCopy: copy,
     deterministicBaseline: deterministic,
     approvedSourceUrls: pack?.sourceOfTruth,
-    approvedEvidence: pack?.sourceEvidence.slice(0, 8),
+    approvedEvidence,
     approvedPhrases: pack?.approvedPhrases.slice(0, 12),
     restrictedClaims: pack?.restrictedClaims,
   },
   null,
   2,
 )}`;
+}
+
+function visibleFittedText(fittedCopy: FittedCopy) {
+  return [fittedCopy.headline, fittedCopy.deck, ...fittedCopy.proofPoints, fittedCopy.cta, fittedCopy.ctaDetail ?? ""].join(" ");
+}
+
+function sourceSafeFittedCopy(candidate: FittedCopy, request: ArtifactRequest, deterministic: FittedCopy) {
+  const leakage = findBrandBoundaryTerms(request.brand, visibleFittedText(candidate), request);
+  if (leakage.leakedTerms.length) return deterministic;
+
+  return {
+    ...candidate,
+    footer: undefined,
+  };
+}
+
+function layoutSafeFittedCopy(candidate: FittedCopy, request: ArtifactRequest, template: CompositionTemplate, deterministic: FittedCopy) {
+  const candidateQa = evaluateLayoutQa({
+    artifactType: request.artifactType,
+    template,
+    fittedCopy: candidate,
+    request,
+  });
+
+  if (candidateQa.status === "block") {
+    return deterministic;
+  }
+
+  return candidate;
 }
 
 export function getCopyFitModelConfig() {
@@ -173,10 +204,12 @@ export async function fitCopyWithModel(copy: GeneratedCopy, request: ArtifactReq
       store: false,
     } as never);
     const outputText = findOutputText(response) ?? "";
-    return FittedCopySchema.parse({
+    const parsed = FittedCopySchema.parse({
       ...parseJsonObject(outputText),
-      footer: deterministic.footer,
+      footer: undefined,
     });
+    const safeParsed = sourceSafeFittedCopy(parsed, request, deterministic);
+    return layoutSafeFittedCopy(safeParsed, request, template, deterministic);
   } catch (error) {
     console.warn("Model copy fit failed; using deterministic fit.", error);
     return deterministic;

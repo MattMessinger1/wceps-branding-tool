@@ -1,4 +1,5 @@
 import { getBrandTheme } from "@/lib/brands/brandThemes";
+import { logoNeedsContrastPlate } from "@/lib/brands/logoContrast";
 import { resolveCompositionTemplate } from "@/lib/composition";
 import { getArtifactAudienceLabel } from "@/lib/review/textEdits";
 import type { CompositionTemplate, FittedCopy, GeneratedArtifact } from "@/lib/schema/generatedArtifact";
@@ -16,7 +17,7 @@ function fallbackCopy(artifact: GeneratedArtifact): FittedCopy {
     proofPoints: artifact.copy.bullets.slice(0, 3),
     cta: artifact.copy.cta,
     ctaDetail: undefined,
-    footer: artifact.copy.footer,
+    footer: undefined,
   };
 }
 
@@ -51,7 +52,14 @@ function safeCtaDetail(cta: string, detail?: string) {
 
 function Logo({ brandName, logoUrl, dark = false }: { brandName: string; logoUrl?: string; dark?: boolean }) {
   if (logoUrl) {
-    return <img src={logoUrl} alt={`${brandName} logo`} className="max-h-12 max-w-60 object-contain" />;
+    const needsPlate = dark && logoNeedsContrastPlate(logoUrl);
+    const image = <img src={logoUrl} alt={`${brandName} logo`} className="max-h-12 max-w-60 object-contain" />;
+
+    return needsPlate ? (
+      <span className="inline-flex w-fit rounded-md bg-white/94 px-3 py-2 shadow-sm ring-1 ring-slate-900/5">{image}</span>
+    ) : (
+      image
+    );
   }
 
   return <p className={`text-xs font-bold uppercase tracking-[0.2em] ${dark ? "text-white/80" : "text-slate-600"}`}>{brandName}</p>;

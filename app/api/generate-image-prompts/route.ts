@@ -22,7 +22,7 @@ export async function POST(request: Request) {
   const compositionTemplate = resolveCompositionTemplate(input.artifactType);
   const fittedCopy = await fitCopyWithModel(copy, input, compositionTemplate);
   const designRecipe = await buildDesignRecipeWithModel({ request: input, template: compositionTemplate, fittedCopy });
-  const layoutContract = buildLayoutContract(pack, brief, input, copy);
+  const layoutContract = buildLayoutContract(pack, brief, input, fittedCopy);
   const promptContracts = buildImagePromptContracts(pack, brief, input, copy, layoutContract, designRecipe);
 
   return NextResponse.json({

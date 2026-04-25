@@ -115,8 +115,7 @@ export function generateCopy(pack: BrandPack, brief: CreativeBrief, request: Art
       .slice(0, brief.artifactType === "flyer" ? 4 : 6)
       .map((item) => concise(item, 150)),
     cta: request.cta || brief.cta || audience.ctaSuggestions[0],
-    footer:
-      "Draft generated for internal review. Claims should remain tied to the source evidence shown with this artifact.",
+    footer: undefined,
   };
 
   return GeneratedCopySchema.parse(copy);

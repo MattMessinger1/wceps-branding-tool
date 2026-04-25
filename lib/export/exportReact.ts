@@ -1,5 +1,6 @@
 import type { GeneratedArtifact } from "@/lib/schema/generatedArtifact";
 import { getBrandLogoPublicPathForArtifact } from "@/lib/brands/brandAssets";
+import { logoNeedsContrastPlate } from "@/lib/brands/logoContrast";
 import { getArtifactAudienceLabel } from "@/lib/review/textEdits";
 
 function js(value: string) {
@@ -39,6 +40,10 @@ export function exportReactSection(artifact: GeneratedArtifact) {
   const designRecipeId = artifact.designRecipe?.id ?? "studio";
   const isCampaignFlyer = templateId === "campaign-flyer";
   const audienceLabel = getArtifactAudienceLabel(artifact);
+  const logoClassName =
+    logoNeedsContrastPlate(logoUrl) && !isCampaignFlyer
+      ? "inline-block max-h-[88px] max-w-[244px] rounded-md bg-white/95 px-3 py-2 object-contain shadow-sm"
+      : "max-h-12 max-w-60 object-contain";
   const proofMarkup =
     templateId === "social-announcement"
       ? ""
@@ -78,7 +83,7 @@ ${bullets}
         <div className="${isCampaignFlyer ? "absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-white/82 to-transparent" : "hidden"}" />
         <div className="${isCampaignFlyer ? "relative z-10 grid h-full max-w-[78%] content-start gap-7 p-8 sm:p-10" : "relative z-10 grid min-h-[720px] max-w-2xl content-between p-10"}">
           <div className="grid gap-8">
-            {logoUrl ? <img src={logoUrl} alt="${artifact.brand} logo" className="max-h-12 max-w-60 object-contain" /> : <p className="${isCampaignFlyer ? "text-xs font-bold uppercase tracking-[0.18em] text-[#0081A4]" : "text-sm font-semibold uppercase tracking-wide text-cyan-200"}">${artifact.brand}</p>}
+            {logoUrl ? <img src={logoUrl} alt="${artifact.brand} logo" className="${logoClassName}" /> : <p className="${isCampaignFlyer ? "text-xs font-bold uppercase tracking-[0.18em] text-[#0081A4]" : "text-sm font-semibold uppercase tracking-wide text-cyan-200"}">${artifact.brand}</p>}
             <div className="grid gap-4">
               ${audienceLabel ? `<p className="${isCampaignFlyer ? "text-xs font-bold uppercase tracking-[0.18em] text-[#0081A4]" : "text-xs font-bold uppercase tracking-[0.18em] text-cyan-100"}">For ${audienceLabel}</p>` : ""}
               <h1 className="${isCampaignFlyer ? "text-[2.75rem] font-black leading-[.96] text-[#142836] sm:text-5xl" : "text-5xl font-black leading-[.95]"}">${headlineJsx(headline)}</h1>
