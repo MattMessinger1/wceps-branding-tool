@@ -151,6 +151,8 @@ Return ONLY compact JSON:
 
 Judge the artifact as a WCEPS-safe production reviewer.
 Look for: awkward/repetitive copy, weak brand specificity, sibling-brand leakage, unsupported claims, poor text hierarchy, weak visual relevance, generic or mismatched imagery, fake/scaffolded content risk, CTA problems, and whether deterministic QA is too generous.
+Block visible vague production copy such as "alignment conversations", dangling proof text, unreadable logo contrast, or layouts where long proof copy sits on a dark poster/image overlay.
+Warn when the artifact is technically valid but not specific enough to the selected brand or audience.
 Use "block" only for issues that should prevent approval/export.
 Use "warn" for quality concerns worth reviewing but not fatal.
 If deterministic QA already caught the issue, include it only if it remains important.

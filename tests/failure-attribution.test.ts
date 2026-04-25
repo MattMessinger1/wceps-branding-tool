@@ -134,6 +134,24 @@ test("render QA catches failures that line-count layout QA can miss", () => {
   assert.ok(renderQa.failureModes.some((failure) => failure.id === "dark_edge_bleed"));
 });
 
+test("render QA records logo contrast strategy for dark social layouts", () => {
+  const template = resolveCompositionTemplate("social-graphic");
+  const fittedCopy: FittedCopy = {
+    headline: "Review Alignment Across Standards and Assessments",
+    deck: "Use DOK to evaluate standards, objectives, assessments, curricula, and materials.",
+    proofPoints: [],
+    cta: "Contact WebbAlign",
+  };
+  const renderQa = evaluateRenderQa({
+    fittedCopy,
+    template,
+    request: { ...careRequest, artifactType: "social-graphic", brand: "WebbAlign", audience: "curriculum teams" },
+  });
+
+  assert.equal(renderQa.status === "block", false);
+  assert.equal(renderQa.metrics?.logoContrastStrategy, "card-backed");
+});
+
 test("all active brands receive the shared failure attribution fields", async () => {
   for (const brand of ["CARE Coaching", "CCNA", "WebbAlign", "CALL", "WIDA PRIME", "WCEPS"]) {
     const artifact = await generateArtifact({

@@ -88,9 +88,17 @@ export function hasDanglingFragment(value: string) {
   const normalized = cleanQaText(value);
   return (
     /\b(?:a|an|and|by|for|from|in|of|on|or|the|to|with)[.!?]?$/i.test(normalized) ||
+    /\b(?:across|affect|collaboration|current|including|professional|relevant|reviewed|that|through)[.!?]?$/i.test(normalized) ||
+    /\b(?:and the support|to the current|with action-based|that affect|materials that|programs? and services across resources, assessments, professional learning)[.!?]?$/i.test(
+      normalized,
+    ) ||
+    /\b(?:critical leadership|between instructional materials|include reviewed|data relevant|data for school)[.!?]?$/i.test(normalized) ||
+    /\bpathway learning through partnership[.!?]?$/i.test(normalized) ||
     /\bteaching,\s*learning[.!?]?$/i.test(normalized) ||
     /\bconsulting,\s*coaching[.!?]?$/i.test(normalized) ||
     /\bfit in their[.!?]?$/i.test(normalized) ||
+    /\bchoose a pathway,\s*and continue[.!?]?$/i.test(normalized) ||
+    /\bprofessional learning,\s*program[.!?]?$/i.test(normalized) ||
     /\bto\s+(?:align|build|evaluate|guide|identify|review|support)[.!?]?$/i.test(normalized) ||
     /\b(?:help|helps)\s+(?:teams|educators|leaders|users)\s+(?:align|build|evaluate|guide|identify|review|support)[.!?]?$/i.test(normalized) ||
     /,\s*$/.test(normalized)
@@ -104,7 +112,28 @@ export function repairKnownTruncations(value: string) {
     .replace(/\bConsulting,\s*Coaching[.!?]?$/i, "Consulting, Coaching, and Continuous Learning.")
     .replace(/\buse the lens of DOK to evaluate[.!?]?$/i, "use DOK to evaluate standards, objectives, assessments, curricula, and materials.")
     .replace(/\bcan help teams build[.!?]?$/i, "can help teams build a calibrated understanding of DOK.")
+    .replace(/\bReview assessments, curricula, and instructional materials through[.!?]?$/i, "Review assessments, curricula, and instructional materials for alignment and coherence.")
+    .replace(/\bincluding planning, collaboration, feedback[.!?]?$/i, "including planning, collaboration, and feedback.")
     .replace(/\bcurrent WIDA English Language Development[.!?]?$/i, "current WIDA English Language Development Standards Framework.")
+    .replace(/\balignment to the current[.!?]?$/i, "alignment to WIDA ELD Standards.")
+    .replace(/\bwith action-based[.!?]?$/i, "with action-based data.")
+    .replace(/\bfor school improvement and professional[.!?]?$/i, "for school improvement and professional development planning.")
+    .replace(/\baction-based data relevant to\b/i, "action-based data for")
+    .replace(/\baction-based data for school[.!?]?$/i, "action-based data for school teams' work.")
+    .replace(/\baction-based data relevant[.!?]?$/i, "action-based data relevant to school teams' work.")
+    .replace(/\binstructional practices that affect[.!?]?$/i, "instructional practices that affect multilingual learner success.")
+    .replace(/\bplanning,\s*collaboration[.!?]?$/i, "planning, collaboration, feedback, and leadership routines.")
+    .replace(/\bcritical leadership[.!?]?$/i, "critical leadership practices.")
+    .replace(/\binclude reviewed[.!?]?$/i, "include reviewed correlations.")
+    .replace(/\bSpanish Language[.!?]?$/i, "Spanish Language Development correlations.")
+    .replace(/\binstructional materials that[.!?]?$/i, "instructional materials that have completed the PRIME process.")
+    .replace(/\bdegree of alignment between instructional materials[.!?]?$/i, "degree of alignment between instructional materials and WIDA ELD Standards.")
+    .replace(/\bwith resources, assessments, professional learning[.!?]?$/i, "with resources, assessments, professional learning, and alignment support.")
+    .replace(/\bchallenge and the support[.!?]?$/i, "challenge and identify the support your team needs next.")
+    .replace(/\bpractical support pathway learning through partnership[.!?]?$/i, "practical support pathway and continue learning through partnership.")
+    .replace(/\band other[.!?]?$/i, "and other instructional materials.")
+    .replace(/\bchoose a pathway,\s*and continue[.!?]?$/i, "choose a practical support pathway.")
+    .replace(/\bprofessional learning,\s*program[.!?]?$/i, "professional learning, and program support.")
     .replace(/\bfit in their[.!?]?$/i, "fit in their program.")
     .replace(/\bPRIME V1\/V2[.!?]?$/i, "PRIME V1 and PRIME V2.");
 }

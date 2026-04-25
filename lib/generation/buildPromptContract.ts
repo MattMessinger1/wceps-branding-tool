@@ -182,7 +182,7 @@ export function buildPromptContract(
   const safeZones = compactList(layout.safeZones, isSocial ? 3 : 4, 62);
   const preferredSubjects = profileList(visualProfile.preferredSubjects, isSocial ? 4 : 5, 56);
   const contextProps = profileList(visualProfile.contextProps, isSocial ? 3 : 5, 58);
-  const avoidSubjects = profileList(visualProfile.avoidSubjects, isSocial ? 4 : 7, 54);
+  const avoidSubjects = profileList([...new Set([...visualProfile.relevanceForbiddenTerms, ...visualProfile.avoidSubjects])], isSocial ? 8 : 12, 54);
   const appOwnedBrandElements = profileList(visualProfile.appOwnedBrandElements, isSocial ? 3 : 5, 46);
   const profileFit = compactText(artifactFitNote(visualProfile, brief.artifactType), 130);
   const keepBoundary = profileList(boundary.keep, isSocial ? 4 : 6, 44);

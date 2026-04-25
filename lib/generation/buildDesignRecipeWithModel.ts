@@ -76,6 +76,8 @@ Rules:
 - Make ImageGen feel like it is designing the whole artifact concept, not just making a decorative background.
 - Do not request fake text, fake logos, blank cards, placeholder boxes, UI modules, or contact bars.
 - Make the visual direction specific to the brand, audience, and artifact type.
+- For dense one-pagers with 3 proof points or long decks, choose editorial-split, not proof-band. Keep long proof copy in readable app-rendered rows.
+- Use proof-band only for concise one-pagers with very short proof text; never use it as a dark poster overlay for CCNA or WCEPS institutional one-pagers.
 - Keep promptDirectives to 3-5 crisp instructions.
 - If the deterministic baseline is already right, keep the same id and sharpen the wording.
 
@@ -99,6 +101,37 @@ ${JSON.stringify(
 )}`;
 }
 
+function wordCount(value: string) {
+  return value.split(/\s+/).filter(Boolean).length;
+}
+
+function needsReadableOnePagerRecipe(request: ArtifactRequest, template: CompositionTemplate, fittedCopy: FittedCopy) {
+  if (template.id !== "magazine-one-pager") return false;
+  if (["CCNA", "WCEPS"].includes(request.brand)) return true;
+  if (fittedCopy.proofPoints.length >= 3) return true;
+  if (wordCount(fittedCopy.deck) > 14) return true;
+  return fittedCopy.proofPoints.some((point) => wordCount(point) > 8);
+}
+
+function enforceSafeRecipe(request: ArtifactRequest, template: CompositionTemplate, fittedCopy: FittedCopy, recipe: DesignRecipe): DesignRecipe {
+  if (!needsReadableOnePagerRecipe(request, template, fittedCopy)) return recipe;
+
+  return {
+    ...recipe,
+    id: "editorial-split",
+    textZone: "left",
+    visualZone: "right-field",
+    density: "editorial",
+    hierarchy: "readable one-pager hierarchy with a headline/deck column, integrated image field, full-width proof rows, and compact CTA",
+    appComposition: "official logo, exact headline, deck, proof rows, and CTA are app-rendered in readable zones; art stays secondary to message clarity",
+    promptDirectives: [
+      "editorial split one-pager with readable proof-row rhythm",
+      "avoid dark poster overlays behind long copy",
+      "create visual energy in the image field without fake charts, document modules, or text",
+    ],
+  };
+}
+
 export function getDesignRecipeModelConfig() {
   return {
     model: designRecipeModel(),
@@ -116,7 +149,7 @@ export async function buildDesignRecipeWithModel({
   template: CompositionTemplate;
   fittedCopy: FittedCopy;
 }): Promise<DesignRecipe> {
-  const deterministic = buildDesignRecipe({ request, template, fittedCopy });
+  const deterministic = enforceSafeRecipe(request, template, fittedCopy, buildDesignRecipe({ request, template, fittedCopy }));
 
   if (!designRecipeEnabled()) return deterministic;
 
@@ -129,7 +162,7 @@ export async function buildDesignRecipeWithModel({
       store: false,
     } as never);
     const outputText = findOutputText(response) ?? "";
-    return DesignRecipeSchema.parse(parseJsonObject(outputText));
+    return enforceSafeRecipe(request, template, fittedCopy, DesignRecipeSchema.parse(parseJsonObject(outputText)));
   } catch (error) {
     console.warn("Model design recipe failed; using deterministic recipe.", error);
     return deterministic;

@@ -1,7 +1,7 @@
 import OpenAI from "openai";
 import { filterBrandBoundaryEvidence, findBrandBoundaryTerms } from "@/lib/brands/brandBoundary";
 import { loadBrandPack } from "@/lib/brands/loadBrandPack";
-import { evaluateLayoutQa, fitCopy } from "@/lib/composition";
+import { evaluateCopyQualityQa, evaluateLayoutQa, fitCopy } from "@/lib/composition";
 import type { ArtifactRequest } from "@/lib/schema/artifactRequest";
 import type { BrandPack } from "@/lib/schema/brandPack";
 import { FittedCopySchema, type CompositionTemplate, type FittedCopy, type GeneratedCopy } from "@/lib/schema/generatedArtifact";
@@ -81,7 +81,7 @@ function promptForModel(copy: GeneratedCopy, request: ArtifactRequest, template:
     template.id === "campaign-flyer"
       ? "exactly 2"
       : template.id === "social-announcement"
-        ? "2 short options, even if the social renderer uses fewer"
+        ? "0; social graphics use headline, deck, and CTA only"
         : "2-3";
 
   return `You are the production copy-fit director for the WCEPS Branding Tool.
@@ -102,6 +102,10 @@ Rules:
 - Preserve selected brand boundaries.
 - Make the copy polished, specific, and complete; never sound truncated.
 - No dangling endings such as "fit in their.", "teaching, learning.", "to", or "with".
+- No vague phrases such as "alignment conversations", "make the work clearer", "source-grounded support", or "clear next steps".
+- Do not reuse the same lead verb across deck and every proof point.
+- WebbAlign copy must say what is being aligned or evaluated: standards, objectives, assessments, curricula, instructional materials, DOK, coherence.
+- CCNA copy must explicitly use CCNA/needs assessment/action-based data/actionable reporting/instructional practice language when relevant.
 - Headline target: 6-12 words.
 - Deck: exactly one complete sentence.
 - Proof points: ${proofInstruction} complete, non-repetitive short statements.
@@ -161,6 +165,42 @@ function layoutSafeFittedCopy(candidate: FittedCopy, request: ArtifactRequest, t
   return candidate;
 }
 
+function qualitySafeFittedCopy(
+  candidate: FittedCopy,
+  copy: GeneratedCopy,
+  request: ArtifactRequest,
+  template: CompositionTemplate,
+  deterministic: FittedCopy,
+) {
+  const candidateCopyQa = evaluateCopyQualityQa({ copy, fittedCopy: candidate, request });
+  const candidateLayoutQa = evaluateLayoutQa({
+    artifactType: request.artifactType,
+    template,
+    fittedCopy: candidate,
+    request,
+  });
+
+  if (candidateCopyQa.status === "block" || candidateLayoutQa.status === "block") {
+    return deterministic;
+  }
+
+  const deterministicCopyQa = evaluateCopyQualityQa({ copy, fittedCopy: deterministic, request });
+  const deterministicLayoutQa = evaluateLayoutQa({
+    artifactType: request.artifactType,
+    template,
+    fittedCopy: deterministic,
+    request,
+  });
+  const candidateWarnings = candidateCopyQa.failureModes.length + candidateLayoutQa.warnings.length;
+  const deterministicWarnings = deterministicCopyQa.failureModes.length + deterministicLayoutQa.warnings.length;
+
+  if (deterministicCopyQa.status !== "block" && deterministicLayoutQa.status !== "block" && candidateWarnings > deterministicWarnings + 1) {
+    return deterministic;
+  }
+
+  return candidate;
+}
+
 export function getCopyFitModelConfig() {
   return {
     model: copyFitModel(),
@@ -209,7 +249,7 @@ export async function fitCopyWithModel(copy: GeneratedCopy, request: ArtifactReq
       footer: undefined,
     });
     const safeParsed = sourceSafeFittedCopy(parsed, request, deterministic);
-    return layoutSafeFittedCopy(safeParsed, request, template, deterministic);
+    return qualitySafeFittedCopy(layoutSafeFittedCopy(safeParsed, request, template, deterministic), copy, request, template, deterministic);
   } catch (error) {
     console.warn("Model copy fit failed; using deterministic fit.", error);
     return deterministic;

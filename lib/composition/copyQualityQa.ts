@@ -53,6 +53,25 @@ function scaffoldedVisibleCopy(value: string) {
   return /\b(source-grounded|source-backed|brand-safe|brand-specific guidance|approved source|clear next steps|useful artifact|production artifact|internal tooling|tooling language)\b/i.test(value);
 }
 
+function vagueVisibleCopy(value: string) {
+  return /\b(strengthen alignment conversations|alignment conversations|align the conversation|make the work clearer|support education teams|focused planning path|choose a pathway,\s*and continue)\b/i.test(value);
+}
+
+function malformedVisibleCopy(value: string) {
+  return (
+    /\b(learn how materials relate|pathway learning through partnership)\b/i.test(value) ||
+    /\b(with action-based|that affect)[.!?]?$/i.test(value)
+  );
+}
+
+function repeatedLeadVerb(values: string[]) {
+  const verbs = values
+    .map((value) => normalizeQaText(value).split(" ")[0])
+    .filter((word) => ["support", "use", "provide", "guide", "create", "build", "review", "clarify"].includes(word));
+  if (verbs.length < 3) return false;
+  return new Set(verbs).size === 1;
+}
+
 export function evaluateCopyQualityQa({
   copy,
   fittedCopy,
@@ -112,6 +131,32 @@ export function evaluateCopyQualityQa({
         "block",
         "fitCopy",
         `Visible artifact copy contains internal/tooling language: ${scaffolded.slice(0, 2).map(cleanQaText).join(" | ")}`,
+        "finalReview",
+      ),
+    );
+  }
+
+  const vague = fittedText.filter(vagueVisibleCopy);
+  if (vague.length) {
+    failureModes.push(
+      failureMode(
+        "vague_visible_copy",
+        "block",
+        "fitCopy",
+        `Visible artifact copy is too vague for production: ${vague.slice(0, 2).map(cleanQaText).join(" | ")}`,
+        "finalReview",
+      ),
+    );
+  }
+
+  const malformed = fittedText.filter(malformedVisibleCopy);
+  if (malformed.length) {
+    failureModes.push(
+      failureMode(
+        "malformed_visible_copy",
+        "block",
+        "fitCopy",
+        `Visible artifact copy contains malformed or underfit language: ${malformed.slice(0, 2).map(cleanQaText).join(" | ")}`,
         "finalReview",
       ),
     );
@@ -178,6 +223,18 @@ export function evaluateCopyQualityQa({
         "fitCopy",
         "Deck and proof copy repeat the same idea instead of creating a clear message hierarchy.",
         "compositionScore",
+      ),
+    );
+  }
+
+  if (repeatedLeadVerb([fittedCopy.deck, ...fittedCopy.proofPoints])) {
+    failureModes.push(
+      failureMode(
+        "repetitive_lead_verbs",
+        "warn",
+        "fitCopy",
+        "Deck and proof copy repeat the same opening verb, making the message feel mechanically generated.",
+        "finalReview",
       ),
     );
   }

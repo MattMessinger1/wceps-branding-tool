@@ -1,5 +1,7 @@
 import type { ArtifactRequest } from "@/lib/schema/artifactRequest";
 import type { CompositionTemplate, FailureMode, FittedCopy, LayoutQa, StageQa } from "@/lib/schema/generatedArtifact";
+import { getBrandLogoForArtifact } from "@/lib/brands/brandAssets";
+import { logoContrastStrategy } from "@/lib/brands/logoContrast";
 import { cleanQaText, failureMode, hasDanglingFragment, normalizeQaText, repairKnownTruncations, similarIntent, stageQa } from "./qaHelpers";
 
 function ctaDetailDuplicates(copy: FittedCopy) {
@@ -96,6 +98,33 @@ export function evaluateRenderQa({
     );
   }
 
+  if (template.id === "social-announcement" && fittedCopy.proofPoints.length > 0) {
+    failureModes.push(
+      failureMode(
+        "social_has_hidden_proof_stack",
+        "warn",
+        "fitCopy",
+        "Social graphics should use headline, deck, and CTA only; proof points should not be fitted for this format.",
+        "finalReview",
+      ),
+    );
+  }
+
+  const logo = getBrandLogoForArtifact(request.brand, request.artifactType, request.logoVariant);
+  const darkOrImageLogoSurface = ["social-announcement", "email-hero"].includes(template.id);
+  const logoStrategy = logoContrastStrategy(logo?.publicPath, darkOrImageLogoSurface ? "dark" : "light");
+  if (logoStrategy === "unreadable") {
+    failureModes.push(
+      failureMode(
+        "unreadable_logo_contrast",
+        "block",
+        "deterministicLayout",
+        "Selected logo is not suitable for the rendered background and has no safe contrast treatment.",
+        "finalReview",
+      ),
+    );
+  }
+
   if (layoutQa?.status === "block") {
     failureModes.push(
       failureMode(
@@ -126,6 +155,8 @@ export function evaluateRenderQa({
       hasCtaDetail: Boolean(fittedCopy.ctaDetail),
       inheritedBlockCount: inheritedBlocks.length,
       layoutQaStatus: layoutQa?.status,
+      logoContrastStrategy: logoStrategy,
+      selectedLogoVariant: logo?.id,
     },
   });
 }

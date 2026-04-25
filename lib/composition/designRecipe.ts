@@ -9,6 +9,17 @@ function hasVisualSpecificity(request: ArtifactRequest) {
   return Boolean(request.visualInstruction?.trim() || request.contextAttachments.length);
 }
 
+function wordCount(value: string) {
+  return value.split(/\s+/).filter(Boolean).length;
+}
+
+function needsReadableOnePagerRecipe(request: ArtifactRequest, fittedCopy: FittedCopy) {
+  if (["CCNA", "WCEPS"].includes(request.brand)) return true;
+  if (fittedCopy.proofPoints.length >= 3) return true;
+  if (wordCount(fittedCopy.deck) > 14) return true;
+  return fittedCopy.proofPoints.some((point) => wordCount(point) > 8);
+}
+
 export function buildDesignRecipe({
   request,
   template,
@@ -79,8 +90,9 @@ export function buildDesignRecipe({
   }
 
   if (template.id === "magazine-one-pager") {
+    const readableOnePager = needsReadableOnePagerRecipe(request, fittedCopy);
     return {
-      id: longHeadline || visualSpecific ? "editorial-split" : "proof-band",
+      id: readableOnePager || longHeadline || visualSpecific ? "editorial-split" : "proof-band",
       source: "app-generated",
       textZone: "left",
       visualZone: "right-field",

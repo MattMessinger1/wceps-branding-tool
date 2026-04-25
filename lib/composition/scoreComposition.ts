@@ -68,13 +68,15 @@ export function scoreComposition({
     request,
   );
   const brandBoundary = clamp(boundaryResult.score);
-  const textIntegration = clamp(fittedCopy.deck.endsWith(".") && proofCount >= 2 && fittedCopy.cta.length <= 42 ? 94 : 72);
+  const expectedProofShape = template.id === "social-announcement" ? proofCount === 0 : proofCount >= 2;
+  const textIntegration = clamp(fittedCopy.deck.endsWith(".") && expectedProofShape && fittedCopy.cta.length <= 42 ? 94 : 72);
   const fakeContentRisk =
     promptText.includes("fake text") && promptText.includes("fake logos") && promptText.includes("malformed ui") ? 95 : 72;
 
   if (headlineWords < 6 || headlineWords > 12) warnings.push("Headline should fit 6-12 words.");
   if (ctaWords > 5 || fittedCopy.cta.length > 42) warnings.push("CTA should be a short action phrase.");
-  if (proofCount < 2 || proofCount > 3) warnings.push("Proof points should fit 2-3 short blocks.");
+  if (template.id === "social-announcement" && proofCount > 0) warnings.push("Social graphics should not include proof stacks.");
+  if (template.id !== "social-announcement" && (proofCount < 2 || proofCount > 3)) warnings.push("Proof points should fit 2-3 short blocks.");
   if (template.id !== expectedTemplate.id) issues.push(`Artifact type "${artifactType}" is mapped to ${template.id}, expected ${expectedTemplate.id}.`);
   if (templateScaffolding < 80) issues.push("Image prompt still invites document scaffolding or fake layout elements.");
   if (brandRelevance < 72) issues.push(`${visualProfile.brandName} visual relevance cues are too generic or incomplete.`);

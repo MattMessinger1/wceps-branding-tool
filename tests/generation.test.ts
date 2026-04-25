@@ -415,11 +415,51 @@ test("WebbAlign fitted copy repairs truncated DOK proof phrasing", async () => {
     keyMessage: "Build a more coherent learning system.",
     cta: "Contact WebbAlign",
   });
-  const visibleCopy = [artifact.fittedCopy?.deck, ...(artifact.fittedCopy?.proofPoints ?? [])].join(" ");
+  const visibleCopy = [artifact.fittedCopy?.headline, artifact.fittedCopy?.deck, ...(artifact.fittedCopy?.proofPoints ?? [])].join(" ");
 
+  assert.equal(artifact.fittedCopy?.proofPoints.length, 0);
   assert.equal(/\bto evaluate[.!?]?$/i.test(visibleCopy), false);
   assert.equal(/\bteams build[.!?]?$/i.test(visibleCopy), false);
+  assert.doesNotMatch(visibleCopy, /alignment conversations/i);
+  assert.match(visibleCopy, /DOK|Depth of Knowledge|standards|objectives|assessments|curricul|materials|coherence|alignment/i);
   assert.equal(artifact.copyQualityQa?.issues.some((issue) => /dangling|truncated/i.test(issue)), false);
+});
+
+test("WebbAlign copy-fit replaces vague alignment-conversation phrasing", () => {
+  const template = resolveCompositionTemplate("social-graphic");
+  const fitted = fitCopy(
+    {
+      headlineOptions: ["Use DOK to strengthen alignment conversations"],
+      subheadOptions: ["Curriculum teams use Depth of Knowledge to evaluate standards, learning objectives, assessments."],
+      body: "WebbAlign supports DOK and alignment work.",
+      bullets: ["Review assessments, curricula, and instructional materials through."],
+      cta: "Contact WebbAlign",
+    },
+    {
+      artifactType: "social-graphic",
+      brand: "WebbAlign",
+      audience: "curriculum teams",
+      keyMessage: "Use DOK to strengthen alignment conversations",
+      goal: "drive inquiry",
+      topic: "DOK alignment",
+      cta: "Contact WebbAlign",
+      format: "Square",
+      toneModifier: "professional",
+      notes: "",
+      visualInstruction: "",
+      logoVariant: "",
+      colorTheme: "",
+      contextAttachments: [],
+      strictlySourceGrounded: true,
+      generateVisual: true,
+    },
+    template,
+  );
+
+  const visibleCopy = [fitted.headline, fitted.deck, ...fitted.proofPoints].join(" ");
+  assert.equal(fitted.proofPoints.length, 0);
+  assert.doesNotMatch(visibleCopy, /alignment conversations/i);
+  assert.match(visibleCopy, /DOK|standards|objectives|assessments|curricul|materials|alignment/i);
 });
 
 test("generic production instructions do not become visible campaign headlines", async () => {
@@ -452,6 +492,61 @@ test("WIDA PRIME fitted copy preserves variant names without duplicated phrases"
   assert.doesNotMatch(copyText, /PRIME v1|PRIME v2|materials correlated with materials correlated with/);
   assert.doesNotMatch(copyText, /\bfit in their\./i);
   assert.doesNotMatch(copyText, /\bEnglish Language Development\./i);
+});
+
+test("WIDA PRIME email proof rows stay compact enough for email layout", async () => {
+  const artifact = await generateArtifact({
+    artifactType: "html-email-announcement",
+    brand: "WIDA PRIME",
+    audience: "publishers",
+    keyMessage: "Prepare for the WIDA PRIME process.",
+    cta: "Start the PRIME process",
+    strictlySourceGrounded: true,
+  });
+
+  assert.equal(artifact.compositionTemplate?.id, "email-hero");
+  assert.equal(artifact.layoutQa?.issues.some((issue) => /Proof copy/.test(issue)), false);
+  assert.ok((artifact.layoutQa?.metrics.maxProofLines ?? 99) <= 2);
+  assert.equal(artifact.fittedCopy?.proofPoints.some((point) => point.length > 62), false);
+});
+
+test("WCEPS copy-fit repairs vague pathway and truncated program proof copy", () => {
+  const template = resolveCompositionTemplate("one-pager");
+  const fitted = fitCopy(
+    {
+      headlineOptions: ["Customized support for schools and districts"],
+      subheadOptions: ["Connect schools and districts with nonprofit, research-informed, customized educational support."],
+      body: "WCEPS supports schools and districts.",
+      bullets: [
+        "Pathways programs help educators identify a challenge, choose a pathway, and continue learning through partnership.",
+        "Schools and districts with educational resources, assessments, professional learning, program.",
+      ],
+      cta: "Compare pathways",
+    },
+    {
+      artifactType: "one-pager",
+      brand: "WCEPS",
+      audience: "education leaders",
+      keyMessage: "Customized support for schools and districts",
+      goal: "drive inquiry",
+      topic: "pathways",
+      cta: "Compare pathways",
+      format: "Letter portrait",
+      toneModifier: "professional",
+      notes: "",
+      visualInstruction: "",
+      logoVariant: "",
+      colorTheme: "",
+      contextAttachments: [],
+      strictlySourceGrounded: true,
+      generateVisual: true,
+    },
+    template,
+  );
+
+  const proofText = fitted.proofPoints.join(" ");
+  assert.doesNotMatch(proofText, /choose a pathway,\s*and continue|professional learning,\s*program/i);
+  assert.match(proofText, /practical support pathway|resources, assessments, and professional learning/i);
 });
 
 test("sendability brand boundary catches sibling leakage for every active brand", () => {
@@ -654,8 +749,8 @@ test("copy fit does not truncate decks at common abbreviations", () => {
   const fitted = fitCopy(
     {
       headlineOptions: ["Use DOK to strengthen alignment"],
-      subheadOptions: ["WebbAlign works in collaboration with Dr. Norman Webb. This second sentence should not appear."],
-      body: "WebbAlign works in collaboration with Dr. Norman Webb. This second sentence should not appear.",
+      subheadOptions: ["WebbAlign works in collaboration with Dr. Norman Webb, developer of Depth of Knowledge. This second sentence should not appear."],
+      body: "WebbAlign works in collaboration with Dr. Norman Webb, developer of Depth of Knowledge. This second sentence should not appear.",
       bullets: [
         "WebbAlign promotes effective and accurate use of Depth of Knowledge language.",
         "The program helps education teams work toward an aligned, coherent system.",
@@ -683,7 +778,7 @@ test("copy fit does not truncate decks at common abbreviations", () => {
     template,
   );
 
-  assert.equal(fitted.deck, "WebbAlign works in collaboration with Dr. Norman Webb.");
+  assert.equal(fitted.deck, "WebbAlign works in collaboration with Dr. Norman Webb, developer of Depth of Knowledge.");
 });
 
 test("copy fit removes repetitive deck and proof language", () => {

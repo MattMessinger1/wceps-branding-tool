@@ -15,7 +15,7 @@ export const GeneratedCopySchema = z.object({
 export const FittedCopySchema = z.object({
   headline: z.string().min(1),
   deck: z.string().min(1),
-  proofPoints: z.array(z.string()).min(1).max(3),
+  proofPoints: z.array(z.string()).max(3),
   cta: z.string().min(1),
   ctaDetail: z.string().optional(),
   footer: z.string().optional(),

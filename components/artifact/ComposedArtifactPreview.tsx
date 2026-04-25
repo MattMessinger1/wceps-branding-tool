@@ -88,6 +88,18 @@ function CampaignHeadline({ headline, className }: { headline: string; className
   );
 }
 
+function wordCount(value: string) {
+  return value.split(/\s+/).filter(Boolean).length;
+}
+
+function shouldRenderProofBand(artifact: GeneratedArtifact, copy: FittedCopy, recipeId: string) {
+  if (recipeId !== "proof-band") return false;
+  if (["CCNA", "WCEPS"].includes(artifact.brand)) return false;
+  if (copy.proofPoints.length >= 3) return false;
+  if (wordCount(copy.deck) > 14) return false;
+  return copy.proofPoints.every((point) => wordCount(point) <= 8);
+}
+
 function ProofCluster({
   items,
   theme,
@@ -262,7 +274,7 @@ function MagazineOnePager({ artifact, copy, logoUrl }: { artifact: GeneratedArti
   const audienceLabel = getArtifactAudienceLabel(artifact);
   const recipeId = artifact.designRecipe?.id ?? "editorial-split";
 
-  if (recipeId === "proof-band") {
+  if (shouldRenderProofBand(artifact, copy, recipeId)) {
     return (
       <article data-design-recipe={recipeId} className="mx-auto grid min-h-[920px] w-full max-w-[820px] grid-rows-[360px_1fr_auto] overflow-hidden rounded-md bg-[#fbfaf7] shadow-sm">
         <section className="relative overflow-hidden">

@@ -30,11 +30,13 @@ test("CCNA one-pager with long email CTA avoids CTA collision and proof ladders"
   const artifact = await generateArtifact(request());
 
   assert.equal(artifact.compositionTemplate?.id, "magazine-one-pager");
+  assert.equal(artifact.designRecipe?.id, "editorial-split");
   assert.equal(artifact.fittedCopy?.cta, "Email Yvonne");
   assert.ok(artifact.fittedCopy?.ctaDetail?.includes("Yvonne.Williams@wceps.org"));
   assert.equal(artifact.layoutQa?.issues.length, 0);
   assert.ok((artifact.layoutQa?.proofLineWidth ?? 0) >= 78);
   assert.ok((artifact.layoutQa?.metrics.maxProofLines ?? 99) <= 4);
+  assert.match([artifact.fittedCopy?.deck, ...(artifact.fittedCopy?.proofPoints ?? [])].join(" "), /CCNA|needs assessment|instructional practice|actionable reporting|action-based data/i);
   assert.equal(artifact.review.issues.some((issue) => issue.includes("Layout QA")), false);
 });
 
@@ -73,6 +75,7 @@ test("social square format ignores unused proof stack when scoring layout", asyn
   });
 
   assert.equal(artifact.compositionTemplate?.id, "social-announcement");
+  assert.equal(artifact.fittedCopy?.proofPoints.length, 0);
   assert.equal(artifact.layoutQa?.artifactFormatMatch, 100);
   assert.equal(artifact.layoutQa?.issues.some((issue) => issue.includes("Proof copy")), false);
 });

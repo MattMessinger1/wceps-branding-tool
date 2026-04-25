@@ -76,7 +76,7 @@ export function resolveCompositionTemplate(artifactType: string): CompositionTem
 
 export function templateProofCount(template: CompositionTemplate) {
   if (template.id === "campaign-flyer") return 2;
-  if (template.id === "social-announcement") return 2;
+  if (template.id === "social-announcement") return 0;
   if (template.id === "email-hero") return 2;
   return 3;
 }
