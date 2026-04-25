@@ -1,0 +1,420 @@
+{
+  "id": "draft-20260425005121-9pnal9",
+  "artifactType": "social-graphic",
+  "brand": "WebbAlign",
+  "audience": "curriculum teams",
+  "brief": {
+    "artifactType": "social-graphic",
+    "brand": "WebbAlign",
+    "audience": "curriculum teams",
+    "objective": "invite teams to strengthen alignment conversations",
+    "keyMessages": [
+      "WebbAlign helps teams use the lens of DOK to evaluate standards, learning objectives, assessments, curricula, and instructional materials.",
+      "WebbAlign professional learning can help teams build a calibrated understanding of DOK to inform practice.",
+      "DOK supports conversations about cognitive complexity and coherent learning opportunities."
+    ],
+    "proofPoints": [
+      "The WebbAlign homepage identifies WebbAlign as a WCEPS program.",
+      "The WebbAlign site states that the team works in collaboration with Dr. Norman Webb.",
+      "The WebbAlign DOK page says DOK differentiates complexity from difficulty."
+    ],
+    "cta": "Contact WebbAlign",
+    "visualDirection": [
+      "curriculum team reviewing standards",
+      "assessment materials arranged for analysis",
+      "facilitated workshop table",
+      "alignment matrix",
+      "standards-to-assessment pathway"
+    ],
+    "layoutRecommendation": "Use a text-light social graphic with one headline, one approved phrase, generous whitespace, and a caption pack.",
+    "sourceEvidenceIds": [
+      "webbalign-home-source",
+      "webbalign-evaluate",
+      "webbalign-districts",
+      "webbalign-professional-learning"
+    ]
+  },
+  "copy": {
+    "headlineOptions": [
+      "Use DOK to strengthen alignment",
+      "Build a more coherent learning system",
+      "Straight-from-the-source DOK support"
+    ],
+    "subheadOptions": [
+      "WebbAlign is a WCEPS program that works in collaboration with Dr. Norman Webb, developer of Depth of Knowledge.",
+      "WebbAlign helps teams use the lens of DOK to evaluate standards, learning objectives, assessments, curricula, and instructional materials.",
+      "WebbAlign helps teams use the lens of DOK to evaluate standards, learning objectives, assessments, curricula, and instructional materials."
+    ],
+    "body": "WebbAlign helps teams use the lens of DOK to evaluate standards, learning objectives, assessments, curricula, and instructional materials. For curriculum teams, this draft focuses on DOK alignment across standards, assessments, curricula, and instructional materials.",
+    "bullets": [
+      "WebbAlign helps teams use the lens of DOK to evaluate standards, learning objectives, assessments, curricula, and instructional materials.",
+      "WebbAlign professional learning can help teams build a calibrated understanding of DOK to inform practice.",
+      "DOK supports conversations about cognitive complexity and coherent learning opportunities.",
+      "The WebbAlign homepage identifies WebbAlign as a WCEPS program.",
+      "The WebbAlign site states that the team works in collaboration with Dr. Norman Webb."
+    ],
+    "cta": "Contact WebbAlign"
+  },
+  "fittedCopy": {
+    "headline": "Build a more coherent learning system",
+    "deck": "WebbAlign works in collaboration with Dr. Norman Webb, developer of Depth of Knowledge.",
+    "proofPoints": [
+      "Evaluate standards, objectives, assessments, curricula, and materials.",
+      "Build a calibrated understanding of DOK."
+    ],
+    "cta": "Contact WebbAlign"
+  },
+  "compositionTemplate": {
+    "id": "social-announcement",
+    "artifactType": "social-graphic",
+    "aspectRatio": "1:1 square",
+    "densityTarget": "minimal",
+    "typographyScale": "bold social headline with one support line",
+    "artPlateTreatment": "full-square art plate with tonal gradient overlay",
+    "logoPlacement": "top-left, compact brand mark",
+    "copyPlacement": "center/lower editorial lockup",
+    "ctaPlacement": "bottom-left short action chip"
+  },
+  "designRecipe": {
+    "id": "social-poster",
+    "source": "model-generated",
+    "textZone": "center",
+    "visualZone": "background",
+    "density": "minimal",
+    "hierarchy": "bold square social hierarchy: one dominant coherence message, concise credibility line, and small CTA rendered by the app",
+    "artDirection": "modern WebbAlign social poster for curriculum teams, using abstract curriculum-alignment pathways, calibrated DOK depth layers, and standards-to-assessment grid logic in a polished blue/teal education-tech palette with warm emphasis",
+    "placeholderStrategy": "create a calm center/lower reading field through tonal contrast, soft depth, and directional framing; no fake copy, logos, labels, boxes, cards, or UI modules",
+    "appComposition": "app renders official compact logo top-left, centered/lower headline and support line, and bottom-left CTA chip over the generated art plate",
+    "promptDirectives": [
+      "Design a complete 1:1 social poster concept, not a decorative background.",
+      "Use abstract alignment grids, pathways, and depth layers to signal coherent curriculum systems.",
+      "Keep the center/lower area quiet and high-contrast for app-rendered text.",
+      "Frame the message with visual energy while avoiding fake typography, logos, CTA elements, or placeholder containers."
+    ]
+  },
+  "compositionScore": {
+    "question": "Would I send this to the WCEPS team without apology?",
+    "overall": 95,
+    "whitespaceDensity": 92,
+    "templateScaffolding": 96,
+    "typographyQuality": 87,
+    "artifactMatch": 96,
+    "brandFidelity": 94,
+    "brandRelevance": 98,
+    "brandBoundary": 100,
+    "textIntegration": 94,
+    "fakeContentRisk": 95,
+    "sendability": 95,
+    "status": "warn",
+    "issues": [],
+    "warnings": [
+      "WebbAlign prompt is missing avoid guardrail(s): generic classroom."
+    ]
+  },
+  "layoutQa": {
+    "question": "Would I send this layout to the WCEPS team without apology?",
+    "overall": 99,
+    "noTextOverflow": 100,
+    "noCtaCollision": 100,
+    "proofLineWidth": 96,
+    "logoOnce": 100,
+    "artifactFormatMatch": 100,
+    "exportReady": 99,
+    "sendability": 99,
+    "status": "pass",
+    "issues": [],
+    "warnings": [],
+    "metrics": {
+      "headlineLines": 3,
+      "deckLines": 3,
+      "maxProofLines": 0,
+      "minProofCharsPerLine": 999,
+      "ctaLines": 1,
+      "estimatedCanvasOverflow": false
+    }
+  },
+  "copyQualityQa": {
+    "question": "Would I send this copy to the WCEPS team without apology?",
+    "score": 88,
+    "status": "warn",
+    "issues": [],
+    "warnings": [
+      "Generated copy repeats the same source idea across body, subhead, or bullets before copy-fit."
+    ],
+    "failureModes": [
+      {
+        "id": "repetitive_generated_copy",
+        "severity": "warn",
+        "introducedAt": "generateCopy",
+        "missedBy": "fitCopy",
+        "message": "Generated copy repeats the same source idea across body, subhead, or bullets before copy-fit."
+      }
+    ],
+    "metrics": {
+      "fittedTextCount": 5,
+      "generatedTextCount": 9,
+      "missingPreferredTerms": [
+        "learning objectives",
+        "alignment",
+        "coherence"
+      ]
+    }
+  },
+  "visualQa": {
+    "question": "Would I send this visual system to the WCEPS team without apology?",
+    "score": 84,
+    "status": "warn",
+    "issues": [],
+    "warnings": [
+      "WebbAlign visual prompt is missing avoid guardrail(s): generic classroom."
+    ],
+    "failureModes": [
+      {
+        "id": "missing_visual_avoid_guardrails",
+        "severity": "warn",
+        "introducedAt": "buildImagePrompt",
+        "missedBy": "visualQa",
+        "message": "WebbAlign visual prompt is missing avoid guardrail(s): generic classroom."
+      }
+    ],
+    "metrics": {
+      "hasGeneratedVisual": true,
+      "usesFallbackArt": false,
+      "missingArtPlate": false,
+      "darkEdgeBleedRisk": false,
+      "visualRelevance": 96,
+      "promptCount": 3,
+      "missingRequiredTerms": [],
+      "missingAvoidTerms": [
+        "generic classroom"
+      ]
+    }
+  },
+  "renderQa": {
+    "question": "Would I send this rendered artifact to the WCEPS team without apology?",
+    "score": 98,
+    "status": "pass",
+    "issues": [],
+    "warnings": [],
+    "failureModes": [],
+    "metrics": {
+      "templateId": "social-announcement",
+      "artifactType": "social-graphic",
+      "proofPointCount": 2,
+      "hasCtaDetail": false,
+      "inheritedBlockCount": 0,
+      "layoutQaStatus": "pass"
+    }
+  },
+  "modelQa": {
+    "question": "Would a senior WCEPS reviewer send this artifact without apology?",
+    "score": 90,
+    "status": "warn",
+    "issues": [],
+    "warnings": [
+      "Top-left art contains busy teal/yellow grid detail where the compact logo will render, creating a possible logo legibility risk.",
+      "Headline is clean but generic for WebbAlign; stronger DOK/alignment language could improve brand specificity in-feed."
+    ],
+    "failureModes": [
+      {
+        "id": "logo_contrast_over_busy_art",
+        "severity": "warn",
+        "introducedAt": "imageJob",
+        "missedBy": "visualQa",
+        "message": "Top-left art contains busy teal/yellow grid detail where the compact logo will render, creating a possible logo legibility risk."
+      },
+      {
+        "id": "broad_primary_headline",
+        "severity": "warn",
+        "introducedAt": "fitCopy",
+        "missedBy": "copyQualityQa",
+        "message": "Headline is clean but generic for WebbAlign; stronger DOK/alignment language could improve brand specificity in-feed."
+      }
+    ],
+    "metrics": {
+      "enabled": true,
+      "model": "gpt-5.5",
+      "imageIncluded": true,
+      "deterministicScores": {
+        "sendability": 95,
+        "layoutQa": 99,
+        "copyQualityQa": 88,
+        "visualQa": 84,
+        "renderQa": 98
+      }
+    }
+  },
+  "failureModes": [
+    {
+      "id": "repetitive_generated_copy",
+      "severity": "warn",
+      "introducedAt": "generateCopy",
+      "missedBy": "fitCopy",
+      "message": "Generated copy repeats the same source idea across body, subhead, or bullets before copy-fit."
+    },
+    {
+      "id": "missing_visual_avoid_guardrails",
+      "severity": "warn",
+      "introducedAt": "buildImagePrompt",
+      "missedBy": "visualQa",
+      "message": "WebbAlign visual prompt is missing avoid guardrail(s): generic classroom."
+    },
+    {
+      "id": "logo_contrast_over_busy_art",
+      "severity": "warn",
+      "introducedAt": "imageJob",
+      "missedBy": "visualQa",
+      "message": "Top-left art contains busy teal/yellow grid detail where the compact logo will render, creating a possible logo legibility risk."
+    },
+    {
+      "id": "broad_primary_headline",
+      "severity": "warn",
+      "introducedAt": "fitCopy",
+      "missedBy": "copyQualityQa",
+      "message": "Headline is clean but generic for WebbAlign; stronger DOK/alignment language could improve brand specificity in-feed."
+    }
+  ],
+  "artPlatePromptVersion": "design-comp-v1",
+  "layoutContract": {
+    "artifactType": "social-graphic",
+    "canvas": "1024x1024, 1:1 square social campaign tile",
+    "safeZones": [
+      "Keep important visual detail away from the outer 96px crop edge.",
+      "Use a strong central subject or visual rhythm that supports a social headline.",
+      "Avoid tiny details that collapse at feed size."
+    ],
+    "exactTextPriority": [
+      "Build a more coherent learning system",
+      "For curriculum teams",
+      "Contact WebbAlign",
+      "WebbAlign works in collaboration with Dr. Norman Webb, developer of",
+      "Evaluate standards, objectives, assessments, curricula, and materials."
+    ],
+    "appOwnedElements": [
+      "Deterministic social announcement composition.",
+      "Exact headline, audience, CTA, and review state."
+    ],
+    "imageGenOwnedElements": [
+      "Text-free square campaign art plate.",
+      "Premium abstract or editorial education-sector atmosphere.",
+      "Color, texture, photography or illustration, and crop energy only."
+    ]
+  },
+  "imagePrompts": [
+    "CONTRACT=design-comp-v1\nMODE=design-comp-art-plate\nINTENT={out:social-graphic, brand:WebbAlign, aud:curriculum teams, theme:[alignment | across | standards | assessments | curricula | instructional], tone:precise, professional, systems-oriented, ground:strict}\nCANVAS=1024x1024, 1:1 square social campaign tile\nFORMAT=1:1 art plate for a social announcement; never brochure/flyer/one-pager/handout/webpage/contact card.\nDESIGN_RECIPE={id:social-poster; text_zone:center; visual_zone:background; density:minimal; hierarchy:bold square social hierarchy: one dominant coherence message, concise credibility line, and small CTA rendered by the app; art:modern WebbAlign social poster for curriculum teams, using abstract curriculum-alignment pathways, calibrated DOK depth layers, and; placeholder:create a calm center/lower reading field through tonal contrast, soft depth, and directional framing; no fake copy, logos, labels; app_comp:app renders official compact logo top-left, centered/lower headline and support line, and bottom-left CTA chip over the generated; directives:[Design a complete 1:1 social poster concept, not a decorative background. | Use abstract alignment grids, pathways, and depth layers to signal coherent | Keep the center/lower area quiet and high-contrast for app-rendered text. | Frame the message with visual energy while avoiding fake typography, logos]}\nBRAND={pal:[#142836 | #0081A4 | #3EB3BD | #F7D470], visual:[curriculum team reviewing standards | assessment materials arranged for analysis | facilitated workshop table], evid_ids:[webbalign-evaluate]}\nBRAND_BOUNDARY={keep:[DOK | Depth of Knowledge | standards | learning objectives]; avoid_sibling:[CARE Coaching | CCNA | CALL | WIDA PRIME | leadership for learning]; parent_context:[WCEPS]}\nBRAND_VISUAL_PROFILE={show:[curriculum team reviewing standards | assessment and learning objective alignment | instructional materials analysis | DOK calibration workshop table]; props:[standards documents with unreadable text | curriculum maps without labels | assessment packets]; avoid:[generic school hallway | random classroom scene | fake DOK diagram with labels | readable charts]; app_owned:[WebbAlign logo | DOK language | headline]; tone:[analytical | clear | calibrated | curriculum-focused | expert]; fit:bold alignment/DOK cue without fake diagrams or labels}\nLOGO=do not render any WebbAlign logo, wordmark, brand initials, logo-like mark, chevron/mountain mark, arrow mark, or background logo pattern; app renders exact brand mark.\nMARKS_RULE=official logos, seals, badges, CTAs, headlines, labels, and readable copy are app-owned; do not invent or render them in the art plate.\nOWN=app:[Deterministic social announcement composition. | Exact headline, audience, CTA, and review state.]; imagegen:[Text-free square campaign art plate. | Premium abstract or editorial education-sector atmosphere. | Color, texture, photography or illustration, and crop energy].\nCROP_SAFE=[Keep important visual detail away from the outer 96px crop | Use a strong central subject or visual rhythm that supports a | Avoid tiny details that collapse at feed size.]\nMESSAGE_CUES=[headline_theme:alignment/across/standards | audience:16 chars | cta_intent:contact/webbalign | proof_volume:minimal]; mood/subject only, never words/layout.\nREFS=none; references only.\nUSER_NOTE=Avoid implying compliance approval.\nART=edge-to-edge social campaign art plate with bold color movement, editorial depth, no text, no UI, no layout boxes; NY media/ad-agency quality, full designed concept with visual hierarchy, type-safe contrast zones, premium atmosphere, layered depth, non-generic education storytelling, intentional crop.\nVISUAL_STYLE=authentic editorial photography or refined abstract-illustrative atmosphere; avoid posed training-room stock, washed-out empty fades, generic meeting-table cliches, literal brand-shape wallpaper.\nCOMPOSITION=ImageGen creates a full artifact design comp: composition, crop, hierarchy, contrast, visual rhythm, and type-safe zones. The app renders exact typography, official logo, proof copy, CTA, source evidence, and export.\nTEXT_RULE=absolutely no readable text, letters, numbers, labels, fake paragraphs, book titles, publisher names, email addresses, URLs, phone numbers, citations, or lorem ipsum; imply text areas through composition only.\nNO=document layouts, panels, blank boxes, placeholder modules, mock UI, cards, fake text, fake charts, icons with labels, contact bars, duplicate logos, fake logos, fake seals, fake badges, fake book titles, fake publisher brands, logo-like marks, wordmarks, chevrons, arrows, mountain logos, malformed UI, brochure scaffolding, invented claims, endorsement imagery, close-up faces, detailed hands, stock-photo workshop posing.\nQUALITY=best over fast; polished design-comp art plate, no template scaffolding.",
+    "CONTRACT=design-comp-v1\nMODE=design-comp-art-plate\nINTENT={out:social-graphic, brand:WebbAlign, aud:curriculum teams, theme:[alignment | across | standards | assessments | curricula | instructional], tone:precise, professional, systems-oriented, ground:strict}\nCANVAS=1024x1024, 1:1 square social campaign tile\nFORMAT=1:1 art plate for a social announcement; never brochure/flyer/one-pager/handout/webpage/contact card.\nDESIGN_RECIPE={id:social-poster; text_zone:center; visual_zone:background; density:minimal; hierarchy:bold square social hierarchy: one dominant coherence message, concise credibility line, and small CTA rendered by the app; art:modern WebbAlign social poster for curriculum teams, using abstract curriculum-alignment pathways, calibrated DOK depth layers, and; placeholder:create a calm center/lower reading field through tonal contrast, soft depth, and directional framing; no fake copy, logos, labels; app_comp:app renders official compact logo top-left, centered/lower headline and support line, and bottom-left CTA chip over the generated; directives:[Design a complete 1:1 social poster concept, not a decorative background. | Use abstract alignment grids, pathways, and depth layers to signal coherent | Keep the center/lower area quiet and high-contrast for app-rendered text. | Frame the message with visual energy while avoiding fake typography, logos]}\nBRAND={pal:[#142836 | #0081A4 | #3EB3BD | #F7D470], visual:[curriculum team reviewing standards | assessment materials arranged for analysis | facilitated workshop table], evid_ids:[webbalign-evaluate]}\nBRAND_BOUNDARY={keep:[DOK | Depth of Knowledge | standards | learning objectives]; avoid_sibling:[CARE Coaching | CCNA | CALL | WIDA PRIME | leadership for learning]; parent_context:[WCEPS]}\nBRAND_VISUAL_PROFILE={show:[curriculum team reviewing standards | assessment and learning objective alignment | instructional materials analysis | DOK calibration workshop table]; props:[standards documents with unreadable text | curriculum maps without labels | assessment packets]; avoid:[generic school hallway | random classroom scene | fake DOK diagram with labels | readable charts]; app_owned:[WebbAlign logo | DOK language | headline]; tone:[analytical | clear | calibrated | curriculum-focused | expert]; fit:bold alignment/DOK cue without fake diagrams or labels}\nLOGO=do not render any WebbAlign logo, wordmark, brand initials, logo-like mark, chevron/mountain mark, arrow mark, or background logo pattern; app renders exact brand mark.\nMARKS_RULE=official logos, seals, badges, CTAs, headlines, labels, and readable copy are app-owned; do not invent or render them in the art plate.\nOWN=app:[Deterministic social announcement composition. | Exact headline, audience, CTA, and review state.]; imagegen:[Text-free square campaign art plate. | Premium abstract or editorial education-sector atmosphere. | Color, texture, photography or illustration, and crop energy].\nCROP_SAFE=[Keep important visual detail away from the outer 96px crop | Use a strong central subject or visual rhythm that supports a | Avoid tiny details that collapse at feed size.]\nMESSAGE_CUES=[headline_theme:alignment/across/standards | audience:16 chars | cta_intent:contact/webbalign | proof_volume:minimal]; mood/subject only, never words/layout.\nREFS=none; references only.\nUSER_NOTE=Avoid implying compliance approval.\nART=premium square education-sector atmosphere with sophisticated crop, human warmth, no typography or brand marks; NY media/ad-agency quality, full designed concept with visual hierarchy, type-safe contrast zones, premium atmosphere, layered depth, non-generic education storytelling, intentional crop.\nVISUAL_STYLE=authentic editorial photography or refined abstract-illustrative atmosphere; avoid posed training-room stock, washed-out empty fades, generic meeting-table cliches, literal brand-shape wallpaper.\nCOMPOSITION=ImageGen creates a full artifact design comp: composition, crop, hierarchy, contrast, visual rhythm, and type-safe zones. The app renders exact typography, official logo, proof copy, CTA, source evidence, and export.\nTEXT_RULE=absolutely no readable text, letters, numbers, labels, fake paragraphs, book titles, publisher names, email addresses, URLs, phone numbers, citations, or lorem ipsum; imply text areas through composition only.\nNO=document layouts, panels, blank boxes, placeholder modules, mock UI, cards, fake text, fake charts, icons with labels, contact bars, duplicate logos, fake logos, fake seals, fake badges, fake book titles, fake publisher brands, logo-like marks, wordmarks, chevrons, arrows, mountain logos, malformed UI, brochure scaffolding, invented claims, endorsement imagery, close-up faces, detailed hands, stock-photo workshop posing.\nQUALITY=best over fast; polished design-comp art plate, no template scaffolding.",
+    "CONTRACT=design-comp-v1\nMODE=design-comp-art-plate\nINTENT={out:social-graphic, brand:WebbAlign, aud:curriculum teams, theme:[alignment | across | standards | assessments | curricula | instructional], tone:precise, professional, systems-oriented, ground:strict}\nCANVAS=1024x1024, 1:1 square social campaign tile\nFORMAT=1:1 art plate for a social announcement; never brochure/flyer/one-pager/handout/webpage/contact card.\nDESIGN_RECIPE={id:social-poster; text_zone:center; visual_zone:background; density:minimal; hierarchy:bold square social hierarchy: one dominant coherence message, concise credibility line, and small CTA rendered by the app; art:modern WebbAlign social poster for curriculum teams, using abstract curriculum-alignment pathways, calibrated DOK depth layers, and; placeholder:create a calm center/lower reading field through tonal contrast, soft depth, and directional framing; no fake copy, logos, labels; app_comp:app renders official compact logo top-left, centered/lower headline and support line, and bottom-left CTA chip over the generated; directives:[Design a complete 1:1 social poster concept, not a decorative background. | Use abstract alignment grids, pathways, and depth layers to signal coherent | Keep the center/lower area quiet and high-contrast for app-rendered text. | Frame the message with visual energy while avoiding fake typography, logos]}\nBRAND={pal:[#142836 | #0081A4 | #3EB3BD | #F7D470], visual:[curriculum team reviewing standards | assessment materials arranged for analysis | facilitated workshop table], evid_ids:[webbalign-evaluate]}\nBRAND_BOUNDARY={keep:[DOK | Depth of Knowledge | standards | learning objectives]; avoid_sibling:[CARE Coaching | CCNA | CALL | WIDA PRIME | leadership for learning]; parent_context:[WCEPS]}\nBRAND_VISUAL_PROFILE={show:[curriculum team reviewing standards | assessment and learning objective alignment | instructional materials analysis | DOK calibration workshop table]; props:[standards documents with unreadable text | curriculum maps without labels | assessment packets]; avoid:[generic school hallway | random classroom scene | fake DOK diagram with labels | readable charts]; app_owned:[WebbAlign logo | DOK language | headline]; tone:[analytical | clear | calibrated | curriculum-focused | expert]; fit:bold alignment/DOK cue without fake diagrams or labels}\nLOGO=do not render any WebbAlign logo, wordmark, brand initials, logo-like mark, chevron/mountain mark, arrow mark, or background logo pattern; app renders exact brand mark.\nMARKS_RULE=official logos, seals, badges, CTAs, headlines, labels, and readable copy are app-owned; do not invent or render them in the art plate.\nOWN=app:[Deterministic social announcement composition. | Exact headline, audience, CTA, and review state.]; imagegen:[Text-free square campaign art plate. | Premium abstract or editorial education-sector atmosphere. | Color, texture, photography or illustration, and crop energy].\nCROP_SAFE=[Keep important visual detail away from the outer 96px crop | Use a strong central subject or visual rhythm that supports a | Avoid tiny details that collapse at feed size.]\nMESSAGE_CUES=[headline_theme:alignment/across/standards | audience:16 chars | cta_intent:contact/webbalign | proof_volume:minimal]; mood/subject only, never words/layout.\nREFS=none; references only.\nUSER_NOTE=Avoid implying compliance approval.\nART=modern abstract education campaign energy for a feed tile, no brochure, no document elements, no fake symbols; NY media/ad-agency quality, full designed concept with visual hierarchy, type-safe contrast zones, premium atmosphere, layered depth, non-generic education storytelling, intentional crop.\nVISUAL_STYLE=authentic editorial photography or refined abstract-illustrative atmosphere; avoid posed training-room stock, washed-out empty fades, generic meeting-table cliches, literal brand-shape wallpaper.\nCOMPOSITION=ImageGen creates a full artifact design comp: composition, crop, hierarchy, contrast, visual rhythm, and type-safe zones. The app renders exact typography, official logo, proof copy, CTA, source evidence, and export.\nTEXT_RULE=absolutely no readable text, letters, numbers, labels, fake paragraphs, book titles, publisher names, email addresses, URLs, phone numbers, citations, or lorem ipsum; imply text areas through composition only.\nNO=document layouts, panels, blank boxes, placeholder modules, mock UI, cards, fake text, fake charts, icons with labels, contact bars, duplicate logos, fake logos, fake seals, fake badges, fake book titles, fake publisher brands, logo-like marks, wordmarks, chevrons, arrows, mountain logos, malformed UI, brochure scaffolding, invented claims, endorsement imagery, close-up faces, detailed hands, stock-photo workshop posing.\nQUALITY=best over fast; polished design-comp art plate, no template scaffolding."
+  ],
+  "imageResults": [
+    {
+      "prompt": "CONTRACT=design-comp-v1\nMODE=design-comp-art-plate\nINTENT={out:social-graphic, brand:WebbAlign, aud:curriculum teams, theme:[alignment | across | standards | assessments | curricula | instructional], tone:precise, professional, systems-oriented, ground:strict}\nCANVAS=1024x1024, 1:1 square social campaign tile\nFORMAT=1:1 art plate for a social announcement; never brochure/flyer/one-pager/handout/webpage/contact card.\nDESIGN_RECIPE={id:social-poster; text_zone:center; visual_zone:background; density:minimal; hierarchy:bold square social hierarchy: one dominant coherence message, concise credibility line, and small CTA rendered by the app; art:modern WebbAlign social poster for curriculum teams, using abstract curriculum-alignment pathways, calibrated DOK depth layers, and; placeholder:create a calm center/lower reading field through tonal contrast, soft depth, and directional framing; no fake copy, logos, labels; app_comp:app renders official compact logo top-left, centered/lower headline and support line, and bottom-left CTA chip over the generated; directives:[Design a complete 1:1 social poster concept, not a decorative background. | Use abstract alignment grids, pathways, and depth layers to signal coherent | Keep the center/lower area quiet and high-contrast for app-rendered text. | Frame the message with visual energy while avoiding fake typography, logos]}\nBRAND={pal:[#142836 | #0081A4 | #3EB3BD | #F7D470], visual:[curriculum team reviewing standards | assessment materials arranged for analysis | facilitated workshop table], evid_ids:[webbalign-evaluate]}\nBRAND_BOUNDARY={keep:[DOK | Depth of Knowledge | standards | learning objectives]; avoid_sibling:[CARE Coaching | CCNA | CALL | WIDA PRIME | leadership for learning]; parent_context:[WCEPS]}\nBRAND_VISUAL_PROFILE={show:[curriculum team reviewing standards | assessment and learning objective alignment | instructional materials analysis | DOK calibration workshop table]; props:[standards documents with unreadable text | curriculum maps without labels | assessment packets]; avoid:[generic school hallway | random classroom scene | fake DOK diagram with labels | readable charts]; app_owned:[WebbAlign logo | DOK language | headline]; tone:[analytical | clear | calibrated | curriculum-focused | expert]; fit:bold alignment/DOK cue without fake diagrams or labels}\nLOGO=do not render any WebbAlign logo, wordmark, brand initials, logo-like mark, chevron/mountain mark, arrow mark, or background logo pattern; app renders exact brand mark.\nMARKS_RULE=official logos, seals, badges, CTAs, headlines, labels, and readable copy are app-owned; do not invent or render them in the art plate.\nOWN=app:[Deterministic social announcement composition. | Exact headline, audience, CTA, and review state.]; imagegen:[Text-free square campaign art plate. | Premium abstract or editorial education-sector atmosphere. | Color, texture, photography or illustration, and crop energy].\nCROP_SAFE=[Keep important visual detail away from the outer 96px crop | Use a strong central subject or visual rhythm that supports a | Avoid tiny details that collapse at feed size.]\nMESSAGE_CUES=[headline_theme:alignment/across/standards | audience:16 chars | cta_intent:contact/webbalign | proof_volume:minimal]; mood/subject only, never words/layout.\nREFS=none; references only.\nUSER_NOTE=Avoid implying compliance approval.\nART=edge-to-edge social campaign art plate with bold color movement, editorial depth, no text, no UI, no layout boxes; NY media/ad-agency quality, full designed concept with visual hierarchy, type-safe contrast zones, premium atmosphere, layered depth, non-generic education storytelling, intentional crop.\nVISUAL_STYLE=authentic editorial photography or refined abstract-illustrative atmosphere; avoid posed training-room stock, washed-out empty fades, generic meeting-table cliches, literal brand-shape wallpaper.\nCOMPOSITION=ImageGen creates a full artifact design comp: composition, crop, hierarchy, contrast, visual rhythm, and type-safe zones. The app renders exact typography, official logo, proof copy, CTA, source evidence, and export.\nTEXT_RULE=absolutely no readable text, letters, numbers, labels, fake paragraphs, book titles, publisher names, email addresses, URLs, phone numbers, citations, or lorem ipsum; imply text areas through composition only.\nNO=document layouts, panels, blank boxes, placeholder modules, mock UI, cards, fake text, fake charts, icons with labels, contact bars, duplicate logos, fake logos, fake seals, fake badges, fake book titles, fake publisher brands, logo-like marks, wordmarks, chevrons, arrows, mountain logos, malformed UI, brochure scaffolding, invented claims, endorsement imagery, close-up faces, detailed hands, stock-photo workshop posing.\nQUALITY=best over fast; polished design-comp art plate, no template scaffolding.",
+      "model": "gpt-image-2",
+      "size": "1024x1024",
+      "quality": "high",
+      "outputFormat": "webp",
+      "outputCompression": 70,
+      "dataUrl": "images/draft-20260425005121-9pnal9-1.webp",
+      "revisedPrompt": "Create a 1024x1024 square social campaign art plate for WebbAlign, edge-to-edge, text-free, no logo, no marks, no readable letters or numbers. Premium modern editorial/abstract education-sector poster for curriculum teams focused on coherent alignment across standards, assessments, curricula, and instruction. Visual concept: a calm, high-contrast center/lower reading field reserved for app-rendered headline and support line, framed by dynamic abstract curriculum-alignment pathways and calibrated depth layers. Use bold color movement with WebbAlign palette: deep navy #142836, teal #0081A4, aqua #3EB3BD, warm yellow #F7D470. Composition should feel precise, analytical, calibrated, systems-oriented, and professional.\n\nBackground visual zone: layered translucent grids, pathways, and depth planes suggesting curriculum maps, standards documents, assessment packets, and instructional materials analysis, but without any readable text, labels, charts, diagrams, icons, arrows, chevrons, badges, or UI. Subtle editorial tabletop/workshop atmosphere may be implied through abstracted papers and packets with blurred/unreadable markings, soft shadows, and depth of field; avoid close-up faces and detailed hands. Keep important visual detail away from outer 96px crop. Maintain strong visual hierarchy: energetic framing around edges and upper area, quiet center/lower tonal contrast area for app typography, small bottom-left space suitable for CTA overlay. No fake copy, no document layouts, no panels, no blank boxes, no placeholder modules, no stock-photo workshop posing, no generic classroom/hallway, no literal DOK diagram, no compliance approval implication. NY media/ad-agency quality, polished design-comp art plate, refined abstract-illustrative/editorial atmosphere, intentional crop and premium texture.",
+      "jobId": "resp_026227c3f232b1960069ec1009daac819694fc0fef5e2fb60d",
+      "braintrustTrace": {
+        "rowId": "e5370d8a-5c11-431b-af8b-9f9725d4d46c",
+        "spanId": "608745a9-6862-4557-a690-352e96b7c6ac",
+        "rootSpanId": "247e2202-64b4-4f0e-9901-9cae1014f3b9",
+        "link": "https://www.braintrust.dev/app/WCEPS/object?object_type=project_logs&object_id=671b57c6-229b-4f25-8cf2-67fc0f36e120&id=e5370d8a-5c11-431b-af8b-9f9725d4d46c"
+      }
+    }
+  ],
+  "pipelineTrace": {
+    "version": "design-comp-v1",
+    "mode": "design-comp",
+    "promptLength": 4857,
+    "promptTokenBudget": 5200,
+    "evidenceIds": [
+      "webbalign-evaluate"
+    ],
+    "logoAsset": {
+      "label": "Horizontal full color · transparent · light/image backgrounds",
+      "publicPath": "/brand-logos/webbalign/webbalign.png",
+      "sourceUrl": "https://d2nms5m2lns5tc.cloudfront.net/assets/webbalign/WebbAlign_logo-b2e8d921159d6097f15e3862e38b8f512a7a274b0d76a897d2019ee650a07a85.png"
+    },
+    "contextAttachmentNames": [],
+    "retryCount": 0,
+    "braintrustTrace": {
+      "rowId": "cb0b7d6a-b2ef-4d32-8c82-f53402f23d12",
+      "spanId": "247e2202-64b4-4f0e-9901-9cae1014f3b9",
+      "rootSpanId": "247e2202-64b4-4f0e-9901-9cae1014f3b9",
+      "link": "https://www.braintrust.dev/app/WCEPS/object?object_type=project_logs&object_id=671b57c6-229b-4f25-8cf2-67fc0f36e120&id=cb0b7d6a-b2ef-4d32-8c82-f53402f23d12"
+    }
+  },
+  "critique": {
+    "status": "warn",
+    "issues": [],
+    "warnings": [
+      "WebbAlign prompt is missing avoid guardrail(s): generic classroom."
+    ],
+    "suggestedFixes": [
+      "Revise composition until the sendability score passes the WCEPS review threshold."
+    ]
+  },
+  "review": {
+    "approved": false,
+    "status": "warn",
+    "issues": [],
+    "warnings": [
+      "WebbAlign prompt is missing avoid guardrail(s): generic classroom.",
+      "Copy QA: Generated copy repeats the same source idea across body, subhead, or bullets before copy-fit.",
+      "Visual QA: WebbAlign visual prompt is missing avoid guardrail(s): generic classroom.",
+      "Model QA: Top-left art contains busy teal/yellow grid detail where the compact logo will render, creating a possible logo legibility risk.",
+      "Model QA: Headline is clean but generic for WebbAlign; stronger DOK/alignment language could improve brand specificity in-feed."
+    ],
+    "suggestedFixes": [
+      "Revise composition until the sendability score passes the WCEPS review threshold."
+    ]
+  },
+  "request": {
+    "artifactType": "social-graphic",
+    "brand": "WebbAlign",
+    "audience": "curriculum teams",
+    "keyMessage": "",
+    "goal": "invite teams to strengthen alignment conversations",
+    "topic": "DOK alignment across standards, assessments, curricula, and instructional materials",
+    "cta": "Contact WebbAlign",
+    "format": "Social square 1:1",
+    "toneModifier": "precise, professional, systems-oriented",
+    "notes": "Avoid implying compliance approval.",
+    "visualInstruction": "",
+    "logoVariant": "",
+    "colorTheme": "",
+    "contextAttachments": [],
+    "strictlySourceGrounded": true,
+    "generateVisual": true
+  },
+  "sourceEvidence": [
+    {
+      "id": "webbalign-home-source",
+      "url": "https://www.webbalign.org/",
+      "excerpt": "In collaboration with Dr. Norman Webb, the developer of Depth of Knowledge (DOK), we promote effective and accurate use of this innovative language system.",
+      "label": "WebbAlign homepage positioning"
+    },
+    {
+      "id": "webbalign-evaluate",
+      "url": "https://www.webbalign.org/",
+      "excerpt": "Our team helps you use the lens of DOK to evaluate standards, learning objectives, assessments, curricula, and instructional materials to work toward an aligned, or coherent, system.",
+      "label": "WebbAlign evaluation areas"
+    },
+    {
+      "id": "webbalign-districts",
+      "url": "https://www.webbalign.org/services/districts-educators",
+      "excerpt": "Structuring conversations about cognitive complexity through the lens of DOK leads to rich conversations that enhance understanding of academic expectations and tasks.",
+      "label": "Districts and educators page"
+    },
+    {
+      "id": "webbalign-professional-learning",
+      "url": "https://www.webbalign.org/services/districts-educators",
+      "excerpt": "We offer online, onsite, and hybrid sessions tailored to your team's needs.",
+      "label": "Professional learning format"
+    }
+  ],
+  "createdAt": "2026-04-25T00:51:21.638Z",
+  "updatedAt": "2026-04-25T00:54:21.951Z"
+}

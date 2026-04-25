@@ -72,7 +72,7 @@ export async function generateArtifactInTrace(input: unknown, span?: Span): Prom
     const imagePrompts = promptContracts.map((contract) => contract.prompt);
     const imageResults: NonNullable<GeneratedArtifact["imageResults"]> = await traceBraintrustStep(
       span,
-      "imageJob",
+      "initializeImageSlot",
       { input: { generateVisual: request.generateVisual, promptCount: imagePrompts.length } },
       (): NonNullable<GeneratedArtifact["imageResults"]> => [],
     );

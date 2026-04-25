@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shared starting points for improving instruction</title>
+  <style>
+    :root { --navy: #142836; --blue: #0081A4; --teal: #3EB3BD; --green: #5EA974; --paper: #EAF7F8; --ink: #20252A; --accent: #F7D470; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: Montserrat, Arial, sans-serif; letter-spacing: 0; }
+    main { max-width: 960px; margin: 0 auto; padding: 48px 24px; }
+    .artifact { position: relative; min-height: 760px; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 18px 50px rgba(20,40,54,.12); }
+    .artifact.social-announcement { max-width: 720px; min-height: 720px; aspect-ratio: 1 / 1; }
+    .artifact.email-hero { max-width: 680px; min-height: auto; }
+    .hero { position: relative; min-height: 420px; background: var(--navy); color: white; overflow: hidden; }
+    .hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .72; }
+    .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(20,40,54,.9), rgba(20,40,54,.48), rgba(20,40,54,.06)); }
+    .campaign-flyer .hero::after { background: linear-gradient(90deg, #fff 0%, rgba(255,255,255,.98) 34%, rgba(255,255,255,.78) 53%, rgba(255,255,255,.22) 74%, rgba(255,255,255,0) 100%); }
+    .hero-inner { position: relative; z-index: 1; display: grid; align-content: space-between; gap: 40px; min-height: 760px; padding: 52px; max-width: 680px; }
+    .campaign-flyer .hero-inner { align-content: start; gap: 28px; max-width: 78%; color: var(--ink); padding: 44px; }
+    .eyebrow { margin: 0 0 12px; color: #b7edf1; font-size: 12px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+    .campaign-flyer .eyebrow { color: var(--blue); }
+    h1 { margin: 0; max-width: 680px; font-size: 58px; line-height: .95; font-weight: 900; }
+    .campaign-flyer h1 { color: #142836; font-size: 48px; line-height: .96; }
+    .headline-line { display: block; white-space: nowrap; }
+    .subtitle { max-width: 600px; margin: 18px 0 0; font-size: 20px; line-height: 1.55; color: #e7f2f4; font-weight: 600; }
+    .campaign-flyer .subtitle { color: #475569; font-weight: 650; }
+    .brand-logo { display: block; max-width: 220px; max-height: 64px; object-fit: contain; }
+    .logo-plate { display: inline-block; width: auto; height: auto; max-width: 244px; max-height: 88px; padding: 10px 12px; border-radius: 8px; background: rgba(255,255,255,.94); box-shadow: 0 2px 10px rgba(15,23,42,.08); }
+    .proofs { display: grid; gap: 12px; list-style: none; margin: 0 0 18px; padding: 18px 0 0; max-width: 620px; border-top: 1px solid rgba(255,255,255,.35); }
+    .proof-item { display: grid; grid-template-columns: 34px 1fr; gap: 12px; align-items: start; color: rgba(255,255,255,.88); }
+    .proof-item span { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 999px; background: rgba(255,255,255,.16); color: white; font-size: 11px; font-weight: 900; }
+    .proof-item p { margin: 0; font-size: 15px; font-weight: 700; line-height: 1.5; }
+    .flyer-subpoints { display: grid; gap: 12px; list-style: none; margin: 0 0 18px; padding: 18px 0 0; max-width: 430px; border-top: 1px solid rgba(148,163,184,.65); }
+    .flyer-subpoint { position: relative; padding-left: 20px; color: #26384A; font-size: 15px; font-weight: 850; line-height: 1.55; }
+    .flyer-subpoint::before { content: ""; position: absolute; left: 0; top: 7px; width: 11px; height: 11px; border-radius: 999px; background: var(--accent); }
+    .cta { display: inline-block; width: fit-content; border-radius: 999px; background: var(--blue); color: white; padding: 12px 18px; font-weight: 700; }
+    .cta-detail { margin: 10px 0 0; color: #64748b; font-size: 12px; font-weight: 650; }
+    .footer { padding: 18px 44px; color: #667085; font-size: 13px; }
+  </style>
+</head>
+<body>
+  <main>
+    <article class="artifact magazine-one-pager" data-design-recipe="proof-band">
+      <section class="hero">
+        <img class="hero-img" src="../images/draft-20260425005455-iiwval-1.webp" alt="CCNA generated visual" />
+        <div class="hero-inner">
+          <div>
+            <img class="brand-logo logo-plate" src="/brand-logos/ccna/care-coaching-logo-horizontal-fullcolor-notag.svg" alt="CCNA logo" />
+          </div>
+          <div>
+            <p class="eyebrow">For district EL leaders</p>
+            <h1><span>Shared starting points for improving instruction</span></h1>
+            <p class="subtitle">Use action-based data to guide school improvement and professional development planning.</p>
+          </div>
+          <div>
+            <ul class="proofs"><li class="proof-item"><span>01</span><p>Identify strengths and growth areas across school-wide practices.</p></li><li class="proof-item"><span>02</span><p>Focus on planning, collaboration, feedback, and leadership routines that influence teaching.</p></li><li class="proof-item"><span>03</span><p>Support multilingual learners with strategies that also benefit all students.</p></li></ul>
+            <a class="cta" href="#">Discuss next steps</a>
+            <p class="cta-detail">Email Yvonne.Williams@wceps.org</p>
+          </div>
+        </div>
+      </section>
+      
+    </article>
+  </main>
+</body>
+</html>

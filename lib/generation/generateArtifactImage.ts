@@ -25,6 +25,8 @@ function imageJobTraceEvent(artifact: GeneratedArtifact, prompt: string, options
   const quality = options.quality ?? "high";
   const outputFormat = options.outputFormat ?? process.env.OPENAI_IMAGE_OUTPUT_FORMAT ?? "webp";
   const outputCompression = options.outputCompression ?? process.env.OPENAI_IMAGE_OUTPUT_COMPRESSION ?? 70;
+  const imageModel = process.env.OPENAI_IMAGE_MODEL ?? "gpt-image-2";
+  const responsesModel = process.env.OPENAI_RESPONSES_MODEL ?? "gpt-5.5";
 
   return {
     size,
@@ -37,6 +39,8 @@ function imageJobTraceEvent(artifact: GeneratedArtifact, prompt: string, options
         brand: artifact.brand,
         artifactType: artifact.artifactType,
         prompt,
+        responsesModel,
+        imageModel,
         size,
         quality,
         outputFormat,
@@ -47,6 +51,10 @@ function imageJobTraceEvent(artifact: GeneratedArtifact, prompt: string, options
         brand: artifact.brand,
         artifactType: artifact.artifactType,
         promptVersion: artifact.artPlatePromptVersion,
+        responsesModel,
+        imageModel,
+        imageQuality: quality,
+        outputFormat,
       },
     },
   };
@@ -255,6 +263,11 @@ async function runImageJobForArtifact(
           status,
           pollCount,
           elapsedMs: Date.now() - startedAt,
+          responsesModel: start.responsesModel,
+          imageModel: start.imageConfig.model,
+          imageQuality: start.imageConfig.quality,
+          imageSize: start.imageConfig.size,
+          outputFormat: start.imageConfig.outputFormat,
         },
         scores: {
           imageAttached: imageResult?.dataUrl ? 1 : 0,

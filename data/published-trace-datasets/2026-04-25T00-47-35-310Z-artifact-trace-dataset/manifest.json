@@ -1,0 +1,1439 @@
+{
+  "datasetId": "2026-04-25T00-47-35-310Z-artifact-trace-dataset",
+  "createdAt": "2026-04-25T01:05:52.018Z",
+  "projectName": "Brand Building",
+  "orgName": "WCEPS",
+  "experimentName": "Artifact Trace Golden Dataset",
+  "artifactCount": 6,
+  "artifacts": [
+    {
+      "artifactId": "draft-20260425004811-m13tvp",
+      "sourceRequestId": "care-flyer-el-leaders",
+      "brand": "CARE Coaching",
+      "artifactType": "flyer",
+      "designRecipeId": "editorial-split",
+      "artifactFilePath": "/Users/mattmessinger/Documents/New project/wceps-branding-tool/data/trace-datasets/2026-04-25T00-47-35-310Z-artifact-trace-dataset/artifacts/draft-20260425004811-m13tvp.json",
+      "artifactFileRelativePath": "data/trace-datasets/2026-04-25T00-47-35-310Z-artifact-trace-dataset/artifacts/draft-20260425004811-m13tvp.json",
+      "artifactHtmlPath": "/Users/mattmessinger/Documents/New project/wceps-branding-tool/data/trace-datasets/2026-04-25T00-47-35-310Z-artifact-trace-dataset/html/draft-20260425004811-m13tvp.html",
+      "artifactHtmlRelativePath": "data/trace-datasets/2026-04-25T00-47-35-310Z-artifact-trace-dataset/html/draft-20260425004811-m13tvp.html",
+      "braintrust": {
+        "projectName": "Brand Building",
+        "orgName": "WCEPS",
+        "experimentName": "Artifact Trace Golden Dataset",
+        "traceName": "fullArtifactPipeline",
+        "loggingEnabled": true,
+        "rowId": "85743d05-7280-4355-992c-31b38eb377d4",
+        "spanId": "a53e63e1-6648-4efa-83d0-5eb9d3752e44",
+        "rootSpanId": "a53e63e1-6648-4efa-83d0-5eb9d3752e44",
+        "link": "https://www.braintrust.dev/app/WCEPS/object?object_type=project_logs&object_id=671b57c6-229b-4f25-8cf2-67fc0f36e120&id=85743d05-7280-4355-992c-31b38eb377d4",
+        "mode": "design-comp",
+        "promptVersion": "design-comp-v1",
+        "promptLength": 5326,
+        "promptTokenBudget": 6200,
+        "evidenceIds": [
+          "care-products",
+          "care-three-cs"
+        ],
+        "contextAttachmentNames": [],
+        "retryCount": 0,
+        "traceVersion": "design-comp-v1"
+      },
+      "imageJobs": [
+        {
+          "jobId": "resp_0bcfe197379a48120069ec0f4bd10c81a39f6f5df0e1c37432",
+          "model": "gpt-image-2",
+          "size": "1024x1536",
+          "quality": "high",
+          "outputFormat": "webp",
+          "link": "https://www.braintrust.dev/app/WCEPS/object?object_type=project_logs&object_id=671b57c6-229b-4f25-8cf2-67fc0f36e120&id=888151f4-17c7-49b4-8167-6095cd183c23"
+        }
+      ],
+      "layoutQa": {
+        "status": "pass",
+        "overall": 96,
+        "noTextOverflow": 100,
+        "noCtaCollision": 100,
+        "proofLineWidth": 78,
+        "logoOnce": 100,
+        "artifactFormatMatch": 100,
+        "exportReady": 96,
+        "sendability": 96,
+        "metrics": {
+          "headlineLines": 3,
+          "deckLines": 2,
+          "maxProofLines": 4,
+          "minProofCharsPerLine": 23,
+          "ctaLines": 1,
+          "estimatedCanvasOverflow": false
+        }
+      },
+      "copyQualityQa": {
+        "status": "warn",
+        "score": 88,
+        "issues": [],
+        "warnings": [
+          "Generated copy repeats the same source idea across body, subhead, or bullets before copy-fit."
+        ],
+        "failureModes": [
+          {
+            "id": "repetitive_generated_copy",
+            "severity": "warn",
+            "introducedAt": "generateCopy",
+            "missedBy": "fitCopy",
+            "message": "Generated copy repeats the same source idea across body, subhead, or bullets before copy-fit."
+          }
+        ],
+        "metrics": {
+          "fittedTextCount": 5,
+          "generatedTextCount": 8,
+          "missingPreferredTerms": [
+            "professional learning",
+            "reflect",
+            "customized support"
+          ]
+        }
+      },
+      "visualQa": {
+        "status": "warn",
+        "score": 82,
+        "issues": [],
+        "warnings": [
+          "CARE Coaching visual prompt is missing avoid guardrail(s): lecture hall, random books, fake chevron."
+        ],
+        "failureModes": [
+          {
+            "id": "missing_visual_avoid_guardrails",
+            "severity": "warn",
+            "introducedAt": "buildImagePrompt",
+            "missedBy": "visualQa",
+            "message": "CARE Coaching visual prompt is missing avoid guardrail(s): lecture hall, random books, fake chevron."
+          }
+        ],
+        "metrics": {
+          "hasGeneratedVisual": true,
+          "usesFallbackArt": false,
+          "missingArtPlate": false,
+          "darkEdgeBleedRisk": false,
+          "visualRelevance": 94,
+          "promptCount": 3,
+          "missingRequiredTerms": [],
+          "missingAvoidTerms": [
+            "lecture hall",
+            "random books",
+            "fake chevron"
+          ]
+        }
+      },
+      "renderQa": {
+        "status": "pass",
+        "score": 98,
+        "issues": [],
+        "warnings": [],
+        "failureModes": [],
+        "metrics": {
+          "templateId": "campaign-flyer",
+          "artifactType": "flyer",
+          "proofPointCount": 2,
+          "hasCtaDetail": false,
+          "inheritedBlockCount": 0,
+          "layoutQaStatus": "pass"
+        }
+      },
+      "modelQa": {
+        "status": "warn",
+        "score": 82,
+        "issues": [],
+        "warnings": [
+          "The fitted proof point “Provide source-grounded CARE Coaching support” is awkward, process-oriented, and not a persuasive audience benefit.",
+          "The copy relies on broad support language and repeats CARE Coaching terminology without enough concrete value for district EL leaders.",
+          "The CTA invites a conversation but provides no mechanism, URL, contact cue, or next-step detail for flyer export.",
+          "The art plate is polished and relevant, but maps, sticky notes, and books can read as generic multilingual/global education imagery rather than CARE-specific coaching."
+        ],
+        "failureModes": [
+          {
+            "id": "awkward_scaffolded_proof_copy",
+            "severity": "warn",
+            "introducedAt": "fitCopy",
+            "missedBy": "copyQualityQa",
+            "message": "The fitted proof point “Provide source-grounded CARE Coaching support” is awkward, process-oriented, and not a persuasive audience benefit."
+          },
+          {
+            "id": "generic_brand_specificity",
+            "severity": "warn",
+            "introducedAt": "generateCopy",
+            "missedBy": "copyQualityQa",
+            "message": "The copy relies on broad support language and repeats CARE Coaching terminology without enough concrete value for district EL leaders."
+          },
+          {
+            "id": "cta_missing_action_detail",
+            "severity": "warn",
+            "introducedAt": "fitCopy",
+            "missedBy": "renderQa",
+            "message": "The CTA invites a conversation but provides no mechanism, URL, contact cue, or next-step detail for flyer export."
+          },
+          {
+            "id": "generic_visual_cues",
+            "severity": "warn",
+            "introducedAt": "imageJob",
+            "missedBy": "visualQa",
+            "message": "The art plate is polished and relevant, but maps, sticky notes, and books can read as generic multilingual/global education imagery rather than CARE-specific coaching."
+          }
+        ],
+        "metrics": {
+          "enabled": true,
+          "model": "gpt-5.5",
+          "imageIncluded": true,
+          "deterministicScores": {
+            "sendability": 94,
+            "layoutQa": 96,
+            "copyQualityQa": 88,
+            "visualQa": 82,
+            "renderQa": 98
+          }
+        }
+      },
+      "failureModes": [
+        {
+          "id": "repetitive_generated_copy",
+          "severity": "warn",
+          "introducedAt": "generateCopy",
+          "missedBy": "fitCopy",
+          "message": "Generated copy repeats the same source idea across body, subhead, or bullets before copy-fit."
+        },
+        {
+          "id": "missing_visual_avoid_guardrails",
+          "severity": "warn",
+          "introducedAt": "buildImagePrompt",
+          "missedBy": "visualQa",
+          "message": "CARE Coaching visual prompt is missing avoid guardrail(s): lecture hall, random books, fake chevron."
+        },
+        {
+          "id": "awkward_scaffolded_proof_copy",
+          "severity": "warn",
+          "introducedAt": "fitCopy",
+          "missedBy": "copyQualityQa",
+          "message": "The fitted proof point “Provide source-grounded CARE Coaching support” is awkward, process-oriented, and not a persuasive audience benefit."
+        },
+        {
+          "id": "generic_brand_specificity",
+          "severity": "warn",
+          "introducedAt": "generateCopy",
+          "missedBy": "copyQualityQa",
+          "message": "The copy relies on broad support language and repeats CARE Coaching terminology without enough concrete value for district EL leaders."
+        },
+        {
+          "id": "cta_missing_action_detail",
+          "severity": "warn",
+          "introducedAt": "fitCopy",
+          "missedBy": "renderQa",
+          "message": "The CTA invites a conversation but provides no mechanism, URL, contact cue, or next-step detail for flyer export."
+        },
+        {
+          "id": "generic_visual_cues",
+          "severity": "warn",
+          "introducedAt": "imageJob",
+          "missedBy": "visualQa",
+          "message": "The art plate is polished and relevant, but maps, sticky notes, and books can read as generic multilingual/global education imagery rather than CARE-specific coaching."
+        }
+      ],
+      "review": {
+        "status": "warn",
+        "issues": [],
+        "warnings": [
+          "CARE Coaching prompt is missing avoid guardrail(s): lecture hall, random books, fake chevron.",
+          "Copy QA: Generated copy repeats the same source idea across body, subhead, or bullets before copy-fit.",
+          "Visual QA: CARE Coaching visual prompt is missing avoid guardrail(s): lecture hall, random books, fake chevron.",
+          "Model QA: The fitted proof point “Provide source-grounded CARE Coaching support” is awkward, process-oriented, and not a persuasive audience benefit.",
+          "Model QA: The copy relies on broad support language and repeats CARE Coaching terminology without enough concrete value for district EL leaders.",
+          "Model QA: The CTA invites a conversation but provides no mechanism, URL, contact cue, or next-step detail for flyer export.",
+          "Model QA: The art plate is polished and relevant, but maps, sticky notes, and books can read as generic multilingual/global education imagery rather than CARE-specific coaching."
+        ]
+      }
+    },
+    {
+      "artifactId": "draft-20260425005121-9pnal9",
+      "sourceRequestId": "webbalign-social-curriculum",
+      "brand": "WebbAlign",
+      "artifactType": "social-graphic",
+      "designRecipeId": "social-poster",
+      "artifactFilePath": "/Users/mattmessinger/Documents/New project/wceps-branding-tool/data/trace-datasets/2026-04-25T00-47-35-310Z-artifact-trace-dataset/artifacts/draft-20260425005121-9pnal9.json",
+      "artifactFileRelativePath": "data/trace-datasets/2026-04-25T00-47-35-310Z-artifact-trace-dataset/artifacts/draft-20260425005121-9pnal9.json",
+      "artifactHtmlPath": "/Users/mattmessinger/Documents/New project/wceps-branding-tool/data/trace-datasets/2026-04-25T00-47-35-310Z-artifact-trace-dataset/html/draft-20260425005121-9pnal9.html",
+      "artifactHtmlRelativePath": "data/trace-datasets/2026-04-25T00-47-35-310Z-artifact-trace-dataset/html/draft-20260425005121-9pnal9.html",
+      "braintrust": {
+        "projectName": "Brand Building",
+        "orgName": "WCEPS",
+        "experimentName": "Artifact Trace Golden Dataset",
+        "traceName": "fullArtifactPipeline",
+        "loggingEnabled": true,
+        "rowId": "cb0b7d6a-b2ef-4d32-8c82-f53402f23d12",
+        "spanId": "247e2202-64b4-4f0e-9901-9cae1014f3b9",
+        "rootSpanId": "247e2202-64b4-4f0e-9901-9cae1014f3b9",
+        "link": "https://www.braintrust.dev/app/WCEPS/object?object_type=project_logs&object_id=671b57c6-229b-4f25-8cf2-67fc0f36e120&id=cb0b7d6a-b2ef-4d32-8c82-f53402f23d12",
+        "mode": "design-comp",
+        "promptVersion": "design-comp-v1",
+        "promptLength": 4857,
+        "promptTokenBudget": 5200,
+        "evidenceIds": [
+          "webbalign-evaluate"
+        ],
+        "contextAttachmentNames": [],
+        "retryCount": 0,
+        "traceVersion": "design-comp-v1"
+      },
+      "imageJobs": [
+        {
+          "jobId": "resp_026227c3f232b1960069ec1009daac819694fc0fef5e2fb60d",
+          "model": "gpt-image-2",
+          "size": "1024x1024",
+          "quality": "high",
+          "outputFormat": "webp",
+          "link": "https://www.braintrust.dev/app/WCEPS/object?object_type=project_logs&object_id=671b57c6-229b-4f25-8cf2-67fc0f36e120&id=e5370d8a-5c11-431b-af8b-9f9725d4d46c"
+        }
+      ],
+      "layoutQa": {
+        "status": "pass",
+        "overall": 99,
+        "noTextOverflow": 100,
+        "noCtaCollision": 100,
+        "proofLineWidth": 96,
+        "logoOnce": 100,
+        "artifactFormatMatch": 100,
+        "exportReady": 99,
+        "sendability": 99,
+        "metrics": {
+          "headlineLines": 3,
+          "deckLines": 3,
+          "maxProofLines": 0,
+          "minProofCharsPerLine": 999,
+          "ctaLines": 1,
+          "estimatedCanvasOverflow": false
+        }
+      },
+      "copyQualityQa": {
+        "status": "warn",
+        "score": 88,
+        "issues": [],
+        "warnings": [
+          "Generated copy repeats the same source idea across body, subhead, or bullets before copy-fit."
+        ],
+        "failureModes": [
+          {
+            "id": "repetitive_generated_copy",
+            "severity": "warn",
+            "introducedAt": "generateCopy",
+            "missedBy": "fitCopy",
+            "message": "Generated copy repeats the same source idea across body, subhead, or bullets before copy-fit."
+          }
+        ],
+        "metrics": {
+          "fittedTextCount": 5,
+          "generatedTextCount": 9,
+          "missingPreferredTerms": [
+            "learning objectives",
+            "alignment",
+            "coherence"
+          ]
+        }
+      },
+      "visualQa": {
+        "status": "warn",
+        "score": 84,
+        "issues": [],
+        "warnings": [
+          "WebbAlign visual prompt is missing avoid guardrail(s): generic classroom."
+        ],
+        "failureModes": [
+          {
+            "id": "missing_visual_avoid_guardrails",
+            "severity": "warn",
+            "introducedAt": "buildImagePrompt",
+            "missedBy": "visualQa",
+            "message": "WebbAlign visual prompt is missing avoid guardrail(s): generic classroom."
+          }
+        ],
+        "metrics": {
+          "hasGeneratedVisual": true,
+          "usesFallbackArt": false,
+          "missingArtPlate": false,
+          "darkEdgeBleedRisk": false,
+          "visualRelevance": 96,
+          "promptCount": 3,
+          "missingRequiredTerms": [],
+          "missingAvoidTerms": [
+            "generic classroom"
+          ]
+        }
+      },
+      "renderQa": {
+        "status": "pass",
+        "score": 98,
+        "issues": [],
+        "warnings": [],
+        "failureModes": [],
+        "metrics": {
+          "templateId": "social-announcement",
+          "artifactType": "social-graphic",
+          "proofPointCount": 2,
+          "hasCtaDetail": false,
+          "inheritedBlockCount": 0,
+          "layoutQaStatus": "pass"
+        }
+      },
+      "modelQa": {
+        "status": "warn",
+        "score": 90,
+        "issues": [],
+        "warnings": [
+          "Top-left art contains busy teal/yellow grid detail where the compact logo will render, creating a possible logo legibility risk.",
+          "Headline is clean but generic for WebbAlign; stronger DOK/alignment language could improve brand specificity in-feed."
+        ],
+        "failureModes": [
+          {
+            "id": "logo_contrast_over_busy_art",
+            "severity": "warn",
+            "introducedAt": "imageJob",
+            "missedBy": "visualQa",
+            "message": "Top-left art contains busy teal/yellow grid detail where the compact logo will render, creating a possible logo legibility risk."
+          },
+          {
+            "id": "broad_primary_headline",
+            "severity": "warn",
+            "introducedAt": "fitCopy",
+            "missedBy": "copyQualityQa",
+            "message": "Headline is clean but generic for WebbAlign; stronger DOK/alignment language could improve brand specificity in-feed."
+          }
+        ],
+        "metrics": {
+          "enabled": true,
+          "model": "gpt-5.5",
+          "imageIncluded": true,
+          "deterministicScores": {
+            "sendability": 95,
+            "layoutQa": 99,
+            "copyQualityQa": 88,
+            "visualQa": 84,
+            "renderQa": 98
+          }
+        }
+      },
+      "failureModes": [
+        {
+          "id": "repetitive_generated_copy",
+          "severity": "warn",
+          "introducedAt": "generateCopy",
+          "missedBy": "fitCopy",
+          "message": "Generated copy repeats the same source idea across body, subhead, or bullets before copy-fit."
+        },
+        {
+          "id": "missing_visual_avoid_guardrails",
+          "severity": "warn",
+          "introducedAt": "buildImagePrompt",
+          "missedBy": "visualQa",
+          "message": "WebbAlign visual prompt is missing avoid guardrail(s): generic classroom."
+        },
+        {
+          "id": "logo_contrast_over_busy_art",
+          "severity": "warn",
+          "introducedAt": "imageJob",
+          "missedBy": "visualQa",
+          "message": "Top-left art contains busy teal/yellow grid detail where the compact logo will render, creating a possible logo legibility risk."
+        },
+        {
+          "id": "broad_primary_headline",
+          "severity": "warn",
+          "introducedAt": "fitCopy",
+          "missedBy": "copyQualityQa",
+          "message": "Headline is clean but generic for WebbAlign; stronger DOK/alignment language could improve brand specificity in-feed."
+        }
+      ],
+      "review": {
+        "status": "warn",
+        "issues": [],
+        "warnings": [
+          "WebbAlign prompt is missing avoid guardrail(s): generic classroom.",
+          "Copy QA: Generated copy repeats the same source idea across body, subhead, or bullets before copy-fit.",
+          "Visual QA: WebbAlign visual prompt is missing avoid guardrail(s): generic classroom.",
+          "Model QA: Top-left art contains busy teal/yellow grid detail where the compact logo will render, creating a possible logo legibility risk.",
+          "Model QA: Headline is clean but generic for WebbAlign; stronger DOK/alignment language could improve brand specificity in-feed."
+        ]
+      }
+    },
+    {
+      "artifactId": "draft-20260425005455-iiwval",
+      "sourceRequestId": "ccna-one-pager-long-cta",
+      "brand": "CCNA",
+      "artifactType": "one-pager",
+      "designRecipeId": "proof-band",
+      "artifactFilePath": "/Users/mattmessinger/Documents/New project/wceps-branding-tool/data/trace-datasets/2026-04-25T00-47-35-310Z-artifact-trace-dataset/artifacts/draft-20260425005455-iiwval.json",
+      "artifactFileRelativePath": "data/trace-datasets/2026-04-25T00-47-35-310Z-artifact-trace-dataset/artifacts/draft-20260425005455-iiwval.json",
+      "artifactHtmlPath": "/Users/mattmessinger/Documents/New project/wceps-branding-tool/data/trace-datasets/2026-04-25T00-47-35-310Z-artifact-trace-dataset/html/draft-20260425005455-iiwval.html",
+      "artifactHtmlRelativePath": "data/trace-datasets/2026-04-25T00-47-35-310Z-artifact-trace-dataset/html/draft-20260425005455-iiwval.html",
+      "braintrust": {
+        "projectName": "Brand Building",
+        "orgName": "WCEPS",
+        "experimentName": "Artifact Trace Golden Dataset",
+        "traceName": "fullArtifactPipeline",
+        "loggingEnabled": true,
+        "rowId": "a47389f2-d021-445b-b314-46c975d29361",
+        "spanId": "ef978a26-984b-408d-b9de-dc9a60b1316c",
+        "rootSpanId": "ef978a26-984b-408d-b9de-dc9a60b1316c",
+        "link": "https://www.braintrust.dev/app/WCEPS/object?object_type=project_logs&object_id=671b57c6-229b-4f25-8cf2-67fc0f36e120&id=a47389f2-d021-445b-b314-46c975d29361",
+        "mode": "design-comp",
+        "promptVersion": "design-comp-v1",
+        "promptLength": 5457,
+        "promptTokenBudget": 6200,
+        "evidenceIds": [
+          "ccna-insight-impact",
+          "ccna-multilingual-support"
+        ],
+        "contextAttachmentNames": [],
+        "retryCount": 0,
+        "traceVersion": "design-comp-v1"
+      },
+      "imageJobs": [
+        {
+          "jobId": "resp_0bb1254ac28e73560069ec10dfc8a8819c8bc5125ea07b7380",
+          "model": "gpt-image-2",
+          "size": "1024x1536",
+          "quality": "high",
+          "outputFormat": "webp",
+          "link": "https://www.braintrust.dev/app/WCEPS/object?object_type=project_logs&object_id=671b57c6-229b-4f25-8cf2-67fc0f36e120&id=ca5e8f20-9c38-47bd-8ae0-551ad2754a03"
+        }
+      ],
+      "layoutQa": {
+        "status": "pass",
+        "overall": 96,
+        "noTextOverflow": 100,
+        "noCtaCollision": 100,
+        "proofLineWidth": 78,
+        "logoOnce": 100,
+        "artifactFormatMatch": 100,
+        "exportReady": 96,
+        "sendability": 96,
+        "metrics": {
+          "headlineLines": 3,
+          "deckLines": 2,
+          "maxProofLines": 4,
+          "minProofCharsPerLine": 21,
+          "ctaLines": 1,
+          "estimatedCanvasOverflow": false
+        }
+      },
+      "copyQualityQa": {
+        "status": "warn",
+        "score": 88,
+        "issues": [],
+        "warnings": [
+          "Generated copy repeats the same source idea across body, subhead, or bullets before copy-fit."
+        ],
+        "failureModes": [
+          {
+            "id": "repetitive_generated_copy",
+            "severity": "warn",
+            "introducedAt": "generateCopy",
+            "missedBy": "fitCopy",
+            "message": "Generated copy repeats the same source idea across body, subhead, or bullets before copy-fit."
+          }
+        ],
+        "metrics": {
+          "fittedTextCount": 7,
+          "generatedTextCount": 9,
+          "missingPreferredTerms": [
+            "needs assessment",
+            "instructional practice",
+            "actionable reporting"
+          ]
+        }
+      },
+      "visualQa": {
+        "status": "warn",
+        "score": 83,
+        "issues": [],
+        "warnings": [
+          "CCNA visual prompt is missing avoid guardrail(s): generic dashboard, stock graph."
+        ],
+        "failureModes": [
+          {
+            "id": "missing_visual_avoid_guardrails",
+            "severity": "warn",
+            "introducedAt": "buildImagePrompt",
+            "missedBy": "visualQa",
+            "message": "CCNA visual prompt is missing avoid guardrail(s): generic dashboard, stock graph."
+          }
+        ],
+        "metrics": {
+          "hasGeneratedVisual": true,
+          "usesFallbackArt": false,
+          "missingArtPlate": false,
+          "darkEdgeBleedRisk": false,
+          "visualRelevance": 95,
+          "promptCount": 3,
+          "missingRequiredTerms": [],
+          "missingAvoidTerms": [
+            "generic dashboard",
+            "stock graph"
+          ]
+        }
+      },
+      "renderQa": {
+        "status": "pass",
+        "score": 98,
+        "issues": [],
+        "warnings": [],
+        "failureModes": [],
+        "metrics": {
+          "templateId": "magazine-one-pager",
+          "artifactType": "one-pager",
+          "proofPointCount": 3,
+          "hasCtaDetail": true,
+          "inheritedBlockCount": 0,
+          "layoutQaStatus": "pass"
+        }
+      },
+      "modelQa": {
+        "status": "warn",
+        "score": 82,
+        "issues": [],
+        "warnings": [
+          "Generated art includes multiple report/chart-like papers with pseudo data elements even though the art-plate contract/revised prompt prohibited fake charts, labels, and document-like panels.",
+          "The image is a polished planning-table scene but does not visibly signal CCNA, needs assessment, or multilingual learner support beyond generic data/planning cues.",
+          "Final fitted copy is usable but broad; it omits the CCNA name and key service language such as needs assessment or actionable reporting, relying on the logo to establish brand context.",
+          "Automated QA scores are high despite actual visible compliance concerns around fake chart/report elements and generic visual relevance."
+        ],
+        "failureModes": [
+          {
+            "id": "visible_fake_chart_risk",
+            "severity": "warn",
+            "introducedAt": "imageJob",
+            "missedBy": "visualQa",
+            "message": "Generated art includes multiple report/chart-like papers with pseudo data elements even though the art-plate contract/revised prompt prohibited fake charts, labels, and document-like panels."
+          },
+          {
+            "id": "generic_visual_specificity",
+            "severity": "warn",
+            "introducedAt": "buildImagePrompt",
+            "missedBy": "visualQa",
+            "message": "The image is a polished planning-table scene but does not visibly signal CCNA, needs assessment, or multilingual learner support beyond generic data/planning cues."
+          },
+          {
+            "id": "weak_brand_specificity_copy",
+            "severity": "warn",
+            "introducedAt": "fitCopy",
+            "missedBy": "copyQualityQa",
+            "message": "Final fitted copy is usable but broad; it omits the CCNA name and key service language such as needs assessment or actionable reporting, relying on the logo to establish brand context."
+          },
+          {
+            "id": "qa_too_generous_visual",
+            "severity": "warn",
+            "introducedAt": "modelQa",
+            "missedBy": "finalReview",
+            "message": "Automated QA scores are high despite actual visible compliance concerns around fake chart/report elements and generic visual relevance."
+          }
+        ],
+        "metrics": {
+          "enabled": true,
+          "model": "gpt-5.5",
+          "imageIncluded": true,
+          "deterministicScores": {
+            "sendability": 94,
+            "layoutQa": 96,
+            "copyQualityQa": 88,
+            "visualQa": 83,
+            "renderQa": 98
+          }
+        }
+      },
+      "failureModes": [
+        {
+          "id": "repetitive_generated_copy",
+          "severity": "warn",
+          "introducedAt": "generateCopy",
+          "missedBy": "fitCopy",
+          "message": "Generated copy repeats the same source idea across body, subhead, or bullets before copy-fit."
+        },
+        {
+          "id": "missing_visual_avoid_guardrails",
+          "severity": "warn",
+          "introducedAt": "buildImagePrompt",
+          "missedBy": "visualQa",
+          "message": "CCNA visual prompt is missing avoid guardrail(s): generic dashboard, stock graph."
+        },
+        {
+          "id": "visible_fake_chart_risk",
+          "severity": "warn",
+          "introducedAt": "imageJob",
+          "missedBy": "visualQa",
+          "message": "Generated art includes multiple report/chart-like papers with pseudo data elements even though the art-plate contract/revised prompt prohibited fake charts, labels, and document-like panels."
+        },
+        {
+          "id": "generic_visual_specificity",
+          "severity": "warn",
+          "introducedAt": "buildImagePrompt",
+          "missedBy": "visualQa",
+          "message": "The image is a polished planning-table scene but does not visibly signal CCNA, needs assessment, or multilingual learner support beyond generic data/planning cues."
+        },
+        {
+          "id": "weak_brand_specificity_copy",
+          "severity": "warn",
+          "introducedAt": "fitCopy",
+          "missedBy": "copyQualityQa",
+          "message": "Final fitted copy is usable but broad; it omits the CCNA name and key service language such as needs assessment or actionable reporting, relying on the logo to establish brand context."
+        },
+        {
+          "id": "qa_too_generous_visual",
+          "severity": "warn",
+          "introducedAt": "modelQa",
+          "missedBy": "finalReview",
+          "message": "Automated QA scores are high despite actual visible compliance concerns around fake chart/report elements and generic visual relevance."
+        }
+      ],
+      "review": {
+        "status": "warn",
+        "issues": [],
+        "warnings": [
+          "CCNA prompt is missing avoid guardrail(s): generic dashboard, stock graph.",
+          "Copy QA: Generated copy repeats the same source idea across body, subhead, or bullets before copy-fit.",
+          "Visual QA: CCNA visual prompt is missing avoid guardrail(s): generic dashboard, stock graph.",
+          "Model QA: Generated art includes multiple report/chart-like papers with pseudo data elements even though the art-plate contract/revised prompt prohibited fake charts, labels, and document-like panels.",
+          "Model QA: The image is a polished planning-table scene but does not visibly signal CCNA, needs assessment, or multilingual learner support beyond generic data/planning cues.",
+          "Model QA: Final fitted copy is usable but broad; it omits the CCNA name and key service language such as needs assessment or actionable reporting, relying on the logo to establish brand context.",
+          "Model QA: Automated QA scores are high despite actual visible compliance concerns around fake chart/report elements and generic visual relevance."
+        ]
+      }
+    },
+    {
+      "artifactId": "draft-20260425005730-xnidbl",
+      "sourceRequestId": "call-landing-page-principals",
+      "brand": "CALL",
+      "artifactType": "flyer",
+      "designRecipeId": "editorial-split",
+      "artifactFilePath": "/Users/mattmessinger/Documents/New project/wceps-branding-tool/data/trace-datasets/2026-04-25T00-47-35-310Z-artifact-trace-dataset/artifacts/draft-20260425005730-xnidbl.json",
+      "artifactFileRelativePath": "data/trace-datasets/2026-04-25T00-47-35-310Z-artifact-trace-dataset/artifacts/draft-20260425005730-xnidbl.json",
+      "artifactHtmlPath": "/Users/mattmessinger/Documents/New project/wceps-branding-tool/data/trace-datasets/2026-04-25T00-47-35-310Z-artifact-trace-dataset/html/draft-20260425005730-xnidbl.html",
+      "artifactHtmlRelativePath": "data/trace-datasets/2026-04-25T00-47-35-310Z-artifact-trace-dataset/html/draft-20260425005730-xnidbl.html",
+      "braintrust": {
+        "projectName": "Brand Building",
+        "orgName": "WCEPS",
+        "experimentName": "Artifact Trace Golden Dataset",
+        "traceName": "fullArtifactPipeline",
+        "loggingEnabled": true,
+        "rowId": "64d91ee5-5535-4e47-a213-7ba27b682f76",
+        "spanId": "c63f00ea-412c-476e-9070-87a7c10a2a02",
+        "rootSpanId": "c63f00ea-412c-476e-9070-87a7c10a2a02",
+        "link": "https://www.braintrust.dev/app/WCEPS/object?object_type=project_logs&object_id=671b57c6-229b-4f25-8cf2-67fc0f36e120&id=64d91ee5-5535-4e47-a213-7ba27b682f76",
+        "mode": "design-comp",
+        "promptVersion": "design-comp-v1",
+        "promptLength": 5290,
+        "promptTokenBudget": 6200,
+        "evidenceIds": [
+          "call-home-services",
+          "call-home-assessment"
+        ],
+        "contextAttachmentNames": [],
+        "retryCount": 0,
+        "traceVersion": "design-comp-v1"
+      },
+      "imageJobs": [
+        {
+          "jobId": "resp_02ca4a108397c4020069ec117a1ed081a2a5409dffcaa069cd",
+          "model": "gpt-image-2",
+          "size": "1024x1536",
+          "quality": "high",
+          "outputFormat": "webp",
+          "link": "https://www.braintrust.dev/app/WCEPS/object?object_type=project_logs&object_id=671b57c6-229b-4f25-8cf2-67fc0f36e120&id=23bc790a-eb94-4305-93eb-4255aa1089bd"
+        }
+      ],
+      "layoutQa": {
+        "status": "pass",
+        "overall": 96,
+        "noTextOverflow": 100,
+        "noCtaCollision": 100,
+        "proofLineWidth": 78,
+        "logoOnce": 100,
+        "artifactFormatMatch": 100,
+        "exportReady": 96,
+        "sendability": 96,
+        "metrics": {
+          "headlineLines": 3,
+          "deckLines": 3,
+          "maxProofLines": 3,
+          "minProofCharsPerLine": 19,
+          "ctaLines": 1,
+          "estimatedCanvasOverflow": false
+        }
+      },
+      "copyQualityQa": {
+        "status": "warn",
+        "score": 88,
+        "issues": [],
+        "warnings": [
+          "Generated copy repeats the same source idea across body, subhead, or bullets before copy-fit."
+        ],
+        "failureModes": [
+          {
+            "id": "repetitive_generated_copy",
+            "severity": "warn",
+            "introducedAt": "generateCopy",
+            "missedBy": "fitCopy",
+            "message": "Generated copy repeats the same source idea across body, subhead, or bullets before copy-fit."
+          }
+        ],
+        "metrics": {
+          "fittedTextCount": 5,
+          "generatedTextCount": 8,
+          "missingPreferredTerms": [
+            "leadership for learning"
+          ]
+        }
+      },
+      "visualQa": {
+        "status": "warn",
+        "score": 83,
+        "issues": [],
+        "warnings": [
+          "CALL visual prompt is missing avoid guardrail(s): fake dashboard, stock workshop."
+        ],
+        "failureModes": [
+          {
+            "id": "missing_visual_avoid_guardrails",
+            "severity": "warn",
+            "introducedAt": "buildImagePrompt",
+            "missedBy": "visualQa",
+            "message": "CALL visual prompt is missing avoid guardrail(s): fake dashboard, stock workshop."
+          }
+        ],
+        "metrics": {
+          "hasGeneratedVisual": true,
+          "usesFallbackArt": false,
+          "missingArtPlate": false,
+          "darkEdgeBleedRisk": false,
+          "visualRelevance": 95,
+          "promptCount": 3,
+          "missingRequiredTerms": [],
+          "missingAvoidTerms": [
+            "fake dashboard",
+            "stock workshop"
+          ]
+        }
+      },
+      "renderQa": {
+        "status": "pass",
+        "score": 98,
+        "issues": [],
+        "warnings": [],
+        "failureModes": [],
+        "metrics": {
+          "templateId": "campaign-flyer",
+          "artifactType": "flyer",
+          "proofPointCount": 2,
+          "hasCtaDetail": false,
+          "inheritedBlockCount": 0,
+          "layoutQaStatus": "pass"
+        }
+      },
+      "modelQa": {
+        "status": "warn",
+        "score": 84,
+        "issues": [],
+        "warnings": [
+          "The fitted proof point \"Leadership, improvement, and the work\" is vague, awkward, and reads like placeholder/scaffolded copy.",
+          "The final fitted copy repeats leadership/improvement concepts across headline, deck, and proof points without adding much new value.",
+          "The art plate is relevant and text-safe, but the collaboration-table imagery could be perceived as generic workshop/strategy-meeting stock rather than unmistakably CALL or principal-specific."
+        ],
+        "failureModes": [
+          {
+            "id": "awkward_vague_proof_point",
+            "severity": "warn",
+            "introducedAt": "fitCopy",
+            "missedBy": "copyQualityQa",
+            "message": "The fitted proof point \"Leadership, improvement, and the work\" is vague, awkward, and reads like placeholder/scaffolded copy."
+          },
+          {
+            "id": "over_repetitive_fitted_copy",
+            "severity": "warn",
+            "introducedAt": "fitCopy",
+            "missedBy": "copyQualityQa",
+            "message": "The final fitted copy repeats leadership/improvement concepts across headline, deck, and proof points without adding much new value."
+          },
+          {
+            "id": "generic_workshop_visual_risk",
+            "severity": "warn",
+            "introducedAt": "imageJob",
+            "missedBy": "visualQa",
+            "message": "The art plate is relevant and text-safe, but the collaboration-table imagery could be perceived as generic workshop/strategy-meeting stock rather than unmistakably CALL or principal-specific."
+          }
+        ],
+        "metrics": {
+          "enabled": true,
+          "model": "gpt-5.5",
+          "imageIncluded": true,
+          "deterministicScores": {
+            "sendability": 94,
+            "layoutQa": 96,
+            "copyQualityQa": 88,
+            "visualQa": 83,
+            "renderQa": 98
+          }
+        }
+      },
+      "failureModes": [
+        {
+          "id": "repetitive_generated_copy",
+          "severity": "warn",
+          "introducedAt": "generateCopy",
+          "missedBy": "fitCopy",
+          "message": "Generated copy repeats the same source idea across body, subhead, or bullets before copy-fit."
+        },
+        {
+          "id": "missing_visual_avoid_guardrails",
+          "severity": "warn",
+          "introducedAt": "buildImagePrompt",
+          "missedBy": "visualQa",
+          "message": "CALL visual prompt is missing avoid guardrail(s): fake dashboard, stock workshop."
+        },
+        {
+          "id": "awkward_vague_proof_point",
+          "severity": "warn",
+          "introducedAt": "fitCopy",
+          "missedBy": "copyQualityQa",
+          "message": "The fitted proof point \"Leadership, improvement, and the work\" is vague, awkward, and reads like placeholder/scaffolded copy."
+        },
+        {
+          "id": "over_repetitive_fitted_copy",
+          "severity": "warn",
+          "introducedAt": "fitCopy",
+          "missedBy": "copyQualityQa",
+          "message": "The final fitted copy repeats leadership/improvement concepts across headline, deck, and proof points without adding much new value."
+        },
+        {
+          "id": "generic_workshop_visual_risk",
+          "severity": "warn",
+          "introducedAt": "imageJob",
+          "missedBy": "visualQa",
+          "message": "The art plate is relevant and text-safe, but the collaboration-table imagery could be perceived as generic workshop/strategy-meeting stock rather than unmistakably CALL or principal-specific."
+        }
+      ],
+      "review": {
+        "status": "warn",
+        "issues": [],
+        "warnings": [
+          "CALL prompt is missing avoid guardrail(s): fake dashboard, stock workshop.",
+          "Copy QA: Generated copy repeats the same source idea across body, subhead, or bullets before copy-fit.",
+          "Visual QA: CALL visual prompt is missing avoid guardrail(s): fake dashboard, stock workshop.",
+          "Model QA: The fitted proof point \"Leadership, improvement, and the work\" is vague, awkward, and reads like placeholder/scaffolded copy.",
+          "Model QA: The final fitted copy repeats leadership/improvement concepts across headline, deck, and proof points without adding much new value.",
+          "Model QA: The art plate is relevant and text-safe, but the collaboration-table imagery could be perceived as generic workshop/strategy-meeting stock rather than unmistakably CALL or principal-specific."
+        ]
+      }
+    },
+    {
+      "artifactId": "draft-20260425010029-vrq8do",
+      "sourceRequestId": "wida-prime-email-publishers",
+      "brand": "WIDA PRIME",
+      "artifactType": "html-email-announcement",
+      "designRecipeId": "email-strip",
+      "artifactFilePath": "/Users/mattmessinger/Documents/New project/wceps-branding-tool/data/trace-datasets/2026-04-25T00-47-35-310Z-artifact-trace-dataset/artifacts/draft-20260425010029-vrq8do.json",
+      "artifactFileRelativePath": "data/trace-datasets/2026-04-25T00-47-35-310Z-artifact-trace-dataset/artifacts/draft-20260425010029-vrq8do.json",
+      "artifactHtmlPath": "/Users/mattmessinger/Documents/New project/wceps-branding-tool/data/trace-datasets/2026-04-25T00-47-35-310Z-artifact-trace-dataset/html/draft-20260425010029-vrq8do.html",
+      "artifactHtmlRelativePath": "data/trace-datasets/2026-04-25T00-47-35-310Z-artifact-trace-dataset/html/draft-20260425010029-vrq8do.html",
+      "braintrust": {
+        "projectName": "Brand Building",
+        "orgName": "WCEPS",
+        "experimentName": "Artifact Trace Golden Dataset",
+        "traceName": "fullArtifactPipeline",
+        "loggingEnabled": true,
+        "rowId": "eb73313e-0773-4993-918b-a9785edc6dff",
+        "spanId": "8c8d8610-d280-49b0-aac0-36813d7da328",
+        "rootSpanId": "8c8d8610-d280-49b0-aac0-36813d7da328",
+        "link": "https://www.braintrust.dev/app/WCEPS/object?object_type=project_logs&object_id=671b57c6-229b-4f25-8cf2-67fc0f36e120&id=eb73313e-0773-4993-918b-a9785edc6dff",
+        "mode": "design-comp",
+        "promptVersion": "design-comp-v1",
+        "promptLength": 5340,
+        "promptTokenBudget": 6200,
+        "evidenceIds": [
+          "wida-prime-2020",
+          "wida-prime-materials"
+        ],
+        "contextAttachmentNames": [],
+        "retryCount": 0,
+        "traceVersion": "design-comp-v1"
+      },
+      "imageJobs": [
+        {
+          "jobId": "resp_05b2a55fae062aa30069ec122dcaac819c8708be4628b4b64d",
+          "model": "gpt-image-2",
+          "size": "1536x1024",
+          "quality": "high",
+          "outputFormat": "webp",
+          "link": "https://www.braintrust.dev/app/WCEPS/object?object_type=project_logs&object_id=671b57c6-229b-4f25-8cf2-67fc0f36e120&id=8859a752-331d-43f9-90b4-bd24b11dd1e3"
+        }
+      ],
+      "layoutQa": {
+        "status": "block",
+        "overall": 96,
+        "noTextOverflow": 82,
+        "noCtaCollision": 100,
+        "proofLineWidth": 96,
+        "logoOnce": 100,
+        "artifactFormatMatch": 100,
+        "exportReady": 96,
+        "sendability": 96,
+        "metrics": {
+          "headlineLines": 2,
+          "deckLines": 2,
+          "maxProofLines": 3,
+          "minProofCharsPerLine": 35,
+          "ctaLines": 1,
+          "estimatedCanvasOverflow": true
+        }
+      },
+      "copyQualityQa": {
+        "status": "warn",
+        "score": 88,
+        "issues": [],
+        "warnings": [
+          "Generated copy repeats the same source idea across body, subhead, or bullets before copy-fit."
+        ],
+        "failureModes": [
+          {
+            "id": "repetitive_generated_copy",
+            "severity": "warn",
+            "introducedAt": "generateCopy",
+            "missedBy": "fitCopy",
+            "message": "Generated copy repeats the same source idea across body, subhead, or bullets before copy-fit."
+          }
+        ],
+        "metrics": {
+          "fittedTextCount": 5,
+          "generatedTextCount": 9,
+          "missingPreferredTerms": [
+            "PRIME V1",
+            "PRIME V2",
+            "Spanish Language Development"
+          ]
+        }
+      },
+      "visualQa": {
+        "status": "warn",
+        "score": 85,
+        "issues": [],
+        "warnings": [
+          "WIDA PRIME visual prompt is missing avoid guardrail(s): fake title."
+        ],
+        "failureModes": [
+          {
+            "id": "missing_visual_avoid_guardrails",
+            "severity": "warn",
+            "introducedAt": "buildImagePrompt",
+            "missedBy": "visualQa",
+            "message": "WIDA PRIME visual prompt is missing avoid guardrail(s): fake title."
+          }
+        ],
+        "metrics": {
+          "hasGeneratedVisual": true,
+          "usesFallbackArt": false,
+          "missingArtPlate": false,
+          "darkEdgeBleedRisk": false,
+          "visualRelevance": 97,
+          "promptCount": 3,
+          "missingRequiredTerms": [],
+          "missingAvoidTerms": [
+            "fake title"
+          ]
+        }
+      },
+      "renderQa": {
+        "status": "block",
+        "score": 54,
+        "issues": [
+          "Layout QA must be resolved before export: Proof copy is too tall for the selected template."
+        ],
+        "warnings": [],
+        "failureModes": [
+          {
+            "id": "layout_qa_blocked_export",
+            "severity": "block",
+            "introducedAt": "deterministicLayout",
+            "missedBy": "finalReview",
+            "message": "Layout QA must be resolved before export: Proof copy is too tall for the selected template."
+          }
+        ],
+        "metrics": {
+          "templateId": "email-hero",
+          "artifactType": "html-email-announcement",
+          "proofPointCount": 2,
+          "hasCtaDetail": false,
+          "inheritedBlockCount": 1,
+          "layoutQaStatus": "block"
+        }
+      },
+      "modelQa": {
+        "status": "block",
+        "score": 72,
+        "issues": [
+          "Layout QA reports proof copy overflow for the selected email template and export should not proceed until copy or layout is adjusted."
+        ],
+        "warnings": [
+          "Support copy shifts from publisher workflow to how educators use PRIME information, weakening relevance for the requested publisher audience.",
+          "The final fitted copy retains repetitive PRIME phrasing and passive wording, making the announcement feel less polished.",
+          "Final copy does not use several relevant WIDA PRIME specifics such as PRIME V1/V2 or Spanish Language Development correlations."
+        ],
+        "failureModes": [
+          {
+            "id": "layout_qa_blocked_export",
+            "severity": "block",
+            "introducedAt": "deterministicLayout",
+            "missedBy": "finalReview",
+            "message": "Layout QA reports proof copy overflow for the selected email template and export should not proceed until copy or layout is adjusted."
+          },
+          {
+            "id": "publisher_audience_mismatch",
+            "severity": "warn",
+            "introducedAt": "fitCopy",
+            "missedBy": "copyQualityQa",
+            "message": "Support copy shifts from publisher workflow to how educators use PRIME information, weakening relevance for the requested publisher audience."
+          },
+          {
+            "id": "repetitive_prime_copy",
+            "severity": "warn",
+            "introducedAt": "generateCopy",
+            "missedBy": "copyQualityQa",
+            "message": "The final fitted copy retains repetitive PRIME phrasing and passive wording, making the announcement feel less polished."
+          },
+          {
+            "id": "thin_brand_specificity",
+            "severity": "warn",
+            "introducedAt": "fitCopy",
+            "missedBy": "copyQualityQa",
+            "message": "Final copy does not use several relevant WIDA PRIME specifics such as PRIME V1/V2 or Spanish Language Development correlations."
+          }
+        ],
+        "metrics": {
+          "enabled": true,
+          "model": "gpt-5.5",
+          "imageIncluded": true,
+          "deterministicScores": {
+            "sendability": 95,
+            "layoutQa": 96,
+            "copyQualityQa": 88,
+            "visualQa": 85,
+            "renderQa": 54
+          }
+        }
+      },
+      "failureModes": [
+        {
+          "id": "repetitive_generated_copy",
+          "severity": "warn",
+          "introducedAt": "generateCopy",
+          "missedBy": "fitCopy",
+          "message": "Generated copy repeats the same source idea across body, subhead, or bullets before copy-fit."
+        },
+        {
+          "id": "missing_visual_avoid_guardrails",
+          "severity": "warn",
+          "introducedAt": "buildImagePrompt",
+          "missedBy": "visualQa",
+          "message": "WIDA PRIME visual prompt is missing avoid guardrail(s): fake title."
+        },
+        {
+          "id": "layout_qa_blocked_export",
+          "severity": "block",
+          "introducedAt": "deterministicLayout",
+          "missedBy": "finalReview",
+          "message": "Layout QA must be resolved before export: Proof copy is too tall for the selected template."
+        },
+        {
+          "id": "layout_qa_blocked_export",
+          "severity": "block",
+          "introducedAt": "deterministicLayout",
+          "missedBy": "finalReview",
+          "message": "Layout QA reports proof copy overflow for the selected email template and export should not proceed until copy or layout is adjusted."
+        },
+        {
+          "id": "publisher_audience_mismatch",
+          "severity": "warn",
+          "introducedAt": "fitCopy",
+          "missedBy": "copyQualityQa",
+          "message": "Support copy shifts from publisher workflow to how educators use PRIME information, weakening relevance for the requested publisher audience."
+        },
+        {
+          "id": "repetitive_prime_copy",
+          "severity": "warn",
+          "introducedAt": "generateCopy",
+          "missedBy": "copyQualityQa",
+          "message": "The final fitted copy retains repetitive PRIME phrasing and passive wording, making the announcement feel less polished."
+        },
+        {
+          "id": "thin_brand_specificity",
+          "severity": "warn",
+          "introducedAt": "fitCopy",
+          "missedBy": "copyQualityQa",
+          "message": "Final copy does not use several relevant WIDA PRIME specifics such as PRIME V1/V2 or Spanish Language Development correlations."
+        }
+      ],
+      "review": {
+        "status": "block",
+        "issues": [
+          "Render QA: Layout QA must be resolved before export: Proof copy is too tall for the selected template.",
+          "Model QA: Layout QA reports proof copy overflow for the selected email template and export should not proceed until copy or layout is adjusted."
+        ],
+        "warnings": [
+          "WIDA PRIME prompt is missing avoid guardrail(s): fake title.",
+          "Copy QA: Generated copy repeats the same source idea across body, subhead, or bullets before copy-fit.",
+          "Visual QA: WIDA PRIME visual prompt is missing avoid guardrail(s): fake title.",
+          "Model QA: Support copy shifts from publisher workflow to how educators use PRIME information, weakening relevance for the requested publisher audience.",
+          "Model QA: The final fitted copy retains repetitive PRIME phrasing and passive wording, making the announcement feel less polished.",
+          "Model QA: Final copy does not use several relevant WIDA PRIME specifics such as PRIME V1/V2 or Spanish Language Development correlations."
+        ]
+      }
+    },
+    {
+      "artifactId": "draft-20260425010330-kgtkmg",
+      "sourceRequestId": "wceps-institutional-one-pager",
+      "brand": "WCEPS",
+      "artifactType": "one-pager",
+      "designRecipeId": "proof-band",
+      "artifactFilePath": "/Users/mattmessinger/Documents/New project/wceps-branding-tool/data/trace-datasets/2026-04-25T00-47-35-310Z-artifact-trace-dataset/artifacts/draft-20260425010330-kgtkmg.json",
+      "artifactFileRelativePath": "data/trace-datasets/2026-04-25T00-47-35-310Z-artifact-trace-dataset/artifacts/draft-20260425010330-kgtkmg.json",
+      "artifactHtmlPath": "/Users/mattmessinger/Documents/New project/wceps-branding-tool/data/trace-datasets/2026-04-25T00-47-35-310Z-artifact-trace-dataset/html/draft-20260425010330-kgtkmg.html",
+      "artifactHtmlRelativePath": "data/trace-datasets/2026-04-25T00-47-35-310Z-artifact-trace-dataset/html/draft-20260425010330-kgtkmg.html",
+      "braintrust": {
+        "projectName": "Brand Building",
+        "orgName": "WCEPS",
+        "experimentName": "Artifact Trace Golden Dataset",
+        "traceName": "fullArtifactPipeline",
+        "loggingEnabled": true,
+        "rowId": "f103888e-0d56-4f17-9c0e-3d2d7be32ac0",
+        "spanId": "46ae3ba6-0d18-4c2e-9ffa-ec79c86bc836",
+        "rootSpanId": "46ae3ba6-0d18-4c2e-9ffa-ec79c86bc836",
+        "link": "https://www.braintrust.dev/app/WCEPS/object?object_type=project_logs&object_id=671b57c6-229b-4f25-8cf2-67fc0f36e120&id=f103888e-0d56-4f17-9c0e-3d2d7be32ac0",
+        "mode": "design-comp",
+        "promptVersion": "design-comp-v1",
+        "promptLength": 5283,
+        "promptTokenBudget": 6200,
+        "evidenceIds": [
+          "wceps-footer-mission",
+          "wceps-home-chart-course"
+        ],
+        "contextAttachmentNames": [],
+        "retryCount": 0,
+        "traceVersion": "design-comp-v1"
+      },
+      "imageJobs": [
+        {
+          "jobId": "resp_05e584f4f7468a0f0069ec12e28b5081978762e91714a3f6e8",
+          "model": "gpt-image-2",
+          "size": "1024x1536",
+          "quality": "high",
+          "outputFormat": "webp",
+          "link": "https://www.braintrust.dev/app/WCEPS/object?object_type=project_logs&object_id=671b57c6-229b-4f25-8cf2-67fc0f36e120&id=5c8c2c8a-e13d-4e8d-9511-9e9a74539e60"
+        }
+      ],
+      "layoutQa": {
+        "status": "pass",
+        "overall": 96,
+        "noTextOverflow": 100,
+        "noCtaCollision": 100,
+        "proofLineWidth": 78,
+        "logoOnce": 100,
+        "artifactFormatMatch": 100,
+        "exportReady": 96,
+        "sendability": 96,
+        "metrics": {
+          "headlineLines": 3,
+          "deckLines": 3,
+          "maxProofLines": 4,
+          "minProofCharsPerLine": 22,
+          "ctaLines": 1,
+          "estimatedCanvasOverflow": false
+        }
+      },
+      "copyQualityQa": {
+        "status": "warn",
+        "score": 88,
+        "issues": [],
+        "warnings": [
+          "Generated copy repeats the same source idea across body, subhead, or bullets before copy-fit."
+        ],
+        "failureModes": [
+          {
+            "id": "repetitive_generated_copy",
+            "severity": "warn",
+            "introducedAt": "generateCopy",
+            "missedBy": "fitCopy",
+            "message": "Generated copy repeats the same source idea across body, subhead, or bullets before copy-fit."
+          }
+        ],
+        "metrics": {
+          "fittedTextCount": 6,
+          "generatedTextCount": 9,
+          "missingPreferredTerms": [
+            "nonprofit",
+            "research-informed",
+            "customized educational support"
+          ]
+        }
+      },
+      "visualQa": {
+        "status": "warn",
+        "score": 82,
+        "issues": [],
+        "warnings": [
+          "WCEPS visual prompt is missing avoid guardrail(s): diploma, fake university logo, mascot."
+        ],
+        "failureModes": [
+          {
+            "id": "missing_visual_avoid_guardrails",
+            "severity": "warn",
+            "introducedAt": "buildImagePrompt",
+            "missedBy": "visualQa",
+            "message": "WCEPS visual prompt is missing avoid guardrail(s): diploma, fake university logo, mascot."
+          }
+        ],
+        "metrics": {
+          "hasGeneratedVisual": true,
+          "usesFallbackArt": false,
+          "missingArtPlate": false,
+          "darkEdgeBleedRisk": false,
+          "visualRelevance": 94,
+          "promptCount": 3,
+          "missingRequiredTerms": [],
+          "missingAvoidTerms": [
+            "diploma",
+            "fake university logo",
+            "mascot"
+          ]
+        }
+      },
+      "renderQa": {
+        "status": "pass",
+        "score": 98,
+        "issues": [],
+        "warnings": [],
+        "failureModes": [],
+        "metrics": {
+          "templateId": "magazine-one-pager",
+          "artifactType": "one-pager",
+          "proofPointCount": 3,
+          "hasCtaDetail": false,
+          "inheritedBlockCount": 0,
+          "layoutQaStatus": "pass"
+        }
+      },
+      "modelQa": {
+        "status": "block",
+        "score": 62,
+        "issues": [
+          "A fitted proof point was shortened into ungrammatical, scaffold-like copy and should prevent approval/export."
+        ],
+        "warnings": [
+          "“Help educators identify a challenge, choose a pathway, and continue” is vague and incomplete, weakening the proof rail.",
+          "Layout/render QA returned high pass scores despite exact text priority containing malformed production copy.",
+          "The art plate is professional and safe, but the educator meeting scene reads as generic institutional collaboration with limited WCEPS/pathways specificity."
+        ],
+        "failureModes": [
+          {
+            "id": "truncated_fitted_proof_point",
+            "severity": "block",
+            "introducedAt": "fitCopy",
+            "missedBy": "copyQualityQa",
+            "message": "A fitted proof point was shortened into ungrammatical, scaffold-like copy and should prevent approval/export."
+          },
+          {
+            "id": "weak_incomplete_proof_point",
+            "severity": "warn",
+            "introducedAt": "fitCopy",
+            "missedBy": "copyQualityQa",
+            "message": "“Help educators identify a challenge, choose a pathway, and continue” is vague and incomplete, weakening the proof rail."
+          },
+          {
+            "id": "overgenerous_deterministic_copy_qa",
+            "severity": "warn",
+            "introducedAt": "modelQa",
+            "missedBy": "renderQa",
+            "message": "Layout/render QA returned high pass scores despite exact text priority containing malformed production copy."
+          },
+          {
+            "id": "generic_visual_specificity",
+            "severity": "warn",
+            "introducedAt": "imageJob",
+            "missedBy": "visualQa",
+            "message": "The art plate is professional and safe, but the educator meeting scene reads as generic institutional collaboration with limited WCEPS/pathways specificity."
+          }
+        ],
+        "metrics": {
+          "enabled": true,
+          "model": "gpt-5.5",
+          "imageIncluded": true,
+          "deterministicScores": {
+            "sendability": 94,
+            "layoutQa": 96,
+            "copyQualityQa": 88,
+            "visualQa": 82,
+            "renderQa": 98
+          }
+        }
+      },
+      "failureModes": [
+        {
+          "id": "repetitive_generated_copy",
+          "severity": "warn",
+          "introducedAt": "generateCopy",
+          "missedBy": "fitCopy",
+          "message": "Generated copy repeats the same source idea across body, subhead, or bullets before copy-fit."
+        },
+        {
+          "id": "missing_visual_avoid_guardrails",
+          "severity": "warn",
+          "introducedAt": "buildImagePrompt",
+          "missedBy": "visualQa",
+          "message": "WCEPS visual prompt is missing avoid guardrail(s): diploma, fake university logo, mascot."
+        },
+        {
+          "id": "truncated_fitted_proof_point",
+          "severity": "block",
+          "introducedAt": "fitCopy",
+          "missedBy": "copyQualityQa",
+          "message": "A fitted proof point was shortened into ungrammatical, scaffold-like copy and should prevent approval/export."
+        },
+        {
+          "id": "weak_incomplete_proof_point",
+          "severity": "warn",
+          "introducedAt": "fitCopy",
+          "missedBy": "copyQualityQa",
+          "message": "“Help educators identify a challenge, choose a pathway, and continue” is vague and incomplete, weakening the proof rail."
+        },
+        {
+          "id": "overgenerous_deterministic_copy_qa",
+          "severity": "warn",
+          "introducedAt": "modelQa",
+          "missedBy": "renderQa",
+          "message": "Layout/render QA returned high pass scores despite exact text priority containing malformed production copy."
+        },
+        {
+          "id": "generic_visual_specificity",
+          "severity": "warn",
+          "introducedAt": "imageJob",
+          "missedBy": "visualQa",
+          "message": "The art plate is professional and safe, but the educator meeting scene reads as generic institutional collaboration with limited WCEPS/pathways specificity."
+        }
+      ],
+      "review": {
+        "status": "block",
+        "issues": [
+          "Model QA: A fitted proof point was shortened into ungrammatical, scaffold-like copy and should prevent approval/export."
+        ],
+        "warnings": [
+          "WCEPS prompt is missing avoid guardrail(s): diploma, fake university logo, mascot.",
+          "Copy QA: Generated copy repeats the same source idea across body, subhead, or bullets before copy-fit.",
+          "Visual QA: WCEPS visual prompt is missing avoid guardrail(s): diploma, fake university logo, mascot.",
+          "Model QA: “Help educators identify a challenge, choose a pathway, and continue” is vague and incomplete, weakening the proof rail.",
+          "Model QA: Layout/render QA returned high pass scores despite exact text priority containing malformed production copy.",
+          "Model QA: The art plate is professional and safe, but the educator meeting scene reads as generic institutional collaboration with limited WCEPS/pathways specificity."
+        ]
+      }
+    }
+  ]
+}
