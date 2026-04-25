@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { evaluateCopyQualityQa, evaluateRenderQa, evaluateVisualQa, resolveCompositionTemplate } from "@/lib/composition";
+import { evaluateCopyQualityQa, evaluateRenderQa, evaluateVisualQa, fitCopy, resolveCompositionTemplate } from "@/lib/composition";
 import { generateArtifact } from "@/lib/generation/generateArtifact";
 import type { ArtifactRequest } from "@/lib/schema/artifactRequest";
 import type { FittedCopy, GeneratedCopy } from "@/lib/schema/generatedArtifact";
@@ -57,6 +57,37 @@ test("copy quality QA attributes duplicate CTA detail and clipped phrases to fit
   assert.ok(qa.failureModes.some((failure) => failure.id === "duplicate_cta_detail" && failure.introducedAt === "fitCopy"));
   assert.ok(qa.failureModes.some((failure) => failure.id === "awkward_truncation" && failure.missedBy === "layoutQa"));
   assert.ok(qa.failureModes.some((failure) => failure.id === "semantic_drift"));
+});
+
+test("copy quality QA blocks internal scaffold language in visible copy", () => {
+  const fittedCopy: FittedCopy = {
+    headline: "Every Voice, Every Classroom, Every Learner",
+    deck: "Support educators through Consulting, Coaching, and Continuous Learning.",
+    proofPoints: ["Provide source-grounded CARE Coaching support."],
+    cta: "Request a CARE Coaching conversation",
+  };
+  const qa = evaluateCopyQualityQa({ copy: badCopy, fittedCopy, request: careRequest });
+
+  assert.equal(qa.status, "block");
+  assert.ok(qa.failureModes.some((failure) => failure.id === "scaffolded_visible_copy" && failure.introducedAt === "fitCopy"));
+});
+
+test("copy-fit fallback proof lines are production copy for every active brand", () => {
+  const template = resolveCompositionTemplate("flyer");
+  const rawCopy: GeneratedCopy = {
+    headlineOptions: ["Support education teams with focused planning"],
+    subheadOptions: ["Use practical support to make the work clearer."],
+    body: "Use practical support to make the work clearer.",
+    bullets: [],
+    cta: "Start a conversation",
+  };
+  const scaffoldPattern = /\b(source-grounded|source-backed|brand-safe|brand-specific guidance|clear next steps|useful artifact|production artifact)\b/i;
+
+  for (const brand of ["CARE Coaching", "CCNA", "WebbAlign", "CALL", "WIDA PRIME", "WCEPS"]) {
+    const fitted = fitCopy(rawCopy, { ...careRequest, brand }, template);
+    assert.equal(fitted.proofPoints.length, 2, `${brand} should receive two flyer proof points`);
+    assert.equal(fitted.proofPoints.some((point) => scaffoldPattern.test(point)), false, `${brand} should not expose scaffolded fallback copy`);
+  }
 });
 
 test("visual QA distinguishes requested missing art from intentional fallback diagnostics", () => {

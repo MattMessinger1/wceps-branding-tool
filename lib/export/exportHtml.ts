@@ -155,9 +155,9 @@ export function exportHtml(artifact: GeneratedArtifact) {
     .hero { position: relative; min-height: 420px; background: var(--navy); color: white; overflow: hidden; }
     .hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .72; }
     .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(20,40,54,.9), rgba(20,40,54,.48), rgba(20,40,54,.06)); }
-    .campaign-flyer .hero::after { background: linear-gradient(90deg, #fff 0%, rgba(255,255,255,.98) 34%, rgba(255,255,255,.78) 53%, rgba(255,255,255,.22) 74%, rgba(255,255,255,0) 100%); }
+    .campaign-flyer .hero::after { background: linear-gradient(90deg, #fff 0%, rgba(255,255,255,.98) 66%, rgba(255,255,255,.9) 76%, rgba(255,255,255,0) 92%); }
     .hero-inner { position: relative; z-index: 1; display: grid; align-content: space-between; gap: 40px; min-height: 760px; padding: 52px; max-width: 680px; }
-    .campaign-flyer .hero-inner { align-content: start; gap: 28px; max-width: 78%; color: var(--ink); padding: 44px; }
+    .campaign-flyer .hero-inner { align-content: start; gap: 28px; max-width: 68%; color: var(--ink); padding: 44px; }
     .eyebrow { margin: 0 0 12px; color: #b7edf1; font-size: 12px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
     .campaign-flyer .eyebrow { color: var(--blue); }
     h1 { margin: 0; max-width: 680px; font-size: 58px; line-height: .95; font-weight: 900; }

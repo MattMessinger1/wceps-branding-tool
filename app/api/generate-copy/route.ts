@@ -2,13 +2,16 @@ import { NextResponse } from "next/server";
 import { loadBrandPack } from "@/lib/brands/loadBrandPack";
 import { ArtifactRequestSchema } from "@/lib/schema/artifactRequest";
 import { buildCreativeBrief } from "@/lib/generation/buildCreativeBrief";
-import { generateCopy } from "@/lib/generation/generateCopy";
+import { generateCopyWithModel } from "@/lib/generation/generateCopy";
+import { applySourceRefresh, refreshSourceContext } from "@/lib/generation/sourceRefresh";
 
 export async function POST(request: Request) {
   const input = ArtifactRequestSchema.parse(await request.json());
   const pack = await loadBrandPack(input.brand || "WCEPS");
-  const brief = buildCreativeBrief(pack, input);
-  const copy = generateCopy(pack, brief, input);
+  const sourceRefresh = await refreshSourceContext(pack, input);
+  const sourcePack = applySourceRefresh(pack, sourceRefresh);
+  const brief = buildCreativeBrief(sourcePack, input);
+  const copy = await generateCopyWithModel(sourcePack, brief, input);
 
-  return NextResponse.json({ copy, brief });
+  return NextResponse.json({ copy, brief, sourceRefresh });
 }

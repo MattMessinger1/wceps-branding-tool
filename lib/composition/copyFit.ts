@@ -289,6 +289,40 @@ function fitProofPoint(value: string, brandName = "", maxWords = 18) {
   return repairKnownTruncations(`${shortened.replace(/[.!?]+$/g, "")}.`);
 }
 
+function fallbackProofsForBrand(request: ArtifactRequest) {
+  const byBrand: Record<string, string[]> = {
+    "CARE Coaching": [
+      "Support educator reflection with customized coaching.",
+      "Use Consulting, Coaching, and Continuous Learning.",
+    ],
+    CCNA: [
+      "Identify strengths and growth areas.",
+      "Use action-based data to guide planning.",
+    ],
+    WebbAlign: [
+      "Use DOK to strengthen alignment.",
+      "Review standards, assessments, curricula, and materials.",
+    ],
+    CALL: [
+      "Support leadership development and professional growth.",
+      "Inform school improvement planning.",
+    ],
+    "WIDA PRIME": [
+      "Clarify PRIME process expectations for instructional materials.",
+      "Support publisher and correlator workflows.",
+    ],
+    WCEPS: [
+      "Connect teams with research-based resources.",
+      "Support schools and districts with customized pathways.",
+    ],
+  };
+
+  return byBrand[request.brand] ?? [
+    `Support ${request.audience || "education teams"} with practical guidance.`,
+    "Create a focused planning path.",
+  ];
+}
+
 function contactName(value: string) {
   const email = value.match(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/i)?.[0];
   if (!email) return "";
@@ -341,10 +375,7 @@ export function fitCopy(copy: GeneratedCopy, request: ArtifactRequest, template:
     proofPoints.push(fallback);
   }
 
-  const fallbackProofs = [
-    `Provide source-grounded ${request.brand} support.`,
-    `Create clear next steps for ${request.audience || "education teams"}.`,
-  ].map((item) => fitProofPoint(item, request.brand, caps.proofWords));
+  const fallbackProofs = fallbackProofsForBrand(request).map((item) => fitProofPoint(item, request.brand, caps.proofWords));
 
   for (const fallback of fallbackProofs) {
     if (proofPoints.length >= Math.min(2, proofLimit)) break;

@@ -228,16 +228,17 @@ function CampaignFlyer({
     >
       <div className="absolute inset-0 overflow-hidden">
         {artPlate(visual, `${artifact.brand} art plate`, "scale-105", "opacity-90")}
+        <div className={hasVisual ? "absolute inset-y-0 left-0 w-[72%] bg-white/96" : "absolute inset-y-0 left-0 w-[74%] bg-white/98"} />
         <div
           className={
             hasVisual
-              ? "absolute inset-0 bg-[linear-gradient(90deg,#fff_0%,rgba(255,255,255,.98)_34%,rgba(255,255,255,.78)_53%,rgba(255,255,255,.22)_74%,rgba(255,255,255,0)_100%)]"
-              : "absolute inset-0 bg-[linear-gradient(90deg,#fff_0%,rgba(255,255,255,.96)_46%,rgba(255,255,255,.72)_72%,rgba(255,255,255,.42)_100%)]"
+              ? "absolute inset-y-0 left-[66%] w-[26%] bg-[linear-gradient(90deg,rgba(255,255,255,.94),rgba(255,255,255,0))]"
+              : "absolute inset-y-0 left-[68%] w-[28%] bg-[linear-gradient(90deg,rgba(255,255,255,.94),rgba(255,255,255,.42))]"
           }
         />
         <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-white/82 to-transparent" />
       </div>
-      <div className="relative z-10 grid h-full max-w-[78%] content-start gap-7 p-8 sm:p-10">
+      <div className="relative z-10 grid h-full max-w-[68%] content-start gap-7 p-8 sm:p-10">
         <Logo brandName={artifact.brand} logoUrl={logoUrl} />
         <div className="grid gap-4">
           {audienceLabel ? (

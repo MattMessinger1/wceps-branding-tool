@@ -79,9 +79,9 @@ ${bullets}
     <section className="bg-[#f7f4ee] px-6 py-12 text-[#20252A]" data-template="${templateId}">
       <div data-design-recipe="${designRecipeId}" className="${isCampaignFlyer ? "relative mx-auto aspect-[4/5] w-full max-w-[780px] overflow-hidden rounded-lg bg-white text-[#142836]" : "relative mx-auto min-h-[720px] max-w-5xl overflow-hidden rounded-lg bg-[#142836] text-white"}">
         {visualUrl ? <img src={visualUrl} alt="${headline} art plate" className="absolute inset-0 h-full w-full object-cover ${isCampaignFlyer ? "scale-105 opacity-90" : "opacity-70"}" /> : null}
-        <div className="${isCampaignFlyer ? "absolute inset-0 bg-[linear-gradient(90deg,#fff_0%,rgba(255,255,255,.98)_34%,rgba(255,255,255,.78)_53%,rgba(255,255,255,.22)_74%,rgba(255,255,255,0)_100%)]" : "absolute inset-0 bg-gradient-to-r from-[#142836]/95 via-[#142836]/64 to-transparent"}" />
+        <div className="${isCampaignFlyer ? "absolute inset-0 bg-[linear-gradient(90deg,#fff_0%,rgba(255,255,255,.98)_66%,rgba(255,255,255,.9)_76%,rgba(255,255,255,0)_92%)]" : "absolute inset-0 bg-gradient-to-r from-[#142836]/95 via-[#142836]/64 to-transparent"}" />
         <div className="${isCampaignFlyer ? "absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-white/82 to-transparent" : "hidden"}" />
-        <div className="${isCampaignFlyer ? "relative z-10 grid h-full max-w-[78%] content-start gap-7 p-8 sm:p-10" : "relative z-10 grid min-h-[720px] max-w-2xl content-between p-10"}">
+        <div className="${isCampaignFlyer ? "relative z-10 grid h-full max-w-[68%] content-start gap-7 p-8 sm:p-10" : "relative z-10 grid min-h-[720px] max-w-2xl content-between p-10"}">
           <div className="grid gap-8">
             {logoUrl ? <img src={logoUrl} alt="${artifact.brand} logo" className="${logoClassName}" /> : <p className="${isCampaignFlyer ? "text-xs font-bold uppercase tracking-[0.18em] text-[#0081A4]" : "text-sm font-semibold uppercase tracking-wide text-cyan-200"}">${artifact.brand}</p>}
             <div className="grid gap-4">

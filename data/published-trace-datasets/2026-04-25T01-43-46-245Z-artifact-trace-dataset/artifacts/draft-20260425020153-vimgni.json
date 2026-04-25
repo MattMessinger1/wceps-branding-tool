@@ -1,0 +1,441 @@
+{
+  "id": "draft-20260425020153-vimgni",
+  "artifactType": "html-email-announcement",
+  "brand": "WIDA PRIME",
+  "audience": "publishers",
+  "brief": {
+    "artifactType": "html-email-announcement",
+    "brand": "WIDA PRIME",
+    "audience": "publishers",
+    "objective": "explain the PRIME instructional materials correlation process",
+    "keyMessages": [
+      "WIDA PRIME lists instructional materials that have gone through the PRIME process and received a PRIME seal.",
+      "PRIME 2020 includes materials aligned to the current WIDA English Language Development Standards Framework, 2020 Edition.",
+      "WIDA PRIME information helps educators consider how particular materials fit in their program."
+    ],
+    "proofPoints": [
+      "The WIDA PRIME site lists reviewed PRIME v1 and v2 correlations and PRIME 2020 alignments.",
+      "The WIDA PRIME site says PRIME 2020 includes materials aligned to the current WIDA English Language Development Standards Framework, 2020 Edition.",
+      "The WIDA PRIME site says WIDA does not endorse instructional materials and PRIME is not an evaluative tool that judges effectiveness."
+    ],
+    "cta": "Start the PRIME process",
+    "visualDirection": [
+      "instructional materials",
+      "curriculum review",
+      "standards alignment",
+      "seal-inspired",
+      "catalog"
+    ],
+    "layoutRecommendation": "Use a single-column HTML email announcement with a logo header, concise message, one CTA button, and inline styles.",
+    "sourceEvidenceIds": [
+      "source-refresh-1",
+      "source-refresh-2",
+      "source-refresh-3",
+      "source-refresh-4"
+    ]
+  },
+  "copy": {
+    "headlineOptions": [
+      "Start your WIDA PRIME correlation process",
+      "Show how your materials align with WIDA Standards",
+      "Prepare instructional materials for WIDA PRIME"
+    ],
+    "subheadOptions": [
+      "WIDA PRIME lists instructional materials that have gone through the PRIME process and received a PRIME seal.",
+      "PRIME 2020 includes materials aligned to the current WIDA English Language Development Standards Framework, 2020 Edition.",
+      "Publishers can submit instructional materials and a portfolio of evidence for review by WIDA-trained reviewers."
+    ],
+    "body": "WIDA PRIME is a tool to assist publishers and educators in analyzing instructional materials for the presence of key components of the WIDA Standards. For publishers, the process includes reviewing the workbook and FAQs, compiling evidence, submitting materials, WIDA review, and publishing approved alignment information.",
+    "bullets": [
+      "Materials may include core and supplemental texts, websites and software, and other ancillary materials.",
+      "To request the WIDA PRIME 2020 Seal, publishers submit instructional materials and a portfolio of evidence.",
+      "The WIDA PRIME site lists reviewed PRIME v1 and v2 correlations and PRIME 2020 alignments.",
+      "WIDA continues to support WIDA PRIME V2 for Spanish Language Development materials.",
+      "WIDA PRIME information helps educators consider how particular materials fit in their program."
+    ],
+    "cta": "Start the PRIME process"
+  },
+  "fittedCopy": {
+    "headline": "Start your WIDA PRIME correlation process",
+    "deck": "WIDA PRIME lists instructional materials that have gone through the PRIME process and received a PRIME seal.",
+    "proofPoints": [
+      "Materials may include core and supplemental texts, websites and software, and other.",
+      "To request the WIDA PRIME 2020 Seal, publishers submit instructional materials."
+    ],
+    "cta": "Start the PRIME process"
+  },
+  "compositionTemplate": {
+    "id": "email-hero",
+    "artifactType": "html-email-announcement",
+    "aspectRatio": "680px email",
+    "densityTarget": "compact",
+    "typographyScale": "email-safe headline with concise body text",
+    "artPlateTreatment": "wide hero art strip with controlled crop",
+    "logoPlacement": "top header, single official logo",
+    "copyPlacement": "email body stack with 2 proof rows",
+    "ctaPlacement": "inline email button"
+  },
+  "designRecipe": {
+    "id": "email-strip",
+    "source": "model-generated",
+    "textZone": "body",
+    "visualZone": "top-band",
+    "density": "minimal",
+    "hierarchy": "compact publisher email opening: official logo header, distinctive WIDA PRIME hero strip, then app-rendered headline, deck, proof rows, and CTA",
+    "artDirection": "wide polished email hero for WIDA PRIME, using abstract publishing-correlation imagery—stacked instructional materials, digital resource cues, alignment pathways, and subtle seal-inspired geometry—rendered in a calm professional education palette without words or logos",
+    "placeholderStrategy": "use subject placement, controlled crop, and clean negative space to create a recognizable 680px-wide visual hook that supports the body copy below",
+    "appComposition": "app owns the official logo header, exact headline, deck, proof rows, CTA button, email-safe layout, and export; generated art supplies only the top hero concept",
+    "promptDirectives": [
+      "Design a wide 680px email hero strip, not a full newsletter page.",
+      "Make it feel like the opening visual for a publisher-facing WIDA PRIME announcement.",
+      "Use abstract instructional-materials correlation and review-process cues; keep details legible at email scale.",
+      "Do not include readable text, fake logos, seals, buttons, UI modules, contact bars, or placeholder boxes."
+    ]
+  },
+  "compositionScore": {
+    "question": "Would I send this to the WCEPS team without apology?",
+    "overall": 95,
+    "whitespaceDensity": 92,
+    "templateScaffolding": 96,
+    "typographyQuality": 87,
+    "artifactMatch": 96,
+    "brandFidelity": 94,
+    "brandRelevance": 98,
+    "brandBoundary": 100,
+    "textIntegration": 94,
+    "fakeContentRisk": 95,
+    "sendability": 95,
+    "status": "warn",
+    "issues": [],
+    "warnings": [
+      "WIDA PRIME prompt is missing avoid guardrail(s): fake title."
+    ]
+  },
+  "layoutQa": {
+    "question": "Would I send this layout to the WCEPS team without apology?",
+    "overall": 99,
+    "noTextOverflow": 100,
+    "noCtaCollision": 100,
+    "proofLineWidth": 96,
+    "logoOnce": 100,
+    "artifactFormatMatch": 100,
+    "exportReady": 99,
+    "sendability": 99,
+    "status": "pass",
+    "issues": [],
+    "warnings": [],
+    "metrics": {
+      "headlineLines": 2,
+      "deckLines": 2,
+      "maxProofLines": 2,
+      "minProofCharsPerLine": 39,
+      "ctaLines": 1,
+      "estimatedCanvasOverflow": false
+    }
+  },
+  "copyQualityQa": {
+    "question": "Would I send this copy to the WCEPS team without apology?",
+    "score": 100,
+    "status": "pass",
+    "issues": [],
+    "warnings": [],
+    "failureModes": [],
+    "metrics": {
+      "fittedTextCount": 5,
+      "generatedTextCount": 9,
+      "missingPreferredTerms": [
+        "PRIME V1",
+        "PRIME V2",
+        "Spanish Language Development"
+      ]
+    }
+  },
+  "visualQa": {
+    "question": "Would I send this visual system to the WCEPS team without apology?",
+    "score": 85,
+    "status": "warn",
+    "issues": [],
+    "warnings": [
+      "WIDA PRIME visual prompt is missing avoid guardrail(s): fake title."
+    ],
+    "failureModes": [
+      {
+        "id": "missing_visual_avoid_guardrails",
+        "severity": "warn",
+        "introducedAt": "buildImagePrompt",
+        "missedBy": "visualQa",
+        "message": "WIDA PRIME visual prompt is missing avoid guardrail(s): fake title."
+      }
+    ],
+    "metrics": {
+      "hasGeneratedVisual": true,
+      "usesFallbackArt": false,
+      "missingArtPlate": false,
+      "darkEdgeBleedRisk": false,
+      "visualRelevance": 97,
+      "promptCount": 3,
+      "missingRequiredTerms": [],
+      "missingAvoidTerms": [
+        "fake title"
+      ]
+    }
+  },
+  "renderQa": {
+    "question": "Would I send this rendered artifact to the WCEPS team without apology?",
+    "score": 98,
+    "status": "pass",
+    "issues": [],
+    "warnings": [],
+    "failureModes": [],
+    "metrics": {
+      "templateId": "email-hero",
+      "artifactType": "html-email-announcement",
+      "proofPointCount": 2,
+      "hasCtaDetail": false,
+      "inheritedBlockCount": 0,
+      "layoutQaStatus": "pass"
+    }
+  },
+  "modelQa": {
+    "question": "Would a senior WCEPS reviewer send this artifact without apology?",
+    "score": 72,
+    "status": "block",
+    "issues": [
+      "Fitted proof point appears truncated from “other ancillary materials” to “and other,” creating unfinished production copy."
+    ],
+    "warnings": [
+      "Selected headline, deck, and CTA repeat PRIME/process language instead of building a more natural hierarchy.",
+      "Deck language may imply every listed material received a PRIME seal; PRIME 2020 Seal language should be distinguished from older correlations/alignments.",
+      "Image is clean and on-topic but reads as broad instructional-materials publishing rather than uniquely WIDA PRIME."
+    ],
+    "failureModes": [
+      {
+        "id": "truncated_proof_point",
+        "severity": "block",
+        "introducedAt": "fitCopy",
+        "missedBy": "copyQualityQa",
+        "message": "Fitted proof point appears truncated from “other ancillary materials” to “and other,” creating unfinished production copy."
+      },
+      {
+        "id": "repetitive_prime_process_copy",
+        "severity": "warn",
+        "introducedAt": "fitCopy",
+        "missedBy": "copyQualityQa",
+        "message": "Selected headline, deck, and CTA repeat PRIME/process language instead of building a more natural hierarchy."
+      },
+      {
+        "id": "possible_prime_seal_overgeneralization",
+        "severity": "warn",
+        "introducedAt": "generateCopy",
+        "missedBy": "copyQualityQa",
+        "message": "Deck language may imply every listed material received a PRIME seal; PRIME 2020 Seal language should be distinguished from older correlations/alignments."
+      },
+      {
+        "id": "generic_publisher_art",
+        "severity": "warn",
+        "introducedAt": "imageJob",
+        "missedBy": "visualQa",
+        "message": "Image is clean and on-topic but reads as broad instructional-materials publishing rather than uniquely WIDA PRIME."
+      }
+    ],
+    "metrics": {
+      "enabled": true,
+      "model": "gpt-5.5",
+      "imageIncluded": true,
+      "deterministicScores": {
+        "sendability": 95,
+        "layoutQa": 99,
+        "copyQualityQa": 100,
+        "visualQa": 85,
+        "renderQa": 98
+      }
+    }
+  },
+  "failureModes": [
+    {
+      "id": "missing_visual_avoid_guardrails",
+      "severity": "warn",
+      "introducedAt": "buildImagePrompt",
+      "missedBy": "visualQa",
+      "message": "WIDA PRIME visual prompt is missing avoid guardrail(s): fake title."
+    },
+    {
+      "id": "truncated_proof_point",
+      "severity": "block",
+      "introducedAt": "fitCopy",
+      "missedBy": "copyQualityQa",
+      "message": "Fitted proof point appears truncated from “other ancillary materials” to “and other,” creating unfinished production copy."
+    },
+    {
+      "id": "repetitive_prime_process_copy",
+      "severity": "warn",
+      "introducedAt": "fitCopy",
+      "missedBy": "copyQualityQa",
+      "message": "Selected headline, deck, and CTA repeat PRIME/process language instead of building a more natural hierarchy."
+    },
+    {
+      "id": "possible_prime_seal_overgeneralization",
+      "severity": "warn",
+      "introducedAt": "generateCopy",
+      "missedBy": "copyQualityQa",
+      "message": "Deck language may imply every listed material received a PRIME seal; PRIME 2020 Seal language should be distinguished from older correlations/alignments."
+    },
+    {
+      "id": "generic_publisher_art",
+      "severity": "warn",
+      "introducedAt": "imageJob",
+      "missedBy": "visualQa",
+      "message": "Image is clean and on-topic but reads as broad instructional-materials publishing rather than uniquely WIDA PRIME."
+    }
+  ],
+  "artPlatePromptVersion": "design-comp-v1",
+  "layoutContract": {
+    "artifactType": "html-email-announcement",
+    "canvas": "1200x700, email-safe full-bleed header canvas",
+    "safeZones": [
+      "Create a wide art field that crops cleanly at email width.",
+      "Keep the canvas simple enough for a narrow email module.",
+      "Avoid tiny details that disappear at email width."
+    ],
+    "exactTextPriority": [
+      "Start your WIDA PRIME correlation process",
+      "For publishers",
+      "Start the PRIME process",
+      "WIDA PRIME lists instructional materials that have gone through the PRIME process and received a PRIME",
+      "Materials may include core and supplemental texts, websites and software, and other.",
+      "To request the WIDA PRIME 2020 Seal, publishers submit instructional materials."
+    ],
+    "appOwnedElements": [
+      "Official WIDA PRIME logo from approved asset.",
+      "Deterministic grid, typography, headline, audience, and CTA.",
+      "Exact support copy and proof hierarchy.",
+      "Final export wrapper, source evidence, and review state."
+    ],
+    "imageGenOwnedElements": [
+      "Text-free full-bleed campaign art plate.",
+      "Atmosphere, photography or illustration treatment, color, texture, and crop rhythm.",
+      "No document layout, fake cards, panels, contact bars, charts, or text."
+    ]
+  },
+  "imagePrompts": [
+    "CONTRACT=design-comp-v1\nMODE=design-comp-art-plate\nINTENT={out:html-email-announcement, brand:WIDA PRIME, aud:publishers, theme:[prime | 2020 | spanish | language | development | correlations | publisher | workflow | publishers], tone:polished, publisher-facing, precise, ground:strict}\nCANVAS=1200x700, email-safe full-bleed header canvas\nFORMAT=email-safe campaign art plate; not a print flyer or full webpage.\nDESIGN_RECIPE={id:email-strip; text_zone:body; visual_zone:top-band; density:minimal; hierarchy:compact publisher email opening: official logo header, distinctive WIDA PRIME hero strip, then app-rendered headline, deck, proof rows, and; art:wide polished email hero for WIDA PRIME, using abstract publishing-correlation imagery—stacked instructional materials, digital resource; placeholder:use subject placement, controlled crop, and clean negative space to create a recognizable 680px-wide visual hook that supports the; app_comp:app owns the official logo header, exact headline, deck, proof rows, CTA button, email-safe layout, and export; generated art; directives:[Design a wide 680px email hero strip, not a full newsletter page. | Make it feel like the opening visual for a publisher-facing WIDA PRIME | Use abstract instructional-materials correlation and review-process cues | Do not include readable text, fake logos, seals, buttons, UI modules]}\nBRAND={pal:[#0057A8 | #00A6A6 | #6CC24A | #F6A800], visual:[instructional materials | curriculum review | standards alignment | publisher workflow | Montserrat], evid_ids:[source-refresh-2 | source-refresh-1]}\nBRAND_BOUNDARY={keep:[instructional materials | PRIME process | PRIME 2020 | PRIME V1 | PRIME V2 | Spanish Language Development]; avoid_sibling:[WIDA Workshops | workshops and webinars | sole source provider | CARE Coaching | CCNA | CALL | WebbAlign | DOK]; parent_context:[WIDA | WCEPS]}\nBRAND_VISUAL_PROFILE={show:[K-12 content-area instructional materials | teacher editions and student workbooks | curriculum binders and grade-band packets | standards alignment review | publisher and correlator workflow]; props:[science, math, language arts, and social studies | instructional material sample spreads without readable | alignment review notes without labels | publisher review table | grade-band curriculum packets]; avoid:[random novels | trade books | library stacks | fake book titles | fake publisher brands | fake PRIME seals | endorsement imagery]; app_owned:[WIDA PRIME logo | verified seal or badge only if present | headline | CTA | proof copy]; tone:[publisher-facing | standards-aligned | clean | material-specific | trustworthy]; fit:wide instructional-materials hero strip with standards-alignment context}\nLOGO=do not render any WIDA PRIME logo, wordmark, brand initials, logo-like mark, chevron/mountain mark, arrow mark, or background logo pattern; app renders official logo once.\nMARKS_RULE=official logos, seals, badges, CTAs, headlines, labels, and readable copy are app-owned; do not invent or render them in the art plate.\nOWN=app:[Official WIDA PRIME logo from approved asset. | Deterministic grid, typography, headline, audience, and CTA. | Exact support copy and proof hierarchy. | Final export wrapper, source evidence, and review state.]; imagegen:[Text-free full-bleed campaign art plate. | Atmosphere, photography or illustration treatment, color | No document layout, fake cards, panels, contact bars, charts].\nCROP_SAFE=[Create a wide art field that crops cleanly at email width. | Keep the canvas simple enough for a narrow email module. | Avoid tiny details that disappear at email width.]\nMESSAGE_CUES=[headline_theme:prime/2020/spanish | audience:10 chars | cta_intent:start/prime/process | proof_volume:compact]; mood/subject only, never words/layout.\nREFS=none; references only.\nUSER_NOTE=Do not imply WIDA endorses materials or that PRIME evaluates effectiveness.\nART=wide email-safe campaign art plate with refined education-sector atmosphere and no email UI; NY media/ad-agency quality, full designed concept with visual hierarchy, type-safe contrast zones, premium atmosphere, layered depth, non-generic education storytelling, intentional crop.\nVISUAL_STYLE=authentic editorial photography or refined abstract-illustrative atmosphere; avoid posed training-room stock, washed-out empty fades, generic meeting-table cliches, literal brand-shape wallpaper.\nCOMPOSITION=ImageGen creates a full artifact design comp: composition, crop, hierarchy, contrast, visual rhythm, and type-safe zones. The app renders exact typography, official logo, proof copy, CTA, source evidence, and export.\nTEXT_RULE=absolutely no readable text, letters, numbers, labels, fake paragraphs, book titles, publisher names, email addresses, URLs, phone numbers, citations, or lorem ipsum; imply text areas through composition only.\nNO=document layouts, panels, blank boxes, placeholder modules, mock UI, cards, fake text, fake charts, icons with labels, contact bars, duplicate logos, fake logos, fake seals, fake badges, fake book titles, fake publisher brands, logo-like marks, wordmarks, chevrons, arrows, mountain logos, malformed UI, brochure scaffolding, invented claims, endorsement imagery, close-up faces, detailed hands, stock-photo workshop posing.\nQUALITY=best over fast; polished design-comp art plate, no template scaffolding.",
+    "CONTRACT=design-comp-v1\nMODE=design-comp-art-plate\nINTENT={out:html-email-announcement, brand:WIDA PRIME, aud:publishers, theme:[prime | 2020 | spanish | language | development | correlations | publisher | workflow | publishers], tone:polished, publisher-facing, precise, ground:strict}\nCANVAS=1200x700, email-safe full-bleed header canvas\nFORMAT=email-safe campaign art plate; not a print flyer or full webpage.\nDESIGN_RECIPE={id:email-strip; text_zone:body; visual_zone:top-band; density:minimal; hierarchy:compact publisher email opening: official logo header, distinctive WIDA PRIME hero strip, then app-rendered headline, deck, proof rows, and; art:wide polished email hero for WIDA PRIME, using abstract publishing-correlation imagery—stacked instructional materials, digital resource; placeholder:use subject placement, controlled crop, and clean negative space to create a recognizable 680px-wide visual hook that supports the; app_comp:app owns the official logo header, exact headline, deck, proof rows, CTA button, email-safe layout, and export; generated art; directives:[Design a wide 680px email hero strip, not a full newsletter page. | Make it feel like the opening visual for a publisher-facing WIDA PRIME | Use abstract instructional-materials correlation and review-process cues | Do not include readable text, fake logos, seals, buttons, UI modules]}\nBRAND={pal:[#0057A8 | #00A6A6 | #6CC24A | #F6A800], visual:[instructional materials | curriculum review | standards alignment | publisher workflow | Montserrat], evid_ids:[source-refresh-2 | source-refresh-1]}\nBRAND_BOUNDARY={keep:[instructional materials | PRIME process | PRIME 2020 | PRIME V1 | PRIME V2 | Spanish Language Development]; avoid_sibling:[WIDA Workshops | workshops and webinars | sole source provider | CARE Coaching | CCNA | CALL | WebbAlign | DOK]; parent_context:[WIDA | WCEPS]}\nBRAND_VISUAL_PROFILE={show:[K-12 content-area instructional materials | teacher editions and student workbooks | curriculum binders and grade-band packets | standards alignment review | publisher and correlator workflow]; props:[science, math, language arts, and social studies | instructional material sample spreads without readable | alignment review notes without labels | publisher review table | grade-band curriculum packets]; avoid:[random novels | trade books | library stacks | fake book titles | fake publisher brands | fake PRIME seals | endorsement imagery]; app_owned:[WIDA PRIME logo | verified seal or badge only if present | headline | CTA | proof copy]; tone:[publisher-facing | standards-aligned | clean | material-specific | trustworthy]; fit:wide instructional-materials hero strip with standards-alignment context}\nLOGO=do not render any WIDA PRIME logo, wordmark, brand initials, logo-like mark, chevron/mountain mark, arrow mark, or background logo pattern; app renders official logo once.\nMARKS_RULE=official logos, seals, badges, CTAs, headlines, labels, and readable copy are app-owned; do not invent or render them in the art plate.\nOWN=app:[Official WIDA PRIME logo from approved asset. | Deterministic grid, typography, headline, audience, and CTA. | Exact support copy and proof hierarchy. | Final export wrapper, source evidence, and review state.]; imagegen:[Text-free full-bleed campaign art plate. | Atmosphere, photography or illustration treatment, color | No document layout, fake cards, panels, contact bars, charts].\nCROP_SAFE=[Create a wide art field that crops cleanly at email width. | Keep the canvas simple enough for a narrow email module. | Avoid tiny details that disappear at email width.]\nMESSAGE_CUES=[headline_theme:prime/2020/spanish | audience:10 chars | cta_intent:start/prime/process | proof_volume:compact]; mood/subject only, never words/layout.\nREFS=none; references only.\nUSER_NOTE=Do not imply WIDA endorses materials or that PRIME evaluates effectiveness.\nART=polished newsletter hero visual field with soft color depth, texture, and no rendered text or logo shapes; NY media/ad-agency quality, full designed concept with visual hierarchy, type-safe contrast zones, premium atmosphere, layered depth, non-generic education storytelling, intentional crop.\nVISUAL_STYLE=authentic editorial photography or refined abstract-illustrative atmosphere; avoid posed training-room stock, washed-out empty fades, generic meeting-table cliches, literal brand-shape wallpaper.\nCOMPOSITION=ImageGen creates a full artifact design comp: composition, crop, hierarchy, contrast, visual rhythm, and type-safe zones. The app renders exact typography, official logo, proof copy, CTA, source evidence, and export.\nTEXT_RULE=absolutely no readable text, letters, numbers, labels, fake paragraphs, book titles, publisher names, email addresses, URLs, phone numbers, citations, or lorem ipsum; imply text areas through composition only.\nNO=document layouts, panels, blank boxes, placeholder modules, mock UI, cards, fake text, fake charts, icons with labels, contact bars, duplicate logos, fake logos, fake seals, fake badges, fake book titles, fake publisher brands, logo-like marks, wordmarks, chevrons, arrows, mountain logos, malformed UI, brochure scaffolding, invented claims, endorsement imagery, close-up faces, detailed hands, stock-photo workshop posing.\nQUALITY=best over fast; polished design-comp art plate, no template scaffolding.",
+    "CONTRACT=design-comp-v1\nMODE=design-comp-art-plate\nINTENT={out:html-email-announcement, brand:WIDA PRIME, aud:publishers, theme:[prime | 2020 | spanish | language | development | correlations | publisher | workflow | publishers], tone:polished, publisher-facing, precise, ground:strict}\nCANVAS=1200x700, email-safe full-bleed header canvas\nFORMAT=email-safe campaign art plate; not a print flyer or full webpage.\nDESIGN_RECIPE={id:email-strip; text_zone:body; visual_zone:top-band; density:minimal; hierarchy:compact publisher email opening: official logo header, distinctive WIDA PRIME hero strip, then app-rendered headline, deck, proof rows, and; art:wide polished email hero for WIDA PRIME, using abstract publishing-correlation imagery—stacked instructional materials, digital resource; placeholder:use subject placement, controlled crop, and clean negative space to create a recognizable 680px-wide visual hook that supports the; app_comp:app owns the official logo header, exact headline, deck, proof rows, CTA button, email-safe layout, and export; generated art; directives:[Design a wide 680px email hero strip, not a full newsletter page. | Make it feel like the opening visual for a publisher-facing WIDA PRIME | Use abstract instructional-materials correlation and review-process cues | Do not include readable text, fake logos, seals, buttons, UI modules]}\nBRAND={pal:[#0057A8 | #00A6A6 | #6CC24A | #F6A800], visual:[instructional materials | curriculum review | standards alignment | publisher workflow | Montserrat], evid_ids:[source-refresh-2 | source-refresh-1]}\nBRAND_BOUNDARY={keep:[instructional materials | PRIME process | PRIME 2020 | PRIME V1 | PRIME V2 | Spanish Language Development]; avoid_sibling:[WIDA Workshops | workshops and webinars | sole source provider | CARE Coaching | CCNA | CALL | WebbAlign | DOK]; parent_context:[WIDA | WCEPS]}\nBRAND_VISUAL_PROFILE={show:[K-12 content-area instructional materials | teacher editions and student workbooks | curriculum binders and grade-band packets | standards alignment review | publisher and correlator workflow]; props:[science, math, language arts, and social studies | instructional material sample spreads without readable | alignment review notes without labels | publisher review table | grade-band curriculum packets]; avoid:[random novels | trade books | library stacks | fake book titles | fake publisher brands | fake PRIME seals | endorsement imagery]; app_owned:[WIDA PRIME logo | verified seal or badge only if present | headline | CTA | proof copy]; tone:[publisher-facing | standards-aligned | clean | material-specific | trustworthy]; fit:wide instructional-materials hero strip with standards-alignment context}\nLOGO=do not render any WIDA PRIME logo, wordmark, brand initials, logo-like mark, chevron/mountain mark, arrow mark, or background logo pattern; app renders official logo once.\nMARKS_RULE=official logos, seals, badges, CTAs, headlines, labels, and readable copy are app-owned; do not invent or render them in the art plate.\nOWN=app:[Official WIDA PRIME logo from approved asset. | Deterministic grid, typography, headline, audience, and CTA. | Exact support copy and proof hierarchy. | Final export wrapper, source evidence, and review state.]; imagegen:[Text-free full-bleed campaign art plate. | Atmosphere, photography or illustration treatment, color | No document layout, fake cards, panels, contact bars, charts].\nCROP_SAFE=[Create a wide art field that crops cleanly at email width. | Keep the canvas simple enough for a narrow email module. | Avoid tiny details that disappear at email width.]\nMESSAGE_CUES=[headline_theme:prime/2020/spanish | audience:10 chars | cta_intent:start/prime/process | proof_volume:compact]; mood/subject only, never words/layout.\nREFS=none; references only.\nUSER_NOTE=Do not imply WIDA endorses materials or that PRIME evaluates effectiveness.\nART=premium announcement art strip with mobile-email-friendly simplicity and no layout scaffolding; NY media/ad-agency quality, full designed concept with visual hierarchy, type-safe contrast zones, premium atmosphere, layered depth, non-generic education storytelling, intentional crop.\nVISUAL_STYLE=authentic editorial photography or refined abstract-illustrative atmosphere; avoid posed training-room stock, washed-out empty fades, generic meeting-table cliches, literal brand-shape wallpaper.\nCOMPOSITION=ImageGen creates a full artifact design comp: composition, crop, hierarchy, contrast, visual rhythm, and type-safe zones. The app renders exact typography, official logo, proof copy, CTA, source evidence, and export.\nTEXT_RULE=absolutely no readable text, letters, numbers, labels, fake paragraphs, book titles, publisher names, email addresses, URLs, phone numbers, citations, or lorem ipsum; imply text areas through composition only.\nNO=document layouts, panels, blank boxes, placeholder modules, mock UI, cards, fake text, fake charts, icons with labels, contact bars, duplicate logos, fake logos, fake seals, fake badges, fake book titles, fake publisher brands, logo-like marks, wordmarks, chevrons, arrows, mountain logos, malformed UI, brochure scaffolding, invented claims, endorsement imagery, close-up faces, detailed hands, stock-photo workshop posing.\nQUALITY=best over fast; polished design-comp art plate, no template scaffolding."
+  ],
+  "imageResults": [
+    {
+      "prompt": "CONTRACT=design-comp-v1\nMODE=design-comp-art-plate\nINTENT={out:html-email-announcement, brand:WIDA PRIME, aud:publishers, theme:[prime | 2020 | spanish | language | development | correlations | publisher | workflow | publishers], tone:polished, publisher-facing, precise, ground:strict}\nCANVAS=1200x700, email-safe full-bleed header canvas\nFORMAT=email-safe campaign art plate; not a print flyer or full webpage.\nDESIGN_RECIPE={id:email-strip; text_zone:body; visual_zone:top-band; density:minimal; hierarchy:compact publisher email opening: official logo header, distinctive WIDA PRIME hero strip, then app-rendered headline, deck, proof rows, and; art:wide polished email hero for WIDA PRIME, using abstract publishing-correlation imagery—stacked instructional materials, digital resource; placeholder:use subject placement, controlled crop, and clean negative space to create a recognizable 680px-wide visual hook that supports the; app_comp:app owns the official logo header, exact headline, deck, proof rows, CTA button, email-safe layout, and export; generated art; directives:[Design a wide 680px email hero strip, not a full newsletter page. | Make it feel like the opening visual for a publisher-facing WIDA PRIME | Use abstract instructional-materials correlation and review-process cues | Do not include readable text, fake logos, seals, buttons, UI modules]}\nBRAND={pal:[#0057A8 | #00A6A6 | #6CC24A | #F6A800], visual:[instructional materials | curriculum review | standards alignment | publisher workflow | Montserrat], evid_ids:[source-refresh-2 | source-refresh-1]}\nBRAND_BOUNDARY={keep:[instructional materials | PRIME process | PRIME 2020 | PRIME V1 | PRIME V2 | Spanish Language Development]; avoid_sibling:[WIDA Workshops | workshops and webinars | sole source provider | CARE Coaching | CCNA | CALL | WebbAlign | DOK]; parent_context:[WIDA | WCEPS]}\nBRAND_VISUAL_PROFILE={show:[K-12 content-area instructional materials | teacher editions and student workbooks | curriculum binders and grade-band packets | standards alignment review | publisher and correlator workflow]; props:[science, math, language arts, and social studies | instructional material sample spreads without readable | alignment review notes without labels | publisher review table | grade-band curriculum packets]; avoid:[random novels | trade books | library stacks | fake book titles | fake publisher brands | fake PRIME seals | endorsement imagery]; app_owned:[WIDA PRIME logo | verified seal or badge only if present | headline | CTA | proof copy]; tone:[publisher-facing | standards-aligned | clean | material-specific | trustworthy]; fit:wide instructional-materials hero strip with standards-alignment context}\nLOGO=do not render any WIDA PRIME logo, wordmark, brand initials, logo-like mark, chevron/mountain mark, arrow mark, or background logo pattern; app renders official logo once.\nMARKS_RULE=official logos, seals, badges, CTAs, headlines, labels, and readable copy are app-owned; do not invent or render them in the art plate.\nOWN=app:[Official WIDA PRIME logo from approved asset. | Deterministic grid, typography, headline, audience, and CTA. | Exact support copy and proof hierarchy. | Final export wrapper, source evidence, and review state.]; imagegen:[Text-free full-bleed campaign art plate. | Atmosphere, photography or illustration treatment, color | No document layout, fake cards, panels, contact bars, charts].\nCROP_SAFE=[Create a wide art field that crops cleanly at email width. | Keep the canvas simple enough for a narrow email module. | Avoid tiny details that disappear at email width.]\nMESSAGE_CUES=[headline_theme:prime/2020/spanish | audience:10 chars | cta_intent:start/prime/process | proof_volume:compact]; mood/subject only, never words/layout.\nREFS=none; references only.\nUSER_NOTE=Do not imply WIDA endorses materials or that PRIME evaluates effectiveness.\nART=wide email-safe campaign art plate with refined education-sector atmosphere and no email UI; NY media/ad-agency quality, full designed concept with visual hierarchy, type-safe contrast zones, premium atmosphere, layered depth, non-generic education storytelling, intentional crop.\nVISUAL_STYLE=authentic editorial photography or refined abstract-illustrative atmosphere; avoid posed training-room stock, washed-out empty fades, generic meeting-table cliches, literal brand-shape wallpaper.\nCOMPOSITION=ImageGen creates a full artifact design comp: composition, crop, hierarchy, contrast, visual rhythm, and type-safe zones. The app renders exact typography, official logo, proof copy, CTA, source evidence, and export.\nTEXT_RULE=absolutely no readable text, letters, numbers, labels, fake paragraphs, book titles, publisher names, email addresses, URLs, phone numbers, citations, or lorem ipsum; imply text areas through composition only.\nNO=document layouts, panels, blank boxes, placeholder modules, mock UI, cards, fake text, fake charts, icons with labels, contact bars, duplicate logos, fake logos, fake seals, fake badges, fake book titles, fake publisher brands, logo-like marks, wordmarks, chevrons, arrows, mountain logos, malformed UI, brochure scaffolding, invented claims, endorsement imagery, close-up faces, detailed hands, stock-photo workshop posing.\nQUALITY=best over fast; polished design-comp art plate, no template scaffolding.",
+      "model": "gpt-image-2",
+      "size": "1536x1024",
+      "quality": "high",
+      "outputFormat": "webp",
+      "outputCompression": 70,
+      "dataUrl": "images/draft-20260425020153-vimgni-1.webp",
+      "revisedPrompt": "Create a 1200x700 email-safe full-bleed campaign art plate for a polished publisher-facing WIDA PRIME announcement. Wide 680px email hero strip sensibility within the canvas: compact, premium opening visual, with the top-band as the main visual zone and a clean body/text-safe negative-space area suitable for app-rendered headline/deck/proof/CTA later. Absolutely no readable text, letters, numbers, labels, logos, wordmarks, badges, seals, buttons, UI modules, document-layout panels, fake charts, or brand-like marks.\n\nSubject and mood: refined education-sector editorial/abstract atmosphere about K–12 instructional materials correlation, standards alignment review, Spanish language development materials, PRIME 2020 workflow, and publisher/correlator review process. Use abstract publishing-correlation imagery: stacked teacher editions and student workbooks, curriculum binders, grade-band packets, sample spreads with no readable marks, translucent alignment overlays with only non-textual lines/dots, subtle review notes with no symbols or letters, digital resource surfaces with non-readable abstract blocks, and a clean publisher review table implied by materials arrangement rather than UI.\n\nVisual style: authentic editorial photography blended with refined abstract illustration, NY media/ad-agency quality, premium atmosphere, layered depth, intentional crop, sophisticated lighting, clean negative space, material-specific and trustworthy. Color palette inspired by #0057A8 deep blue, #00A6A6 teal, #6CC24A green, and #F6A800 amber, used as accents and translucent overlays, not logo patterns. Avoid literal brand shapes, chevrons, arrows, mountain marks, background logo patterns, fake PRIME seals, endorsement imagery, random novels, trade books, library stacks, fake book titles, publisher brands, close-up faces, detailed hands, workshop/training-room stock photography, generic meeting-table clichés, washed-out empty fades.\n\nComposition: full artifact design comp with strong visual hierarchy and clean crop for a 680px-wide email hero. Arrange instructional-material stacks and open sample spreads diagonally across the upper/right visual band with layered depth; leave a calm, type-safe contrast zone in the lower/left or central body area for later app typography, without drawing boxes or panels. Use soft shadows, subtle paper textures, glassy non-readable alignment grids, small colored tabs with no marks, and abstract bilingual/language-development cues through color and material layering only. Minimal density, compact hierarchy, recognizable visual hook at email scale, full-bleed edges, no newsletter/page layout scaffolding.",
+      "jobId": "resp_092c958c41cab53c0069ec2092154081a299eae009cf439b44",
+      "braintrustTrace": {
+        "rowId": "ec27fc0a-3e54-42bc-b04e-d448e559728c",
+        "spanId": "3c034064-05e0-4f84-8991-550b338939f1",
+        "rootSpanId": "708217f8-1a49-47d5-9db9-223279f92798",
+        "link": "https://www.braintrust.dev/app/WCEPS/object?object_type=project_logs&object_id=671b57c6-229b-4f25-8cf2-67fc0f36e120&id=ec27fc0a-3e54-42bc-b04e-d448e559728c"
+      }
+    }
+  ],
+  "pipelineTrace": {
+    "version": "design-comp-v1",
+    "mode": "design-comp",
+    "promptLength": 5339,
+    "promptTokenBudget": 6200,
+    "evidenceIds": [
+      "source-refresh-2",
+      "source-refresh-1"
+    ],
+    "logoAsset": {
+      "label": "Horizontal full color · transparent · light/image backgrounds",
+      "publicPath": "/brand-logos/wida-prime/wida-logo-horizontal-rgb-prime.png",
+      "sourceUrl": "https://www.widaprime.org/correlated-instructional-materials"
+    },
+    "contextAttachmentNames": [],
+    "retryCount": 0,
+    "braintrustTrace": {
+      "rowId": "e24d112f-9355-4b87-bb00-d7206c2c97d2",
+      "spanId": "708217f8-1a49-47d5-9db9-223279f92798",
+      "rootSpanId": "708217f8-1a49-47d5-9db9-223279f92798",
+      "link": "https://www.braintrust.dev/app/WCEPS/object?object_type=project_logs&object_id=671b57c6-229b-4f25-8cf2-67fc0f36e120&id=e24d112f-9355-4b87-bb00-d7206c2c97d2"
+    }
+  },
+  "critique": {
+    "status": "warn",
+    "issues": [],
+    "warnings": [
+      "WIDA PRIME prompt is missing avoid guardrail(s): fake title."
+    ],
+    "suggestedFixes": [
+      "Revise composition until the sendability score passes the WCEPS review threshold."
+    ]
+  },
+  "review": {
+    "approved": false,
+    "status": "block",
+    "issues": [
+      "Model QA: Fitted proof point appears truncated from “other ancillary materials” to “and other,” creating unfinished production copy."
+    ],
+    "warnings": [
+      "WIDA PRIME prompt is missing avoid guardrail(s): fake title.",
+      "Visual QA: WIDA PRIME visual prompt is missing avoid guardrail(s): fake title.",
+      "Model QA: Selected headline, deck, and CTA repeat PRIME/process language instead of building a more natural hierarchy.",
+      "Model QA: Deck language may imply every listed material received a PRIME seal; PRIME 2020 Seal language should be distinguished from older correlations/alignments.",
+      "Model QA: Image is clean and on-topic but reads as broad instructional-materials publishing rather than uniquely WIDA PRIME."
+    ],
+    "suggestedFixes": [
+      "Revise composition until the sendability score passes the WCEPS review threshold.",
+      "Fix model QA: Fitted proof point appears truncated from “other ancillary materials” to “and other,” creating unfinished production copy."
+    ]
+  },
+  "request": {
+    "artifactType": "html-email-announcement",
+    "brand": "WIDA PRIME",
+    "audience": "publishers",
+    "keyMessage": "",
+    "goal": "explain the PRIME instructional materials correlation process",
+    "topic": "PRIME 2020, PRIME V1/V2, Spanish Language Development correlations, and publisher workflow",
+    "cta": "Start the PRIME process",
+    "format": "HTML email announcement",
+    "toneModifier": "polished, publisher-facing, precise",
+    "notes": "Do not imply WIDA endorses materials or that PRIME evaluates effectiveness.",
+    "visualInstruction": "",
+    "logoVariant": "",
+    "colorTheme": "",
+    "contextAttachments": [],
+    "strictlySourceGrounded": true,
+    "generateVisual": true
+  },
+  "sourceEvidence": [
+    {
+      "id": "source-refresh-1",
+      "url": "https://www.widaprime.org/",
+      "excerpt": "WIDA PRIME is a tool to assist publishers and educators in analyzing their materials for the presence of key components of the WIDA Standards.",
+      "label": "WIDA PRIME definition"
+    },
+    {
+      "id": "source-refresh-2",
+      "url": "https://www.widaprime.org/",
+      "excerpt": "PRIME stands for Protocol for Review of Instructional Materials with the English Language Development Standards Framework, 2020 Edition.",
+      "label": "PRIME 2020 meaning"
+    },
+    {
+      "id": "source-refresh-3",
+      "url": "https://www.widaprime.org/",
+      "excerpt": "Materials may include core and supplemental texts, websites and software, and other ancillary materials.",
+      "label": "Materials in scope"
+    },
+    {
+      "id": "source-refresh-4",
+      "url": "https://www.widaprime.org/",
+      "excerpt": "WIDA continues to support WIDA PRIME V2 for Spanish Language Development materials.",
+      "label": "Spanish Language Development"
+    }
+  ],
+  "createdAt": "2026-04-25T02:01:53.969Z",
+  "updatedAt": "2026-04-25T02:04:33.148Z"
+}

@@ -1,9 +1,11 @@
-import { filterBrandBoundaryItems } from "@/lib/brands/brandBoundary";
+import OpenAI from "openai";
+import { filterBrandBoundaryItems, findBrandBoundaryTerms } from "@/lib/brands/brandBoundary";
 import { selectAudienceMessaging } from "@/lib/brands/selectAudienceMessaging";
 import type { ArtifactRequest } from "@/lib/schema/artifactRequest";
 import type { BrandPack } from "@/lib/schema/brandPack";
 import type { CreativeBrief } from "@/lib/schema/creativeBrief";
 import { GeneratedCopySchema, type GeneratedCopy } from "@/lib/schema/generatedArtifact";
+import { DEFAULT_GPT_MODEL, getReasoningConfig, getReasoningEffort } from "./openaiModelConfig";
 
 function concise(value: string, max = 170) {
   const cleaned = value.replace(/\s+/g, " ").replace(/\s+([.,;:!?])/g, "$1").trim();
@@ -119,4 +121,149 @@ export function generateCopy(pack: BrandPack, brief: CreativeBrief, request: Art
   };
 
   return GeneratedCopySchema.parse(copy);
+}
+
+function generateCopyModel() {
+  return process.env.OPENAI_GENERATE_COPY_MODEL ?? DEFAULT_GPT_MODEL;
+}
+
+function modelGenerateCopyEnabled() {
+  if (process.env.OPENAI_GENERATE_COPY_ENABLED === "false") return false;
+  return Boolean(process.env.OPENAI_API_KEY);
+}
+
+function findOutputText(value: unknown): string | undefined {
+  if (!value) return undefined;
+  if (typeof value === "string") return value;
+
+  if (Array.isArray(value)) {
+    for (const item of value) {
+      const found = findOutputText(item);
+      if (found) return found;
+    }
+    return undefined;
+  }
+
+  if (typeof value !== "object") return undefined;
+  const record = value as Record<string, unknown>;
+  if (typeof record.output_text === "string") return record.output_text;
+  if (record.type === "output_text" && typeof record.text === "string") return record.text;
+  if (typeof record.text === "string") return record.text;
+
+  for (const key of ["output", "content", "message"]) {
+    const found = findOutputText(record[key]);
+    if (found) return found;
+  }
+
+  return undefined;
+}
+
+function parseJsonObject(value: string) {
+  const fenced = value.match(/```(?:json)?\s*([\s\S]*?)```/i)?.[1];
+  const candidate = fenced ?? value;
+  const start = candidate.indexOf("{");
+  const end = candidate.lastIndexOf("}");
+  if (start === -1 || end === -1 || end <= start) {
+    throw new Error("Generate-copy model did not return a JSON object.");
+  }
+
+  return JSON.parse(candidate.slice(start, end + 1));
+}
+
+function promptForModel(pack: BrandPack, brief: CreativeBrief, request: ArtifactRequest, deterministic: GeneratedCopy) {
+  const sourceEvidence = pack.sourceEvidence.slice(0, 10);
+
+  return `You are the source-grounded copywriter for the WCEPS Branding Tool.
+
+Return ONLY compact JSON:
+{
+  "headlineOptions": string[],
+  "subheadOptions": string[],
+  "body": string,
+  "bullets": string[],
+  "cta": string,
+  "footer"?: string
+}
+
+Rules:
+- Use the selected brand/service only: ${pack.brandName}.
+- Use the supplied refreshed source evidence and brand pack language.
+- Do not invent claims, outcomes, endorsements, metrics, pricing, guarantees, or partnerships.
+- Do not include internal tool language like "source-grounded", "brand-safe", "draft", or "artifact".
+- Keep copy concrete and useful for the requested audience.
+- Preserve CTA intent.
+- Create options; do not do final layout fitting. The next step will fit visible text.
+- If source evidence is thin, stay conservative and use the deterministic baseline.
+
+Context JSON:
+${JSON.stringify(
+  {
+    brand: pack.brandName,
+    artifactType: brief.artifactType,
+    audience: request.audience,
+    keyMessage: request.keyMessage,
+    topic: request.topic,
+    goal: request.goal,
+    cta: request.cta || brief.cta,
+    brief,
+    positioning: pack.positioning,
+    approvedPhrases: pack.approvedPhrases.slice(0, 16),
+    restrictedClaims: pack.restrictedClaims,
+    sourceEvidence,
+    deterministicBaseline: deterministic,
+  },
+  null,
+  2,
+)}`;
+}
+
+function visibleGeneratedText(copy: GeneratedCopy) {
+  return [copy.headlineOptions.join(" "), copy.subheadOptions.join(" "), copy.body, copy.bullets.join(" "), copy.cta].join(" ");
+}
+
+function sourceSafeGeneratedCopy(candidate: GeneratedCopy, request: ArtifactRequest, deterministic: GeneratedCopy, brandName: string) {
+  const selectedBrand = brandName || request.brand || "WCEPS";
+  const leakage = findBrandBoundaryTerms(selectedBrand, visibleGeneratedText(candidate), { ...request, brand: selectedBrand });
+  if (leakage.leakedTerms.length) return deterministic;
+
+  return {
+    ...candidate,
+    footer: undefined,
+  };
+}
+
+export function getGenerateCopyModelConfig() {
+  return {
+    model: generateCopyModel(),
+    reasoningEffort: getReasoningEffort(),
+    enabled: modelGenerateCopyEnabled(),
+    sourceRefreshRequired: true,
+  };
+}
+
+export async function generateCopyWithModel(pack: BrandPack, brief: CreativeBrief, request: ArtifactRequest): Promise<GeneratedCopy> {
+  const deterministic = generateCopy(pack, brief, request);
+
+  if (!modelGenerateCopyEnabled()) return deterministic;
+
+  try {
+    const client = new OpenAI();
+    const response = await client.responses.create({
+      model: generateCopyModel(),
+      reasoning: getReasoningConfig(),
+      input: promptForModel(pack, brief, request, deterministic),
+      store: false,
+    } as never);
+    const outputText = findOutputText(response) ?? "";
+    const parsed = GeneratedCopySchema.parse({
+      ...parseJsonObject(outputText),
+      cta: request.cta || brief.cta || deterministic.cta,
+      footer: undefined,
+    });
+
+    return sourceSafeGeneratedCopy(parsed, request, deterministic, pack.brandName);
+  } catch (error) {
+    console.warn("Model copy generation failed; using deterministic copy.", error);
+    return deterministic;
+  }
 }

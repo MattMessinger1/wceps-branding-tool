@@ -5,10 +5,11 @@ import { ArtifactRequestSchema } from "@/lib/schema/artifactRequest";
 import { buildCreativeBrief } from "@/lib/generation/buildCreativeBrief";
 import { buildImagePromptContracts } from "@/lib/generation/buildImagePrompt";
 import { buildLayoutContract } from "@/lib/generation/buildLayoutContract";
-import { generateCopy } from "@/lib/generation/generateCopy";
+import { generateCopyWithModel } from "@/lib/generation/generateCopy";
 import { resolveCompositionTemplate } from "@/lib/composition";
 import { buildDesignRecipeWithModel } from "@/lib/generation/buildDesignRecipeWithModel";
 import { fitCopyWithModel } from "@/lib/generation/fitCopyWithModel";
+import { applySourceRefresh, refreshSourceContext } from "@/lib/generation/sourceRefresh";
 
 export async function POST(request: Request) {
   const parsedInput = ArtifactRequestSchema.parse(await request.json());
@@ -17,13 +18,15 @@ export async function POST(request: Request) {
     format: parsedInput.format || resolveArtifactFormat(parsedInput.artifactType),
   };
   const pack = await loadBrandPack(input.brand || "WCEPS");
-  const brief = buildCreativeBrief(pack, input);
-  const copy = generateCopy(pack, brief, input);
+  const sourceRefresh = await refreshSourceContext(pack, input);
+  const sourcePack = applySourceRefresh(pack, sourceRefresh);
+  const brief = buildCreativeBrief(sourcePack, input);
+  const copy = await generateCopyWithModel(sourcePack, brief, input);
   const compositionTemplate = resolveCompositionTemplate(input.artifactType);
   const fittedCopy = await fitCopyWithModel(copy, input, compositionTemplate);
   const designRecipe = await buildDesignRecipeWithModel({ request: input, template: compositionTemplate, fittedCopy });
-  const layoutContract = buildLayoutContract(pack, brief, input, fittedCopy);
-  const promptContracts = buildImagePromptContracts(pack, brief, input, copy, layoutContract, designRecipe);
+  const layoutContract = buildLayoutContract(sourcePack, brief, input, fittedCopy);
+  const promptContracts = buildImagePromptContracts(sourcePack, brief, input, copy, layoutContract, designRecipe);
 
   return NextResponse.json({
     imagePrompts: promptContracts.map((contract) => contract.prompt),
@@ -33,5 +36,6 @@ export async function POST(request: Request) {
     fittedCopy,
     designRecipe,
     brief,
+    sourceRefresh,
   });
 }

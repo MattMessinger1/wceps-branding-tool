@@ -49,6 +49,10 @@ function internalScaffoldFooter(value?: string) {
   return /(draft generated|internal review|source evidence|claims should remain tied|generated for internal)/i.test(value);
 }
 
+function scaffoldedVisibleCopy(value: string) {
+  return /\b(source-grounded|source-backed|brand-safe|brand-specific guidance|approved source|clear next steps|useful artifact|production artifact|internal tooling|tooling language)\b/i.test(value);
+}
+
 export function evaluateCopyQualityQa({
   copy,
   fittedCopy,
@@ -95,6 +99,19 @@ export function evaluateCopyQualityQa({
         "block",
         fittedCopy.footer ? "fitCopy" : "generateCopy",
         "Internal review/source-evidence footer text must not be part of production artifact copy.",
+        "finalReview",
+      ),
+    );
+  }
+
+  const scaffolded = fittedText.filter(scaffoldedVisibleCopy);
+  if (scaffolded.length) {
+    failureModes.push(
+      failureMode(
+        "scaffolded_visible_copy",
+        "block",
+        "fitCopy",
+        `Visible artifact copy contains internal/tooling language: ${scaffolded.slice(0, 2).map(cleanQaText).join(" | ")}`,
         "finalReview",
       ),
     );

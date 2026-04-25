@@ -5,3 +5,4 @@ export * from "./buildLayoutSpec";
 export * from "./generateArtifact";
 export * from "./generateCopy";
 export * from "./generateImages";
+export * from "./sourceRefresh";

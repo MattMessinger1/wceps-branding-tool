@@ -21,26 +21,35 @@ import { buildImagePromptContracts } from "./buildImagePrompt";
 import { buildLayoutContract } from "./buildLayoutContract";
 import { critiqueArtifactQuality } from "./critiqueArtifact";
 import { fitCopyWithModel, getCopyFitModelConfig } from "./fitCopyWithModel";
-import { generateCopy } from "./generateCopy";
+import { generateCopyWithModel, getGenerateCopyModelConfig } from "./generateCopy";
 import { evaluateModelQaWithModel, getModelQaConfig } from "./modelQa";
+import { applySourceRefresh, getSourceRefreshConfig, refreshSourceContext } from "./sourceRefresh";
 
 export async function generateArtifactInTrace(input: unknown, span?: Span): Promise<GeneratedArtifact> {
     const parsedRequest = await traceBraintrustStep(span, "parseRequest", { input }, () => ArtifactRequestSchema.parse(input));
     const keyMessage = parsedRequest.keyMessage.trim();
     const artifactFormat = parsedRequest.format || resolveArtifactFormat(parsedRequest.artifactType);
-    const request = {
+    const normalizedRequest = {
       ...parsedRequest,
       goal: keyMessage ? `Create a ${artifactFormat.toLowerCase()} that communicates: ${keyMessage}` : parsedRequest.goal,
       topic: keyMessage ? keyMessage : parsedRequest.topic,
       format: artifactFormat,
     };
-    const packs = await traceBraintrustStep(span, "loadBrandPacks", { metadata: { artifactType: request.artifactType } }, loadAllBrandPacks);
-    const resolution = await traceBraintrustStep(span, "selectBrand", { input: request }, () => selectBrand(request, packs));
-    const brief = await traceBraintrustStep(span, "buildCreativeBrief", { input: { brand: resolution.selectedBrand.brandName, request } }, () =>
-      buildCreativeBrief(resolution.selectedBrand, request),
+    const packs = await traceBraintrustStep(span, "loadBrandPacks", { metadata: { artifactType: normalizedRequest.artifactType } }, loadAllBrandPacks);
+    const resolution = await traceBraintrustStep(span, "selectBrand", { input: normalizedRequest }, () => selectBrand(normalizedRequest, packs));
+    const request = { ...normalizedRequest, brand: resolution.selectedBrand.brandName };
+    const sourceRefresh = await traceBraintrustStep(
+      span,
+      "sourceRefresh",
+      { input: { brand: resolution.selectedBrand.brandName, request }, metadata: getSourceRefreshConfig() },
+      () => refreshSourceContext(resolution.selectedBrand, request),
     );
-    const copy = await traceBraintrustStep(span, "generateCopy", { input: { brand: resolution.selectedBrand.brandName, brief, request } }, () =>
-      generateCopy(resolution.selectedBrand, brief, request),
+    const sourcePack = applySourceRefresh(resolution.selectedBrand, sourceRefresh);
+    const brief = await traceBraintrustStep(span, "buildCreativeBrief", { input: { brand: sourcePack.brandName, request, sourceRefresh } }, () =>
+      buildCreativeBrief(sourcePack, request),
+    );
+    const copy = await traceBraintrustStep(span, "generateCopy", { input: { brand: sourcePack.brandName, brief, request, sourceRefresh }, metadata: getGenerateCopyModelConfig() }, () =>
+      generateCopyWithModel(sourcePack, brief, request),
     );
     const compositionTemplate = await traceBraintrustStep(span, "resolveCompositionTemplate", { input: request.artifactType }, () =>
       resolveCompositionTemplate(request.artifactType),
@@ -60,14 +69,14 @@ export async function generateArtifactInTrace(input: unknown, span?: Span): Prom
       { input: { copy, fittedCopy, request } },
       () => evaluateCopyQualityQa({ copy, fittedCopy, request }),
     );
-    const layoutContract = await traceBraintrustStep(span, "buildLayoutContract", { input: { brand: resolution.selectedBrand.brandName, brief, request, fittedCopy } }, () =>
-      buildLayoutContract(resolution.selectedBrand, brief, request, fittedCopy),
+    const layoutContract = await traceBraintrustStep(span, "buildLayoutContract", { input: { brand: sourcePack.brandName, brief, request, fittedCopy } }, () =>
+      buildLayoutContract(sourcePack, brief, request, fittedCopy),
     );
     const promptContracts = await traceBraintrustStep(
       span,
       "buildImagePrompt",
-      { input: { brand: resolution.selectedBrand.brandName, brief, request, designRecipe } },
-      () => buildImagePromptContracts(resolution.selectedBrand, brief, request, copy, layoutContract, designRecipe),
+      { input: { brand: sourcePack.brandName, brief, request, designRecipe } },
+      () => buildImagePromptContracts(sourcePack, brief, request, copy, layoutContract, designRecipe),
     );
     const imagePrompts = promptContracts.map((contract) => contract.prompt);
     const imageResults: NonNullable<GeneratedArtifact["imageResults"]> = await traceBraintrustStep(
@@ -82,7 +91,7 @@ export async function generateArtifactInTrace(input: unknown, span?: Span): Prom
       { input: { request, template: compositionTemplate, imagePromptCount: imagePrompts.length, imageResultCount: imageResults.length } },
       () => evaluateVisualQa({ request, template: compositionTemplate, imageResults, imagePrompts }),
     );
-    const review = validateClaims(resolution.selectedBrand, copy);
+    const review = validateClaims(sourcePack, copy);
     const compositionScore = scoreComposition({
       artifactType: request.artifactType,
       fittedCopy,
@@ -226,7 +235,7 @@ export async function generateArtifactInTrace(input: unknown, span?: Span): Prom
       critique,
       review: finalReview,
       request,
-      sourceEvidence: resolution.selectedBrand.sourceEvidence.filter((source) => brief.sourceEvidenceIds.includes(source.id)),
+      sourceEvidence: sourcePack.sourceEvidence.filter((source) => brief.sourceEvidenceIds.includes(source.id)),
       createdAt: now,
       updatedAt: now,
     });

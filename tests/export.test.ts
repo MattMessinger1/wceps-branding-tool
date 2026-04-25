@@ -165,7 +165,8 @@ test("flyer export keeps comma-led campaign headline phrases together", async ()
   assert.ok(html.includes('<span class="headline-line">Every voice,</span>'));
   assert.ok(html.includes('<span class="headline-line">every classroom,</span>'));
   assert.ok(react.includes('<span className="block whitespace-nowrap">every classroom,</span>'));
-  assert.ok(react.includes("max-w-[78%]"));
+  assert.ok(react.includes("max-w-[68%]"));
+  assert.ok(html.includes("rgba(255,255,255,.98) 66%"));
 });
 
 test("export filenames use fitted headlines instead of raw copy", async () => {
